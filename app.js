@@ -1,3 +1,7 @@
+/* =========================================
+   ФРАЗЫ
+   ========================================= */
+
 const quotes = [
   "мы не обязаны заслуживать право на еду, отдых и заботу о себе",
   "твой самый трудный день не отменяет весь путь, который был пройден",
@@ -10,148 +14,153 @@ const quotes = [
 ];
 
 
+/* =========================================
+   РАЗДЕЛЫ
+   ========================================= */
+
 const content = {
+
   rpp: {
     title: "разбираем РПП",
-    body: `
-      <p class="note">
-        здесь собраны материалы о РПП, его механизмах, симптомах
-        и восстановлении.
-      </p>
 
-      <div class="sub-menu">
+    description:
+      "здесь собраны материалы о РПП, его механизмах, симптомах и восстановлении.",
 
-        <button class="topic-card" onclick="openArticle('rpp-basics')">
-          <b>основы РПП</b>
-          <small>что такое РПП и почему это не вопрос силы воли</small>
-          <span>›</span>
-        </button>
+    topics: [
+      {
+        id: "rpp-basics",
+        title: "основы РПП",
+        description:
+          "что такое РПП и почему это не вопрос силы воли"
+      },
 
-        <button class="topic-card" onclick="openArticle('rpp-thoughts')">
-          <b>мысли о еде и теле</b>
-          <small>навязчивые мысли, тревога и чувство вины</small>
-          <span>›</span>
-        </button>
+      {
+        id: "rpp-thoughts",
+        title: "мысли о еде и теле",
+        description:
+          "навязчивые мысли, тревога и чувство вины"
+      },
 
-        <button class="topic-card" onclick="openArticle('rpp-compensation')">
-          <b>компенсаторное поведение</b>
-          <small>почему возникает позыв компенсировать еду</small>
-          <span>›</span>
-        </button>
+      {
+        id: "rpp-compensation",
+        title: "компенсаторное поведение",
+        description:
+          "почему возникает позыв компенсировать еду"
+      },
 
-        <button class="topic-card" onclick="openArticle('rpp-recovery')">
-          <b>восстановление</b>
-          <small>почему восстановление не всегда идет линейно</small>
-          <span>›</span>
-        </button>
-
-      </div>
-    `
+      {
+        id: "rpp-recovery",
+        title: "восстановление",
+        description:
+          "почему восстановление не всегда идет линейно"
+      }
+    ]
   },
 
 
   medical: {
     title: "молекулярная медицина",
-    body: `
-      <span class="pill">деликатные проблемы</span>
-      <span class="pill">мнение врачей</span>
-      <span class="pill">объяснение с врачебного на человеческий</span>
 
-      <h3>почему вес может меняться</h3>
-      <p>
-        вес тела отражает не только жировую ткань.
-        на него влияют вода, содержимое желудочно-кишечного тракта,
-        запасы гликогена и множество других факторов.
-      </p>
+    description:
+      "объясняем процессы организма простым человеческим языком.",
 
-      <h3>почему после еды может быть вздутие</h3>
-      <p>
-        ощущение наполненности и временное увеличение объема живота
-        не означают мгновенное изменение жировой ткани.
-      </p>
+    topics: [
+      {
+        id: "medical-weight",
+        title: "почему меняется вес",
+        description:
+          "что кроме жировой ткани влияет на цифру на весах"
+      },
 
-      <h3>что происходит с организмом</h3>
-      <p>
-        здесь будут материалы о физиологии, обмене веществ,
-        гормонах и других процессах простым человеческим языком.
-      </p>
-    `
+      {
+        id: "medical-bloating",
+        title: "вздутие и ЖКТ",
+        description:
+          "почему после еды может меняться объем живота"
+      },
+
+      {
+        id: "medical-body",
+        title: "что происходит с организмом",
+        description:
+          "физиология, обмен веществ и другие процессы"
+      }
+    ]
   },
 
 
   supplements: {
     title: "БАДовый минимум знаний",
-    body: `
-      <p class="note">
-        карточки БАДов, их состав, обещания производителей,
-        доказательность и возможные риски.
-      </p>
 
-      <h3>пример карточки</h3>
+    description:
+      "разбираем состав, обещания производителей, доказательность и риски.",
 
-      <p>
-        <b>название:</b> пока пусто
-      </p>
+    topics: [
+      {
+        id: "supplements-basics",
+        title: "как читать состав",
+        description:
+          "действующие вещества, дозировки и формы выпуска"
+      },
 
-      <p>
-        <b>что обещает производитель:</b>
-        будет указано отдельно.
-      </p>
+      {
+        id: "supplements-evidence",
+        title: "доказательность",
+        description:
+          "как понять, действительно ли работает добавка"
+      },
 
-      <p>
-        <b>состав:</b>
-        действующие вещества и дозировки.
-      </p>
-
-      <p>
-        <b>доказательства:</b>
-        что показывают исследования и насколько они надежны.
-      </p>
-
-      <p>
-        <b>риски:</b>
-        известные побочные эффекты, взаимодействия
-        и причины для осторожности.
-      </p>
-
-      <p>
-        этот раздел будем постепенно наполнять карточками препаратов
-        и добавок.
-      </p>
-    `
+      {
+        id: "supplements-risks",
+        title: "риски и побочные эффекты",
+        description:
+          "что важно знать перед приемом БАДов"
+      }
+    ]
   },
 
 
   tools: {
     title: "твой личный счетовод",
-    body: `
-      <h3>инструменты</h3>
 
-      <p>
-        здесь будут находиться образовательные калькуляторы
-        и инструменты для работы с числовыми показателями.
-      </p>
+    description:
+      "образовательные инструменты и калькуляторы.",
 
-      <div class="note">
-        калькулятор ИМТ и другие инструменты добавим
-        в следующих версиях.
-      </div>
+    topics: [
+      {
+        id: "tools-bmi",
+        title: "ИМТ",
+        description:
+          "образовательный расчет индекса массы тела"
+      },
 
-      <h3>что появится здесь</h3>
+      {
+        id: "tools-calories",
+        title: "калории",
+        description:
+          "справочная информация о калорийности и энергетическом балансе"
+      },
 
-      <ul>
-        <li>расчеты и расшифровка результатов</li>
-        <li>образовательные калькуляторы</li>
-        <li>справочная информация по показателям</li>
-      </ul>
-    `
+      {
+        id: "tools-coming",
+        title: "что еще появится",
+        description:
+          "новые инструменты будут добавляться постепенно"
+      }
+    ]
   }
+
 };
 
+
+/* =========================================
+   СТАТЬИ
+   ========================================= */
 
 const articles = {
 
   "rpp-basics": {
+
     title: "основы РПП",
 
     pages: [
@@ -203,17 +212,17 @@ const articles = {
         </p>
 
         <p>
-          человек может ограничивать питание, переедать,
-          испытывать эпизоды потери контроля, компенсировать еду
-          или постоянно испытывать тревогу из-за веса и тела.
+          человек может ограничивать питание, испытывать эпизоды
+          потери контроля, компенсировать еду или постоянно
+          испытывать тревогу из-за веса и тела.
         </p>
       `
-
     ]
   },
 
 
   "rpp-thoughts": {
+
     title: "мысли о еде и теле",
 
     pages: [
@@ -265,12 +274,12 @@ const articles = {
           как «плохие» или «запрещенные».
         </p>
       `
-
     ]
   },
 
 
   "rpp-compensation": {
+
     title: "компенсаторное поведение",
 
     pages: [
@@ -317,12 +326,12 @@ const articles = {
           системой ежедневных моральных оценок.
         </p>
       `
-
     ]
   },
 
 
   "rpp-recovery": {
+
     title: "восстановление",
 
     pages: [
@@ -352,8 +361,8 @@ const articles = {
         </p>
 
         <p>
-          важно рассматривать такие периоды как часть процесса,
-          а не как доказательство личной несостоятельности.
+          такие периоды не означают, что человек вернулся
+          в исходную точку.
         </p>
       `,
 
@@ -369,110 +378,244 @@ const articles = {
           тревогой, контролем, эмоциями и повседневной жизнью.
         </p>
       `
+    ]
+  },
 
+
+  "medical-weight": {
+
+    title: "почему меняется вес",
+
+    pages: [
+
+      `
+        <h3>цифра на весах</h3>
+
+        <p>
+          масса тела отражает не только количество жировой ткани.
+        </p>
+
+        <p>
+          на нее влияют вода, содержимое желудочно-кишечного тракта,
+          запасы гликогена и другие физиологические процессы.
+        </p>
+      `,
+
+      `
+        <h3>почему изменения могут быть быстрыми</h3>
+
+        <p>
+          краткосрочные изменения массы тела могут происходить
+          значительно быстрее, чем изменения жировой ткани.
+        </p>
+
+        <p>
+          поэтому одна цифра на весах не позволяет самостоятельно
+          определить, что именно изменилось в организме.
+        </p>
+      `
+    ]
+  },
+
+
+  "medical-bloating": {
+
+    title: "вздутие и ЖКТ",
+
+    pages: [
+
+      `
+        <h3>ощущение наполненности</h3>
+
+        <p>
+          после еды живот может временно становиться более объемным
+          из-за содержимого желудочно-кишечного тракта и процессов
+          пищеварения.
+        </p>
+      `,
+
+      `
+        <h3>это не мгновенное изменение жировой ткани</h3>
+
+        <p>
+          визуальное изменение живота после еды не означает,
+          что организм мгновенно сформировал соответствующее
+          количество жировой ткани.
+        </p>
+      `
+    ]
+  },
+
+
+  "medical-body": {
+
+    title: "что происходит с организмом",
+
+    pages: [
+
+      `
+        <h3>физиология</h3>
+
+        <p>
+          организм постоянно регулирует температуру, энергию,
+          жидкость, давление и множество других параметров.
+        </p>
+
+        <p>
+          многие процессы происходят автоматически и не требуют
+          сознательного контроля.
+        </p>
+      `
+    ]
+  },
+
+
+  "supplements-basics": {
+
+    title: "как читать состав",
+
+    pages: [
+
+      `
+        <h3>что находится внутри</h3>
+
+        <p>
+          при оценке добавки важно смотреть не только на название
+          продукта, но и на конкретные действующие вещества
+          и их количество.
+        </p>
+      `,
+
+      `
+        <h3>дозировка имеет значение</h3>
+
+        <p>
+          одинаковое название вещества не означает одинаковый
+          эффект. количество, форма вещества и контекст применения
+          могут иметь значение.
+        </p>
+      `
+    ]
+  },
+
+
+  "supplements-evidence": {
+
+    title: "доказательность",
+
+    pages: [
+
+      `
+        <h3>что показывают исследования</h3>
+
+        <p>
+          заявления производителя и научные доказательства —
+          не одно и то же.
+        </p>
+
+        <p>
+          при оценке эффективности важно учитывать качество
+          исследований, их количество и то, насколько результаты
+          можно переносить на реальных людей.
+        </p>
+      `
+    ]
+  },
+
+
+  "supplements-risks": {
+
+    title: "риски и побочные эффекты",
+
+    pages: [
+
+      `
+        <h3>натуральное не значит безопасное</h3>
+
+        <p>
+          биологически активные вещества могут влиять на организм
+          и взаимодействовать с лекарственными препаратами.
+        </p>
+
+        <p>
+          поэтому безопасность нельзя оценивать только по слову
+          «натуральный» на упаковке.
+        </p>
+      `
+    ]
+  },
+
+
+  "tools-bmi": {
+
+    title: "ИМТ",
+
+    pages: [
+
+      `
+        <h3>что такое ИМТ</h3>
+
+        <p>
+          индекс массы тела — расчетный показатель,
+          который сопоставляет массу тела и рост.
+        </p>
+
+        <p>
+          он используется как один из статистических показателей
+          в медицине, но не описывает здоровье человека полностью.
+        </p>
+      `
+    ]
+  },
+
+
+  "tools-calories": {
+
+    title: "калории",
+
+    pages: [
+
+      `
+        <h3>энергетический баланс</h3>
+
+        <p>
+          энергия поступает с пищей и расходуется организмом
+          на базовые физиологические процессы, движение
+          и другие виды активности.
+        </p>
+
+        <p>
+          расчеты энергетических потребностей являются
+          приблизительными и не заменяют медицинскую оценку.
+        </p>
+      `
+    ]
+  },
+
+
+  "tools-coming": {
+
+    title: "что еще появится",
+
+    pages: [
+
+      `
+        <h3>раздел будет развиваться</h3>
+
+        <p>
+          здесь постепенно будут появляться новые образовательные
+          инструменты и материалы.
+        </p>
+      `
     ]
   }
 
 };
 
 
-let currentArticle = null;
-let currentPage = 0;
-
-
-function openArticle(id) {
-
-  if (!articles[id]) {
-    console.error("статья не найдена:", id);
-    return;
-  }
-
-  currentArticle = articles[id];
-  currentPage = 0;
-
-  renderArticle();
-}
-
-
-function renderArticle() {
-
-  if (!currentArticle) {
-    return;
-  }
-
-  const article = currentArticle;
-  const page = article.pages[currentPage];
-
-  modalContent.innerHTML = `
-
-    <h2>${article.title}</h2>
-
-    ${page}
-
-    <div class="article-navigation">
-
-      ${
-        currentPage > 0
-          ? `
-            <button
-              class="topic-card"
-              onclick="previousPage()"
-            >
-              ← назад
-            </button>
-          `
-          : ""
-      }
-
-      ${
-        currentPage < article.pages.length - 1
-          ? `
-            <button
-              class="topic-card"
-              onclick="nextPage()"
-            >
-              дальше →
-            </button>
-          `
-          : ""
-      }
-
-    </div>
-
-  `;
-
-  modal.classList.add("open");
-  modal.setAttribute("aria-hidden", "false");
-}
-
-
-function nextPage() {
-
-  if (
-    currentArticle &&
-    currentPage < currentArticle.pages.length - 1
-  ) {
-
-    currentPage++;
-
-    renderArticle();
-  }
-}
-
-
-function previousPage() {
-
-  if (
-    currentArticle &&
-    currentPage > 0
-  ) {
-
-    currentPage--;
-
-    renderArticle();
-  }
-}
-
+/* =========================================
+   TELEGRAM
+   ========================================= */
 
 const tg = window.Telegram?.WebApp;
 
@@ -482,109 +625,430 @@ if (tg) {
 }
 
 
-const quoteElement = document.getElementById("quote");
-const newQuoteButton = document.getElementById("newQuote");
+/* =========================================
+   DOM
+   ========================================= */
+
+const homeScreen =
+  document.getElementById("homeScreen");
+
+const contentScreen =
+  document.getElementById("contentScreen");
+
+const screenContent =
+  document.getElementById("screenContent");
+
+const quoteElement =
+  document.getElementById("quote");
+
+const newQuoteButton =
+  document.getElementById("newQuote");
+
+
+/* =========================================
+   ФРАЗЫ
+   ========================================= */
 
 function showRandomQuote() {
 
-  if (!quoteElement) {
-    return;
-  }
+  const randomIndex =
+    Math.floor(
+      Math.random() * quotes.length
+    );
 
-  const randomIndex = Math.floor(
-    Math.random() * quotes.length
-  );
-
-  quoteElement.textContent = quotes[randomIndex];
+  quoteElement.textContent =
+    quotes[randomIndex];
 }
 
 
 if (newQuoteButton) {
+
   newQuoteButton.addEventListener(
     "click",
     showRandomQuote
   );
+
 }
 
 
-const modal = document.getElementById("modal");
-const modalContent = document.getElementById("modalContent");
-const closeModal = document.getElementById("closeModal");
-const modalBackdrop = document.getElementById("modalBackdrop");
+/* =========================================
+   ГЛАВНЫЙ ЭКРАН
+   ========================================= */
+
+function showHome() {
+
+  homeScreen.classList.remove("hidden");
+
+  contentScreen.classList.add("hidden");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "instant"
+  });
+
+}
 
 
-function openSection(section) {
+/* =========================================
+   ЭКРАН РАЗДЕЛА
+   ========================================= */
 
-  if (!content[section]) {
+function openSection(sectionId) {
+
+  const section =
+    content[sectionId];
+
+  if (!section) {
     return;
   }
 
-  modalContent.innerHTML = `
 
-    <h2>${content[section].title}</h2>
+  const topicsHtml =
+    section.topics
+      .map((topic) => {
 
-    ${content[section].body}
+        return `
+
+          <button
+            class="topic-card"
+            onclick="openArticle('${topic.id}')"
+          >
+
+            <b>
+              ${topic.title}
+            </b>
+
+            <small>
+              ${topic.description}
+            </small>
+
+            <span class="topic-arrow">
+              ›
+            </span>
+
+          </button>
+
+        `;
+
+      })
+      .join("");
+
+
+  screenContent.innerHTML = `
+
+    <div class="screen-inner">
+
+      <button
+        class="back-button"
+        onclick="showHome()"
+      >
+        ← назад
+      </button>
+
+
+      <div class="section-heading">
+
+        <h2>
+          ${section.title}
+        </h2>
+
+        <p>
+          ${section.description}
+        </p>
+
+      </div>
+
+
+      <div class="topic-list">
+
+        ${topicsHtml}
+
+      </div>
+
+    </div>
 
   `;
 
-  modal.classList.add("open");
-  modal.setAttribute("aria-hidden", "false");
+
+  homeScreen.classList.add("hidden");
+
+  contentScreen.classList.remove("hidden");
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "instant"
+  });
+
 }
 
 
-document.querySelectorAll(".menu-card").forEach(
-  (button) => {
+/* =========================================
+   СТАТЬИ
+   ========================================= */
+
+let currentArticle = null;
+
+let currentPage = 0;
+
+let previousScreen =
+  "section";
+
+
+function openArticle(articleId) {
+
+  const article =
+    articles[articleId];
+
+  if (!article) {
+
+    console.error(
+      "статья не найдена:",
+      articleId
+    );
+
+    return;
+  }
+
+
+  currentArticle = article;
+
+  currentPage = 0;
+
+  renderArticle();
+
+}
+
+
+/* =========================================
+   РЕНДЕР СТРАНИЦЫ СТАТЬИ
+   ========================================= */
+
+function renderArticle() {
+
+  if (!currentArticle) {
+    return;
+  }
+
+
+  const page =
+    currentArticle.pages[currentPage];
+
+
+  const totalPages =
+    currentArticle.pages.length;
+
+
+  const hasPrevious =
+    currentPage > 0;
+
+
+  const hasNext =
+    currentPage < totalPages - 1;
+
+
+  screenContent.innerHTML = `
+
+    <div class="article-screen">
+
+      <button
+        class="back-button"
+        onclick="goBackFromArticle()"
+      >
+        ← назад
+      </button>
+
+
+      <h2 class="article-title">
+        ${currentArticle.title}
+      </h2>
+
+
+      <div class="article-body">
+
+        ${page}
+
+      </div>
+
+
+      <div class="article-navigation">
+
+        ${
+          hasPrevious
+            ? `
+              <button
+                class="article-nav-button"
+                onclick="previousPage()"
+              >
+                ← назад
+              </button>
+            `
+            : `
+              <div></div>
+            `
+        }
+
+
+        ${
+          hasNext
+            ? `
+              <button
+                class="article-nav-button"
+                onclick="nextPage()"
+              >
+                дальше →
+              </button>
+            `
+            : ""
+        }
+
+      </div>
+
+
+      <div class="article-page-number">
+
+        ${currentPage + 1} / ${totalPages}
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "instant"
+  });
+
+}
+
+
+/* =========================================
+   СТРАНИЦА ВПЕРЕД
+   ========================================= */
+
+function nextPage() {
+
+  if (!currentArticle) {
+    return;
+  }
+
+
+  if (
+    currentPage <
+    currentArticle.pages.length - 1
+  ) {
+
+    currentPage++;
+
+    renderArticle();
+
+  }
+
+}
+
+
+/* =========================================
+   СТРАНИЦА НАЗАД
+   ========================================= */
+
+function previousPage() {
+
+  if (!currentArticle) {
+    return;
+  }
+
+
+  if (currentPage > 0) {
+
+    currentPage--;
+
+    renderArticle();
+
+  }
+
+}
+
+
+/* =========================================
+   НАЗАД ИЗ СТАТЬИ
+   ========================================= */
+
+function goBackFromArticle() {
+
+  currentArticle = null;
+
+  currentPage = 0;
+
+  showSectionForArticle();
+
+}
+
+
+/* =========================================
+   ВОЗВРАТ В РАЗДЕЛ
+   ========================================= */
+
+function showSectionForArticle() {
+
+  /*
+    определяем раздел по id текущей статьи
+  */
+
+  const articleTitle =
+    currentArticle?.title;
+
+
+  for (
+    const sectionId in content
+  ) {
+
+    const section =
+      content[sectionId];
+
+
+    const found =
+      section.topics.some(
+        (topic) =>
+          topic.title === articleTitle
+      );
+
+
+    if (found) {
+
+      openSection(sectionId);
+
+      return;
+
+    }
+
+  }
+
+
+  showHome();
+
+}
+
+
+/* =========================================
+   КНОПКИ НИЖНЕЙ НАВИГАЦИИ
+   ========================================= */
+
+document
+  .querySelectorAll(".section-tab")
+  .forEach((button) => {
 
     button.addEventListener(
       "click",
       () => {
 
-        const section = button.dataset.section;
+        const sectionId =
+          button.dataset.section;
 
-        openSection(section);
+        openSection(sectionId);
 
       }
     );
 
-  }
-);
-
-
-function closeCurrentModal() {
-
-  modal.classList.remove("open");
-  modal.setAttribute("aria-hidden", "true");
-
-}
-
-
-if (closeModal) {
-
-  closeModal.addEventListener(
-    "click",
-    closeCurrentModal
-  );
-
-}
-
-
-if (modalBackdrop) {
-
-  modalBackdrop.addEventListener(
-    "click",
-    closeCurrentModal
-  );
-
-}
-
-
-document.addEventListener(
-  "keydown",
-  (event) => {
-
-    if (event.key === "Escape") {
-      closeCurrentModal();
-    }
-
-  }
-);
+  });
