@@ -1,75 +1,144 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#071426">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta
+    name="theme-color"
+    content="#071426"
+  >
+
   <title>molecule space</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
-<body>
-  <main class="app">
-    <header class="hero">
-      <div class="orb orb-one"></div>
-      <div class="orb orb-two"></div>
-      <p class="eyebrow">✦ molecule space</p>
-      <h3>фраза для поддержки<br>твоего настроения</h3>
-      <section class="quote-card">
-        <div class="quote-mark">“</div>
-        <p id="quote">мы не обязаны заслуживать право на еду, отдых и заботу о себе</p>
-        <button class="ghost-btn" id="newQuote">↻ другая фраза</button>
-      </section>
-    </header>
 
-    <section class="section">
-      <div class="section-title">
-        <span>разделы</span>
-        <small>выбери нужный</small>
+
+<body>
+
+  <main class="app">
+
+    <!-- главный экран -->
+
+    <section
+      id="homeScreen"
+      class="screen home-screen"
+    >
+
+      <div class="hero">
+
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+
+        <p class="eyebrow">
+          ✦ molecule space
+        </p>
+
+        <div class="quote-area">
+
+          <p class="quote-label">
+            фраза для поддержки
+            твоего настроения
+          </p>
+
+          <p id="quote" class="quote">
+            мы не обязаны заслуживать
+            право на еду, отдых и заботу о себе
+          </p>
+
+          <button
+            class="ghost-btn"
+            id="newQuote"
+          >
+            ↻ другая фраза
+          </button>
+
+        </div>
+
       </div>
 
-      <button class="menu-card" data-section="rpp">
-        <span class="icon pink">🥗</span>
-        <span><b>разбираем РПП</b><small>общие материалы о РПП и его проявлении</small></span>
-        <span class="arrow">›</span>
-      </button>
 
-      <button class="menu-card" data-section="medical">
-        <span class="icon blue">🧬</span>
-        <span><b>молекулярная медицина</b><small>заглянем внутрь организма и посмотрим что и как работает</small></span>
-        <span class="arrow">›</span>
-      </button>
+      <!-- нижняя навигация -->
 
-      <button class="menu-card" data-section="supplements">
-        <span class="icon purple">💊</span>
-        <span><b>БАДовый минимум знаний</b><small>роскошный максимум информации о Молекуле и других БАДах</small></span>
-        <span class="arrow">›</span>
-      </button>
+      <nav class="section-tabs">
 
-      <button class="menu-card" data-section="tools">
-        <span class="icon cyan">🍎</span>
-        <span><b>твой личный счетовод</b><small>рассчитаем вместе ИМТ и дефицит</small></span>
-        <span class="arrow">›</span>
-      </button>
+        <button
+          class="section-tab"
+          data-section="rpp"
+        >
+          <span>рпп</span>
+        </button>
+
+        <button
+          class="section-tab"
+          data-section="medical"
+        >
+          <span>медицина</span>
+        </button>
+
+        <button
+          class="section-tab"
+          data-section="supplements"
+        >
+          <span>бады</span>
+        </button>
+
+        <button
+          class="section-tab"
+          data-section="tools"
+        >
+          <span>инструменты</span>
+        </button>
+
+      </nav>
+
     </section>
 
-    <footer>
-      <p>информация носит образовательный характер и не заменяет консультацию специалиста.</p>
-      <span>molecule space · v1.2</span>
-    </footer>
+
+    <!-- сюда javascript будет загружать остальные экраны -->
+
+    <section
+      id="contentScreen"
+      class="screen content-screen hidden"
+    >
+
+      <div id="screenContent"></div>
+
+    </section>
+
+
   </main>
 
-  <div class="modal" id="modal" aria-hidden="true">
-    <div class="modal-backdrop" id="modalBackdrop"></div>
-    <section class="sheet">
-      <button class="close" id="closeModal">×</button>
-      <div id="modalContent"></div>
-    </section>
-  </div>
 
   <script src="app.js"></script>
+
 </body>
+
 </html>
