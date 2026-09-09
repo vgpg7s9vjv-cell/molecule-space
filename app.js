@@ -47,6 +47,115 @@ const content = {
     </div>
   `
 },
+  const articles = {
+
+  "rpp-basics": {
+    title: "основы РПП",
+    pages: [
+      `
+        <h3>что такое РПП</h3>
+
+        <p>
+          расстройства пищевого поведения — это не просто желание
+          похудеть или контролировать питание.
+        </p>
+
+        <p>
+          это состояние, при котором мысли и поведение вокруг еды,
+          тела и веса начинают заметно влиять на жизнь человека.
+        </p>
+      `,
+
+      `
+        <h3>почему это не вопрос силы воли</h3>
+
+        <p>
+          при РПП пищевое поведение поддерживается не только
+          осознанными решениями, но и механизмами вознаграждения,
+          тревоги, привычки и избегания.
+        </p>
+      `
+    ]
+  },
+
+  "rpp-thoughts": {
+    title: "мысли о еде и теле",
+    pages: [
+      `
+        <h3>навязчивые мысли</h3>
+
+        <p>
+          ...
+        </p>
+      `,
+
+      `
+        <h3>почему запреты усиливают фиксацию</h3>
+
+        <p>
+          ...
+        </p>
+      `
+    ]
+  }
+
+};
+let currentArticle = null;
+let currentPage = 0;
+
+function openArticle(id) {
+  currentArticle = articles[id];
+  currentPage = 0;
+  renderArticle();
+}
+
+function renderArticle() {
+  const article = currentArticle;
+  const page = article.pages[currentPage];
+
+  modalContent.innerHTML = `
+    <h2>${article.title}</h2>
+
+    ${page}
+
+    <div class="article-navigation">
+
+      ${
+        currentPage > 0
+          ? `<button class="topic-card" onclick="previousPage()">
+               ← назад
+             </button>`
+          : ""
+      }
+
+      ${
+        currentPage < article.pages.length - 1
+          ? `<button class="topic-card" onclick="nextPage()">
+               дальше →
+             </button>`
+          : ""
+      }
+
+    </div>
+  `;
+
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+}
+
+function nextPage() {
+  if (currentPage < currentArticle.pages.length - 1) {
+    currentPage++;
+    renderArticle();
+  }
+}
+
+function previousPage() {
+  if (currentPage > 0) {
+    currentPage--;
+    renderArticle();
+  }
+}
   medical: {
     title: "молекулярная медицина",
     body: `
