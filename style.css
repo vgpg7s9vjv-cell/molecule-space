@@ -205,8 +205,6 @@ button {
   font-weight: 800;
 
   letter-spacing: -0.04em;
-
-  transition: var(--theme-transition);
 }
 
 .support-subtitle {
@@ -216,13 +214,13 @@ button {
 
   font-size: 15px;
   font-weight: 500;
-
-  transition: var(--theme-transition);
 }
+
 
 /* ==================================================
    КАРТОЧКА ЦИТАТЫ
 ================================================== */
+
 .quote-card {
   position: relative;
 
@@ -237,8 +235,8 @@ button {
   background:
     linear-gradient(
       145deg,
-      var(--quote-grad-1),
-      var(--quote-grad-2)
+      rgba(20, 48, 78, 0.92),
+      rgba(10, 28, 48, 0.82)
     );
 
   box-shadow:
@@ -246,14 +244,6 @@ button {
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
 
   overflow: hidden;
-
-  transition: var(--theme-transition);
-}
-
-body.light-theme .quote-card {
-  box-shadow:
-    0 15px 40px rgba(74, 63, 53, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .quote-card::after {
@@ -269,11 +259,9 @@ body.light-theme .quote-card {
 
   border-radius: 50%;
 
-  background: var(--quote-after-bg);
+  background: rgba(121, 201, 255, 0.09);
 
   filter: blur(10px);
-
-  transition: var(--theme-transition);
 }
 
 .quote-symbol {
@@ -288,8 +276,6 @@ body.light-theme .quote-card {
   font-family: Georgia, serif;
 
   opacity: 0.85;
-
-  transition: var(--theme-transition);
 }
 
 .quote-text {
@@ -308,8 +294,6 @@ body.light-theme .quote-card {
   font-weight: 600;
 
   letter-spacing: -0.015em;
-
-  transition: var(--theme-transition);
 }
 
 .quote-button {
@@ -333,23 +317,20 @@ body.light-theme .quote-card {
 
   transition:
     background 0.2s ease,
-    transform 0.2s ease,
-    var(--theme-transition);
-}
-
-body.light-theme .quote-button {
-  background: rgba(74, 63, 53, 0.035);
+    transform 0.2s ease;
 }
 
 .quote-button:active {
   transform: scale(0.97);
 
-  background: var(--btn-active-bg);
+  background: rgba(255, 255, 255, 0.08);
 }
+
 
 /* ==================================================
    РАЗДЕЛЫ НА ГЛАВНОЙ
 ================================================== */
+
 .sections-area {
   position: relative;
   z-index: 2;
@@ -374,8 +355,6 @@ body.light-theme .quote-button {
 
   font-size: 16px;
   font-weight: 700;
-
-  transition: var(--theme-transition);
 }
 
 .sections-description {
@@ -384,8 +363,6 @@ body.light-theme .quote-button {
   color: var(--muted);
 
   font-size: 11px;
-
-  transition: var(--theme-transition);
 }
 
 .swipe-hint {
@@ -394,9 +371,10 @@ body.light-theme .quote-button {
   font-size: 15px;
 
   opacity: 0.7;
-
-  transition: var(--theme-transition);
 }
+
+
+/* горизонтальный скролл */
 
 .section-tabs {
   display: flex;
@@ -438,7 +416,7 @@ body.light-theme .quote-button {
 
   border-radius: 14px;
 
-  background: var(--card);
+  background: rgba(13, 33, 56, 0.9);
 
   color: var(--muted-light);
 
@@ -454,49 +432,46 @@ body.light-theme .quote-button {
   transition:
     transform 0.2s ease,
     background 0.2s ease,
-    border-color 0.2s ease,
-    var(--theme-transition);
+    border-color 0.2s ease;
 }
 
 .section-tab:active {
   transform: scale(0.96);
 
-  background: var(--card-light);
+  background: rgba(30, 58, 88, 0.95);
 }
 
 .tab-icon {
   color: var(--blue);
 
   font-size: 15px;
-
-  transition: var(--theme-transition);
 }
+
 
 /* ==================================================
    FOOTER
 ================================================== */
+
 .footer {
   position: relative;
   z-index: 1;
 
   margin-top: 13px;
 
-  color: var(--muted);
+  color: rgba(145, 166, 189, 0.55);
 
   text-align: center;
 
   font-size: 9px;
 
   letter-spacing: 0.03em;
-
-  opacity: 0.55;
-
-  transition: var(--theme-transition);
 }
+
 
 /* ==================================================
    ВНУТРЕННИЙ ЭКРАН
 ================================================== */
+
 .content-screen {
   position: relative;
 
@@ -511,12 +486,10 @@ body.light-theme .quote-button {
   background:
     radial-gradient(
       circle at 85% 0%,
-      var(--glow-bg-2),
+      rgba(168, 156, 255, 0.08),
       transparent 32%
     ),
     var(--bg);
-
-  transition: var(--theme-transition);
 }
 
 .screen-inner {
@@ -525,6 +498,7 @@ body.light-theme .quote-button {
 
   margin: 0 auto;
 }
+
 
 /* ==================================================
    КНОПКА НАЗАД
@@ -547,12 +521,13 @@ body.light-theme .quote-button {
 
   cursor: pointer;
 
-  transition: color 0.2s ease, var(--theme-transition);
+  transition: color 0.2s ease;
 }
 
 .back-button:active {
   color: var(--text);
 }
+
 
 /* ==================================================
    ЗАГОЛОВОК РАЗДЕЛА
@@ -573,8 +548,6 @@ body.light-theme .quote-button {
   text-transform: uppercase;
 
   letter-spacing: 0.12em;
-
-  transition: var(--theme-transition);
 }
 
 .section-header h1 {
@@ -588,8 +561,6 @@ body.light-theme .quote-button {
   font-weight: 800;
 
   letter-spacing: -0.045em;
-
-  transition: var(--theme-transition);
 }
 
 .section-header p {
@@ -601,9 +572,8 @@ body.light-theme .quote-button {
 
   font-size: 13px;
   line-height: 1.6;
-
-  transition: var(--theme-transition);
 }
+
 
 /* ==================================================
    КАРТОЧКИ ТЕМ
@@ -639,8 +609,7 @@ body.light-theme .quote-button {
   transition:
     transform 0.2s ease,
     background 0.2s ease,
-    border-color 0.2s ease,
-    var(--theme-transition);
+    border-color 0.2s ease;
 }
 
 .topic-card:active {
@@ -662,8 +631,6 @@ body.light-theme .quote-button {
   line-height: 1.3;
 
   font-weight: 700;
-
-  transition: var(--theme-transition);
 }
 
 .topic-card-description {
@@ -673,8 +640,6 @@ body.light-theme .quote-button {
 
   font-size: 11px;
   line-height: 1.45;
-
-  transition: var(--theme-transition);
 }
 
 .topic-arrow {
@@ -685,9 +650,8 @@ body.light-theme .quote-button {
   color: var(--muted);
 
   font-size: 20px;
-
-  transition: var(--theme-transition);
 }
+
 
 /* ==================================================
    СТРАНИЦА СТАТЬИ
@@ -716,8 +680,6 @@ body.light-theme .quote-button {
   text-transform: uppercase;
 
   letter-spacing: 0.11em;
-
-  transition: var(--theme-transition);
 }
 
 .article-title {
@@ -731,9 +693,8 @@ body.light-theme .quote-button {
   font-weight: 800;
 
   letter-spacing: -0.045em;
-
-  transition: var(--theme-transition);
 }
+
 
 /* ==================================================
    КОНТЕНТ СТАТЬИ
@@ -754,8 +715,6 @@ body.light-theme .quote-button {
   font-weight: 800;
 
   letter-spacing: -0.025em;
-
-  transition: var(--theme-transition);
 }
 
 .article-content h3 {
@@ -767,8 +726,6 @@ body.light-theme .quote-button {
   line-height: 1.35;
 
   font-weight: 700;
-
-  transition: var(--theme-transition);
 }
 
 .article-content p {
@@ -778,8 +735,6 @@ body.light-theme .quote-button {
 
   font-size: 14px;
   line-height: 1.75;
-
-  transition: var(--theme-transition);
 }
 
 .article-content ul {
@@ -795,16 +750,12 @@ body.light-theme .quote-button {
 
   font-size: 14px;
   line-height: 1.65;
-
-  transition: var(--theme-transition);
 }
 
 .article-content strong {
   color: var(--text);
 
   font-weight: 700;
-
-  transition: var(--theme-transition);
 }
 
 .info-box {
@@ -817,13 +768,6 @@ body.light-theme .quote-button {
   border-radius: var(--radius-medium);
 
   background: rgba(121, 201, 255, 0.055);
-
-  transition: var(--theme-transition);
-}
-
-body.light-theme .info-box {
-  border-color: rgba(74, 63, 53, 0.12);
-  background: rgba(74, 63, 53, 0.035);
 }
 
 .info-box p {
@@ -833,8 +777,6 @@ body.light-theme .info-box {
 
   font-size: 13px;
   line-height: 1.65;
-
-  transition: var(--theme-transition);
 }
 
 /* ==================================================
@@ -851,8 +793,6 @@ body.light-theme .info-box {
   padding-top: 18px;
 
   border-top: 1px solid var(--line);
-
-  transition: var(--theme-transition);
 }
 
 .article-nav-button {
@@ -864,7 +804,7 @@ body.light-theme .info-box {
 
   border-radius: 14px;
 
-  background: var(--card);
+  background: rgba(13, 33, 56, 0.82);
 
   color: var(--muted-light);
 
@@ -875,8 +815,7 @@ body.light-theme .info-box {
 
   transition:
     background 0.2s ease,
-    transform 0.2s ease,
-    var(--theme-transition);
+    transform 0.2s ease;
 }
 
 .article-nav-button:active {
@@ -906,82 +845,29 @@ body.light-theme .info-box {
   font-weight: 600;
 
   letter-spacing: 0.05em;
-
-  transition: var(--theme-transition);
 }
+
 
 /* ==================================================
    АНИМАЦИЯ ПЕРЕХОДА
 ================================================== */
 
-.article-navigation {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  gap: 10px;
-
-  margin-top: 34px;
-  padding-top: 18px;
-
-  border-top: 1px solid var(--line);
-
-  transition: var(--theme-transition);
+.fade-in {
+  animation: fadeIn 0.25s ease both;
 }
 
-.article-nav-button {
-  min-height: 48px;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
 
-  padding: 0 15px;
-
-  border: 1px solid var(--line);
-
-  border-radius: 14px;
-
-  background: var(--card);
-
-  color: var(--muted-light);
-
-  font-size: 12px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease,
-    var(--theme-transition);
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.article-nav-button:active {
-  transform: scale(0.97);
-
-  background: var(--card-light);
-}
-
-.article-nav-button.next {
-  color: var(--text);
-}
-
-.article-nav-button.disabled {
-  opacity: 0.35;
-
-  pointer-events: none;
-}
-
-.page-counter {
-  margin: 17px 0 0;
-
-  color: var(--muted);
-
-  text-align: center;
-
-  font-size: 10px;
-  font-weight: 600;
-
-  letter-spacing: 0.05em;
-
-  transition: var(--theme-transition);
-}
 
 /* ==================================================
    АДАПТАЦИЯ ДЛЯ МАЛЕНЬКИХ ЭКРАНОВ
