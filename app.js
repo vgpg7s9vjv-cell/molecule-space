@@ -753,8 +753,6 @@ const articles = {
         `
       },
   
-    ]
-  },
     
       {
         heading: "что важно найти",
