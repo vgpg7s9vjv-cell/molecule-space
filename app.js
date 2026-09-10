@@ -687,7 +687,6 @@ const articles = {
         `
       },
 
-
       {
         heading: "простая схема часто не работает",
 
@@ -745,6 +744,7 @@ const articles = {
           </p>
         `
       },
+       
       {
         content: `
           <p>
@@ -752,8 +752,10 @@ const articles = {
           </p>
         `
       },
-
-
+  
+    ]
+  },
+    
       {
         heading: "что важно найти",
 
