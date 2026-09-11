@@ -71,13 +71,13 @@ const sections = {
       },
 
       {
-        id: "rpp-compensation",
-        title: "компенсаторное поведение",
+        id: "rpp-cycle",
+        title: "вечный круговорот",
         description: "что скрывается за ограничениями, очищением и чрезмерной физнагрузкой"
       },
 
       {
-        id: "rpp-recovery",
+        id: "toxic-motivation",
         title: "TW!!: деструктивная мотивация",
         description: "вы просили – мы сделали! мотивация в жестком формате доступна по подписке 99 рублей  месяц"
       }
@@ -95,19 +95,19 @@ const sections = {
 
     topics: [
       {
-        id: "medical-weight",
+        id: "medical-tests",
         title: "видно ли БАДы для похудения в анализах",
         description: "общие анализы, медкомиссия и тесты на вещ-ва"
       },
 
       {
-        id: "medical-bloating",
+        id: "medical-disorders",
         title: "БАДы и расстройства психики",
         description: "как стимуляторы могут влиять на ментальное состояние"
       },
 
       {
-        id: "medical-hormones",
+        id: "medical-vitamins",
         title: "витамины и лечебные препараты",
         description: "какие витамины и лекарства можно пить, а какие категорически нет"
       }
@@ -125,19 +125,19 @@ const sections = {
 
     topics: [
       {
-        id: "supplements-label",
+        id: "supplements-voice",
         title: "сложности выбора и как его сделать",
         description: "Молекула плюс/прем/ультра/жб, Supressa, Mineral, Heedley и новый Swapx"
       },
 
       {
-        id: "supplements-evidence",
+        id: "supplements-rules",
         title: "главные правила",
         description: "правила приема, что можно и нельзя, побочки и как их избежать"
       },
 
       {
-        id: "supplements-risks",
+        id: "supplements-myths",
         title: "«какую таблетку выберешь, Нео?»",
         description: "разбиваем популярные в интернете мифы вокруг БАДов"
       }
@@ -167,7 +167,7 @@ const sections = {
       },
 
       {
-        id: "tools-labels",
+        id: "tools-math",
         title: "математический разбор",
         description: "норма сна, воды, активности и как выглядит идеальное БЖУ"
       }
