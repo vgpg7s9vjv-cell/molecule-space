@@ -9,7 +9,7 @@ if (tg) {
   tg.expand();
 
   if (tg.setHeaderColor) {
-    tg.setHeaderColor("#071426");
+    tg.setHeaderColor("#CCCCFF");
   }
 
   if (tg.setBackgroundColor) {
