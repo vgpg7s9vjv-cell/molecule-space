@@ -13,7 +13,7 @@ if (tg) {
   }
 
   if (tg.setBackgroundColor) {
-    tg.setBackgroundColor("#071426");
+    tg.setBackgroundColor("#CCCCFF");
   }
 }
 
