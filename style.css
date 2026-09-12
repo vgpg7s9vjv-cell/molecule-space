@@ -812,8 +812,11 @@ button {
 
   border-radius: 14px;
 
-  background: rgba(13, 33, 56, 0.82);
-
+  background: linear-gradient(
+    135deg,
+    #c9b6ff 0%,
+    #a9cfff 100%
+  );
   color: var(--muted-light);
 
   font-size: 12px;
