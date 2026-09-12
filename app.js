@@ -1572,73 +1572,94 @@ function renderArticle() {
     currentPage === totalPages - 1;
 
 
-  contentContainer.innerHTML = `
+  /* удаляем предыдущую статью, если она уже существует */
 
-    <div class="article-fullscreen fade-in">
+  const oldArticle =
+    document.getElementById("articleOverlay");
 
-      <div class="article-fullscreen-inner">
+  if (oldArticle) {
+    oldArticle.remove();
+  }
+
+
+  /* создаем отдельный экран прямо внутри body */
+
+  const articleOverlay =
+    document.createElement("div");
+
+  articleOverlay.id =
+    "articleOverlay";
+
+  articleOverlay.className =
+    "article-overlay";
+
+
+  articleOverlay.innerHTML = `
+
+    <div class="article-overlay-inner fade-in">
+
+      <button
+        class="back-button"
+        id="articleBackButton"
+      >
+        ← назад
+      </button>
+
+
+      <header class="article-header">
+
+        <p class="article-category">
+          ${article.category}
+        </p>
+
+        <h1 class="article-title">
+          ${article.title}
+        </h1>
+
+      </header>
+
+
+      <article class="article-content">
+
+        <h2>
+          ${page.heading}
+        </h2>
+
+        ${page.content}
+
+      </article>
+
+
+      <div class="article-navigation">
 
         <button
-          class="back-button"
-          id="articleBackButton"
+          class="article-nav-button ${isFirstPage ? "disabled" : ""}"
+          id="previousButton"
         >
           ← назад
         </button>
 
 
-        <header class="article-header">
-
-          <p class="article-category">
-            ${article.category}
-          </p>
-
-          <h1 class="article-title">
-            ${article.title}
-          </h1>
-
-        </header>
-
-
-        <article class="article-content">
-
-          <h2>
-            ${page.heading}
-          </h2>
-
-          ${page.content}
-
-        </article>
-
-
-        <div class="article-navigation">
-
-          <button
-            class="article-nav-button ${isFirstPage ? "disabled" : ""}"
-            id="previousButton"
-          >
-            ← назад
-          </button>
-
-
-          <button
-            class="article-nav-button next ${isLastPage ? "disabled" : ""}"
-            id="nextButton"
-          >
-            дальше →
-          </button>
-
-        </div>
-
-
-        <p class="page-counter">
-          ${currentPage + 1} / ${totalPages}
-        </p>
+        <button
+          class="article-nav-button next ${isLastPage ? "disabled" : ""}"
+          id="nextButton"
+        >
+          дальше →
+        </button>
 
       </div>
+
+
+      <p class="page-counter">
+        ${currentPage + 1} / ${totalPages}
+      </p>
 
     </div>
 
   `;
+
+
+  document.body.appendChild(articleOverlay);
 
 
   document
@@ -1649,7 +1670,24 @@ function renderArticle() {
     );
 
 
-  window.scrollTo(0, 0);
+  document
+    .getElementById("nextButton")
+    .addEventListener(
+      "click",
+      nextPage
+    );
+
+
+  document
+    .getElementById("previousButton")
+    .addEventListener(
+      "click",
+      previousPage
+    );
+
+
+  articleOverlay.scrollTop = 0;
+
 }
 
 /* ==================================================
