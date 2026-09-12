@@ -145,6 +145,14 @@ const sections = {
   },
 
    
+  mood: {
+    title: "дневник настроения",
+    kicker: "mood journal",
+    description: "личные записи, настроение и мысли — в одном спокойном месте",
+    topics: []
+  },
+
+
   tools: {
     title: "твой виртуальный счетовод",
 
@@ -257,7 +265,8 @@ const sections = {
       }
 
     ]
-  },
+  }
+};
    
 /* ==================================================
    СТАТЬИ
@@ -1133,6 +1142,10 @@ let currentArticleId = null;
 
 let currentPage = 0;
 
+let selectedMood = "🙂";
+const moodStorageKey = "molecule-space-mood-diary";
+const themeStorageKey = "molecule-space-theme";
+
 
 /* ==================================================
    DOM
@@ -1150,6 +1163,10 @@ const quoteElement =
 
 const newQuoteButton =
   document.getElementById("newQuote");
+
+const themeToggle = document.getElementById("themeToggle");
+const themeToggleIcon = document.getElementById("themeToggleIcon");
+const quickDiaryButton = document.getElementById("quickDiaryButton");
 
 
 /* ==================================================
@@ -1176,6 +1193,203 @@ function showNextQuote() {
 
 }
 
+
+/* ==================================================
+   ТЕМА
+================================================== */
+
+function applyTheme(theme) {
+  const isLight = theme === "light";
+  document.body.classList.toggle("light-theme", isLight);
+
+  if (themeToggleIcon) {
+    themeToggleIcon.textContent = isLight ? "☀" : "☾";
+  }
+
+  if (themeToggle) {
+    themeToggle.setAttribute(
+      "aria-label",
+      isLight ? "Включить темную тему" : "Включить светлую тему"
+    );
+  }
+
+  try {
+    localStorage.setItem(themeStorageKey, isLight ? "light" : "dark");
+  } catch (error) {}
+
+  if (tg) {
+    if (tg.setHeaderColor) tg.setHeaderColor(isLight ? "#f3f0ff" : "#071426");
+    if (tg.setBackgroundColor) tg.setBackgroundColor(isLight ? "#f3f0ff" : "#071426");
+  }
+}
+
+function initTheme() {
+  let saved = "dark";
+  try {
+    saved = localStorage.getItem(themeStorageKey) || "dark";
+  } catch (error) {}
+  applyTheme(saved);
+}
+
+/* ==================================================
+   ДНЕВНИК
+================================================== */
+
+function getMoodEntries() {
+  try {
+    return JSON.parse(localStorage.getItem(moodStorageKey) || "[]");
+  } catch (error) {
+    return [];
+  }
+}
+
+function saveMoodEntry(text, mood) {
+  const entries = getMoodEntries();
+  entries.unshift({
+    id: Date.now(),
+    mood,
+    text,
+    date: new Date().toLocaleString("ru-RU", {
+      day: "2-digit", month: "long", year: "numeric",
+      hour: "2-digit", minute: "2-digit"
+    })
+  });
+
+  try {
+    localStorage.setItem(moodStorageKey, JSON.stringify(entries.slice(0, 100)));
+  } catch (error) {}
+}
+
+function renderMoodJournal() {
+  const entries = getMoodEntries();
+  const moods = ["😔", "😕", "😐", "🙂", "😊", "🥰", "😤", "😴", "😰"];
+
+  contentContainer.innerHTML = `
+    <div class="screen-inner diary-page fade-in">
+      <button class="back-button" id="diaryBackButton">← назад</button>
+
+      <header class="section-header">
+        <p class="section-kicker">mood journal</p>
+        <h1>дневник настроения</h1>
+        <p>место для коротких заметок о своем состоянии и событиях дня.</p>
+      </header>
+
+      <section class="diary-compose">
+        <p class="diary-date">сегодня · ${new Date().toLocaleDateString("ru-RU", { day: "numeric", month: "long" })}</p>
+        <div class="mood-picker" aria-label="Выбрать настроение">
+          ${moods.map(mood => `<button type="button" class="mood-choice ${selectedMood === mood ? "selected" : ""}" data-mood="${mood}">${mood}</button>`).join("")}
+        </div>
+        <textarea class="diary-textarea" id="diaryText" placeholder="что хочется записать?"></textarea>
+        <button type="button" class="calculator-button diary-save" id="saveDiaryButton">сохранить запись</button>
+      </section>
+
+      <div class="diary-list">
+        ${entries.length ? entries.map(entry => `
+          <article class="mood-entry">
+            <div class="mood-entry-head">
+              <span class="mood-entry-emoji">${entry.mood}</span>
+              <span class="mood-entry-date">${entry.date}</span>
+            </div>
+            <p class="mood-entry-text">${escapeHtml(entry.text)}</p>
+          </article>
+        `).join("") : `<div class="diary-empty">здесь появятся твои записи.<br>они сохраняются только в этом браузере.</div>`}
+      </div>
+    </div>
+  `;
+
+  document.getElementById("diaryBackButton").addEventListener("click", showHome);
+  document.querySelectorAll("[data-mood]").forEach(button => {
+    button.addEventListener("click", () => {
+      selectedMood = button.dataset.mood;
+      renderMoodJournal();
+    });
+  });
+  document.getElementById("saveDiaryButton").addEventListener("click", () => {
+    const textarea = document.getElementById("diaryText");
+    const text = textarea.value.trim();
+    if (!text) { textarea.focus(); return; }
+    saveMoodEntry(text, selectedMood);
+    selectedMood = "🙂";
+    renderMoodJournal();
+  });
+  window.scrollTo(0, 0);
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function renderTools() {
+  contentContainer.innerHTML = `
+    <div class="screen-inner fade-in">
+      <button class="back-button" id="toolsBackButton">← назад</button>
+      <header class="section-header">
+        <p class="section-kicker">dietary calculations</p>
+        <h1>твой виртуальный счетовод</h1>
+        <p>расчетные инструменты с пояснением результата. цифры здесь являются ориентиром, а не медицинским назначением.</p>
+      </header>
+
+      <div class="calculator-list">
+        <section class="calculator-card">
+          <h3>ИМТ</h3>
+          <p>индекс массы тела по росту и массе. результат не является диагнозом.</p>
+          <div class="calculator-grid">
+            <div class="calculator-field"><label for="bmiWeight">масса, кг</label><input class="calculator-input" id="bmiWeight" type="number" min="1" step="0.1" inputmode="decimal"></div>
+            <div class="calculator-field"><label for="bmiHeight">рост, см</label><input class="calculator-input" id="bmiHeight" type="number" min="1" step="1" inputmode="numeric"></div>
+          </div>
+          <button class="calculator-button" id="calculateBmi">рассчитать ИМТ</button>
+          <div class="calculator-result" id="bmiResult">введи данные выше.</div>
+        </section>
+
+        <section class="calculator-card">
+          <h3>энергетическая потребность</h3>
+          <p>оценка основного обмена и ориентировочных суточных энергозатрат по формуле Миффлина — Сан Жеора.</p>
+          <div class="calculator-grid">
+            <div class="calculator-field"><label for="calAge">возраст, лет</label><input class="calculator-input" id="calAge" type="number" min="18" step="1" inputmode="numeric"></div>
+            <div class="calculator-field"><label for="calWeight">масса, кг</label><input class="calculator-input" id="calWeight" type="number" min="1" step="0.1" inputmode="decimal"></div>
+            <div class="calculator-field"><label for="calHeight">рост, см</label><input class="calculator-input" id="calHeight" type="number" min="1" step="1" inputmode="numeric"></div>
+            <div class="calculator-field"><label for="calSex">пол для формулы</label><select class="calculator-input" id="calSex"><option value="female">женский</option><option value="male">мужской</option></select></div>
+            <div class="calculator-field full"><label for="calActivity">уровень активности</label><select class="calculator-input" id="calActivity"><option value="1.2">минимальная активность</option><option value="1.375">легкая активность</option><option value="1.55">умеренная активность</option><option value="1.725">высокая активность</option><option value="1.9">очень высокая активность</option></select></div>
+          </div>
+          <button class="calculator-button" id="calculateEnergy">рассчитать</button>
+          <div class="calculator-result" id="energyResult">введи данные выше.</div>
+        </section>
+      </div>
+    </div>
+  `;
+
+  document.getElementById("toolsBackButton").addEventListener("click", showHome);
+  document.getElementById("calculateBmi").addEventListener("click", calculateBmi);
+  document.getElementById("calculateEnergy").addEventListener("click", calculateEnergy);
+  window.scrollTo(0, 0);
+}
+
+function calculateBmi() {
+  const weight = Number(document.getElementById("bmiWeight").value);
+  const heightCm = Number(document.getElementById("bmiHeight").value);
+  const result = document.getElementById("bmiResult");
+  if (!weight || !heightCm || weight <= 0 || heightCm <= 0) { result.textContent = "пожалуйста, введи массу и рост."; return; }
+  const bmi = weight / Math.pow(heightCm / 100, 2);
+  result.innerHTML = `<strong>ИМТ: ${bmi.toFixed(1)}</strong><br>это расчетный показатель; его интерпретация зависит от возраста и клинического контекста.`;
+}
+
+function calculateEnergy() {
+  const age = Number(document.getElementById("calAge").value);
+  const weight = Number(document.getElementById("calWeight").value);
+  const height = Number(document.getElementById("calHeight").value);
+  const sex = document.getElementById("calSex").value;
+  const activity = Number(document.getElementById("calActivity").value);
+  const result = document.getElementById("energyResult");
+  if (!age || age < 18 || !weight || !height) { result.textContent = "этот расчет предназначен для взрослых: введи возраст 18+ и остальные данные."; return; }
+  const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
+  const tdee = bmr * activity;
+  result.innerHTML = `<strong>основной обмен: ${Math.round(bmr)} ккал/сутки</strong><br>ориентировочные общие энергозатраты: ${Math.round(tdee)} ккал/сутки.<br><br>это оценка по формуле, а не индивидуальное медицинское назначение.`;
+}
 
 /* ==================================================
    ПОКАЗАТЬ ГЛАВНУЮ
@@ -1206,6 +1420,26 @@ function openSection(sectionId) {
   const section = sections[sectionId];
 
   if (!section) {
+    return;
+  }
+
+  if (sectionId === "mood") {
+    currentSectionId = "mood";
+    currentArticleId = null;
+    currentPage = 0;
+    contentScreen.classList.remove("hidden");
+    homeScreen.classList.add("hidden");
+    renderMoodJournal();
+    return;
+  }
+
+  if (sectionId === "tools") {
+    currentSectionId = "tools";
+    currentArticleId = null;
+    currentPage = 0;
+    contentScreen.classList.remove("hidden");
+    homeScreen.classList.add("hidden");
+    renderTools();
     return;
   }
 
@@ -1535,6 +1769,18 @@ newQuoteButton.addEventListener(
   "click",
   showNextQuote
 );
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    applyTheme(document.body.classList.contains("light-theme") ? "dark" : "light");
+  });
+}
+
+if (quickDiaryButton) {
+  quickDiaryButton.addEventListener("click", () => openSection("mood"));
+}
+
+initTheme();
 
 
 /* ==================================================
