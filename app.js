@@ -1711,6 +1711,17 @@ function renderArticle() {
 
 function goBackFromArticle() {
 
+  const overlay =
+    document.getElementById("articleOverlay");
+
+  if (overlay) {
+    overlay.remove();
+  }
+
+
+  document.body.style.overflow = "";
+
+
   if (currentSectionId) {
 
     openSection(currentSectionId);
@@ -1718,10 +1729,10 @@ function goBackFromArticle() {
     return;
   }
 
+
   showHome();
+
 }
-
-
 /* ==================================================
    СЛЕДУЮЩАЯ СТРАНИЦА
 ================================================== */
