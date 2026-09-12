@@ -1328,8 +1328,8 @@ ${entries.length ? entries.map((entry, index) => `
 
     entries.splice(index, 1);
 
-    localStorage.setItem("moodJournalEntries", JSON.stringify(entries));
-
+    localStorage.setItem(moodStorageKey, JSON.stringify(entries));
+    
     renderMoodJournal();
   });
 });
