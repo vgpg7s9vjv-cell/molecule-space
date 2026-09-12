@@ -1262,80 +1262,190 @@ function renderMoodJournal() {
 
   contentContainer.innerHTML = `
     <div class="screen-inner diary-page fade-in">
-      <button class="back-button" id="diaryBackButton">← назад</button>
+
+      <button
+        class="back-button"
+        id="diaryBackButton"
+      >
+        ← назад
+      </button>
 
       <header class="section-header">
         <p class="section-kicker">mood journal</p>
-        <h1>дневник настроения</h1>
-        <p>место для коротких заметок о своем состоянии и событиях дня.</p>
+
+        <h1>
+          дневник настроения
+        </h1>
+
+        <p>
+          место для коротких заметок о своем состоянии и событиях дня.
+        </p>
       </header>
 
       <section class="diary-compose">
-        <p class="diary-date">сегодня · ${new Date().toLocaleDateString("ru-RU", { day: "numeric", month: "long" })}</p>
-        <div class="mood-picker" aria-label="Выбрать настроение">
-          ${moods.map(mood => `<button type="button" class="mood-choice ${selectedMood === mood ? "selected" : ""}" data-mood="${mood}">${mood}</button>`).join("")}
+
+        <p class="diary-date">
+          сегодня · ${new Date().toLocaleDateString("ru-RU", {
+            day: "numeric",
+            month: "long"
+          })}
+        </p>
+
+        <div
+          class="mood-picker"
+          aria-label="Выбрать настроение"
+        >
+          ${moods.map(mood => `
+            <button
+              type="button"
+              class="mood-choice ${selectedMood === mood ? "selected" : ""}"
+              data-mood="${mood}"
+            >
+              ${mood}
+            </button>
+          `).join("")}
         </div>
-        <textarea class="diary-textarea" id="diaryText" placeholder="что хочется записать?"></textarea>
-        <button type="button" class="calculator-button diary-save" id="saveDiaryButton">сохранить запись</button>
+
+        <textarea
+          class="diary-textarea"
+          id="diaryText"
+          placeholder="что хочется записать?"
+        ></textarea>
+
+        <button
+          type="button"
+          class="calculator-button diary-save"
+          id="saveDiaryButton"
+        >
+          сохранить запись
+        </button>
+
       </section>
 
       <div class="diary-list">
-${entries.length ? entries.map((entry, index) => `
-  <article class="mood-entry">
 
-    <div class="mood-entry-head">
-      <span class="mood-entry-emoji">${entry.mood}</span>
-      <span class="mood-entry-date">${entry.date}</span>
+        ${
+          entries.length
+            ? entries.map((entry, index) => `
+                <article class="mood-entry">
+
+                  <div class="mood-entry-head">
+                    <span class="mood-entry-emoji">
+                      ${entry.mood}
+                    </span>
+
+                    <span class="mood-entry-date">
+                      ${entry.date}
+                    </span>
+                  </div>
+
+                  <p class="mood-entry-text">
+                    ${escapeHtml(entry.text)}
+                  </p>
+
+                  <button
+                    type="button"
+                    class="diary-delete-button"
+                    data-delete-entry="${index}"
+                  >
+                    удалить запись
+                  </button>
+
+                </article>
+              `).join("")
+            : `
+                <div class="diary-empty">
+                  здесь появятся твои записи.<br>
+                  они сохраняются только в этом браузере.
+                </div>
+              `
+        }
+
+      </div>
+
     </div>
+  `;
 
-    <p class="mood-entry-text">
-      ${escapeHtml(entry.text)}
-    </p>
+  document
+    .getElementById("diaryBackButton")
+    .addEventListener("click", showHome);
 
-    <button
-      type="button"
-      class="diary-delete-button"
-      data-delete-entry="${index}"
-    >
-      удалить запись
-    </button>
 
-  </article>
-`).join("") : `<div class="diary-empty">здесь появятся твои записи.<br>они сохраняются только в этом браузере.</div>`}
+  document
+    .querySelectorAll("[data-mood]")
+    .forEach(button => {
 
-  document.getElementById("diaryBackButton").addEventListener("click", showHome);
-  document.querySelectorAll("[data-mood]").forEach(button => {
-    button.addEventListener("click", () => {
-      selectedMood = button.dataset.mood;
-      renderMoodJournal();
+      button.addEventListener("click", () => {
+
+        selectedMood = button.dataset.mood;
+
+        renderMoodJournal();
+
+      });
+
     });
-  });
-  document.getElementById("saveDiaryButton").addEventListener("click", () => {
-    const textarea = document.getElementById("diaryText");
-    const text = textarea.value.trim();
-    if (!text) { textarea.focus(); return; }
-    saveMoodEntry(text, selectedMood);
-    selectedMood = "🙂";
-    renderMoodJournal();
-  });
 
-  document.querySelectorAll("[data-delete-entry]").forEach(button => {
-  button.addEventListener("click", () => {
 
-    const index = Number(button.dataset.deleteEntry);
+  document
+    .getElementById("saveDiaryButton")
+    .addEventListener("click", () => {
 
-    const entries = getMoodEntries();
+      const textarea =
+        document.getElementById("diaryText");
 
-    entries.splice(index, 1);
+      const text =
+        textarea.value.trim();
 
-    localStorage.setItem(moodStorageKey, JSON.stringify(entries));
-    
-    renderMoodJournal();
-  });
-});
+      if (!text) {
+        textarea.focus();
+        return;
+      }
+
+      saveMoodEntry(
+        text,
+        selectedMood
+      );
+
+      selectedMood = "🙂";
+
+      renderMoodJournal();
+
+    });
+
+
+  document
+    .querySelectorAll("[data-delete-entry]")
+    .forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        const index =
+          Number(button.dataset.deleteEntry);
+
+        const entries =
+          getMoodEntries();
+
+        entries.splice(index, 1);
+
+        try {
+          localStorage.setItem(
+            moodStorageKey,
+            JSON.stringify(
+              entries.slice(0, 100)
+            )
+          );
+        } catch (error) {}
+
+        renderMoodJournal();
+
+      });
+
+    });
+
 
   window.scrollTo(0, 0);
 }
+
 
 function escapeHtml(value) {
   return String(value)
