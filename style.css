@@ -1306,3 +1306,48 @@ body.light-theme .mood-entry {
 
   box-sizing: border-box;
 }
+
+/* ==================================================
+   ПОЛНОЭКРАННЫЕ РАЗДЕЛЫ
+================================================== */
+
+#sectionOverlay {
+  position: fixed !important;
+
+  inset: 0 !important;
+
+  width: 100vw !important;
+  height: 100dvh !important;
+
+  box-sizing: border-box !important;
+
+  z-index: 99998 !important;
+
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  padding:
+    calc(18px + env(safe-area-inset-top))
+    18px
+    calc(28px + env(safe-area-inset-bottom)) !important;
+
+  background: var(--bg) !important;
+
+  color: var(--text);
+
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.section-overlay-inner {
+  width: 100%;
+  max-width: 680px;
+
+  min-height: 100%;
+
+  margin: 0 auto;
+
+  padding-bottom: 40px;
+
+  box-sizing: border-box;
+}
