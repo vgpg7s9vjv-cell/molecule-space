@@ -1170,13 +1170,15 @@ body.light-theme .mood-entry {
 }
 
 /* ==================================================
-   ПОЛНОЭКРАННЫЕ СТАТЬИ
+   ПОЛНОЭКРАННОЕ ОКНО СТАТЬИ
 ================================================== */
 
-.article-fullscreen {
+.article-overlay {
   position: fixed;
+
   inset: 0;
-  z-index: 1000;
+
+  z-index: 99999;
 
   width: 100%;
   height: 100dvh;
@@ -1184,42 +1186,62 @@ body.light-theme .mood-entry {
   overflow-y: auto;
   overflow-x: hidden;
 
-  background: var(--bg, #0b1020);
+  box-sizing: border-box;
+
+  padding:
+    calc(18px + env(safe-area-inset-top))
+    18px
+    calc(28px + env(safe-area-inset-bottom));
+
+  background:
+    radial-gradient(
+      circle at 85% 0%,
+      rgba(168, 156, 255, 0.08),
+      transparent 32%
+    ),
+    var(--bg);
+
+  color: var(--text);
+
+  -webkit-overflow-scrolling: touch;
 }
 
-.article-fullscreen-inner {
-  width: 100%;
-  max-width: 760px;
 
-  min-height: 100dvh;
+.article-overlay-inner {
+
+  width: 100%;
+
+  max-width: 680px;
+
+  min-height: 100%;
 
   margin: 0 auto;
 
-  padding: 24px 20px 40px;
   box-sizing: border-box;
+
 }
 
-.article-fullscreen .back-button {
-  position: sticky;
-  top: 0;
 
-  z-index: 10;
-
-  margin-bottom: 24px;
+.article-overlay .article-header {
+  margin-bottom: 26px;
 }
 
-.article-fullscreen .article-header {
-  margin-bottom: 28px;
-}
 
-.article-fullscreen .article-content {
+.article-overlay .article-content {
   width: 100%;
 }
 
-.article-fullscreen .article-navigation {
+
+.article-overlay .article-navigation {
   margin-top: 40px;
 }
 
-.article-fullscreen .page-counter {
+
+.article-overlay .page-counter {
   padding-bottom: 20px;
+}
+
+
+.article-overlay .back-button {
+  margin-bottom: 30px;
 }
