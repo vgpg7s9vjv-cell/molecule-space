@@ -251,12 +251,12 @@ links: {
       content: `
         <div class="official-links">
 
-          <a>
+          <a
             class="official-link-card"
             href="https://t.me/+8m49Mte-Um5lMGUy"
             target="_blank"
             rel="noopener noreferrer"
-         
+         >
             <div class="official-link-icon">✦</div>
 
             <div class="official-link-info">
@@ -265,15 +265,15 @@ links: {
             </div>
 
             <span class="official-link-arrow">→</span>
-          </a>
+          
 
 
-          <a>
+          <a
             class="official-link-card"
             href="https://t.me/+77xMDKXa0Zk3MTIy"
             target="_blank"
             rel="noopener noreferrer"
-          
+          >
             <div class="official-link-icon">☁</div>
 
             <div class="official-link-info">
@@ -282,15 +282,15 @@ links: {
             </div>
 
             <span class="official-link-arrow">→</span>
-          </a>
+          
 
 
-          <a>
+          <a
             class="official-link-card"
             href="https://t.me/otzovisarttmolecule"
             target="_blank"
             rel="noopener noreferrer"
-          
+          >
             <div class="official-link-icon">♡</div>
 
             <div class="official-link-info">
@@ -299,15 +299,15 @@ links: {
             </div>
 
             <span class="official-link-arrow">→</span>
-          </a>
+          
 
 
-          <a>
+          <a
             class="official-link-card"
             href="https://t.me/anonaskbot?start=molecule"
             target="_blank"
             rel="noopener noreferrer"
-          
+          >
             <div class="official-link-icon">?</div>
 
             <div class="official-link-info">
@@ -316,15 +316,15 @@ links: {
             </div>
 
             <span class="official-link-arrow">→</span>
-          </a>
+        
 
 
-          <a>
+          <a
             class="official-link-card"
             href="https://www.tiktok.com/@arttmolecule1?_r=1"
             target="_blank"
             rel="noopener noreferrer"
-          
+          >
             <div class="official-link-icon">♪</div>
 
             <div class="official-link-info">
@@ -333,7 +333,7 @@ links: {
             </div>
 
             <span class="official-link-arrow">→</span>
-          </a>
+         
 
 
           <div class="official-links-warning">
