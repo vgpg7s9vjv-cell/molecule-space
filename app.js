@@ -2125,6 +2125,24 @@ function openSection(sectionId) {
     );
 
 }
+
+/* ==================================================
+   ОТКРЫТИЕ СТАТЬИ
+================================================== */
+
+function openArticle(articleId) {
+
+  if (!articles[articleId]) {
+    return;
+  }
+
+  currentArticleId = articleId;
+  currentPage = 0;
+
+  renderArticle();
+
+}
+
 /* ==================================================
    РЕНДЕР СТРАНИЦЫ СТАТЬИ
 ================================================== */
@@ -2304,14 +2322,11 @@ function goBackFromArticle() {
     overlay.remove();
   }
 
-  document.body.style.overflow = "";
+  document.body.style.overflow = "hidden";
 
-  if (currentSectionId) {
-    openSection(currentSectionId);
-    return;
-  }
+  currentArticleId = null;
+  currentPage = 0;
 
-  showHome();
 }
 
 /* ==================================================
