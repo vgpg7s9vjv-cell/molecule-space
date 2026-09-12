@@ -1280,18 +1280,28 @@ function renderMoodJournal() {
       </section>
 
       <div class="diary-list">
-        ${entries.length ? entries.map(entry => `
-          <article class="mood-entry">
-            <div class="mood-entry-head">
-              <span class="mood-entry-emoji">${entry.mood}</span>
-              <span class="mood-entry-date">${entry.date}</span>
-            </div>
-            <p class="mood-entry-text">${escapeHtml(entry.text)}</p>
-          </article>
-        `).join("") : `<div class="diary-empty">здесь появятся твои записи.<br>они сохраняются только в этом браузере.</div>`}
-      </div>
+${entries.length ? entries.map((entry, index) => `
+  <article class="mood-entry">
+
+    <div class="mood-entry-head">
+      <span class="mood-entry-emoji">${entry.mood}</span>
+      <span class="mood-entry-date">${entry.date}</span>
     </div>
-  `;
+
+    <p class="mood-entry-text">
+      ${escapeHtml(entry.text)}
+    </p>
+
+    <button
+      type="button"
+      class="diary-delete-button"
+      data-delete-entry="${index}"
+    >
+      удалить запись
+    </button>
+
+  </article>
+`).join("") : `<div class="diary-empty">здесь появятся твои записи.<br>они сохраняются только в этом браузере.</div>`}
 
   document.getElementById("diaryBackButton").addEventListener("click", showHome);
   document.querySelectorAll("[data-mood]").forEach(button => {
