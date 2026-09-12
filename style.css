@@ -412,13 +412,17 @@ button {
 
   padding: 0 15px;
 
-  border: 1px solid var(--line);
+  border: 1px solid rgba(120, 110, 190, 0.25);
 
   border-radius: 14px;
 
-  background: rgba(13, 33, 56, 0.9);
+  background: linear-gradient(
+    135deg,
+    #c9b6ff 0%,
+    #a9cfff 100%
+  );
 
-  color: var(--muted-light);
+  color: #20233a;
 
   font-size: 12px;
   font-weight: 700;
@@ -433,6 +437,9 @@ button {
     transform 0.2s ease,
     background 0.2s ease,
     border-color 0.2s ease;
+}
+
+
 }
 
 .section-tab:active {
