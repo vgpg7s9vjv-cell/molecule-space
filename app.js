@@ -1709,42 +1709,25 @@ function openSection(sectionId) {
 
   /* особые разделы */
 
-  if (sectionId === "mood") {
+if (sectionId === "mood") {
 
-    currentSectionId = "mood";
-    currentArticleId = null;
-    currentPage = 0;
+  currentSectionId = "mood";
+  currentArticleId = null;
+  currentPage = 0;
 
-    const overlay =
-      document.createElement("div");
+  const overlay =
+    document.createElement("div");
 
-    overlay.id = "sectionOverlay";
-    overlay.className = "section-overlay";
+  overlay.id = "sectionOverlay";
+  overlay.className = "section-overlay";
 
-    document.body.appendChild(overlay);
+  document.body.appendChild(overlay);
 
-    overlay.innerHTML = `
-      <div class="section-overlay-inner">
-        <div id="sectionContent"></div>
-      </div>
-    `;
+  const entries = getMoodEntries();
 
-    /*
-      временно используем существующий
-      рендер дневника
-    */
+  overlay.innerHTML = `
+    <div class="section-overlay-inner">
 
-    const oldContainer = contentContainer;
-
-    /*
-      переносим содержимое дневника
-      в новый экран
-    */
-
-    const sectionContent =
-      overlay.querySelector("#sectionContent");
-
-    sectionContent.innerHTML = `
       <div class="screen-inner diary-page fade-in">
 
         <button
@@ -1832,52 +1815,159 @@ function openSection(sectionId) {
 
         <div class="diary-list">
 
-          ${getMoodEntries().length
-            ? getMoodEntries().map(entry => `
-              <article class="mood-entry">
+          ${
+            entries.length
+              ? entries.map((entry, index) => `
+                  <article class="mood-entry">
 
-                <div class="mood-entry-head">
+                    <div class="mood-entry-head">
 
-                  <span class="mood-entry-emoji">
-                    ${entry.mood}
-                  </span>
+                      <span class="mood-entry-emoji">
+                        ${entry.mood}
+                      </span>
 
-                  <span class="mood-entry-date">
-                    ${entry.date}
-                  </span>
+                      <span class="mood-entry-date">
+                        ${entry.date}
+                      </span>
 
-                </div>
+                    </div>
 
-                <p class="mood-entry-text">
-                  ${escapeHtml(entry.text)}
-                </p>
+                    <p class="mood-entry-text">
+                      ${escapeHtml(entry.text)}
+                    </p>
 
-              </article>
-            `).join("")
-            : `
-              <div class="diary-empty">
-                здесь появятся твои записи.<br>
-                они сохраняются только в этом браузере.
-              </div>
-            `
+                    <button
+                      type="button"
+                      class="diary-delete-button"
+                      data-delete-entry="${index}"
+                    >
+                      удалить запись
+                    </button>
+
+                  </article>
+                `).join("")
+              : `
+                  <div class="diary-empty">
+                    здесь появятся твои записи.<br>
+                    они сохраняются только в этом браузере.
+                  </div>
+                `
           }
 
         </div>
 
       </div>
-    `;
+
+    </div>
+  `;
 
 
-    document
-      .getElementById("diaryBackButton")
-      .addEventListener(
+  /* назад */
+
+  overlay
+    .querySelector("#diaryBackButton")
+    .addEventListener(
+      "click",
+      showHome
+    );
+
+
+  /* выбор настроения */
+
+  overlay
+    .querySelectorAll("[data-mood]")
+    .forEach(button => {
+
+      button.addEventListener(
         "click",
-        showHome
+        () => {
+
+          selectedMood =
+            button.dataset.mood;
+
+          openSection("mood");
+
+        }
       );
 
-    return;
-  }
+    });
 
+
+  /* сохранить запись */
+
+  overlay
+    .querySelector("#saveDiaryButton")
+    .addEventListener(
+      "click",
+      () => {
+
+        const textarea =
+          overlay.querySelector("#diaryText");
+
+        const text =
+          textarea.value.trim();
+
+        if (!text) {
+          textarea.focus();
+          return;
+        }
+
+        saveMoodEntry(
+          text,
+          selectedMood
+        );
+
+        selectedMood = "🙂";
+
+        openSection("mood");
+
+      }
+    );
+
+
+  /* удалить запись */
+
+  overlay
+    .querySelectorAll("[data-delete-entry]")
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const index =
+            Number(
+              button.dataset.deleteEntry
+            );
+
+          const entries =
+            getMoodEntries();
+
+          entries.splice(index, 1);
+
+          try {
+
+            localStorage.setItem(
+              moodStorageKey,
+              JSON.stringify(
+                entries.slice(0, 100)
+              )
+            );
+
+          } catch (error) {}
+
+          openSection("mood");
+
+        }
+      );
+
+    });
+
+
+  document.body.style.overflow = "hidden";
+
+  return;
+}
 
   /* ================================================
      ИНСТРУМЕНТЫ
