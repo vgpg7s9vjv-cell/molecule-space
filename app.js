@@ -239,12 +239,6 @@ const sections = {
     ]
   },
 
-   settings: {
-  title: "настройки",
-  kicker: "settings",
-  description: "настройки приложения",
-  topics: []
-},
 
  links: {
 
