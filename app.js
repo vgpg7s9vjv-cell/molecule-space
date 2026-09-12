@@ -1572,31 +1572,30 @@ function renderArticle() {
     currentPage === totalPages - 1;
 
 
-  /* удаляем предыдущую статью, если она уже существует */
+  /* удаляем старое окно статьи */
 
-  const oldArticle =
+  const oldOverlay =
     document.getElementById("articleOverlay");
 
-  if (oldArticle) {
-    oldArticle.remove();
+  if (oldOverlay) {
+    oldOverlay.remove();
   }
 
 
-  /* создаем отдельный экран прямо внутри body */
+  /* создаем настоящее отдельное окно */
 
-  const articleOverlay =
+  const overlay =
     document.createElement("div");
 
-  articleOverlay.id =
-    "articleOverlay";
+  overlay.id = "articleOverlay";
 
-  articleOverlay.className =
+  overlay.className =
     "article-overlay";
 
 
-  articleOverlay.innerHTML = `
+  overlay.innerHTML = `
 
-    <div class="article-overlay-inner fade-in">
+    <div class="article-overlay-inner">
 
       <button
         class="back-button"
@@ -1659,8 +1658,18 @@ function renderArticle() {
   `;
 
 
-  document.body.appendChild(articleOverlay);
+  /* добавляем НЕ в contentContainer,
+     а прямо в body */
 
+  document.body.appendChild(overlay);
+
+
+  /* блокируем прокрутку страницы под статьей */
+
+  document.body.style.overflow = "hidden";
+
+
+  /* кнопка назад */
 
   document
     .getElementById("articleBackButton")
@@ -1670,13 +1679,7 @@ function renderArticle() {
     );
 
 
-  document
-    .getElementById("nextButton")
-    .addEventListener(
-      "click",
-      nextPage
-    );
-
+  /* предыдущая страница */
 
   document
     .getElementById("previousButton")
@@ -1686,7 +1689,19 @@ function renderArticle() {
     );
 
 
-  articleOverlay.scrollTop = 0;
+  /* следующая страница */
+
+  document
+    .getElementById("nextButton")
+    .addEventListener(
+      "click",
+      nextPage
+    );
+
+
+  /* прокручиваем именно окно статьи */
+
+  overlay.scrollTop = 0;
 
 }
 
