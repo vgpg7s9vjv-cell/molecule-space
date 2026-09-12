@@ -804,11 +804,17 @@ button {
 }
 
 .article-nav-button {
-  min-height: 48px;
+    flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  min-height: 45px;
 
   padding: 0 15px;
 
-  border: 1px solid var(--line);
+  border: 1px solid rgba(120, 110, 190, 0.25);
 
   border-radius: 14px;
 
@@ -817,16 +823,21 @@ button {
     #c9b6ff 0%,
     #a9cfff 100%
   );
-  color: var(--muted-light);
+
+  color: #20233a;
 
   font-size: 12px;
   font-weight: 700;
 
+  white-space: nowrap;
+
   cursor: pointer;
 
   transition:
+    transform 0.2s ease,
     background 0.2s ease,
-    transform 0.2s ease;
+    border-color 0.2s ease;
+
 }
 
 .article-nav-button:active {
