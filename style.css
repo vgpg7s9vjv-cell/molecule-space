@@ -836,11 +836,11 @@ button {
 }
 
 .article-nav-button.next {
-  color: var(25, 25, 112);
+  color: var(--text);
 }
 
 .article-nav-button.disabled {
-   color: var(25, 25, 112);
+   color: var(--text);
 }
   opacity: 0.35;
 
@@ -850,7 +850,7 @@ button {
 .page-counter {
   margin: 17px 0 0;
 
-  color: var(--muted);
+  color: var(--muted-light);
 
   text-align: center;
 
