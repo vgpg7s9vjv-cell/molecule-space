@@ -1691,186 +1691,7 @@ function openSection(sectionId) {
     renderTools();
     return;
   }
-  /* ================================================
-     ОФИЦИАЛЬНЫЕ ССЫЛКИ
-  ================================================ */
-
-  if (sectionId === "links") {
-
-    currentSectionId = "links";
-    currentArticleId = null;
-    currentPage = 0;
-
-    const overlay =
-      document.createElement("div");
-
-    overlay.id = "sectionOverlay";
-    overlay.className = "section-overlay";
-
-    document.body.appendChild(overlay);
-
-    overlay.innerHTML = `
-      <div class="section-overlay-inner">
-
-        <div class="screen-inner fade-in">
-
-          <button
-            class="back-button"
-            id="linksBackButton"
-          >
-            ← назад
-          </button>
-
-          <header class="section-header">
-
-            <p class="section-kicker">
-              official resources
-            </p>
-
-            <h1>
-              все ссылки
-            </h1>
-
-            <p>
-              наши официальные ресурсы и способы
-              связаться с проектом
-            </p>
-
-          </header>
-
-          <div class="official-links">
-
-            <a
-              class="official-link-card"
-              href="https://t.me/+8m49Mte-Um5lMGUy"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="official-link-icon">✦</div>
-
-              <div class="official-link-info">
-                <strong>основной Telegram-канал</strong>
-                <span>
-                  новости, материалы и обновления проекта
-                </span>
-              </div>
-
-              <span class="official-link-arrow">→</span>
-            </a>
-
-
-            <a
-              class="official-link-card"
-              href="https://t.me/+77xMDKXa0Zk3MTIy"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="official-link-icon">☁</div>
-
-              <div class="official-link-info">
-                <strong>общий чат</strong>
-                <span>
-                  общение, обсуждения и поддержка сообщества
-                </span>
-              </div>
-
-              <span class="official-link-arrow">→</span>
-            </a>
-
-
-            <a
-              class="official-link-card"
-              href="https://t.me/otzovisarttmolecule"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="official-link-icon">♡</div>
-
-              <div class="official-link-info">
-                <strong>канал с отзывами</strong>
-                <span>
-                  отзывы и впечатления наших читателей
-                </span>
-              </div>
-
-              <span class="official-link-arrow">→</span>
-            </a>
-
-
-            <a
-              class="official-link-card"
-              href="https://t.me/anonaskbot?start=molecule"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="official-link-icon">?</div>
-
-              <div class="official-link-info">
-                <strong>анонимный бот</strong>
-                <span>
-                  вопросы, предложения и обратная связь
-                </span>
-              </div>
-
-              <span class="official-link-arrow">→</span>
-            </a>
-
-
-            <a
-              class="official-link-card"
-              href="https://www.tiktok.com/@arttmolecule1?_r=1"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="official-link-icon">♪</div>
-
-              <div class="official-link-info">
-                <strong>TikTok</strong>
-                <span>
-                  короткие видео и материалы проекта
-                </span>
-              </div>
-
-              <span class="official-link-arrow">→</span>
-            </a>
-
-
-            <div class="official-links-warning">
-
-              <div class="official-links-warning-title">
-                ⚠ только официальные ресурсы
-              </div>
-
-              <p>
-                Все ссылки в этом разделе —
-                официальные ресурсы arttmolecule.
-              </p>
-
-              <p>
-                Все ссылки, которых нет в этом списке,
-                являются мошенническими.
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    `;
-
-    overlay
-      .querySelector("#linksBackButton")
-      .addEventListener(
-        "click",
-        showHome
-      );
-
-    document.body.style.overflow = "hidden";
-
-    return;
-  }
+   
   currentSectionId = sectionId;
 
   currentArticleId = null;
@@ -2241,6 +2062,187 @@ if (sectionId === "mood") {
   return;
 }
 
+  /* ================================================
+     ОФИЦИАЛЬНЫЕ ССЫЛКИ
+  ================================================ */
+
+  if (sectionId === "links") {
+
+    currentSectionId = "links";
+    currentArticleId = null;
+    currentPage = 0;
+
+    const overlay =
+      document.createElement("div");
+
+    overlay.id = "sectionOverlay";
+    overlay.className = "section-overlay";
+
+    document.body.appendChild(overlay);
+
+    overlay.innerHTML = `
+      <div class="section-overlay-inner">
+
+        <div class="screen-inner fade-in">
+
+          <button
+            class="back-button"
+            id="linksBackButton"
+          >
+            ← назад
+          </button>
+
+          <header class="section-header">
+
+            <p class="section-kicker">
+              official resources
+            </p>
+
+            <h1>
+              все ссылки
+            </h1>
+
+            <p>
+              наши официальные ресурсы и способы
+              связаться с проектом
+            </p>
+
+          </header>
+
+          <div class="official-links">
+
+            <a
+              class="official-link-card"
+              href="https://t.me/+8m49Mte-Um5lMGUy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="official-link-icon">✦</div>
+
+              <div class="official-link-info">
+                <strong>основной Telegram-канал</strong>
+                <span>
+                  новости, материалы и обновления проекта
+                </span>
+              </div>
+
+              <span class="official-link-arrow">→</span>
+            </a>
+
+
+            <a
+              class="official-link-card"
+              href="https://t.me/+77xMDKXa0Zk3MTIy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="official-link-icon">☁</div>
+
+              <div class="official-link-info">
+                <strong>общий чат</strong>
+                <span>
+                  общение, обсуждения и поддержка сообщества
+                </span>
+              </div>
+
+              <span class="official-link-arrow">→</span>
+            </a>
+
+
+            <a
+              class="official-link-card"
+              href="https://t.me/otzovisarttmolecule"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="official-link-icon">♡</div>
+
+              <div class="official-link-info">
+                <strong>канал с отзывами</strong>
+                <span>
+                  отзывы и впечатления наших читателей
+                </span>
+              </div>
+
+              <span class="official-link-arrow">→</span>
+            </a>
+
+
+            <a
+              class="official-link-card"
+              href="https://t.me/anonaskbot?start=molecule"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="official-link-icon">?</div>
+
+              <div class="official-link-info">
+                <strong>анонимный бот</strong>
+                <span>
+                  вопросы, предложения и обратная связь
+                </span>
+              </div>
+
+              <span class="official-link-arrow">→</span>
+            </a>
+
+
+            <a
+              class="official-link-card"
+              href="https://www.tiktok.com/@arttmolecule1?_r=1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="official-link-icon">♪</div>
+
+              <div class="official-link-info">
+                <strong>TikTok</strong>
+                <span>
+                  короткие видео и материалы проекта
+                </span>
+              </div>
+
+              <span class="official-link-arrow">→</span>
+            </a>
+
+
+            <div class="official-links-warning">
+
+              <div class="official-links-warning-title">
+                ⚠ только официальные ресурсы
+              </div>
+
+              <p>
+                Все ссылки в этом разделе —
+                официальные ресурсы arttmolecule.
+              </p>
+
+              <p>
+                Все ссылки, которых нет в этом списке,
+                являются мошенническими.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    `;
+
+    overlay
+      .querySelector("#linksBackButton")
+      .addEventListener(
+        "click",
+        showHome
+      );
+
+    document.body.style.overflow = "hidden";
+
+    return;
+  }
+   
   /* ================================================
      ИНСТРУМЕНТЫ
   ================================================ */
