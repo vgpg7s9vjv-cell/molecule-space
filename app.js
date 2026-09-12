@@ -1391,19 +1391,43 @@ function calculateEnergy() {
    ПОКАЗАТЬ ГЛАВНУЮ
 ================================================== */
 
+/* ==================================================
+   ПОКАЗАТЬ ГЛАВНУЮ
+================================================== */
+
 function showHome() {
 
   currentSectionId = null;
-
   currentArticleId = null;
-
   currentPage = 0;
+
+
+  const articleOverlay =
+    document.getElementById("articleOverlay");
+
+  if (articleOverlay) {
+    articleOverlay.remove();
+  }
+
+
+  const sectionOverlay =
+    document.getElementById("sectionOverlay");
+
+  if (sectionOverlay) {
+    sectionOverlay.remove();
+  }
+
+
+  document.body.style.overflow = "";
+
 
   contentScreen.classList.add("hidden");
 
   homeScreen.classList.remove("hidden");
 
+
   window.scrollTo(0, 0);
+
 }
 
 
@@ -2280,21 +2304,16 @@ function goBackFromArticle() {
     overlay.remove();
   }
 
-
   document.body.style.overflow = "";
 
-
   if (currentSectionId) {
-
     openSection(currentSectionId);
-
     return;
   }
 
-
   showHome();
-
 }
+
 /* ==================================================
    СЛЕДУЮЩАЯ СТРАНИЦА
 ================================================== */
