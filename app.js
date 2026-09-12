@@ -239,6 +239,12 @@ const sections = {
     ]
   },
 
+   settings: {
+  title: "настройки",
+  kicker: "settings",
+  description: "настройки приложения",
+  topics: []
+},
 
  links: {
 
@@ -262,12 +268,10 @@ const sections = {
             <li>сильная зависимость самооценки от внешности</li>
           </ul>
         `
-      }
-
+      },
     ]
-  }
-};
-   
+  };
+
 /* ==================================================
    СТАТЬИ
 ================================================== */
@@ -1524,22 +1528,6 @@ function openSection(sectionId) {
     .addEventListener("click", showHome);
 
 
-  document
-    .querySelectorAll("[data-article]")
-    .forEach(button => {
-
-      button.addEventListener("click", () => {
-
-        const articleId =
-          button.dataset.article;
-
-        openArticle(articleId);
-
-      });
-
-    });
-
-
   window.scrollTo(0, 0);
 }
 
@@ -1666,22 +1654,6 @@ function renderArticle() {
     );
 
 
-  document
-    .getElementById("previousButton")
-    .addEventListener(
-      "click",
-      previousPage
-    );
-
-
-  document
-    .getElementById("nextButton")
-    .addEventListener(
-      "click",
-      nextPage
-    );
-
-
   window.scrollTo(0, 0);
 }
 
@@ -1749,43 +1721,67 @@ function previousPage() {
    СОБЫТИЯ ГЛАВНОЙ
 ================================================== */
 
-document
-  .querySelectorAll("[data-section]")
-  .forEach(button => {
+document.addEventListener("click", (event) => {
 
-    button.addEventListener("click", () => {
+  const sectionButton = event.target.closest("[data-section]");
 
-      const sectionId =
-        button.dataset.section;
+  if (sectionButton) {
+    const sectionId = sectionButton.dataset.section;
 
-      openSection(sectionId);
+    if (sectionId === "settings") {
+      return;
+    }
 
-    });
+    openSection(sectionId);
+    return;
+  }
 
-  });
+  const articleButton = event.target.closest("[data-article]");
+
+  if (articleButton) {
+    const articleId = articleButton.dataset.article;
+
+    openArticle(articleId);
+    return;
+  }
+
+});
 
 
-newQuoteButton.addEventListener(
-  "click",
-  showNextQuote
-);
+if (newQuoteButton) {
+  newQuoteButton.addEventListener(
+    "click",
+    showNextQuote
+  );
+}
+
 
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
-    applyTheme(document.body.classList.contains("light-theme") ? "dark" : "light");
+
+    const isLight =
+      document.body.classList.contains("light-theme");
+
+    applyTheme(
+      isLight ? "dark" : "light"
+    );
+
   });
 }
 
+
 if (quickDiaryButton) {
-  quickDiaryButton.addEventListener("click", () => openSection("mood"));
+  quickDiaryButton.addEventListener(
+    "click",
+    () => openSection("mood")
+  );
 }
+
 
 initTheme();
 
 
-/* ==================================================
-   НЕМНОГО ПЛАВНОСТИ ДЛЯ ЦИТАТЫ
-================================================== */
-
-quoteElement.style.transition =
-  "opacity 0.12s ease";
+if (quoteElement) {
+  quoteElement.style.transition =
+    "opacity 0.12s ease";
+}
