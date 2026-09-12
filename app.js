@@ -1662,7 +1662,14 @@ function renderArticle() {
      а прямо в body */
 
   document.body.appendChild(overlay);
-
+overlay.style.position = "fixed";
+overlay.style.top = "0";
+overlay.style.left = "0";
+overlay.style.right = "0";
+overlay.style.bottom = "0";
+overlay.style.width = "100vw";
+overlay.style.height = "100dvh";
+overlay.style.zIndex = "2147483647";
 
   /* блокируем прокрутку страницы под статьей */
 
