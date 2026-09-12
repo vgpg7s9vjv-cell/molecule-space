@@ -836,10 +836,12 @@ button {
 }
 
 .article-nav-button.next {
-  color: var(--text);
+  color: var(25, 25, 112);
 }
 
 .article-nav-button.disabled {
+   color: var(25, 25, 112);
+}
   opacity: 0.35;
 
   pointer-events: none;
