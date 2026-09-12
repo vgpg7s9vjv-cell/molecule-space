@@ -936,3 +936,235 @@ button {
     margin-top: 20px;
   }
 }
+
+/* ==================================================
+   ТЕМА
+================================================== */
+
+:root {
+  --silver: #dce5f2;
+  --home-accent: var(--blue);
+  --input-bg: rgba(255, 255, 255, 0.045);
+}
+
+body,
+.home-screen,
+.content-screen,
+.topic-card,
+.section-tab,
+.quote-card,
+.article-nav-button,
+.diary-quick-card,
+.mood-entry,
+.calculator-card,
+.calculator-input,
+.theme-toggle {
+  transition:
+    background-color 0.45s ease,
+    background 0.45s ease,
+    color 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.home-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.theme-toggle {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line-light);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--silver);
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.theme-toggle:active { transform: scale(0.94); }
+.theme-toggle-icon { font-size: 18px; line-height: 1; }
+
+.diary-quick-card {
+  width: 100%;
+  margin-top: 10px;
+  padding: 16px 17px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-large);
+  background: var(--card);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.12);
+}
+
+.diary-quick-card:active { transform: scale(0.985); }
+.diary-quick-icon {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(168, 156, 255, 0.12);
+  color: var(--purple);
+  font-size: 19px;
+}
+.diary-quick-content { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.diary-quick-content strong { font-size: 13px; font-weight: 750; }
+.diary-quick-content small { color: var(--muted); font-size: 10px; line-height: 1.4; }
+.diary-quick-arrow { margin-left: auto; color: var(--muted); font-size: 22px; }
+
+/* ==================================================
+   СВЕТЛАЯ ТЕМА
+================================================== */
+
+body.light-theme {
+  --bg: #f3f0ff;
+  --bg-deep: #e9e5fb;
+  --card: rgba(255, 255, 255, 0.78);
+  --card-light: rgba(255, 255, 255, 0.94);
+  --text: #27304a;
+  --muted: #7883a0;
+  --muted-light: #56617c;
+  --blue: #83bfe7;
+  --purple: #a995dc;
+  --pink: #e9a9ca;
+  --silver: #68738c;
+  --line: rgba(72, 80, 116, 0.12);
+  --line-light: rgba(72, 80, 116, 0.18);
+  --input-bg: rgba(255, 255, 255, 0.72);
+}
+
+body.light-theme {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.light-theme .home-screen {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(173, 213, 239, 0.32), transparent 32%),
+    radial-gradient(circle at 90% 45%, rgba(199, 186, 235, 0.26), transparent 30%),
+    var(--bg);
+}
+
+body.light-theme .content-screen {
+  background:
+    radial-gradient(circle at 85% 0%, rgba(199, 186, 235, 0.22), transparent 32%),
+    var(--bg);
+}
+
+body.light-theme .quote-card {
+  background: linear-gradient(145deg, rgba(226, 224, 246, 0.92), rgba(236, 244, 250, 0.9));
+  box-shadow: 0 20px 60px rgba(88, 91, 125, 0.11), inset 0 1px 0 rgba(255,255,255,0.75);
+}
+
+body.light-theme .section-tab,
+body.light-theme .diary-quick-card,
+body.light-theme .topic-card,
+body.light-theme .calculator-card,
+body.light-theme .mood-entry {
+  box-shadow: 0 12px 35px rgba(88, 91, 125, 0.08);
+}
+
+/* ==================================================
+   КАЛЬКУЛЯТОРЫ
+================================================== */
+
+.calculator-list { display: flex; flex-direction: column; gap: 12px; }
+.calculator-card {
+  padding: 19px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-medium);
+  background: var(--card);
+}
+.calculator-card h3 { margin: 0 0 6px; font-size: 16px; }
+.calculator-card p { margin: 0 0 15px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+.calculator-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.calculator-field { display: flex; flex-direction: column; gap: 6px; }
+.calculator-field.full { grid-column: 1 / -1; }
+.calculator-field label { color: var(--muted); font-size: 10px; font-weight: 700; }
+.calculator-input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  outline: none;
+  background: var(--input-bg);
+  color: var(--text);
+}
+.calculator-input:focus { border-color: rgba(121, 201, 255, 0.5); }
+.calculator-button {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 11px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(121, 201, 255, 0.18), rgba(168, 156, 255, 0.18));
+  border: 1px solid var(--line-light);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 750;
+  cursor: pointer;
+}
+.calculator-result {
+  margin-top: 12px;
+  padding: 13px 14px;
+  border-radius: 13px;
+  background: rgba(121, 201, 255, 0.055);
+  border: 1px solid rgba(121, 201, 255, 0.12);
+  color: var(--muted-light);
+  font-size: 12px;
+  line-height: 1.55;
+}
+.calculator-result strong { color: var(--text); }
+
+/* ==================================================
+   ДНЕВНИК НАСТРОЕНИЯ
+================================================== */
+
+.diary-page { padding-bottom: 20px; }
+.diary-compose {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-large);
+  background: var(--card);
+  box-shadow: 0 16px 50px rgba(0,0,0,0.1);
+}
+.diary-date { margin: 0 0 13px; color: var(--muted); font-size: 11px; }
+.mood-picker { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 13px; }
+.mood-choice {
+  width: 39px; height: 39px; display: grid; place-items: center;
+  border: 1px solid var(--line); border-radius: 12px;
+  background: var(--input-bg); cursor: pointer; font-size: 18px;
+}
+.mood-choice.selected { border-color: rgba(168,156,255,0.55); background: rgba(168,156,255,0.13); transform: translateY(-1px); }
+.diary-textarea {
+  width: 100%; min-height: 125px; resize: vertical;
+  padding: 13px; border: 1px solid var(--line); border-radius: 14px;
+  outline: none; background: var(--input-bg); color: var(--text);
+  font: inherit; font-size: 13px; line-height: 1.6;
+}
+.diary-textarea:focus { border-color: rgba(168,156,255,0.45); }
+.diary-save { margin-top: 10px; }
+.diary-list { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+.mood-entry { padding: 16px; border: 1px solid var(--line); border-radius: var(--radius-medium); background: var(--card); }
+.mood-entry-head { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
+.mood-entry-emoji { font-size: 21px; }
+.mood-entry-date { color: var(--muted); font-size: 10px; }
+.mood-entry-text { margin: 0; color: var(--muted-light); font-size: 13px; line-height: 1.65; white-space: pre-wrap; }
+.diary-empty { padding: 22px 8px; text-align: center; color: var(--muted); font-size: 12px; line-height: 1.6; }
+
+@media (max-width: 430px) {
+  .calculator-grid { grid-template-columns: 1fr; }
+  .calculator-field.full { grid-column: auto; }
+}
