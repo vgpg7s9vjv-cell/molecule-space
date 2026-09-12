@@ -1546,7 +1546,6 @@ function openArticle(articleId) {
 
 }
 
-
 /* ==================================================
    РЕНДЕР СТРАНИЦЫ СТАТЬИ
 ================================================== */
@@ -1575,63 +1574,67 @@ function renderArticle() {
 
   contentContainer.innerHTML = `
 
-    <div class="screen-inner article-screen fade-in">
+    <div class="article-fullscreen fade-in">
 
-      <button
-        class="back-button"
-        id="articleBackButton"
-      >
-        ← назад
-      </button>
-
-
-      <header class="article-header">
-
-        <p class="article-category">
-          ${article.category}
-        </p>
-
-        <h1 class="article-title">
-          ${article.title}
-        </h1>
-
-      </header>
-
-
-      <article class="article-content">
-
-        <h2>
-          ${page.heading}
-        </h2>
-
-        ${page.content}
-
-      </article>
-
-
-      <div class="article-navigation">
+      <div class="article-fullscreen-inner">
 
         <button
-          class="article-nav-button ${isFirstPage ? "disabled" : ""}"
-          id="previousButton"
+          class="back-button"
+          id="articleBackButton"
         >
           ← назад
         </button>
 
 
-        <button
-          class="article-nav-button next ${isLastPage ? "disabled" : ""}"
-          id="nextButton"
-        >
-          дальше →
-        </button>
+        <header class="article-header">
+
+          <p class="article-category">
+            ${article.category}
+          </p>
+
+          <h1 class="article-title">
+            ${article.title}
+          </h1>
+
+        </header>
+
+
+        <article class="article-content">
+
+          <h2>
+            ${page.heading}
+          </h2>
+
+          ${page.content}
+
+        </article>
+
+
+        <div class="article-navigation">
+
+          <button
+            class="article-nav-button ${isFirstPage ? "disabled" : ""}"
+            id="previousButton"
+          >
+            ← назад
+          </button>
+
+
+          <button
+            class="article-nav-button next ${isLastPage ? "disabled" : ""}"
+            id="nextButton"
+          >
+            дальше →
+          </button>
+
+        </div>
+
+
+        <p class="page-counter">
+          ${currentPage + 1} / ${totalPages}
+        </p>
 
       </div>
-
-
-      <p class="page-counter">
-        ${currentPage + 1} / ${totalPages}
-      </p>
 
     </div>
 
@@ -1648,7 +1651,6 @@ function renderArticle() {
 
   window.scrollTo(0, 0);
 }
-
 
 /* ==================================================
    НАЗАД ИЗ СТАТЬИ
