@@ -471,7 +471,7 @@ const articles = {
   },
 
 
-  "rpp-compensation": {
+  "rpp-cycle": {
 
     section: "rpp",
 
@@ -546,7 +546,7 @@ const articles = {
   },
 
 
-  "rpp-recovery": {
+  "toxic-motivation": {
 
     section: "rpp",
 
@@ -622,7 +622,7 @@ const articles = {
      МЕДИЦИНА
   ========================== */
 
-  "medical-weight": {
+  "medical-tests": {
 
     section: "medical",
 
@@ -689,7 +689,7 @@ const articles = {
   },
 
 
-  "medical-bloating": {
+  "medical-disorders": {
 
     section: "medical",
 
@@ -761,7 +761,7 @@ const articles = {
   },
 
 
-  "medical-hormones": {
+  "medical-vitamins": {
 
     section: "medical",
 
@@ -813,7 +813,7 @@ const articles = {
      БАДЫ
   ========================== */
 
-  "supplements-label": {
+  "supplements-voice": {
 
     section: "supplements",
 
@@ -867,7 +867,7 @@ const articles = {
   },
 
 
-  "supplements-evidence": {
+  "supplements-rules": {
 
     section: "supplements",
 
@@ -915,7 +915,7 @@ const articles = {
   },
 
 
-  "supplements-risks": {
+  "supplements-myths": {
 
     section: "supplements",
 
@@ -1073,7 +1073,7 @@ const articles = {
   },
 
 
-  "tools-labels": {
+  "tools-math": {
 
     section: "tools",
 
