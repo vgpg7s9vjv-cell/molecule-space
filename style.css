@@ -1358,3 +1358,27 @@ body.light-theme .mood-entry {
 
   box-sizing: border-box;
 }
+
+/* светлая тема */
+
+body.light-theme .section-tab {
+  background: linear-gradient(
+    135deg,
+    #c9b6ff 0%,
+    #a9cfff 100%
+  );
+
+  color: #20233a;
+
+  border-color: rgba(120, 110, 190, 0.25);
+
+  box-shadow: 0 5px 16px rgba(120, 130, 190, 0.14);
+}
+
+body.light-theme .section-tab:active {
+  background: linear-gradient(
+    135deg,
+    #bda7ff 0%,
+    #98c5ff 100%
+  );
+}
