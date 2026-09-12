@@ -1525,27 +1525,582 @@ function openSection(sectionId) {
 
 
 /* ==================================================
-   ОТКРЫТЬ СТАТЬЮ
+   ОТКРЫТЬ РАЗДЕЛ
 ================================================== */
 
-function openArticle(articleId) {
+function openSection(sectionId) {
 
-  const article = articles[articleId];
+  const section = sections[sectionId];
 
-  if (!article) {
+  if (!section) {
     return;
   }
 
-  currentArticleId = articleId;
 
+  /* удаляем старый экран раздела */
+
+  const oldOverlay =
+    document.getElementById("sectionOverlay");
+
+  if (oldOverlay) {
+    oldOverlay.remove();
+  }
+
+
+  /* особые разделы */
+
+  if (sectionId === "mood") {
+
+    currentSectionId = "mood";
+    currentArticleId = null;
+    currentPage = 0;
+
+    const overlay =
+      document.createElement("div");
+
+    overlay.id = "sectionOverlay";
+    overlay.className = "section-overlay";
+
+    document.body.appendChild(overlay);
+
+    overlay.innerHTML = `
+      <div class="section-overlay-inner">
+        <div id="sectionContent"></div>
+      </div>
+    `;
+
+    /*
+      временно используем существующий
+      рендер дневника
+    */
+
+    const oldContainer = contentContainer;
+
+    /*
+      переносим содержимое дневника
+      в новый экран
+    */
+
+    const sectionContent =
+      overlay.querySelector("#sectionContent");
+
+    sectionContent.innerHTML = `
+      <div class="screen-inner diary-page fade-in">
+
+        <button
+          class="back-button"
+          id="diaryBackButton"
+        >
+          ← назад
+        </button>
+
+        <header class="section-header">
+
+          <p class="section-kicker">
+            mood journal
+          </p>
+
+          <h1>
+            дневник настроения
+          </h1>
+
+          <p>
+            место для коротких заметок о своем состоянии
+            и событиях дня.
+          </p>
+
+        </header>
+
+        <section class="diary-compose">
+
+          <p class="diary-date">
+            сегодня · ${new Date().toLocaleDateString(
+              "ru-RU",
+              {
+                day: "numeric",
+                month: "long"
+              }
+            )}
+          </p>
+
+          <div
+            class="mood-picker"
+            aria-label="Выбрать настроение"
+          >
+
+            ${[
+              "😔",
+              "😕",
+              "😐",
+              "🙂",
+              "😊",
+              "🥰",
+              "😤",
+              "😴",
+              "😰"
+            ].map(mood => `
+              <button
+                type="button"
+                class="mood-choice ${
+                  selectedMood === mood
+                    ? "selected"
+                    : ""
+                }"
+                data-mood="${mood}"
+              >
+                ${mood}
+              </button>
+            `).join("")}
+
+          </div>
+
+          <textarea
+            class="diary-textarea"
+            id="diaryText"
+            placeholder="что хочется записать?"
+          ></textarea>
+
+          <button
+            type="button"
+            class="calculator-button diary-save"
+            id="saveDiaryButton"
+          >
+            сохранить запись
+          </button>
+
+        </section>
+
+        <div class="diary-list">
+
+          ${getMoodEntries().length
+            ? getMoodEntries().map(entry => `
+              <article class="mood-entry">
+
+                <div class="mood-entry-head">
+
+                  <span class="mood-entry-emoji">
+                    ${entry.mood}
+                  </span>
+
+                  <span class="mood-entry-date">
+                    ${entry.date}
+                  </span>
+
+                </div>
+
+                <p class="mood-entry-text">
+                  ${escapeHtml(entry.text)}
+                </p>
+
+              </article>
+            `).join("")
+            : `
+              <div class="diary-empty">
+                здесь появятся твои записи.<br>
+                они сохраняются только в этом браузере.
+              </div>
+            `
+          }
+
+        </div>
+
+      </div>
+    `;
+
+
+    document
+      .getElementById("diaryBackButton")
+      .addEventListener(
+        "click",
+        showHome
+      );
+
+    return;
+  }
+
+
+  /* ================================================
+     ИНСТРУМЕНТЫ
+  ================================================ */
+
+  if (sectionId === "tools") {
+
+    currentSectionId = "tools";
+    currentArticleId = null;
+    currentPage = 0;
+
+    const overlay =
+      document.createElement("div");
+
+    overlay.id = "sectionOverlay";
+    overlay.className = "section-overlay";
+
+    document.body.appendChild(overlay);
+
+    overlay.innerHTML = `
+      <div class="section-overlay-inner">
+        <div id="sectionContent"></div>
+      </div>
+    `;
+
+    const sectionContent =
+      overlay.querySelector("#sectionContent");
+
+    sectionContent.innerHTML = `
+      <div class="screen-inner fade-in">
+
+        <button
+          class="back-button"
+          id="toolsBackButton"
+        >
+          ← назад
+        </button>
+
+        <header class="section-header">
+
+          <p class="section-kicker">
+            dietary calculations
+          </p>
+
+          <h1>
+            твой виртуальный счетовод
+          </h1>
+
+          <p>
+            расчетные инструменты с пояснением результата.
+            цифры здесь являются ориентиром,
+            а не медицинским назначением.
+          </p>
+
+        </header>
+
+        <div class="calculator-list">
+
+          <section class="calculator-card">
+
+            <h3>ИМТ</h3>
+
+            <p>
+              индекс массы тела по росту и массе.
+              результат не является диагнозом.
+            </p>
+
+            <div class="calculator-grid">
+
+              <div class="calculator-field">
+
+                <label for="bmiWeight">
+                  масса, кг
+                </label>
+
+                <input
+                  class="calculator-input"
+                  id="bmiWeight"
+                  type="number"
+                  min="1"
+                  step="0.1"
+                  inputmode="decimal"
+                >
+
+              </div>
+
+              <div class="calculator-field">
+
+                <label for="bmiHeight">
+                  рост, см
+                </label>
+
+                <input
+                  class="calculator-input"
+                  id="bmiHeight"
+                  type="number"
+                  min="1"
+                  step="1"
+                  inputmode="numeric"
+                >
+
+              </div>
+
+            </div>
+
+            <button
+              class="calculator-button"
+              id="calculateBmi"
+            >
+              рассчитать ИМТ
+            </button>
+
+            <div
+              class="calculator-result"
+              id="bmiResult"
+            >
+              введи данные выше.
+            </div>
+
+          </section>
+
+
+          <section class="calculator-card">
+
+            <h3>
+              энергетическая потребность
+            </h3>
+
+            <p>
+              оценка основного обмена и ориентировочных
+              суточных энергозатрат по формуле
+              Миффлина — Сан Жеора.
+            </p>
+
+            <div class="calculator-grid">
+
+              <div class="calculator-field">
+
+                <label for="calAge">
+                  возраст, лет
+                </label>
+
+                <input
+                  class="calculator-input"
+                  id="calAge"
+                  type="number"
+                  min="18"
+                  step="1"
+                  inputmode="numeric"
+                >
+
+              </div>
+
+              <div class="calculator-field">
+
+                <label for="calWeight">
+                  масса, кг
+                </label>
+
+                <input
+                  class="calculator-input"
+                  id="calWeight"
+                  type="number"
+                  min="1"
+                  step="0.1"
+                  inputmode="decimal"
+                >
+
+              </div>
+
+              <div class="calculator-field">
+
+                <label for="calHeight">
+                  рост, см
+                </label>
+
+                <input
+                  class="calculator-input"
+                  id="calHeight"
+                  type="number"
+                  min="1"
+                  step="1"
+                  inputmode="numeric"
+                >
+
+              </div>
+
+              <div class="calculator-field">
+
+                <label for="calSex">
+                  пол для формулы
+                </label>
+
+                <select
+                  class="calculator-input"
+                  id="calSex"
+                >
+                  <option value="female">
+                    женский
+                  </option>
+                  <option value="male">
+                    мужской
+                  </option>
+                </select>
+
+              </div>
+
+              <div class="calculator-field full">
+
+                <label for="calActivity">
+                  уровень активности
+                </label>
+
+                <select
+                  class="calculator-input"
+                  id="calActivity"
+                >
+                  <option value="1.2">
+                    минимальная активность
+                  </option>
+                  <option value="1.375">
+                    легкая активность
+                  </option>
+                  <option value="1.55">
+                    умеренная активность
+                  </option>
+                  <option value="1.725">
+                    высокая активность
+                  </option>
+                  <option value="1.9">
+                    очень высокая активность
+                  </option>
+                </select>
+
+              </div>
+
+            </div>
+
+            <button
+              class="calculator-button"
+              id="calculateEnergy"
+            >
+              рассчитать
+            </button>
+
+            <div
+              class="calculator-result"
+              id="energyResult"
+            >
+              введи данные выше.
+            </div>
+
+          </section>
+
+        </div>
+
+      </div>
+    `;
+
+
+    document
+      .getElementById("toolsBackButton")
+      .addEventListener(
+        "click",
+        showHome
+      );
+
+    document
+      .getElementById("calculateBmi")
+      .addEventListener(
+        "click",
+        calculateBmi
+      );
+
+    document
+      .getElementById("calculateEnergy")
+      .addEventListener(
+        "click",
+        calculateEnergy
+      );
+
+    return;
+  }
+
+
+  /* ================================================
+     ОБЫЧНЫЕ РАЗДЕЛЫ
+  ================================================ */
+
+  currentSectionId = sectionId;
+  currentArticleId = null;
   currentPage = 0;
 
-  currentSectionId = article.section;
 
-  renderArticle();
+  const overlay =
+    document.createElement("div");
+
+  overlay.id = "sectionOverlay";
+
+  overlay.className =
+    "section-overlay";
+
+
+  overlay.innerHTML = `
+
+    <div class="section-overlay-inner">
+
+      <button
+        class="back-button"
+        id="sectionBackButton"
+      >
+        ← назад
+      </button>
+
+
+      <header class="section-header">
+
+        <p class="section-kicker">
+          ${section.kicker}
+        </p>
+
+        <h1>
+          ${section.title}
+        </h1>
+
+        <p>
+          ${section.description}
+        </p>
+
+      </header>
+
+
+      <div class="topic-list">
+
+        ${section.topics.map(topic => `
+
+          <button
+            class="topic-card"
+            data-article="${topic.id}"
+          >
+
+            <div class="topic-card-content">
+
+              <p class="topic-card-title">
+                ${topic.title}
+              </p>
+
+              <p class="topic-card-description">
+                ${topic.description}
+              </p>
+
+            </div>
+
+            <span class="topic-arrow">
+              ›
+            </span>
+
+          </button>
+
+        `).join("")}
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  document.body.appendChild(overlay);
+
+
+  document.body.style.overflow =
+    "hidden";
+
+
+  document
+    .getElementById("sectionBackButton")
+    .addEventListener(
+      "click",
+      showHome
+    );
 
 }
-
 /* ==================================================
    РЕНДЕР СТРАНИЦЫ СТАТЬИ
 ================================================== */
