@@ -40,11 +40,15 @@
 
       <div class="home-content">
 
-        <div class="brand">
-          <span class="brand-star" style="font-size: 47px;">⚛︎</span>
-          <span>molecule space</span>
-       <footer class="footer"><em>by arttmolecule</em>
-      </footer>
+        <div class="home-topbar">
+          <div class="brand">
+            <span class="brand-star" style="font-size: 47px;">⚛︎</span>
+            <span>molecule space</span>
+          </div>
+
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему">
+            <span class="theme-toggle-icon" id="themeToggleIcon">☾</span>
+          </button>
         </div>
           
           <div class="quote-card">
@@ -59,6 +63,15 @@
               другая фраза 
             </button>
           </div>
+
+          <button class="diary-quick-card" id="quickDiaryButton" type="button">
+            <span class="diary-quick-icon">✎</span>
+            <span class="diary-quick-content">
+              <strong>добавить запись в дневник</strong>
+              <small>быстрая запись о том, как ты себя чувствуешь</small>
+            </span>
+            <span class="diary-quick-arrow">›</span>
+          </button>
 
         </div>
 
@@ -96,6 +109,11 @@
           <button class="section-tab" data-section="tools">
             <span class="tab-icon">⌁</span>
             <span>калькуляторы</span>
+          </button>
+
+          <button class="section-tab" data-section="mood">
+            <span class="tab-icon">☼</span>
+            <span>дневник настроения</span>
           </button>  
           
           <button class="section-tab" data-section="rpp">
