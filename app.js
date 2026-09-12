@@ -1318,6 +1318,22 @@ ${entries.length ? entries.map((entry, index) => `
     selectedMood = "🙂";
     renderMoodJournal();
   });
+
+  document.querySelectorAll("[data-delete-entry]").forEach(button => {
+  button.addEventListener("click", () => {
+
+    const index = Number(button.dataset.deleteEntry);
+
+    const entries = getMoodEntries();
+
+    entries.splice(index, 1);
+
+    localStorage.setItem("moodJournalEntries", JSON.stringify(entries));
+
+    renderMoodJournal();
+  });
+});
+
   window.scrollTo(0, 0);
 }
 
