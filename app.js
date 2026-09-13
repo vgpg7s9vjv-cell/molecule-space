@@ -1402,7 +1402,7 @@ const articles = {
    СОСТОЯНИЕ ПРИЛОЖЕНИЯ
 ================================================== */
 
-let currentSectionId = null;
+let currentSectionId = null:
 
 let currentPage = 0;
 
