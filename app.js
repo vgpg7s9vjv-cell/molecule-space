@@ -986,7 +986,7 @@ style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: 
           </ul> 
 
            <h3>🔸 НПВП обезболивающие</h3>
-           <p><i>с осторожностью!</i></p>⚠️
+           <p><i>с осторожностью!⚠️</i></p>
           <ul>
             <li>Ибупрофен (Ибупрофен не больше 400 мг в сутки)</li>
             <li>Нимесулид (Нимесил, Найз)</li>
@@ -995,7 +995,7 @@ style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: 
           </ul> 
           
            <h3>🔹 транквилизаторы и успокоительные</h3>
-            <p><i>в умеренных дозах!</i></p>⚠️
+            <p><i>в умеренных дозах!⚠️</i></p>
           <ul>
             <li>Гидроксизин (Атаракс)</li>
             <li>Тофизопам (Грандаксин)</li>
@@ -1229,6 +1229,10 @@ style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: 
             <li><b>в пределах</b> нормы: 5-10 кг</li>
             <li><b>выше</b> нормы: 8-16 кг</li>
           </ul> 
+
+          <img src="./images/plusbears.jpg"
+          alt="Фото6" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">            
         `
       },
 
