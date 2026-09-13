@@ -153,35 +153,6 @@ const sections = {
   },
 
 
-  tools: {
-    title: "твой виртуальный счетовод",
-
-    kicker: "dietary calculations",
-
-    description:
-      "расчет твоего личного ИМТ и счетчик дефицита калорий",
-
-    topics: [
-      {
-        id: "tools-bmi",
-        title: "ИМТ",
-        description: "рассчитаем Индекс Массы Тела"
-      },
-
-      {
-        id: "tools-calories",
-        title: "Счетчик дефицита калорий",
-        description: "расчет индивидуального дефицита по формуле Миффлина-Сан Жеора"
-      },
-
-      {
-        id: "tools-math",
-        title: "математический разбор",
-        description: "расшифровка результатов"
-      }
-    ]
-  },
-
    
  delicate: {
     title: "деликатные темы",
