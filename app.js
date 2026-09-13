@@ -1395,14 +1395,12 @@ const articles = {
       }
 
     ]
-},
-
+};
 
 /* ==================================================
    СОСТОЯНИЕ ПРИЛОЖЕНИЯ
 ================================================== */
-
-let currentSectionId = null; 
+let currentSectionId = null;
 
 let currentPage = 0; 
 
@@ -1418,14 +1416,11 @@ const homeScreen = document.getElementById("homeScreen");
 
 const contentScreen = document.getElementById("contentScreen");
 
-const contentContainer =
-  document.getElementById("contentContainer");
+const contentContainer = document.getElementById("contentContainer");
 
-const quoteElement =
-  document.getElementById("quote");
+const quoteElement = document.getElementById("quote");
 
-const newQuoteButton =
-  document.getElementById("newQuote");
+const newQuoteButton = document.getElementById("newQuote");
 
 const themeToggle = document.getElementById("themeToggle");
 const themeToggleIcon = document.getElementById("themeToggleIcon");
@@ -1570,7 +1565,9 @@ function renderMoodJournal() {
             >
               ${mood}
             </button>
-          `).join("")}
+          `).join("")
+          
+          }
         </div>
 
         <textarea
@@ -1930,7 +1927,9 @@ function openSection(sectionId) {
 
           </button>
 
-        `).join("")}
+        `).join("")
+        
+        }
 
       </div>
 
@@ -2056,7 +2055,9 @@ if (sectionId === "mood") {
               >
                 ${mood}
               </button>
-            `).join("")}
+            `).join("")
+            
+            }
 
           </div>
 
