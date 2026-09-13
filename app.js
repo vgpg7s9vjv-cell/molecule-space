@@ -1591,7 +1591,7 @@ let currentArticleId = null;
 
 let currentPage = 0;
 
-let selectedMood = "🙂";
+let selectedMood = "😊";
 const moodStorageKey = "molecule-space-mood-diary";
 const themeStorageKey = "molecule-space-theme";
 
@@ -1711,7 +1711,7 @@ function saveMoodEntry(text, mood) {
 
 function renderMoodJournal() {
   const entries = getMoodEntries();
-  const moods = ["😔", "😕", "😐", "🙂", "😊", "🥰", "😤", "😴", "😰"];
+  const moods = ["😊", "🥳", "🥰", "😕", "😣", ""😭, "😡", "🫩", "🤒"];
 
   contentContainer.innerHTML = `
     <div class="screen-inner diary-page fade-in">
@@ -1808,8 +1808,8 @@ function renderMoodJournal() {
               `).join("")
             : `
                 <div class="diary-empty">
-                  здесь появятся твои записи.<br>
-                  они сохраняются только в этом браузере.
+                  здесь появятся твои записи<br>
+                  они бережно хранятся только в этом приложении
                 </div>
               `
         }
@@ -1859,7 +1859,7 @@ function renderMoodJournal() {
         selectedMood
       );
 
-      selectedMood = "🙂";
+      selectedMood = "😊";
 
       renderMoodJournal();
 
@@ -1932,17 +1932,18 @@ function renderTools() {
         </section>
 
         <section class="calculator-card">
-          <h3>энергетическая потребность</h3>
-          <p>оценка основного обмена и суточного сжигания калорий по формуле Миффлина — Сан Жеора.</p>
+          <h3>норма и дефицит калорий</h3>
+          <p>оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле
+              Миффлина — Сан Жеора</p>
           <div class="calculator-grid">
             <div class="calculator-field"><label for="calAge">возраст, лет</label><input class="calculator-input" id="calAge" type="number" min="12" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calWeight">масса, кг</label><input class="calculator-input" id="calWeight" type="number" min="1" step="0.1" inputmode="decimal"></div>
             <div class="calculator-field"><label for="calHeight">рост, см</label><input class="calculator-input" id="calHeight" type="number" min="1" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calSex">пол для формулы</label><select class="calculator-input" id="calSex"><option value="female">женский</option><option value="male">мужской</option></select></div>
-            <div class="calculator-field full"><label for="calActivity">уровень активности</label><select class="calculator-input" id="calActivity"><option value="1.2">минимальная активность</option><option value="1.375">легкая активность</option><option value="1.55">умеренная активность</option><option value="1.725">высокая активность</option><option value="1.9">очень высокая активность</option></select></div>
+            <div class="calculator-field full"><label for="calActivity">уровень активности</label><select class="calculator-input" id="calActivity"><option value="1.2">минимальная активность(сидячий образ жизни)</option><option value="1.375">легкая активность(физнагрузка 1-3 раз в неделю)</option><option value="1.55">умеренная активность(физнагрузка 3-5 раз в неделю)</option><option value="1.725">высокая активность(физнагрузка 6-7 раз в неделю)</option><option value="1.9">очень высокая активность(ежедневная физнагрузка)</option></select></div>
           </div>
           <button class="calculator-button" id="calculateEnergy">рассчитать</button>
-          <div class="calculator-result" id="energyResult">введи данные выше.</div>
+          <div class="calculator-result" id="energyResult">введи данные выше</div>
         </section>
       </div>
     </div>
@@ -1958,9 +1959,9 @@ function calculateBmi() {
   const weight = Number(document.getElementById("bmiWeight").value);
   const heightCm = Number(document.getElementById("bmiHeight").value);
   const result = document.getElementById("bmiResult");
-  if (!weight || !heightCm || weight <= 0 || heightCm <= 0) { result.textContent = "пожалуйста, введи массу и рост."; return; }
+  if (!weight || !heightCm || weight <= 0 || heightCm <= 0) { result.textContent = "пожалуйста, введи массу и рост"; return; }
   const bmi = weight / Math.pow(heightCm / 100, 2);
-  result.innerHTML = `<strong>ИМТ: ${bmi.toFixed(1)}</strong><br>это расчетный показатель и его интерпретация зависит от возраста и клинического контекста`;
+  result.innerHTML = `<strong>ИМТ: ${bmi.toFixed(1)}</strong>`;
 }
 
 function calculateEnergy() {
@@ -2199,7 +2200,7 @@ if (sectionId === "mood") {
 
           <p>
             место для коротких заметок о своем состоянии
-            и событиях дня.
+            и событиях дня ♡ 
           </p>
 
         </header>
@@ -2222,15 +2223,15 @@ if (sectionId === "mood") {
           >
 
             ${[
-              "😔",
-              "😕",
-              "😐",
-              "🙂",
               "😊",
+              "🥳",
               "🥰",
-              "😤",
-              "😴",
-              "😰"
+              "😕",
+              "😣",
+              "😭",
+              "😡",
+              "🫩",
+              "🤒"
             ].map(mood => `
               <button
                 type="button"
@@ -2298,8 +2299,8 @@ if (sectionId === "mood") {
                 `).join("")
               : `
                   <div class="diary-empty">
-                    здесь появятся твои записи.<br>
-                    они сохраняются только в этом браузере.
+                    здесь появятся твои записи<br>
+                    они бережно хранятся только в этом приложении
                   </div>
                 `
           }
@@ -2367,7 +2368,7 @@ if (sectionId === "mood") {
           selectedMood
         );
 
-        selectedMood = "🙂";
+        selectedMood = "😊";
 
         openSection("mood");
 
@@ -2479,7 +2480,7 @@ if (sectionId === "mood") {
               <div class="official-link-info">
                 <strong>основной Telegram-канал</strong>
                 <span>
-                  новости, материалы и обновления проекта
+                  публикуем новые артикулы ежедневно
                 </span>
               </div>
 
@@ -2498,7 +2499,7 @@ if (sectionId === "mood") {
               <div class="official-link-info">
                 <strong>общий чат</strong>
                 <span>
-                  общение, обсуждения и поддержка сообщества
+                  самый лояльный чат, где тебя поддержат и помогут
                 </span>
               </div>
 
@@ -2515,9 +2516,9 @@ if (sectionId === "mood") {
               <div class="official-link-icon">♡</div>
 
               <div class="official-link-info">
-                <strong>канал с отзывами</strong>
+                <strong>канал с информацией</strong>
                 <span>
-                  отзывы и впечатления наших читателей
+                  не менее важный и информативный тгк
                 </span>
               </div>
 
@@ -2536,7 +2537,7 @@ if (sectionId === "mood") {
               <div class="official-link-info">
                 <strong>анонимный бот</strong>
                 <span>
-                  вопросы, предложения и обратная связь
+                  задай вопрос или предложи тему для поста
                 </span>
               </div>
 
@@ -2555,7 +2556,7 @@ if (sectionId === "mood") {
               <div class="official-link-info">
                 <strong>TikTok</strong>
                 <span>
-                  короткие видео и материалы проекта
+                  тикитоки, шутки, сотрудничество
                 </span>
               </div>
 
@@ -2566,17 +2567,15 @@ if (sectionId === "mood") {
             <div class="official-links-warning">
 
               <div class="official-links-warning-title">
-                ⚠ только официальные ресурсы
+                ⚠ только официальные ссылки
               </div>
 
               <p>
-                Все ссылки в этом разделе —
-                официальные ресурсы arttmolecule.
+                все ссылки в этом разделе — наши официальные соц.сети
               </p>
 
               <p>
-                Все ссылки, которых нет в этом списке,
-                являются мошенническими.
+                ссылки, которые не были опубликованы здесь – <b>мошеннические!</b>
               </p>
 
             </div>
@@ -2648,9 +2647,7 @@ if (sectionId === "mood") {
           </h1>
 
           <p>
-            расчетные инструменты с пояснением результата.
-            цифры здесь являются ориентиром,
-            а не медицинским назначением.
+            минималистичные калькуляторы с небольшим пояснением результата
           </p>
 
         </header>
@@ -2662,8 +2659,7 @@ if (sectionId === "mood") {
             <h3>ИМТ</h3>
 
             <p>
-              индекс массы тела по росту и массе.
-              результат не является диагнозом.
+              индекс массы тела по росту и массе
             </p>
 
             <div class="calculator-grid">
@@ -2715,7 +2711,7 @@ if (sectionId === "mood") {
               class="calculator-result"
               id="bmiResult"
             >
-              введи данные выше.
+              введи данные выше
             </div>
 
           </section>
@@ -2724,13 +2720,12 @@ if (sectionId === "mood") {
           <section class="calculator-card">
 
             <h3>
-              энергетическая потребность
+              норма и дефицит калорий
             </h3>
 
             <p>
-              оценка основного обмена и ориентировочных
-              суточных энергозатрат по формуле
-              Миффлина — Сан Жеора.
+              оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле
+              Миффлина — Сан Жеора
             </p>
 
             <div class="calculator-grid">
@@ -2745,7 +2740,7 @@ if (sectionId === "mood") {
                   class="calculator-input"
                   id="calAge"
                   type="number"
-                  min="18"
+                  min="12"
                   step="1"
                   inputmode="numeric"
                 >
@@ -2817,19 +2812,19 @@ if (sectionId === "mood") {
                   id="calActivity"
                 >
                   <option value="1.2">
-                    минимальная активность
+                    минимальная активность(сидячий образ жизни)
                   </option>
                   <option value="1.375">
-                    легкая активность
+                    легкая активность(физнагрузка 1-3 раза в неделю)
                   </option>
                   <option value="1.55">
-                    умеренная активность
+                    умеренная активность(физнагрузка 3-5 раз в неделю)
                   </option>
                   <option value="1.725">
-                    высокая активность
+                    высокая активность(физнагрузка 6-7 раз в неделю)
                   </option>
                   <option value="1.9">
-                    очень высокая активность
+                    очень высокая активность(ежедневная физнагрузка)
                   </option>
                 </select>
 
@@ -2848,7 +2843,7 @@ if (sectionId === "mood") {
               class="calculator-result"
               id="energyResult"
             >
-              введи данные выше.
+              введи данные выше
             </div>
 
           </section>
