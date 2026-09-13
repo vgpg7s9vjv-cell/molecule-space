@@ -54,8 +54,7 @@ button {
   font: inherit;
 }
 
-button,
-a {
+button {
   -webkit-tap-highlight-color: transparent;
 }
 
