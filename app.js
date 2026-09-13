@@ -263,7 +263,7 @@ links: {
 
           <a
             class="official-link-card"
-            href="https://t.me/otzovisarttmolecule"
+            href="https://t.me/+v9wqv4HaBlIxNjBi"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -1528,7 +1528,7 @@ function saveMoodEntry(text, mood) {
 
 function renderMoodJournal() {
   const entries = getMoodEntries();
-  const moods = ["😊", "🥳", "🥰", "😕", "😣", ""😭, "😡", "🫩", "🤒"];
+  const moods = ["😊", "🥳", "🥰", "😕", "😣", "😭", "😡", "🫩", "🤒"];
 
   contentContainer.innerHTML = `
     <div class="screen-inner diary-page fade-in">
@@ -2015,8 +2015,7 @@ if (sectionId === "mood") {
           </h1>
 
           <p>
-            место для коротких заметок о своем состоянии
-            и событиях дня ♡ 
+            место для коротких заметок о своем состоянии и событиях дня ♡ 
           </p>
 
         </header>
@@ -2320,7 +2319,7 @@ if (sectionId === "mood") {
 
             <a
               class="official-link-card"
-              href="https://t.me/otzovisarttmolecule"
+              href="https://t.me/+v9wqv4HaBlIxNjBi"
               target="_blank"
               rel="noopener noreferrer"
             >
