@@ -1636,7 +1636,7 @@ function applyTheme(theme) {
   document.body.classList.toggle("light-theme", isLight);
 
   if (themeToggleIcon) {
-    themeToggleIcon.textContent = isLight ? "☀" : "☾";
+    themeToggleIcon.textContent = isLight ? "☼" : "☾";
   }
 
   if (themeToggle) {
@@ -1715,7 +1715,7 @@ function renderMoodJournal() {
         </h1>
 
         <p>
-          место для коротких заметок о своем состоянии и событиях дня.
+          место для коротких заметок о своем состоянии и событиях дня ♡
         </p>
       </header>
 
@@ -1730,7 +1730,7 @@ function renderMoodJournal() {
 
         <div
           class="mood-picker"
-          aria-label="Выбрать настроение"
+          aria-label="Выбери настроение"
         >
           ${moods.map(mood => `
             <button
@@ -1785,7 +1785,7 @@ function renderMoodJournal() {
                     class="diary-delete-button"
                     data-delete-entry="${index}"
                   >
-                    удалить запись
+                    удалить
                   </button>
 
                 </article>
@@ -1900,13 +1900,13 @@ function renderTools() {
       <header class="section-header">
         <p class="section-kicker">dietary calculations</p>
         <h1>твой виртуальный счетовод</h1>
-        <p>расчетные инструменты с пояснением результата. цифры здесь являются ориентиром, а не медицинским назначением.</p>
+        <p>минималистичные калькуляторы с небольшим пояснением результата</p>
       </header>
 
       <div class="calculator-list">
         <section class="calculator-card">
           <h3>ИМТ</h3>
-          <p>индекс массы тела по росту и массе. результат не является диагнозом.</p>
+          <p>индекс массы тела по росту и массе</p>
           <div class="calculator-grid">
             <div class="calculator-field"><label for="bmiWeight">масса, кг</label><input class="calculator-input" id="bmiWeight" type="number" min="1" step="0.1" inputmode="decimal"></div>
             <div class="calculator-field"><label for="bmiHeight">рост, см</label><input class="calculator-input" id="bmiHeight" type="number" min="1" step="1" inputmode="numeric"></div>
@@ -1917,9 +1917,9 @@ function renderTools() {
 
         <section class="calculator-card">
           <h3>энергетическая потребность</h3>
-          <p>оценка основного обмена и ориентировочных суточных энергозатрат по формуле Миффлина — Сан Жеора.</p>
+          <p>оценка основного обмена и суточного сжигания калорий по формуле Миффлина — Сан Жеора.</p>
           <div class="calculator-grid">
-            <div class="calculator-field"><label for="calAge">возраст, лет</label><input class="calculator-input" id="calAge" type="number" min="18" step="1" inputmode="numeric"></div>
+            <div class="calculator-field"><label for="calAge">возраст, лет</label><input class="calculator-input" id="calAge" type="number" min="12" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calWeight">масса, кг</label><input class="calculator-input" id="calWeight" type="number" min="1" step="0.1" inputmode="decimal"></div>
             <div class="calculator-field"><label for="calHeight">рост, см</label><input class="calculator-input" id="calHeight" type="number" min="1" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calSex">пол для формулы</label><select class="calculator-input" id="calSex"><option value="female">женский</option><option value="male">мужской</option></select></div>
@@ -1944,7 +1944,7 @@ function calculateBmi() {
   const result = document.getElementById("bmiResult");
   if (!weight || !heightCm || weight <= 0 || heightCm <= 0) { result.textContent = "пожалуйста, введи массу и рост."; return; }
   const bmi = weight / Math.pow(heightCm / 100, 2);
-  result.innerHTML = `<strong>ИМТ: ${bmi.toFixed(1)}</strong><br>это расчетный показатель; его интерпретация зависит от возраста и клинического контекста.`;
+  result.innerHTML = `<strong>ИМТ: ${bmi.toFixed(1)}</strong><br>это расчетный показатель и его интерпретация зависит от возраста и клинического контекста`;
 }
 
 function calculateEnergy() {
@@ -1954,10 +1954,10 @@ function calculateEnergy() {
   const sex = document.getElementById("calSex").value;
   const activity = Number(document.getElementById("calActivity").value);
   const result = document.getElementById("energyResult");
-  if (!age || age < 18 || !weight || !height) { result.textContent = "этот расчет предназначен для взрослых: введи возраст 18+ и остальные данные."; return; }
+  if (!age || age < 12 || !weight || !height) { result.textContent = "введен возраст ниже 12 лет, попробуй ввести другой"; return; }
   const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
-  const tdee = bmr * activity;
-  result.innerHTML = `<strong>основной обмен: ${Math.round(bmr)} ккал/сутки</strong><br>ориентировочные общие энергозатраты: ${Math.round(tdee)} ккал/сутки.<br><br>это оценка по формуле, а не индивидуальное медицинское назначение.`;
+  const tdee = bmr * activity * 0.8;
+  result.innerHTML = `<strong>основное количество сжигаемых тобой калорий ${Math.round(bmr)} ккал/сутки</strong><br>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки`;
 }
 
 
