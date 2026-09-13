@@ -1275,17 +1275,6 @@ const articles = {
             <li><b>выше</b> нормы: 8-16 кг</li>
           </ul> 
         `
-      <figure class="article-figure">
-   <img
-    class="article-image"
-    src="./jpeg/plusbears.jpg"
-    alt="иллюстрация с мишкой и молекулой"
-   >
-
-  <figcaption>
-    "molecule plus"
-  </figcaption>
-</figure>
       },
 
 
