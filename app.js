@@ -148,7 +148,7 @@ const sections = {
   mood: {
     title: "дневник настроения",
     kicker: "mood journal",
-    description: "личные записи, настроение и мысли — в одном спокойном месте",
+    description: "личные заметки и настроение — в одном спокойном месте",
     topics: []
   },
 
@@ -159,25 +159,19 @@ const sections = {
     kicker: "dietary calculations",
 
     description:
-      "расчет твоего личного ИМТ с расшифровкой, счетчик дефицита калорий и куча полезных цифр",
+      "расчет твоего ИМТ и счетчик дефицита калорий",
 
     topics: [
       {
         id: "tools-bmi",
         title: "ИМТ",
-        description: "рассчитаем Индекс Массы Тела и отправим результаты прямо в лс"
+        description: "рассчитаем Индекс Массы Тела"
       },
 
       {
         id: "tools-calories",
         title: "Счетчик дефицита калорий",
         description: "расчет индивидуального дефицита по формуле Миффлина-Сан Жеора"
-      },
-
-      {
-        id: "tools-math",
-        title: "математический разбор",
-        description: "норма сна, воды, активности и как выглядит идеальное БЖУ"
       }
     ]
   },
@@ -1416,153 +1410,8 @@ const articles = {
 
     title: "ИМТ",
 
-    category: "инструменты",
-
-    pages: [
-
-      {
-        heading: "что такое ИМТ",
-
-        content: `
-          <p>
-            индекс массы тела рассчитывается как отношение массы тела
-            в килограммах к квадрату роста в метрах.
-          </p>
-
-          <p>
-            показатель используется как статистический инструмент
-            для оценки групп населения, но не является полноценной
-            диагностикой состояния конкретного человека.
-          </p>
-        `
-      },
-
-
-      {
-        heading: "почему одной цифры недостаточно",
-
-        content: `
-          <p>
-            ИМТ не учитывает состав тела, распределение жировой ткани,
-            возраст, заболевания, лекарства и множество других факторов.
-          </p>
-
-          <div class="info-box">
-            <p>
-              поэтому ИМТ нельзя использовать как самостоятельный
-              диагноз здоровья или пищевого поведения.
-            </p>
-          </div>
-        `
-      }
-
-    ]
+    category: "calculations"
   },
-
-
-  "tools-calories": {
-
-    section: "tools",
-
-    title: "энергетический баланс",
-
-    category: "инструменты",
-
-    pages: [
-
-      {
-        heading: "что такое энергетический баланс",
-
-        content: `
-          <p>
-            организм постоянно получает и расходует энергию.
-            энергия поступает преимущественно с пищей,
-            а расход складывается из нескольких компонентов.
-          </p>
-
-          <p>
-            основной обмен, физическая активность,
-            термический эффект пищи и другие процессы вместе
-            формируют общие энергозатраты.
-          </p>
-        `
-      },
-
-
-      {
-        heading: "расчеты имеют ограничения",
-
-        content: `
-          <p>
-            формулы для расчета энергозатрат дают оценку,
-            а не измеряют фактический расход энергии конкретного человека.
-          </p>
-
-          <p>
-            реальный расход может отличаться от расчетного,
-            поэтому любые калькуляторы следует воспринимать
-            как справочный инструмент, а не как медицинское предписание.
-          </p>
-        `
-      }
-
-    ]
-  },
-
-
-  "tools-math": {
-
-    section: "tools",
-
-    title: "разбор этикетки",
-
-    category: "инструменты",
-
-    pages: [
-
-      {
-        heading: "калорийность",
-
-        content: `
-          <p>
-            энергетическая ценность показывает количество энергии,
-            указанное для определенного количества продукта.
-          </p>
-
-          <p>
-            при сравнении продуктов важно смотреть,
-            указано ли значение на 100 г, порцию или упаковку целиком.
-          </p>
-        `
-      },
-
-
-      {
-        heading: "БЖУ",
-
-        content: `
-          <p>
-            белки, жиры и углеводы являются основными макронутриентами.
-          </p>
-
-          <p>
-            их количество на этикетке помогает понять состав продукта,
-            но само по себе не превращает продукт в «хороший» или «плохой».
-          </p>
-
-          <div class="info-box">
-            <p>
-              состав продукта можно анализировать без присвоения
-              еде моральной оценки.
-            </p>
-          </div>
-        `
-      }
-
-    ]
-  }
-
-};
 
 
 /* ==================================================
@@ -1695,7 +1544,7 @@ function saveMoodEntry(text, mood) {
 
 function renderMoodJournal() {
   const entries = getMoodEntries();
-  const moods = ["😔", "😕", "😐", "🙂", "😊", "🥰", "😤", "😴", "😰"];
+  const moods = ["😊", "🥳", "🥰", "😕", "😣", "😭", "😡", "🫩", "🤒"];
 
   contentContainer.innerHTML = `
     <div class="screen-inner diary-page fade-in">
@@ -1792,8 +1641,8 @@ function renderMoodJournal() {
               `).join("")
             : `
                 <div class="diary-empty">
-                  здесь появятся твои записи.<br>
-                  они сохраняются только в этом браузере.
+                  здесь появятся твои записи<br>
+                  они бережно хранятся только в этом приложении
                 </div>
               `
         }
@@ -1843,7 +1692,7 @@ function renderMoodJournal() {
         selectedMood
       );
 
-      selectedMood = "🙂";
+      selectedMood = "😊";
 
       renderMoodJournal();
 
@@ -1912,21 +1761,21 @@ function renderTools() {
             <div class="calculator-field"><label for="bmiHeight">рост, см</label><input class="calculator-input" id="bmiHeight" type="number" min="1" step="1" inputmode="numeric"></div>
           </div>
           <button class="calculator-button" id="calculateBmi">рассчитать ИМТ</button>
-          <div class="calculator-result" id="bmiResult">введи данные выше.</div>
+          <div class="calculator-result" id="bmiResult">введи данные выше</div>
         </section>
 
         <section class="calculator-card">
-          <h3>энергетическая потребность</h3>
-          <p>оценка основного обмена и суточного сжигания калорий по формуле Миффлина — Сан Жеора.</p>
+          <h3>норма и дефицит суточно потребления калорий</h3>
+          <p>оценка основной нормы и дефицита калорий по формуле Миффлина – Сан Жеора.</p>
           <div class="calculator-grid">
             <div class="calculator-field"><label for="calAge">возраст, лет</label><input class="calculator-input" id="calAge" type="number" min="12" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calWeight">масса, кг</label><input class="calculator-input" id="calWeight" type="number" min="1" step="0.1" inputmode="decimal"></div>
             <div class="calculator-field"><label for="calHeight">рост, см</label><input class="calculator-input" id="calHeight" type="number" min="1" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calSex">пол для формулы</label><select class="calculator-input" id="calSex"><option value="female">женский</option><option value="male">мужской</option></select></div>
-            <div class="calculator-field full"><label for="calActivity">уровень активности</label><select class="calculator-input" id="calActivity"><option value="1.2">минимальная активность</option><option value="1.375">легкая активность</option><option value="1.55">умеренная активность</option><option value="1.725">высокая активность</option><option value="1.9">очень высокая активность</option></select></div>
+            <div class="calculator-field full"><label for="calActivity">уровень твоей активности</label><select class="calculator-input" id="calActivity"><option value="1.2">сидячий, малоподвижный</option><option value="1.375">легкая активность(физнагрузка 1-3 раза в неделю)</option><option value="1.55">умеренная активность(физнагрузка 3-5 раз в неделю)</option><option value="1.725">высокая активность(физнагрузка 6-7 раз в неделю)</option><option value="1.9">очень высокая активность(физнагрузка ежедневно/постоянно)</option></select></div>
           </div>
           <button class="calculator-button" id="calculateEnergy">рассчитать</button>
-          <div class="calculator-result" id="energyResult">введи данные выше.</div>
+          <div class="calculator-result" id="energyResult">введи данные выше</div>
         </section>
       </div>
     </div>
@@ -1942,9 +1791,9 @@ function calculateBmi() {
   const weight = Number(document.getElementById("bmiWeight").value);
   const heightCm = Number(document.getElementById("bmiHeight").value);
   const result = document.getElementById("bmiResult");
-  if (!weight || !heightCm || weight <= 0 || heightCm <= 0) { result.textContent = "пожалуйста, введи массу и рост."; return; }
+  if (!weight || !heightCm || weight <= 0 || heightCm <= 0) { result.textContent = "пожалуйста, введи массу и рост"; return; }
   const bmi = weight / Math.pow(heightCm / 100, 2);
-  result.innerHTML = `<strong>ИМТ: ${bmi.toFixed(1)}</strong><br>это расчетный показатель и его интерпретация зависит от возраста и клинического контекста`;
+  result.innerHTML = `<strong>ИМТ: ${bmi.toFixed(1)}`;
 }
 
 function calculateEnergy() {
@@ -1956,7 +1805,7 @@ function calculateEnergy() {
   const result = document.getElementById("energyResult");
   if (!age || age < 12 || !weight || !height) { result.textContent = "введен возраст ниже 12 лет, попробуй ввести другой"; return; }
   const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
-  const tdee = bmr * activity * 0.8;
+  const tdee = bmr * activity * 0.9;
   result.innerHTML = `<strong>основное количество сжигаемых тобой калорий ${Math.round(bmr)} ккал/сутки</strong><br>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки`;
 }
 
@@ -2183,7 +2032,7 @@ if (sectionId === "mood") {
 
           <p>
             место для коротких заметок о своем состоянии
-            и событиях дня.
+            и событиях дня
           </p>
 
         </header>
@@ -2206,15 +2055,15 @@ if (sectionId === "mood") {
           >
 
             ${[
-              "😔",
-              "😕",
-              "😐",
-              "🙂",
               "😊",
+              "🥳",
               "🥰",
-              "😤",
-              "😴",
-              "😰"
+              "😕",
+              "😣",
+              "😭",
+              "😡",
+              "🫩",
+              "🤒"
             ].map(mood => `
               <button
                 type="button"
@@ -2242,7 +2091,7 @@ if (sectionId === "mood") {
             class="calculator-button diary-save"
             id="saveDiaryButton"
           >
-            сохранить запись
+            сохранить
           </button>
 
         </section>
@@ -2282,8 +2131,8 @@ if (sectionId === "mood") {
                 `).join("")
               : `
                   <div class="diary-empty">
-                    здесь появятся твои записи.<br>
-                    они сохраняются только в этом браузере.
+                    здесь появятся твои записи<br>
+                    они бережно хранятся только в этом приложении
                   </div>
                 `
           }
@@ -2351,7 +2200,7 @@ if (sectionId === "mood") {
           selectedMood
         );
 
-        selectedMood = "🙂";
+        selectedMood = "😊";
 
         openSection("mood");
 
@@ -2444,8 +2293,8 @@ if (sectionId === "mood") {
             </h1>
 
             <p>
-              наши официальные ресурсы и способы
-              связаться с проектом
+              наши ресурсы, где мы выкладываем развлекательный контент, товары
+              и способы с нами связаться
             </p>
 
           </header>
@@ -2463,7 +2312,7 @@ if (sectionId === "mood") {
               <div class="official-link-info">
                 <strong>основной Telegram-канал</strong>
                 <span>
-                  новости, материалы и обновления проекта
+                  новые артикулы ежедневно
                 </span>
               </div>
 
@@ -2482,7 +2331,7 @@ if (sectionId === "mood") {
               <div class="official-link-info">
                 <strong>общий чат</strong>
                 <span>
-                  общение, обсуждения и поддержка сообщества
+                  самый милый и добрый
                 </span>
               </div>
 
@@ -2501,7 +2350,7 @@ if (sectionId === "mood") {
               <div class="official-link-info">
                 <strong>канал с отзывами</strong>
                 <span>
-                  отзывы и впечатления наших читателей
+                  канал с не менее полезной информацией, чем тут
                 </span>
               </div>
 
@@ -2520,7 +2369,8 @@ if (sectionId === "mood") {
               <div class="official-link-info">
                 <strong>анонимный бот</strong>
                 <span>
-                  вопросы, предложения и обратная связь
+                  здесь можно задать вопрос или предложить
+                  свою идею для поста/развития тгк
                 </span>
               </div>
 
@@ -2539,7 +2389,7 @@ if (sectionId === "mood") {
               <div class="official-link-info">
                 <strong>TikTok</strong>
                 <span>
-                  короткие видео и материалы проекта
+                  тикитоки
                 </span>
               </div>
 
@@ -2550,17 +2400,17 @@ if (sectionId === "mood") {
             <div class="official-links-warning">
 
               <div class="official-links-warning-title">
-                ⚠ только официальные ресурсы
+                ⚠ <b>только официальные ссылки</b>
               </div>
 
               <p>
-                Все ссылки в этом разделе —
-                официальные ресурсы arttmolecule.
+                все ссылки в этом разделе —
+                официальные
               </p>
 
               <p>
-                Все ссылки, которых нет в этом списке,
-                являются мошенническими.
+                ссылки, которые здесь не опубликованы
+                – <b><i>мошеннические!</i></b>
               </p>
 
             </div>
@@ -2632,9 +2482,7 @@ if (sectionId === "mood") {
           </h1>
 
           <p>
-            расчетные инструменты с пояснением результата.
-            цифры здесь являются ориентиром,
-            а не медицинским назначением.
+            быстро рассчитаем твои ИМТ, норму и дефицит калорий
           </p>
 
         </header>
@@ -2646,8 +2494,7 @@ if (sectionId === "mood") {
             <h3>ИМТ</h3>
 
             <p>
-              индекс массы тела по росту и массе.
-              результат не является диагнозом.
+              индекс массы тела по росту и массе
             </p>
 
             <div class="calculator-grid">
@@ -2699,7 +2546,7 @@ if (sectionId === "mood") {
               class="calculator-result"
               id="bmiResult"
             >
-              введи данные выше.
+              введи данные выше
             </div>
 
           </section>
@@ -2708,13 +2555,12 @@ if (sectionId === "mood") {
           <section class="calculator-card">
 
             <h3>
-              энергетическая потребность
+              суточные норма и дефицит калорий
             </h3>
 
             <p>
-              оценка основного обмена и ориентировочных
-              суточных энергозатрат по формуле
-              Миффлина — Сан Жеора.
+              оценка суточной нормы и дефицит калорий по формуле
+              Миффлина — Сан Жеора
             </p>
 
             <div class="calculator-grid">
@@ -2729,7 +2575,7 @@ if (sectionId === "mood") {
                   class="calculator-input"
                   id="calAge"
                   type="number"
-                  min="18"
+                  min="12"
                   step="1"
                   inputmode="numeric"
                 >
@@ -2801,19 +2647,19 @@ if (sectionId === "mood") {
                   id="calActivity"
                 >
                   <option value="1.2">
-                    минимальная активность
+                    сидячий/малоактивный
                   </option>
                   <option value="1.375">
-                    легкая активность
+                    легкая активность(физнагрузка 1-3 раза в неделю)
                   </option>
                   <option value="1.55">
-                    умеренная активность
+                    умеренная активность(физнагрузка 2-5 раз в неделю)
                   </option>
                   <option value="1.725">
-                    высокая активность
+                    высокая активность(физнагрузка 6-7 раз в неделю)
                   </option>
                   <option value="1.9">
-                    очень высокая активность
+                    очень высокая активность(ежедневная физнагрузка)
                   </option>
                 </select>
 
@@ -2832,7 +2678,7 @@ if (sectionId === "mood") {
               class="calculator-result"
               id="energyResult"
             >
-              введи данные выше.
+              введи данные выше
             </div>
 
           </section>
