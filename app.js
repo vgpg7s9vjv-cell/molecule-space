@@ -1404,8 +1404,6 @@ const articles = {
 
 let currentSectionId = null;
 
-let currentArticleId = null;
-
 let currentPage = 0;
 
 let selectedMood = "😊";
