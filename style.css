@@ -1624,21 +1624,3 @@ body.light-theme .official-links-warning {
   border-color: rgba(196, 107, 138, 0.18);
 }
 
-.article-figure {
-  margin: 20px 0;
-}
-
-.article-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-}
-
-.article-figure figcaption {
-  margin-top: 7px;
-  color: var(--muted);
-  font-size: 10px;
-  line-height: 1.45;
-  text-align: center;
-}
