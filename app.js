@@ -153,6 +153,13 @@ const sections = {
   },
 
 
+     tools: {
+    title: "твой виртуальный счетовод",
+    kicker: "dietary calculations",
+    description: "расчет твоего личного ИМТ и счетчик дефицита калорий",
+
+    topics: []
+  },
    
  delicate: {
     title: "деликатные темы",
@@ -217,8 +224,6 @@ links: {
   category: "links",
   pages: [
     {
-      heading: "наши официальные ресурсы",
-
       content: `
         <div class="official-links">
 
@@ -1390,165 +1395,6 @@ const articles = {
       }
 
     ]
-  },
-
-
-  /* =========================
-     ИНСТРУМЕНТЫ
-  ========================== */
-
-  "tools-bmi": {
-
-    section: "tools",
-
-    title: "ИМТ",
-
-    category: "инструменты",
-
-    pages: [
-
-      {
-        heading: "что такое ИМТ",
-
-        content: `
-          <p>
-            индекс массы тела рассчитывается как отношение массы тела
-            в килограммах к квадрату роста в метрах.
-          </p>
-
-          <p>
-            показатель используется как статистический инструмент
-            для оценки групп населения, но не является полноценной
-            диагностикой состояния конкретного человека.
-          </p>
-        `
-      },
-
-
-      {
-        heading: "почему одной цифры недостаточно",
-
-        content: `
-          <p>
-            ИМТ не учитывает состав тела, распределение жировой ткани,
-            возраст, заболевания, лекарства и множество других факторов.
-          </p>
-
-          <div class="info-box">
-            <p>
-              поэтому ИМТ нельзя использовать как самостоятельный
-              диагноз здоровья или пищевого поведения.
-            </p>
-          </div>
-        `
-      }
-
-    ]
-  },
-
-
-  "tools-calories": {
-
-    section: "tools",
-
-    title: "энергетический баланс",
-
-    category: "инструменты",
-
-    pages: [
-
-      {
-        heading: "что такое энергетический баланс",
-
-        content: `
-          <p>
-            организм постоянно получает и расходует энергию.
-            энергия поступает преимущественно с пищей,
-            а расход складывается из нескольких компонентов.
-          </p>
-
-          <p>
-            основной обмен, физическая активность,
-            термический эффект пищи и другие процессы вместе
-            формируют общие энергозатраты.
-          </p>
-        `
-      },
-
-
-      {
-        heading: "расчеты имеют ограничения",
-
-        content: `
-          <p>
-            формулы для расчета энергозатрат дают оценку,
-            а не измеряют фактический расход энергии конкретного человека.
-          </p>
-
-          <p>
-            реальный расход может отличаться от расчетного,
-            поэтому любые калькуляторы следует воспринимать
-            как справочный инструмент, а не как медицинское предписание.
-          </p>
-        `
-      }
-
-    ]
-  },
-
-
-  "tools-math": {
-
-    section: "tools",
-
-    title: "разбор этикетки",
-
-    category: "инструменты",
-
-    pages: [
-
-      {
-        heading: "калорийность",
-
-        content: `
-          <p>
-            энергетическая ценность показывает количество энергии,
-            указанное для определенного количества продукта.
-          </p>
-
-          <p>
-            при сравнении продуктов важно смотреть,
-            указано ли значение на 100 г, порцию или упаковку целиком.
-          </p>
-        `
-      },
-
-
-      {
-        heading: "БЖУ",
-
-        content: `
-          <p>
-            белки, жиры и углеводы являются основными макронутриентами.
-          </p>
-
-          <p>
-            их количество на этикетке помогает понять состав продукта,
-            но само по себе не превращает продукт в «хороший» или «плохой».
-          </p>
-
-          <div class="info-box">
-            <p>
-              состав продукта можно анализировать без присвоения
-              еде моральной оценки.
-            </p>
-          </div>
-        `
-      }
-
-    ]
-  }
-
 };
 
 
@@ -1772,7 +1618,7 @@ function renderMoodJournal() {
                     class="diary-delete-button"
                     data-delete-entry="${index}"
                   >
-                    удалить
+                    удалить запись
                   </button>
 
                 </article>
@@ -1899,13 +1745,12 @@ function renderTools() {
             <div class="calculator-field"><label for="bmiHeight">рост, см</label><input class="calculator-input" id="bmiHeight" type="number" min="1" step="1" inputmode="numeric"></div>
           </div>
           <button class="calculator-button" id="calculateBmi">рассчитать ИМТ</button>
-          <div class="calculator-result" id="bmiResult">введи данные выше.</div>
+          <div class="calculator-result" id="bmiResult">введи данные выше</div>
         </section>
 
         <section class="calculator-card">
           <h3>норма и дефицит калорий</h3>
-          <p>оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле
-              Миффлина — Сан Жеора</p>
+          <p>оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле Миффлина — Сан Жеора</p>
           <div class="calculator-grid">
             <div class="calculator-field"><label for="calAge">возраст, лет</label><input class="calculator-input" id="calAge" type="number" min="12" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calWeight">масса, кг</label><input class="calculator-input" id="calWeight" type="number" min="1" step="0.1" inputmode="decimal"></div>
@@ -1913,7 +1758,7 @@ function renderTools() {
             <div class="calculator-field"><label for="calSex">пол для формулы</label><select class="calculator-input" id="calSex"><option value="female">женский</option><option value="male">мужской</option></select></div>
             <div class="calculator-field full"><label for="calActivity">уровень активности</label><select class="calculator-input" id="calActivity"><option value="1.2">минимальная активность(сидячий образ жизни)</option><option value="1.375">легкая активность(физнагрузка 1-3 раз в неделю)</option><option value="1.55">умеренная активность(физнагрузка 3-5 раз в неделю)</option><option value="1.725">высокая активность(физнагрузка 6-7 раз в неделю)</option><option value="1.9">очень высокая активность(ежедневная физнагрузка)</option></select></div>
           </div>
-          <button class="calculator-button" id="calculateEnergy">рассчитать</button>
+          <button class="calculator-button" id="calculateEnergy">рассчитать ИМТ</button>
           <div class="calculator-result" id="energyResult">введи данные выше</div>
         </section>
       </div>
@@ -2431,11 +2276,6 @@ if (sectionId === "mood") {
               все ссылки
             </h1>
 
-            <p>
-              наши официальные ресурсы и способы
-              связаться с проектом
-            </p>
-
           </header>
 
           <div class="official-links">
@@ -2695,8 +2535,7 @@ if (sectionId === "mood") {
             </h3>
 
             <p>
-              оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле
-              Миффлина — Сан Жеора
+              оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле Миффлина — Сан Жеора
             </p>
 
             <div class="calculator-grid">
@@ -2786,7 +2625,7 @@ if (sectionId === "mood") {
                     минимальная активность(сидячий образ жизни)
                   </option>
                   <option value="1.375">
-                    легкая активность(физнагрузка 1-3 раза в неделю)
+                    легкая активность(физнагрузка 1-3 раз в неделю)
                   </option>
                   <option value="1.55">
                     умеренная активность(физнагрузка 3-5 раз в неделю)
