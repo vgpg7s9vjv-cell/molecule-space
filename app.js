@@ -1418,8 +1418,8 @@ style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: 
           </ul> 
 
 
-          <img src="./images/premiumbears.jpg"
-          alt="Фото7" 
+          <img src="./images/reduksin.jpg"
+          alt="Фото12" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
         `
@@ -1430,8 +1430,9 @@ style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: 
         heading: "СВАПХ",
 
         content: `
+          
+          <h3>swapx neo</h3>
           <p>
-          <b>младший бро Плюса</b><br>
           подходит тем, у кого есть желание побороть переедания
           Премиум способствует нормализации работы желудка, налаживая пищевое поведение и обладает более деликатными
           побочками
@@ -1445,10 +1446,20 @@ style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: 
           </ul> 
 
 
-          <img src="./images/premiumbears.jpg"
-          alt="Фото7" 
+          <img src="./images/swapxneo.jpg"
+          alt="Фото13" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+
+          <h3>swapx pro</h3>
+          <p>
+          подходит тем, у кого есть желание побороть переедания
+          Премиум способствует нормализации работы желудка, налаживая пищевое поведение и обладает более деликатными
+          побочками
+          </p>
           
+          <img src="./images/swapxpro.jpg"
+          alt="Фото14" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         `
       }
     ]
