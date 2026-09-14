@@ -1310,8 +1310,8 @@ style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: 
           </ul> 
 
 
-          <img src="./images/premiumbears.jpg"
-          alt="Фото7" 
+          <img src="./images/mlkzhb.jpg"
+          alt="Фото8" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
         `
@@ -1337,8 +1337,8 @@ style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: 
           </ul> 
 
 
-          <img src="./images/premiumbears.jpg"
-          alt="Фото7" 
+          <img src="./images/supressabears.jpg"
+          alt="Фото9" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
         `
@@ -1364,8 +1364,8 @@ style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: 
           </ul> 
 
 
-          <img src="./images/premiumbears.jpg"
-          alt="Фото7" 
+          <img src="./images/mineralbears.jpg"
+          alt="Фото10" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
         `
@@ -1391,8 +1391,8 @@ style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: 
           </ul> 
 
 
-          <img src="./images/premiumbears.jpg"
-          alt="Фото7" 
+          <img src="./images/heedly.jpg"
+          alt="Фото11" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
         `
