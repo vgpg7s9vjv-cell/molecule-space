@@ -1283,8 +1283,8 @@ style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: 
           </ul> 
 
 
-          <img src="./images/premiumbears.jpg"
-          alt="Фото7" 
+          <img src="./images/ultra.jpg"
+          alt="Фот15" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
         `
