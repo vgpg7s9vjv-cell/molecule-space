@@ -1247,7 +1247,7 @@ const articles = {
 
     section: "supplements",
 
-    title: " сложности выбора и как его сделать ",
+    title: "сложности выбора и как его сделать",
 
     category: "похудеть хочу, но выбрать не могу",
 
@@ -1414,7 +1414,7 @@ const articles = {
 
 
              {
-        heading: "<h5>❺</h5> Supressa",
+        heading: "❺ Supressa",
 
         content: `
           <p>
