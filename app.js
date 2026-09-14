@@ -142,6 +142,7 @@ const sections = {
         id: "supplements-myths",
         title: "«какую таблетку выберешь, Нео?»",
         description: "разбиваем популярные в интернете мифы вокруг БАДов"
+      }     
     ]
   },
 
