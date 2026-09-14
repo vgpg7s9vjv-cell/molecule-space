@@ -143,6 +143,12 @@ const sections = {
         title: "«какую таблетку выберешь, Нео?»",
         description: "разбиваем популярные в интернете мифы вокруг БАДов"
       }
+
+            class img = {
+       img (alt="Фото"style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"src="./images/upackovki.jpg)
+               
+            }   
+  
     ]
   },
 
