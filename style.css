@@ -2921,3 +2921,23 @@ body.theme-angel .water-tracker {
   }
 
 }
+
+
+.tracker-today-button {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 7px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tracker-today-button:active {
+  transform: scale(.97);
+}
+
