@@ -3816,3 +3816,503 @@ if (quoteElement) {
     "opacity 0.12s ease";
 }
 
+function renderSupplementTracker() {
+  const supplements = getSupplements();
+
+  let currentMonth = new Date();
+  currentMonth.setDate(1);
+
+  const render = () => {
+    const today = trackerDate();
+    const year = currentMonth.getFullYear();
+    const month = currentMonth.getMonth();
+
+    const monthNames = [
+      "январь", "февраль", "март", "апрель", "май", "июнь",
+      "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"
+    ];
+
+    const dayNames = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"];
+
+    const firstDay = new Date(year, month, 1);
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    let startDay = firstDay.getDay();
+    startDay = startDay === 0 ? 6 : startDay - 1;
+
+    const previousMonthDays = new Date(year, month, 0).getDate();
+
+    const days = [];
+
+    // дни предыдущего месяца
+    for (let i = startDay - 1; i >= 0; i--) {
+      const day = previousMonthDays - i;
+      const date = new Date(year, month - 1, day);
+
+      days.push({
+        date,
+        currentMonth: false
+      });
+    }
+
+    // дни текущего месяца
+    for (let day = 1; day <= daysInMonth; day++) {
+      days.push({
+        date: new Date(year, month, day),
+        currentMonth: true
+      });
+    }
+
+    // дни следующего месяца
+    while (days.length < 42) {
+      const day = days.length - startDay - daysInMonth + 1;
+      days.push({
+        date: new Date(year, month + 1, day),
+        currentMonth: false
+      });
+    }
+
+    // день считается выполненным, если ВСЕ добавленные БАДы отмечены
+    const isDayComplete = (date) => {
+      if (!supplements.length) return false;
+
+      const key = trackerDate(date);
+
+      return supplements.every(item =>
+        getSupplementTaken(item, key)
+      );
+    };
+
+    // текущая серия
+    let streak = 0;
+    const streakDate = new Date();
+
+    while (isDayComplete(streakDate)) {
+      streak++;
+      streakDate.setDate(streakDate.getDate() - 1);
+    }
+
+    const calendarHTML = days.map(({ date, currentMonth }) => {
+      const key = trackerDate(date);
+      const complete = isDayComplete(date);
+      const isToday = key === today;
+
+      const classes = [
+        "calendar-day",
+        !currentMonth ? "other-month" : "",
+        isToday ? "today" : "",
+        complete ? "completed" : ""
+      ].filter(Boolean).join(" ");
+
+      return `
+        <button
+          type="button"
+          class="${classes}"
+          data-calendar-date="${key}"
+          aria-label="${dayNames[date.getDay() === 0 ? 6 : date.getDay() - 1]} ${date.getDate()}"
+        >
+          <span>${date.getDate()}</span>
+          ${complete ? '<i>✓</i>' : ""}
+        </button>
+      `;
+    }).join("");
+
+    const supplementRows = supplements.length
+      ? supplements.map(item => `
+          <div class="supplement-row">
+            <div class="supplement-row-title">
+              <strong>${escapeHtml(item.name)}</strong>
+              <button
+                class="mini-delete"
+                type="button"
+                data-delete-supplement="${item.id}"
+              >
+                удалить
+              </button>
+            </div>
+
+            <div class="supplement-days">
+              ${days.slice(-7).map(({ date }) => {
+                const key = trackerDate(date);
+                const checked = getSupplementTaken(item, key);
+                const isToday = key === today;
+
+                return `
+                  <button
+                    class="supplement-day ${checked ? "is-done" : ""} ${isToday ? "is-today" : ""}"
+                    type="button"
+                    data-supplement-id="${item.id}"
+                    data-supplement-date="${key}"
+                  >
+                    <span>${dayNames[date.getDay() === 0 ? 6 : date.getDay() - 1]}</span>
+                    <b>${date.getDate()}</b>
+                    <i>${checked ? "✓" : ""}</i>
+                  </button>
+                `;
+              }).join("")}
+            </div>
+          </div>
+        `).join("")
+      : `
+        <div class="empty-tracker-state">
+          <span>💊</span>
+          <strong>пока здесь пусто</strong>
+          <p>добавь БАД или препарат, который хочешь отслеживать.</p>
+        </div>
+      `;
+
+    const overlay = openTrackerOverlay(
+      "supplementTrackerOverlay",
+      "трекер БАДов",
+      `
+        <div class="streak-banner">
+          <div>
+            <span>текущая серия</span>
+            <strong>${streak} ${pluralize(streak, "день", "дня", "дней")} 🔥</strong>
+          </div>
+          <small>
+            серия считается, когда все добавленные позиции отмечены за день
+          </small>
+        </div>
+
+        <div class="tracker-calendar">
+
+          <div class="calendar-header">
+            <button
+              type="button"
+              class="calendar-month-button"
+              id="calendarPrevMonth"
+              aria-label="предыдущий месяц"
+            >
+              ‹
+            </button>
+
+            <div class="calendar-month-title">
+              ${monthNames[month]} ${year}
+            </div>
+
+            <button
+              type="button"
+              class="calendar-month-button"
+              id="calendarNextMonth"
+              aria-label="следующий месяц"
+            >
+              ›
+            </button>
+          </div>
+
+          <div class="calendar-weekdays">
+            ${dayNames.map(day => `
+              <span class="calendar-weekday">${day}</span>
+            `).join("")}
+          </div>
+
+          <div class="calendar-days">
+            ${calendarHTML}
+          </div>
+
+          <div class="calendar-streak">
+            <span>🔥</span>
+            <div>
+              <strong>${streak} ${pluralize(streak, "день", "дня", "дней")} подряд</strong>
+              <small>отмечай все позиции, чтобы продолжать серию</small>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="tracker-section-heading">
+          <span>по отдельным позициям</span>
+          <small>${supplements.length} поз.</small>
+        </div>
+
+        <div class="supplement-list">
+          ${supplementRows}
+        </div>
+
+        <div class="tracker-add-row">
+          <input
+            id="newSupplementName"
+            type="text"
+            maxlength="40"
+            placeholder="например, магний"
+            autocomplete="off"
+          >
+
+          <button
+            id="addSupplementButton"
+            type="button"
+          >
+            + добавить
+          </button>
+        </div>
+
+        <div class="tracker-hint">
+          отметки сохраняются на этом устройстве и могут быть изменены в любое время.
+        </div>
+      `
+    );
+
+    overlay.querySelector("#calendarPrevMonth")?.addEventListener("click", () => {
+      currentMonth.setMonth(currentMonth.getMonth() - 1);
+      render();
+    });
+
+    overlay.querySelector("#calendarNextMonth")?.addEventListener("click", () => {
+      currentMonth.setMonth(currentMonth.getMonth() + 1);
+      render();
+    });
+
+    overlay.querySelectorAll("[data-supplement-id]").forEach(button => {
+      button.addEventListener("click", () => {
+        const item = getSupplements().find(
+          s => s.id === button.dataset.supplementId
+        );
+
+        if (!item) return;
+
+        const date = button.dataset.supplementDate;
+
+        setSupplementTaken(
+          item.id,
+          date,
+          !getSupplementTaken(item, date)
+        );
+
+        render();
+      });
+    });
+
+    overlay.querySelectorAll("[data-delete-supplement]").forEach(button => {
+      button.addEventListener("click", () => {
+        saveSupplements(
+          getSupplements().filter(
+            s => s.id !== button.dataset.deleteSupplement
+          )
+        );
+
+        render();
+      });
+    });
+
+    const add = () => {
+      const input = overlay.querySelector("#newSupplementName");
+      const name = input?.value.trim();
+
+      if (!name) return;
+
+      const items = getSupplements();
+
+      items.push({
+        id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+        name,
+        taken: []
+      });
+
+      saveSupplements(items);
+      render();
+    };
+
+    overlay.querySelector("#addSupplementButton")?.addEventListener(
+      "click",
+      add
+    );
+
+    overlay.querySelector("#newSupplementName")?.addEventListener(
+      "keydown",
+      event => {
+        if (event.key === "Enter") add();
+      }
+    );
+  };
+
+  render();
+}
+
+function renderWaterTracker() {
+  const water = getTodayWater();
+  const goal = getWaterGoal();
+
+  const percent = Math.min(
+    100,
+    Math.round((water / goal) * 100)
+  );
+
+  const radius = 82;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference - (percent / 100) * circumference;
+
+  const overlay = openTrackerOverlay(
+    "waterTrackerOverlay",
+    "трекер воды",
+    `
+      <div class="water-tracker">
+
+        <div class="water-title">
+          <span>сегодня</span>
+          <strong>${percent}%</strong>
+        </div>
+
+        <div class="water-subtitle">
+          отмечай выпитую жидкость в течение дня
+        </div>
+
+        <div class="water-ring">
+
+          <svg
+            viewBox="0 0 200 200"
+            aria-hidden="true"
+          >
+            <circle
+              class="water-ring-background"
+              cx="100"
+              cy="100"
+              r="${radius}"
+            ></circle>
+
+            <circle
+              class="water-ring-progress"
+              cx="100"
+              cy="100"
+              r="${radius}"
+              style="
+                stroke-dasharray:${circumference};
+                stroke-dashoffset:${offset};
+              "
+            ></circle>
+          </svg>
+
+          <div class="water-ring-center">
+            <div class="water-current" id="waterCurrent">
+              ${water}
+            </div>
+
+            <div class="water-unit">
+              мл
+            </div>
+
+            <div class="water-goal">
+              из ${goal} мл
+            </div>
+
+            <div class="water-percent">
+              ${percent}%
+            </div>
+          </div>
+
+        </div>
+
+        <div class="water-controls">
+
+          <button
+            type="button"
+            class="water-control-button"
+            data-water-add="-150"
+            aria-label="убавить 150 миллилитров"
+          >
+            −
+          </button>
+
+          <div class="water-amount">
+            ${water} мл
+          </div>
+
+          <button
+            type="button"
+            class="water-control-button"
+            data-water-add="150"
+            aria-label="добавить 150 миллилитров"
+          >
+            +
+          </button>
+
+        </div>
+
+        <div class="water-presets">
+
+          <button
+            type="button"
+            class="water-preset"
+            data-water-add="150"
+          >
+            +150 мл
+          </button>
+
+          <button
+            type="button"
+            class="water-preset"
+            data-water-add="250"
+          >
+            +250 мл
+          </button>
+
+          <button
+            type="button"
+            class="water-preset"
+            data-water-add="500"
+          >
+            +500 мл
+          </button>
+
+        </div>
+
+        <div class="water-goal-row">
+          <label for="waterGoalInput">
+            цель на день
+          </label>
+
+          <div>
+            <input
+              id="waterGoalInput"
+              type="number"
+              min="250"
+              max="10000"
+              step="50"
+              value="${goal}"
+            >
+
+            <span>мл</span>
+          </div>
+        </div>
+
+        <div class="tracker-hint">
+          это простой трекер количества выпитой жидкости, а не медицинское предписание.
+          индивидуальная потребность в жидкости может отличаться.
+        </div>
+
+      </div>
+    `
+  );
+
+  overlay.querySelectorAll("[data-water-add]").forEach(button => {
+    button.addEventListener("click", () => {
+      const amount = Number(button.dataset.waterAdd);
+
+      setTodayWater(
+        Math.max(0, getTodayWater() + amount)
+      );
+
+      renderWaterTracker();
+    });
+  });
+
+  overlay.querySelector("#waterGoalInput")?.addEventListener(
+    "change",
+    event => {
+      const value = Math.min(
+        10000,
+        Math.max(
+          250,
+          Number(event.target.value) || 2000
+        )
+      );
+
+      writeLocal(
+        waterGoalStorageKey,
+        value
+      );
+
+      renderWaterTracker();
+    }
+  );
+}
