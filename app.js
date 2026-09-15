@@ -3704,3 +3704,1144 @@ if (quoteElement) {
   quoteElement.style.transition =
     "opacity 0.12s ease";
 }
+
+
+/* ==================================================
+   MOLECULE SPACE — НОВЫЕ ИНСТРУМЕНТЫ
+   трекер добавок / вода / темы / напоминания
+================================================== */
+
+const moleculeToolsStorageKey = "moleculeSpaceTools";
+
+/* ---------- общие данные ---------- */
+
+function getMoleculeToolsData() {
+  try {
+    const saved = localStorage.getItem(
+      moleculeToolsStorageKey
+    );
+
+    if (saved) {
+      return JSON.parse(saved);
+    }
+  } catch (error) {}
+
+  return {
+    supplements: [],
+    water: {
+      goal: 1500,
+      current: 0,
+      date: getMoleculeToday()
+    },
+    reminders: [],
+    theme: "dark"
+  };
+}
+
+
+function saveMoleculeToolsData(data) {
+  try {
+    localStorage.setItem(
+      moleculeToolsStorageKey,
+      JSON.stringify(data)
+    );
+  } catch (error) {}
+}
+
+
+function getMoleculeToday() {
+  const date = new Date();
+
+  const year =
+    date.getFullYear();
+
+  const month =
+    String(
+      date.getMonth() + 1
+    ).padStart(2, "0");
+
+  const day =
+    String(
+      date.getDate()
+    ).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+
+/* ---------- вода ---------- */
+
+function resetWaterIfNeeded(data) {
+  const today =
+    getMoleculeToday();
+
+  if (
+    !data.water ||
+    data.water.date !== today
+  ) {
+    data.water = {
+      goal:
+        data.water?.goal || 1500,
+
+      current: 0,
+
+      date: today
+    };
+
+    saveMoleculeToolsData(data);
+  }
+
+  return data;
+}
+
+
+function addWater(amount) {
+  let data =
+    getMoleculeToolsData();
+
+  data =
+    resetWaterIfNeeded(data);
+
+  data.water.current += amount;
+
+  if (
+    data.water.current >
+    data.water.goal * 2
+  ) {
+    data.water.current =
+      data.water.goal * 2;
+  }
+
+  saveMoleculeToolsData(data);
+
+  renderMoleculeDashboard();
+}
+
+
+function setWaterGoal(goal) {
+  const numericGoal =
+    Number(goal);
+
+  if (
+    !Number.isFinite(numericGoal) ||
+    numericGoal <= 0
+  ) {
+    return;
+  }
+
+  const data =
+    getMoleculeToolsData();
+
+  data.water.goal =
+    Math.round(numericGoal);
+
+  saveMoleculeToolsData(data);
+
+  renderMoleculeDashboard();
+}
+
+
+/* ---------- добавки ---------- */
+
+function addSupplement(name) {
+  const cleanName =
+    String(name || "").trim();
+
+  if (!cleanName) {
+    return;
+  }
+
+  const data =
+    getMoleculeToolsData();
+
+  data.supplements.push({
+    id:
+      Date.now().toString(),
+
+    name:
+      cleanName,
+
+    history: []
+  });
+
+  saveMoleculeToolsData(data);
+
+  renderMoleculeDashboard();
+}
+
+
+function toggleSupplementToday(id) {
+  const today =
+    getMoleculeToday();
+
+  const data =
+    getMoleculeToolsData();
+
+  const supplement =
+    data.supplements.find(
+      item => item.id === id
+    );
+
+  if (!supplement) {
+    return;
+  }
+
+  if (!Array.isArray(supplement.history)) {
+    supplement.history = [];
+  }
+
+  const index =
+    supplement.history.indexOf(today);
+
+  if (index === -1) {
+    supplement.history.push(today);
+  } else {
+    supplement.history.splice(index, 1);
+  }
+
+  saveMoleculeToolsData(data);
+
+  renderMoleculeDashboard();
+}
+
+
+function deleteSupplement(id) {
+  const data =
+    getMoleculeToolsData();
+
+  data.supplements =
+    data.supplements.filter(
+      item => item.id !== id
+    );
+
+  saveMoleculeToolsData(data);
+
+  renderMoleculeDashboard();
+}
+
+
+function calculateSupplementStreak(history) {
+  if (!Array.isArray(history) || !history.length) {
+    return 0;
+  }
+
+  const uniqueDates =
+    [...new Set(history)].sort();
+
+  let streak = 0;
+
+  let cursor =
+    new Date(
+      `${getMoleculeToday()}T00:00:00`
+    );
+
+  const today =
+    getMoleculeToday();
+
+  const lastDate =
+    uniqueDates[uniqueDates.length - 1];
+
+  if (lastDate !== today) {
+    const yesterday =
+      new Date(cursor);
+
+    yesterday.setDate(
+      yesterday.getDate() - 1
+    );
+
+    const yesterdayString =
+      yesterday
+        .toISOString()
+        .slice(0, 10);
+
+    if (
+      lastDate !==
+      yesterdayString
+    ) {
+      return 0;
+    }
+
+    cursor =
+      yesterday;
+  }
+
+  while (true) {
+    const current =
+      cursor
+        .toISOString()
+        .slice(0, 10);
+
+    if (
+      !uniqueDates.includes(current)
+    ) {
+      break;
+    }
+
+    streak++;
+
+    cursor.setDate(
+      cursor.getDate() - 1
+    );
+  }
+
+  return streak;
+}
+
+
+/* ---------- напоминания ---------- */
+
+function addMoleculeReminder(
+  supplementId,
+  time
+) {
+  if (!supplementId || !time) {
+    return;
+  }
+
+  const data =
+    getMoleculeToolsData();
+
+  data.reminders.push({
+    id:
+      Date.now().toString(),
+
+    supplementId,
+
+    time,
+
+    enabled: true
+  });
+
+  saveMoleculeToolsData(data);
+
+  renderMoleculeDashboard();
+}
+
+
+function toggleMoleculeReminder(id) {
+  const data =
+    getMoleculeToolsData();
+
+  const reminder =
+    data.reminders.find(
+      item => item.id === id
+    );
+
+  if (!reminder) {
+    return;
+  }
+
+  reminder.enabled =
+    !reminder.enabled;
+
+  saveMoleculeToolsData(data);
+
+  renderMoleculeDashboard();
+}
+
+
+function deleteMoleculeReminder(id) {
+  const data =
+    getMoleculeToolsData();
+
+  data.reminders =
+    data.reminders.filter(
+      item => item.id !== id
+    );
+
+  saveMoleculeToolsData(data);
+
+  renderMoleculeDashboard();
+}
+
+
+/* ---------- отправка данных в Telegram ---------- */
+
+function sendMoleculeDataToTelegram(
+  type,
+  payload
+) {
+  if (
+    tg &&
+    typeof tg.sendData === "function"
+  ) {
+    try {
+      tg.sendData(
+        JSON.stringify({
+          type,
+          payload
+        })
+      );
+
+      return true;
+    } catch (error) {
+      console.error(
+        "Telegram sendData error:",
+        error
+      );
+    }
+  }
+
+  return false;
+}
+
+
+/* ---------- панель инструментов ---------- */
+
+function openMoleculeDashboard() {
+  const existing =
+    document.getElementById(
+      "moleculeToolsOverlay"
+    );
+
+  if (existing) {
+    existing.remove();
+  }
+
+  const overlay =
+    document.createElement("div");
+
+  overlay.id =
+    "moleculeToolsOverlay";
+
+  overlay.className =
+    "section-overlay";
+
+  document.body.appendChild(
+    overlay
+  );
+
+  renderMoleculeDashboard();
+
+  document.body.style.overflow =
+    "hidden";
+}
+
+
+function closeMoleculeDashboard() {
+  const overlay =
+    document.getElementById(
+      "moleculeToolsOverlay"
+    );
+
+  if (overlay) {
+    overlay.remove();
+  }
+
+  document.body.style.overflow =
+    "hidden";
+}
+
+
+function renderMoleculeDashboard() {
+  const overlay =
+    document.getElementById(
+      "moleculeToolsOverlay"
+    );
+
+  if (!overlay) {
+    return;
+  }
+
+  let data =
+    getMoleculeToolsData();
+
+  data =
+    resetWaterIfNeeded(data);
+
+  const waterPercent =
+    Math.min(
+      100,
+      Math.round(
+        (
+          data.water.current /
+          data.water.goal
+        ) * 100
+      )
+    );
+
+  overlay.innerHTML = `
+    <div class="section-overlay-inner">
+
+      <div class="screen-inner fade-in">
+
+        <button
+          class="back-button"
+          id="moleculeToolsBack"
+        >
+          ← назад
+        </button>
+
+
+        <header class="section-header">
+
+          <p class="section-kicker">
+            molecule space
+          </p>
+
+          <h1>
+            твой трекер
+          </h1>
+
+          <p>
+            добавки, вода и напоминания
+          </p>
+
+        </header>
+
+
+        <!-- ВОДА -->
+
+        <section class="molecule-tool-card">
+
+          <div class="molecule-tool-card-header">
+
+            <div>
+              <span class="molecule-tool-label">
+                💧 вода
+              </span>
+
+              <h2>
+                ${data.water.current}
+                мл
+              </h2>
+            </div>
+
+            <span>
+              цель ${data.water.goal} мл
+            </span>
+
+          </div>
+
+
+          <div class="molecule-water-progress">
+
+            <div
+              class="molecule-water-progress-fill"
+              style="
+                width: ${waterPercent}%;
+              "
+            ></div>
+
+          </div>
+
+
+          <div class="molecule-water-percent">
+            ${waterPercent}%
+          </div>
+
+
+          <div class="molecule-water-buttons">
+
+            <button
+              data-water="150"
+              class="molecule-small-button"
+            >
+              +150 мл
+            </button>
+
+            <button
+              data-water="250"
+              class="molecule-small-button"
+            >
+              +250 мл
+            </button>
+
+            <button
+              data-water="500"
+              class="molecule-small-button"
+            >
+              +500 мл
+            </button>
+
+          </div>
+
+
+          <div class="molecule-water-goal">
+
+            <input
+              id="moleculeWaterGoal"
+              type="number"
+              min="1"
+              step="50"
+              value="${data.water.goal}"
+              placeholder="цель в мл"
+            >
+
+            <button
+              id="saveMoleculeWaterGoal"
+              class="molecule-small-button"
+            >
+              сохранить цель
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <!-- ДОБАВКИ -->
+
+        <section class="molecule-tool-card">
+
+          <div class="molecule-tool-card-header">
+
+            <div>
+
+              <span class="molecule-tool-label">
+                💊 добавки
+              </span>
+
+              <h2>
+                сегодняшний прием
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div
+            id="moleculeSupplementsList"
+            class="molecule-supplements-list"
+          >
+
+            ${
+              data.supplements.length
+                ? data.supplements
+                    .map(supplement => {
+
+                      const takenToday =
+                        Array.isArray(
+                          supplement.history
+                        ) &&
+                        supplement.history.includes(
+                          getMoleculeToday()
+                        );
+
+                      const streak =
+                        calculateSupplementStreak(
+                          supplement.history
+                        );
+
+                      return `
+
+                        <div
+                          class="molecule-supplement-item"
+                        >
+
+                          <div
+                            class="molecule-supplement-main"
+                          >
+
+                            <strong>
+                              ${escapeMoleculeHtml(
+                                supplement.name
+                              )}
+                            </strong>
+
+                            <span>
+                              серия:
+                              ${streak} дн.
+                            </span>
+
+                          </div>
+
+
+                          <button
+                            class="
+                              molecule-take-button
+                              ${takenToday ? "taken" : ""}
+                            "
+                            data-supplement-today="${supplement.id}"
+                          >
+                            ${
+                              takenToday
+                                ? "✓ принято"
+                                : "отметить"
+                            }
+                          </button>
+
+
+                          <button
+                            class="molecule-delete-button"
+                            data-delete-supplement="${supplement.id}"
+                          >
+                            ×
+                          </button>
+
+                        </div>
+
+                      `;
+                    })
+                    .join("")
+                : `
+                    <div class="molecule-empty">
+                      пока ничего не добавлено
+                    </div>
+                  `
+            }
+
+          </div>
+
+
+          <div class="molecule-add-row">
+
+            <input
+              id="newMoleculeSupplement"
+              type="text"
+              placeholder="название добавки"
+            >
+
+            <button
+              id="addMoleculeSupplement"
+              class="molecule-small-button"
+            >
+              добавить
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <!-- НАПОМИНАНИЯ -->
+
+        <section class="molecule-tool-card">
+
+          <div class="molecule-tool-card-header">
+
+            <div>
+
+              <span class="molecule-tool-label">
+                🔔 напоминания
+              </span>
+
+              <h2>
+                расписание
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="molecule-reminder-list"
+          >
+
+            ${
+              data.reminders.length
+                ? data.reminders
+                    .map(reminder => {
+
+                      const supplement =
+                        data.supplements.find(
+                          item =>
+                            item.id ===
+                            reminder.supplementId
+                        );
+
+                      return `
+
+                        <div
+                          class="molecule-reminder-item"
+                        >
+
+                          <div>
+
+                            <strong>
+                              ${
+                                supplement
+                                  ? escapeMoleculeHtml(
+                                      supplement.name
+                                    )
+                                  : "добавка"
+                              }
+                            </strong>
+
+                            <span>
+                              ${reminder.time}
+                            </span>
+
+                          </div>
+
+
+                          <button
+                            class="
+                              molecule-reminder-toggle
+                              ${
+                                reminder.enabled
+                                  ? "active"
+                                  : ""
+                              }
+                            "
+                            data-toggle-reminder="${reminder.id}"
+                          >
+                            ${
+                              reminder.enabled
+                                ? "вкл"
+                                : "выкл"
+                            }
+                          </button>
+
+
+                          <button
+                            class="molecule-delete-button"
+                            data-delete-reminder="${reminder.id}"
+                          >
+                            ×
+                          </button>
+
+                        </div>
+
+                      `;
+                    })
+                    .join("")
+                : `
+                    <div class="molecule-empty">
+                      напоминаний пока нет
+                    </div>
+                  `
+            }
+
+          </div>
+
+
+          ${
+            data.supplements.length
+              ? `
+
+                <div class="molecule-reminder-create">
+
+                  <select
+                    id="moleculeReminderSupplement"
+                  >
+
+                    ${data.supplements
+                      .map(
+                        supplement => `
+                          <option
+                            value="${supplement.id}"
+                          >
+                            ${escapeMoleculeHtml(
+                              supplement.name
+                            )}
+                          </option>
+                        `
+                      )
+                      .join("")}
+
+                  </select>
+
+
+                  <input
+                    id="moleculeReminderTime"
+                    type="time"
+                  >
+
+
+                  <button
+                    id="addMoleculeReminder"
+                    class="molecule-small-button"
+                  >
+                    добавить
+                  </button>
+
+                </div>
+
+              `
+              : `
+                  <div class="molecule-empty">
+                    сначала добавь хотя бы одну добавку
+                  </div>
+                `
+          }
+
+          <div class="molecule-reminder-note">
+            напоминания сохраняются в приложении.
+            для сообщений Telegram при закрытом Mini App
+            понадобится серверная часть бота.
+          </div>
+
+        </section>
+
+
+        <div class="molecule-dashboard-footer">
+
+          <button
+            id="sendMoleculeData"
+            class="molecule-secondary-button"
+          >
+            сохранить данные в Telegram
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+  `;
+
+
+  /* ---------- назад ---------- */
+
+  overlay
+    .querySelector(
+      "#moleculeToolsBack"
+    )
+    .addEventListener(
+      "click",
+      closeMoleculeDashboard
+    );
+
+
+  /* ---------- вода ---------- */
+
+  overlay
+    .querySelectorAll(
+      "[data-water]"
+    )
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          addWater(
+            Number(
+              button.dataset.water
+            )
+          );
+
+        }
+      );
+
+    });
+
+
+  overlay
+    .querySelector(
+      "#saveMoleculeWaterGoal"
+    )
+    .addEventListener(
+      "click",
+      () => {
+
+        setWaterGoal(
+          overlay.querySelector(
+            "#moleculeWaterGoal"
+          ).value
+        );
+
+      }
+    );
+
+
+  /* ---------- добавки ---------- */
+
+  overlay
+    .querySelector(
+      "#addMoleculeSupplement"
+    )
+    .addEventListener(
+      "click",
+      () => {
+
+        const input =
+          overlay.querySelector(
+            "#newMoleculeSupplement"
+          );
+
+        addSupplement(
+          input.value
+        );
+
+      }
+    );
+
+
+  overlay
+    .querySelectorAll(
+      "[data-supplement-today]"
+    )
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          toggleSupplementToday(
+            button.dataset
+              .supplementToday
+          );
+
+        }
+      );
+
+    });
+
+
+  overlay
+    .querySelectorAll(
+      "[data-delete-supplement]"
+    )
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          deleteSupplement(
+            button.dataset
+              .deleteSupplement
+          );
+
+        }
+      );
+
+    });
+
+
+  /* ---------- напоминания ---------- */
+
+  const addReminderButton =
+    overlay.querySelector(
+      "#addMoleculeReminder"
+    );
+
+  if (addReminderButton) {
+
+    addReminderButton.addEventListener(
+      "click",
+      () => {
+
+        addMoleculeReminder(
+          overlay.querySelector(
+            "#moleculeReminderSupplement"
+          ).value,
+
+          overlay.querySelector(
+            "#moleculeReminderTime"
+          ).value
+        );
+
+      }
+    );
+
+  }
+
+
+  overlay
+    .querySelectorAll(
+      "[data-toggle-reminder]"
+    )
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          toggleMoleculeReminder(
+            button.dataset
+              .toggleReminder
+          );
+
+        }
+      );
+
+    });
+
+
+  overlay
+    .querySelectorAll(
+      "[data-delete-reminder]"
+    )
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          deleteMoleculeReminder(
+            button.dataset
+              .deleteReminder
+          );
+
+        }
+      );
+
+    });
+
+
+  /* ---------- Telegram ---------- */
+
+  overlay
+    .querySelector(
+      "#sendMoleculeData"
+    )
+    .addEventListener(
+      "click",
+      () => {
+
+        const currentData =
+          getMoleculeToolsData();
+
+        sendMoleculeDataToTelegram(
+          "molecule_space_tools",
+          currentData
+        );
+
+      }
+    );
+}
+
+
+/* ---------- защита HTML ---------- */
+
+function escapeMoleculeHtml(value) {
+  return String(value)
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+}
+
+
+/* ==================================================
+   КНОПКА ТРЕКЕРА
+================================================== */
+
+document.addEventListener(
+  "click",
+  event => {
+
+    const button =
+      event.target.closest(
+        "[data-molecule-tools]"
+      );
+
+    if (!button) {
+      return;
+    }
+
+    openMoleculeDashboard();
+
+  }
+);
