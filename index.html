@@ -23,6 +23,7 @@ content="width=device-width, initial-scale=1.0, viewport-fit=cover"
   >
 
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-additions.css">
 
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
@@ -56,6 +57,14 @@ content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         <span class="theme-toggle-icon" id="themeToggleIcon">☾</span>
       </button>
 
+    </div>
+
+    <div class="theme-picker hidden" id="themePicker">
+      <p>оформление</p>
+      <button type="button" data-theme-choice="dark"><span>☾</span><strong>dark</strong><small>ночное</small></button>
+      <button type="button" data-theme-choice="pink"><span>♡</span><strong>pink</strong><small>розовое</small></button>
+      <button type="button" data-theme-choice="angel"><span>୨୧</span><strong>angel</strong><small>воздушное</small></button>
+      <button type="button" data-theme-choice="minimal"><span>○</span><strong>minimalism</strong><small>чистое</small></button>
     </div>
 
     <div class="quote-card">
@@ -92,6 +101,11 @@ content="width=device-width, initial-scale=1.0, viewport-fit=cover"
 
       <span class="diary-quick-arrow">›</span>
     </button>
+
+    <div class="home-trackers">
+      <section class="tracker-home-card" id="supplementHomeCard"></section>
+      <section class="tracker-home-card water-home-card" id="waterHomeCard"></section>
+    </div>
 
   </div>
 
