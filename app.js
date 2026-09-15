@@ -4034,70 +4034,163 @@ function openTrackerOverlay(id, title, content) {
 
 function renderSupplementTracker() {
   const supplements = getSupplements();
-  const today = trackerDate();
 
-  const lastSeven = [];
+  const today = new Date();
+  const todayKey = trackerDate(today);
 
-  for (let i = 6; i >= 0; i--) {
-    const date = new Date();
-    date.setDate(date.getDate() - i);
-    lastSeven.push(date);
+  const stateKey = "molecule-space-supplement-calendar";
+  const savedState = readLocal(stateKey, {});
+
+  let selectedSupplementId =
+    savedState.selectedSupplementId ||
+    (supplements[0]?.id || "");
+
+  let calendarDate = new Date();
+
+  if (savedState.month) {
+    const savedDate = new Date(savedState.month);
+    if (!Number.isNaN(savedDate.getTime())) {
+      calendarDate = savedDate;
+    }
   }
 
-  const dayNames = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
+  calendarDate.setDate(1);
 
-  const calendar = supplements.length
+  const monthNames = [
+    "январь",
+    "февраль",
+    "март",
+    "апрель",
+    "май",
+    "июнь",
+    "июль",
+    "август",
+    "сентябрь",
+    "октябрь",
+    "ноябрь",
+    "декабрь"
+  ];
+
+  const weekDays = [
+    "пн",
+    "вт",
+    "ср",
+    "чт",
+    "пт",
+    "сб",
+    "вс"
+  ];
+
+  const saveCalendarState = () => {
+    writeLocal(stateKey, {
+      selectedSupplementId,
+      month: calendarDate.toISOString()
+    });
+  };
+
+  const getMonthCalendar = () => {
+    const year = calendarDate.getFullYear();
+    const month = calendarDate.getMonth();
+
+    const firstDay = new Date(year, month, 1);
+
+    let startDay = firstDay.getDay();
+
+    // JS считает воскресенье первым днем недели.
+    // Нам нужен понедельник.
+    startDay = startDay === 0 ? 6 : startDay - 1;
+
+    const daysInMonth =
+      new Date(year, month + 1, 0).getDate();
+
+    const cells = [];
+
+    // Пустые ячейки перед первым днем месяца.
+    for (let i = 0; i < startDay; i++) {
+      cells.push(`
+        <div class="supplement-calendar-day is-empty"></div>
+      `);
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const date = new Date(year, month, day);
+      const key = trackerDate(date);
+
+      const selectedSupplement =
+        supplements.find(
+          item => item.id === selectedSupplementId
+        );
+
+      const checked =
+        selectedSupplement &&
+        getSupplementTaken(selectedSupplement, key);
+
+      const isToday = key === todayKey;
+
+      cells.push(`
+        <button
+          class="supplement-calendar-day
+            ${checked ? "is-done" : ""}
+            ${isToday ? "is-today" : ""}"
+          type="button"
+          data-calendar-date="${key}"
+          aria-label="${day} ${monthNames[month]}"
+        >
+          <span>${day}</span>
+          ${checked ? '<i>✓</i>' : ""}
+        </button>
+      `);
+    }
+
+    return cells.join("");
+  };
+
+  const getSelectedSupplement = () =>
+    supplements.find(
+      item => item.id === selectedSupplementId
+    );
+
+  const selectedSupplement =
+    getSelectedSupplement();
+
+  const calendar = getMonthCalendar();
+
+  const supplementOptions = supplements.length
     ? supplements
         .map(
           item => `
-      <div class="supplement-row">
-        <div class="supplement-row-title">
-          <strong>${escapeHtml(item.name)}</strong>
-          <button
-            class="mini-delete"
-            type="button"
-            data-delete-supplement="${item.id}"
-          >
-            удалить
-          </button>
-        </div>
+            <button
+              type="button"
+              class="supplement-selector ${
+                item.id === selectedSupplementId
+                  ? "is-active"
+                  : ""
+              }"
+              data-select-supplement="${item.id}"
+            >
+              <span class="supplement-selector-icon">💊</span>
 
-        <div class="supplement-days">
-          ${lastSeven
-            .map(date => {
-              const key = trackerDate(date);
-              const checked = getSupplementTaken(item, key);
-              const isToday = key === today;
+              <span class="supplement-selector-name">
+                ${escapeHtml(item.name)}
+              </span>
 
-              return `
-                <button
-                  class="supplement-day ${checked ? "is-done" : ""} ${
-                    isToday ? "is-today" : ""
-                  }"
-                  type="button"
-                  data-supplement-id="${item.id}"
-                  data-supplement-date="${key}"
-                  aria-label="${dayNames[date.getDay()]} ${
-                    date.getDate()
-                  }"
-                >
-                  <span>${dayNames[date.getDay()]}</span>
-                  <b>${date.getDate()}</b>
-                  <i>${checked ? "✓" : ""}</i>
-                </button>
-              `;
-            })
-            .join("")}
-        </div>
-      </div>
-    `
+              ${
+                item.id === selectedSupplementId
+                  ? '<span class="supplement-selector-check">✓</span>'
+                  : ""
+              }
+            </button>
+          `
         )
         .join("")
     : `
-      <div class="tracker-empty">
-        <div class="tracker-empty-icon">💊</div>
-        <strong>пока ничего нет</strong>
-        <p>добавь БАДы ниже и отмечай прием по дням</p>
+      <div class="empty-tracker-state">
+        <span>💊</span>
+        <strong>пока здесь пусто</strong>
+        <p>
+          добавь БАД или препарат, который хочешь
+          отслеживать.
+        </p>
       </div>
     `;
 
@@ -4106,25 +4199,102 @@ function renderSupplementTracker() {
     "трекер БАДов",
     `
       <div class="streak-banner">
-        <span>текущая серия</span>
-        <strong>${calculateSupplementStreak()} дней 🔥</strong>
+        <div>
+          <span>текущая серия</span>
+          <strong>
+            ${calculateSupplementStreak()} дней 🔥
+          </strong>
+        </div>
+
+        <small>
+          серия считается, когда все добавленные
+          позиции отмечены за день
+        </small>
       </div>
 
-      <div class="tracker-section-heading">
-        <span>последние 7 дней</span>
-        <small>${supplements.length} поз.</small>
-      </div>
+      ${
+        supplements.length
+          ? `
+            <div class="tracker-section-heading">
+              <span>что отслеживаем</span>
+              <small>${supplements.length} поз.</small>
+            </div>
 
-      <div class="supplement-list">
-        ${calendar}
-      </div>
+            <div class="supplement-selector-list">
+              ${supplementOptions}
+            </div>
+
+            <div class="supplement-calendar-header">
+              <button
+                type="button"
+                class="calendar-nav-button"
+                id="supplementCalendarPrev"
+                aria-label="предыдущий месяц"
+              >
+                ‹
+              </button>
+
+              <div class="supplement-calendar-month">
+                <strong>
+                  ${monthNames[calendarDate.getMonth()]}
+                </strong>
+
+                <span>
+                  ${calendarDate.getFullYear()}
+                </span>
+              </div>
+
+              <button
+                type="button"
+                class="calendar-nav-button"
+                id="supplementCalendarNext"
+                aria-label="следующий месяц"
+              >
+                ›
+              </button>
+            </div>
+
+            <div class="supplement-calendar">
+              <div class="supplement-calendar-weekdays">
+                ${weekDays
+                  .map(
+                    day => `
+                      <span>${day}</span>
+                    `
+                  )
+                  .join("")}
+              </div>
+
+              <div class="supplement-calendar-grid">
+                ${calendar}
+              </div>
+            </div>
+
+            <div class="calendar-selected-info">
+              ${
+                selectedSupplement
+                  ? `
+                    <span>сейчас отмечаем:</span>
+                    <strong>
+                      ${escapeHtml(
+                        selectedSupplement.name
+                      )}
+                    </strong>
+                  `
+                  : ""
+              }
+            </div>
+          `
+          : ""
+      }
 
       <div class="tracker-add-row">
         <input
           id="newSupplementName"
           type="text"
-          placeholder="название БАДа"
-          maxlength="60"
+          maxlength="40"
+          placeholder="например, магний"
+          autocomplete="off"
         >
 
         <button
@@ -4135,23 +4305,93 @@ function renderSupplementTracker() {
         </button>
       </div>
 
+      ${
+        supplements.length
+          ? `
+            <div class="tracker-manage-list">
+              ${supplements
+                .map(
+                  item => `
+                    <div class="tracker-manage-row">
+                      <span>
+                        ${escapeHtml(item.name)}
+                      </span>
+
+                      <button
+                        class="mini-delete"
+                        type="button"
+                        data-delete-supplement="${item.id}"
+                      >
+                        удалить
+                      </button>
+                    </div>
+                  `
+                )
+                .join("")}
+            </div>
+          `
+          : ""
+      }
+
       <div class="tracker-hint">
-        отмечай прием в тот день, когда действительно приняла препарат.
+        выбери БАД сверху и нажимай на даты в календаре,
+        чтобы отметить или снять прием.
+        Отметки сохраняются только на этом устройстве.
       </div>
     `
   );
 
+  // Переключение между БАДами.
   overlay
-    .querySelectorAll("[data-supplement-id]")
+    .querySelectorAll("[data-select-supplement]")
     .forEach(button => {
       button.addEventListener("click", () => {
+        selectedSupplementId =
+          button.dataset.selectSupplement;
+
+        saveCalendarState();
+        renderSupplementTracker();
+      });
+    });
+
+  // Предыдущий месяц.
+  overlay
+    .querySelector("#supplementCalendarPrev")
+    ?.addEventListener("click", () => {
+      calendarDate.setMonth(
+        calendarDate.getMonth() - 1
+      );
+
+      saveCalendarState();
+      renderSupplementTracker();
+    });
+
+  // Следующий месяц.
+  overlay
+    .querySelector("#supplementCalendarNext")
+    ?.addEventListener("click", () => {
+      calendarDate.setMonth(
+        calendarDate.getMonth() + 1
+      );
+
+      saveCalendarState();
+      renderSupplementTracker();
+    });
+
+  // Отметка даты.
+  overlay
+    .querySelectorAll("[data-calendar-date]")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        const date =
+          button.dataset.calendarDate;
+
         const item = getSupplements().find(
-          s => s.id === button.dataset.supplementId
+          supplement =>
+            supplement.id === selectedSupplementId
         );
 
         if (!item) return;
-
-        const date = button.dataset.supplementDate;
 
         setSupplementTaken(
           item.id,
@@ -4159,51 +4399,79 @@ function renderSupplementTracker() {
           !getSupplementTaken(item, date)
         );
 
+        saveCalendarState();
         renderSupplementTracker();
       });
     });
 
+  // Удаление БАДа.
   overlay
     .querySelectorAll("[data-delete-supplement]")
     .forEach(button => {
       button.addEventListener("click", () => {
+        const id =
+          button.dataset.deleteSupplement;
+
         saveSupplements(
           getSupplements().filter(
-            s => s.id !== button.dataset.deleteSupplement
+            item => item.id !== id
           )
         );
 
+        const remaining = getSupplements();
+
+        if (selectedSupplementId === id) {
+          selectedSupplementId =
+            remaining[0]?.id || "";
+        }
+
+        saveCalendarState();
         renderSupplementTracker();
       });
     });
 
-  const addButton = overlay.querySelector("#addSupplementButton");
-  const input = overlay.querySelector("#newSupplementName");
-
+  // Добавление нового БАДа.
   const add = () => {
+    const input =
+      overlay.querySelector(
+        "#newSupplementName"
+      );
+
     const name = input?.value.trim();
 
     if (!name) return;
 
     const items = getSupplements();
 
-    items.push({
+    const newItem = {
       id: `${Date.now()}-${Math.random()
-        .toString(36)
-        .slice(2, 8)}`,
+        .toString(16)
+        .slice(2)}`,
       name,
       taken: []
-    });
+    };
+
+    items.push(newItem);
 
     saveSupplements(items);
+
+    selectedSupplementId = newItem.id;
+
+    saveCalendarState();
     renderSupplementTracker();
   };
 
-  addButton?.addEventListener("click", add);
+  overlay
+    .querySelector("#addSupplementButton")
+    ?.addEventListener("click", add);
 
-  input?.addEventListener("keydown", event => {
-    if (event.key === "Enter") add();
-  });
+  overlay
+    .querySelector("#newSupplementName")
+    ?.addEventListener("keydown", event => {
+      if (event.key === "Enter") {
+        add();
+      }
+    });
 }
 
 function renderWaterTracker() {
