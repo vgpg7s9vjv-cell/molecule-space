@@ -2026,3 +2026,169 @@ body.theme-minimalism .article-nav-button.disabled {
   color: var(--button-text) !important;
   opacity: 0.4;
 }
+/* 🎀 BABY PINK */
+body.theme-pink {
+  --bg: #fff8fb !important;
+  --bg-deep: #fff0f6 !important;
+  --card: #ffffff !important;
+  --card-soft: #fff9fc !important;
+
+  --text: #5b4050 !important;
+  --muted: #a47f90 !important;
+
+  --accent: #f2a9c7 !important;
+  --accent-soft: #fce1ec !important;
+  --accent-strong: #e58fb3 !important;
+
+  --line: #f5d9e5 !important;
+  --line-soft: #f9e9f0 !important;
+
+  --button: #f9d4e3 !important;
+  --button-text: #5b4050 !important;
+  --input: #fffafd !important;
+
+  background: #fff8fb !important;
+  color: #5b4050 !important;
+}
+
+/* нежные розовые поверхности */
+body.theme-pink .home-screen,
+body.theme-pink .section-card,
+body.theme-pink .tracker-card,
+body.theme-pink .quote-card,
+body.theme-pink .article-card,
+body.theme-pink .modal-content {
+  background: #ffffff !important;
+  color: #5b4050 !important;
+  border-color: #f5d9e5 !important;
+}
+
+/* 🎀 маленькие бантики и сердечки */
+body.theme-pink::before {
+  content: "♡   🎀   ♡";
+  position: fixed;
+  top: 76px;
+  right: 18px;
+  z-index: 0;
+  font-size: 18px;
+  letter-spacing: 5px;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+body.theme-pink::after {
+  content: "♡";
+  position: fixed;
+  bottom: 28px;
+  left: 20px;
+  z-index: 0;
+  font-size: 28px;
+  color: #f0abc5;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* розовые кнопочки */
+body.theme-pink button,
+body.theme-pink .article-nav-button {
+  background: #f9d4e3 !important;
+  background-image: none !important;
+  color: #5b4050 !important;
+  border-color: #f2c7d9 !important;
+}
+
+body.theme-pink button:hover,
+body.theme-pink .article-nav-button:hover {
+  background: #fce1ec !important;
+}
+
+/* ☁️ ANGEL */
+body.theme-angel {
+  --bg: #eef8ff !important;
+  --bg-deep: #e3f3ff !important;
+  --card: rgba(255, 255, 255, 0.92) !important;
+  --card-soft: rgba(255, 255, 255, 0.78) !important;
+
+  --text: #40566d !important;
+  --muted: #7894ad !important;
+
+  --accent: #9bc9e8 !important;
+  --accent-soft: #dff2ff !important;
+  --accent-strong: #78b4da !important;
+
+  --line: #d4e9f7 !important;
+  --line-soft: #e7f4fb !important;
+
+  --button: #d3ecfa !important;
+  --button-text: #40566d !important;
+  --input: #f9fdff !important;
+
+  background: #eef8ff !important;
+  color: #40566d !important;
+}
+
+/* белые воздушные карточки */
+body.theme-angel .home-screen,
+body.theme-angel .section-card,
+body.theme-angel .tracker-card,
+body.theme-angel .quote-card,
+body.theme-angel .article-card,
+body.theme-angel .modal-content {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #40566d !important;
+  border-color: #d4e9f7 !important;
+  box-shadow: 0 8px 28px rgba(120, 180, 218, 0.12) !important;
+}
+
+/* ☁️ облачко вверху */
+body.theme-angel::before {
+  content: "☁️        ✦  ˚  ✧        ☁️";
+  position: fixed;
+  top: 72px;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 5px;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+/* ✨ россыпь звезд */
+body.theme-angel::after {
+  content: "✦   ˚   ✧       ⋆       ✦   ˚   ✧";
+  position: fixed;
+  bottom: 26px;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  text-align: center;
+  font-size: 17px;
+  letter-spacing: 7px;
+  color: #9bc9e8;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* небесные кнопки */
+body.theme-angel button,
+body.theme-angel .article-nav-button {
+  background: #d3ecfa !important;
+  background-image: none !important;
+  color: #40566d !important;
+  border-color: #c5e3f3 !important;
+  box-shadow: 0 3px 10px rgba(120, 180, 218, 0.1) !important;
+}
+
+body.theme-angel button:hover,
+body.theme-angel .article-nav-button:hover {
+  background: #dff2ff !important;
+}
+
+/* ✨ легкое свечение у заголовков */
+body.theme-angel h1,
+body.theme-angel h2,
+body.theme-angel h3 {
+  text-shadow: 0 1px 8px rgba(155, 201, 232, 0.25);
+}
