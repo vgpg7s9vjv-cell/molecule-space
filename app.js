@@ -2063,38 +2063,118 @@ function showNextQuote() {
 ================================================== */
 
 function applyTheme(theme) {
-  const isLight = theme === "light";
-  document.body.classList.toggle("light-theme", isLight);
+
+  const validThemes = [
+    "dark",
+    "pink",
+    "angel",
+    "minimalism"
+  ];
+
+  if (!validThemes.includes(theme)) {
+    theme = "dark";
+  }
+
+
+  /* убираем старые классы тем */
+
+  validThemes.forEach(themeName => {
+
+    document.body.classList.remove(
+      `theme-${themeName}`
+    );
+
+  });
+
+
+  /* добавляем выбранную тему */
+
+  document.body.classList.add(
+    `theme-${theme}`
+  );
+
+
+  /* иконка оставляет смысл кнопки:
+     сама кнопка теперь открывает выбор темы */
 
   if (themeToggleIcon) {
-    themeToggleIcon.textContent = isLight ? "☼" : "☾";
+    themeToggleIcon.textContent =
+      theme === "dark"
+        ? "☾"
+        : "✦";
   }
+
 
   if (themeToggle) {
+
     themeToggle.setAttribute(
       "aria-label",
-      isLight ? "Включить темную тему" : "Включить светлую тему"
+      "выбрать оформление"
     );
+
   }
 
+
   try {
-    localStorage.setItem(themeStorageKey, isLight ? "light" : "dark");
+
+    localStorage.setItem(
+      themeStorageKey,
+      theme
+    );
+
   } catch (error) {}
+
+
+  /* цвет интерфейса Telegram */
 
   if (tg) {
-    if (tg.setHeaderColor) tg.setHeaderColor(isLight ? "#f3f0ff" : "#071426");
-    if (tg.setBackgroundColor) tg.setBackgroundColor(isLight ? "#f3f0ff" : "#071426");
+
+    const colors = {
+
+      dark: "#071426",
+
+      pink: "#24131f",
+
+      angel: "#f7f3ff",
+
+      minimalism: "#f3f3ef"
+
+    };
+
+    if (tg.setHeaderColor) {
+      tg.setHeaderColor(
+        colors[theme]
+      );
+    }
+
+    if (tg.setBackgroundColor) {
+      tg.setBackgroundColor(
+        colors[theme]
+      );
+    }
+
   }
+
 }
+
 
 function initTheme() {
-  let saved = "dark";
-  try {
-    saved = localStorage.getItem(themeStorageKey) || "dark";
-  } catch (error) {}
-  applyTheme(saved);
-}
 
+  let saved = "dark";
+
+  try {
+
+    saved =
+      localStorage.getItem(
+        themeStorageKey
+      ) || "dark";
+
+  } catch (error) {}
+
+
+  applyTheme(saved);
+
+}
 /* ==================================================
    ДНЕВНИК
 ================================================== */
@@ -3676,18 +3756,49 @@ if (newQuoteButton) {
 
 
 if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
 
-    const isLight =
-      document.body.classList.contains("light-theme");
+  themeToggle.addEventListener(
+    "click",
+    () => {
 
-    applyTheme(
-      isLight ? "dark" : "light"
-    );
+      const themes = [
+        "dark",
+        "pink",
+        "angel",
+        "minimalism"
+      ];
 
-  });
+
+      let currentTheme =
+        localStorage.getItem(
+          themeStorageKey
+        ) || "dark";
+
+
+      let currentIndex =
+        themes.indexOf(
+          currentTheme
+        );
+
+
+      if (currentIndex === -1) {
+        currentIndex = 0;
+      }
+
+
+      const nextIndex =
+        (currentIndex + 1) %
+        themes.length;
+
+
+      applyTheme(
+        themes[nextIndex]
+      );
+
+    }
+  );
+
 }
-
 
 if (quickDiaryButton) {
   quickDiaryButton.addEventListener(
@@ -3705,263 +3816,3 @@ if (quoteElement) {
     "opacity 0.12s ease";
 }
 
-
-/* ==================================================
-   MOLECULE SPACE — ТЕМЫ
-================================================== */
-
-(function initMoleculeThemes() {
-
-  const themes = {
-    dark: "theme-dark",
-    pink: "theme-pink",
-    angel: "theme-angel",
-    minimalism: "theme-minimalism"
-  };
-
-  const saved =
-    localStorage.getItem("moleculeSpaceTheme") ||
-    "dark";
-
-  function applyTheme(themeName) {
-
-    if (!themes[themeName]) {
-      themeName = "dark";
-    }
-
-    /* старые классы тем */
-    Object.values(themes).forEach(className => {
-      document.body.classList.remove(className);
-    });
-
-    document.body.classList.add(
-      themes[themeName]
-    );
-
-    /* новый атрибут темы */
-    document.body.dataset.theme =
-      themeName === "minimalism"
-        ? "minimal"
-        : themeName;
-
-    /* сохраняем */
-    localStorage.setItem(
-      "moleculeSpaceTheme",
-      themeName
-    );
-
-    updateThemeButtons();
-  }
-
-
-  function updateThemeButtons() {
-
-    document
-      .querySelectorAll(
-        "[data-molecule-theme]"
-      )
-      .forEach(button => {
-
-        button.classList.toggle(
-          "active",
-          button.dataset.moleculeTheme ===
-            localStorage.getItem(
-              "moleculeSpaceTheme"
-            )
-        );
-
-      });
-
-  }
-
-
-  function createThemePicker() {
-
-    if (
-      document.getElementById(
-        "moleculeThemePicker"
-      )
-    ) {
-      return;
-    }
-
-
-    const picker =
-      document.createElement("div");
-
-    picker.id =
-      "moleculeThemePicker";
-
-    picker.className =
-      "theme-picker hidden";
-
-
-    picker.innerHTML = `
-
-      <p>оформление</p>
-
-      <button
-        type="button"
-        data-molecule-theme="dark"
-      >
-        <span>☾</span>
-        <strong>dark</strong>
-        <small>холодная темная</small>
-      </button>
-
-
-      <button
-        type="button"
-        data-molecule-theme="pink"
-      >
-        <span>♡</span>
-        <strong>pink</strong>
-        <small>мягкая розовая</small>
-      </button>
-
-
-      <button
-        type="button"
-        data-molecule-theme="angel"
-      >
-        <span>୨୧</span>
-        <strong>angel</strong>
-        <small>светлая воздушная</small>
-      </button>
-
-
-      <button
-        type="button"
-        data-molecule-theme="minimalism"
-      >
-        <span>○</span>
-        <strong>minimalism</strong>
-        <small>спокойная минимальная</small>
-      </button>
-
-    `;
-
-
-    const topbar =
-      document.querySelector(
-        ".home-topbar"
-      );
-
-
-    if (!topbar) {
-      return;
-    }
-
-
-    topbar.appendChild(
-      picker
-    );
-
-
-    picker
-      .querySelectorAll(
-        "[data-molecule-theme]"
-      )
-      .forEach(button => {
-
-        button.addEventListener(
-          "click",
-          () => {
-
-            applyTheme(
-              button.dataset
-                .moleculeTheme
-            );
-
-            picker.classList.add(
-              "hidden"
-            );
-
-          }
-        );
-
-      });
-
-
-    updateThemeButtons();
-  }
-
-
-  function initThemeButton() {
-
-    const button =
-      document.getElementById(
-        "themeToggle"
-      );
-
-    if (!button) {
-      return;
-    }
-
-
-    button.addEventListener(
-      "click",
-      event => {
-
-        event.stopPropagation();
-
-        const picker =
-          document.getElementById(
-            "moleculeThemePicker"
-          );
-
-        if (!picker) {
-          return;
-        }
-
-        picker.classList.toggle(
-          "hidden"
-        );
-
-      }
-    );
-
-
-    document.addEventListener(
-      "click",
-      event => {
-
-        const picker =
-          document.getElementById(
-            "moleculeThemePicker"
-          );
-
-        if (!picker) {
-          return;
-        }
-
-        if (
-          !picker.classList.contains(
-            "hidden"
-          ) &&
-          !picker.contains(
-            event.target
-          ) &&
-          event.target !== button
-        ) {
-
-          picker.classList.add(
-            "hidden"
-          );
-
-        }
-
-      }
-    );
-
-  }
-
-
-  /* применяем сохраненную тему */
-  applyTheme(saved);
-
-  createThemePicker();
-
-  initThemeButton();
-
-})();
