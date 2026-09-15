@@ -2354,3 +2354,570 @@ body.theme-minimalism .back-button:active {
 
   transform: translateX(-2px);
 }
+
+
+/* ═══════════════════════════════════════
+   🌸 MOLECULE TRACKERS
+   calendar + water ring
+   ═══════════════════════════════════════ */
+
+
+/* ───────────────────────────────────────
+   📅 КАЛЕНДАРЬ
+   ─────────────────────────────────────── */
+
+.tracker-calendar {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 20px;
+
+  border-radius: 28px;
+
+  background: var(--card) !important;
+  border: 1px solid var(--line) !important;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+
+/* шапка месяца */
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+.calendar-month-title {
+  margin: 0;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  color: var(--text);
+}
+
+.calendar-month-button {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid var(--line) !important;
+  border-radius: 50% !important;
+
+  background: var(--card-soft) !important;
+  background-image: none !important;
+
+  color: var(--accent-strong) !important;
+
+  box-shadow: none !important;
+
+  font-size: 20px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.calendar-month-button:hover {
+  background: var(--accent-soft) !important;
+  transform: scale(1.06);
+}
+
+.calendar-month-button:active {
+  transform: scale(0.94);
+}
+
+
+/* дни недели */
+
+.calendar-weekdays {
+  display: grid;
+
+  grid-template-columns:
+    repeat(7, 1fr);
+
+  gap: 7px;
+
+  margin-bottom: 10px;
+
+  text-align: center;
+}
+
+.calendar-weekday {
+  font-size: 11px;
+  font-weight: 600;
+
+  color: var(--muted);
+
+  opacity: 0.8;
+}
+
+
+/* сетка дней */
+
+.calendar-days {
+  display: grid;
+
+  grid-template-columns:
+    repeat(7, 1fr);
+
+  gap: 8px;
+}
+
+
+/* отдельный день */
+
+.calendar-day {
+  position: relative;
+
+  aspect-ratio: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50% !important;
+
+  border: none !important;
+
+  background: transparent !important;
+  background-image: none !important;
+
+  color: var(--text);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.calendar-day:hover {
+  background: var(--accent-soft) !important;
+
+  transform: scale(1.08);
+}
+
+
+/* день вне текущего месяца */
+
+.calendar-day.other-month {
+  color: var(--muted);
+
+  opacity: 0.28;
+
+  pointer-events: none;
+}
+
+
+/* сегодняшний день */
+
+.calendar-day.today {
+  box-shadow:
+    inset 0 0 0 1.5px var(--accent);
+
+  color: var(--accent-strong);
+}
+
+
+/* выполненный день */
+
+.calendar-day.completed {
+  background: var(--accent) !important;
+
+  color: #ffffff !important;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* выполненный сегодняшний день */
+
+.calendar-day.today.completed {
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.10),
+    0 0 0 3px var(--accent-soft);
+}
+
+
+/* мягкая отметка серии */
+
+.calendar-day.streak {
+  background: var(--accent-soft) !important;
+
+  color: var(--text);
+}
+
+
+/* ───────────────────────────────────────
+   💕 СЕРИЯ
+   ─────────────────────────────────────── */
+
+.calendar-streak {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  margin-top: 18px;
+
+  padding: 10px 14px;
+
+  border-radius: 18px;
+
+  background: var(--accent-soft);
+
+  color: var(--accent-strong);
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* ───────────────────────────────────────
+   💧 ВОДА
+   ─────────────────────────────────────── */
+
+.water-tracker {
+  width: 100%;
+  max-width: 430px;
+
+  margin: 0 auto;
+  padding: 24px 20px 22px;
+
+  border-radius: 30px;
+
+  background: var(--card) !important;
+  border: 1px solid var(--line) !important;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.06);
+
+  text-align: center;
+}
+
+
+/* заголовок */
+
+.water-title {
+  margin: 0 0 4px;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  color: var(--text);
+}
+
+.water-subtitle {
+  margin: 0;
+
+  font-size: 12px;
+
+  color: var(--muted);
+}
+
+
+/* само кольцо */
+
+.water-ring {
+  position: relative;
+
+  width: min(250px, 72vw);
+  aspect-ratio: 1;
+
+  margin: 24px auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* внешний круг */
+
+.water-ring svg {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  transform: rotate(-90deg);
+
+  overflow: visible;
+}
+
+
+/* фоновая дорожка */
+
+.water-ring-background {
+  fill: none;
+
+  stroke: var(--accent-soft);
+
+  stroke-width: 10;
+}
+
+
+/* заполнение */
+
+.water-ring-progress {
+  fill: none;
+
+  stroke: var(--accent);
+
+  stroke-width: 10;
+
+  stroke-linecap: round;
+
+  transition:
+    stroke-dashoffset 0.7s ease,
+    stroke 0.3s ease;
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      color-mix(
+        in srgb,
+        var(--accent) 35%,
+        transparent
+      )
+    );
+}
+
+
+/* центр кольца */
+
+.water-ring-center {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.water-current {
+  font-size: 36px;
+  line-height: 1;
+
+  font-weight: 800;
+
+  color: var(--text);
+}
+
+.water-unit {
+  margin-top: 5px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: var(--muted);
+}
+
+.water-goal {
+  margin-top: 3px;
+
+  font-size: 11px;
+
+  color: var(--muted);
+}
+
+
+/* процент под кольцом */
+
+.water-percent {
+  margin-top: -8px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  color: var(--accent-strong);
+}
+
+
+/* ───────────────────────────────────────
+   💧 КНОПКИ ВОДЫ
+   ─────────────────────────────────────── */
+
+.water-controls {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+.water-control-button {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border-radius: 50% !important;
+
+  border: 1px solid var(--line) !important;
+
+  background: var(--button) !important;
+  background-image: none !important;
+
+  color: var(--button-text) !important;
+
+  box-shadow: none !important;
+
+  font-size: 22px;
+  font-weight: 500;
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease;
+}
+
+.water-control-button:hover {
+  background: var(--accent-soft) !important;
+
+  transform: scale(1.06);
+}
+
+.water-control-button:active {
+  transform: scale(0.92);
+}
+
+
+/* количество выбранной порции */
+
+.water-amount {
+  min-width: 90px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color: var(--text);
+}
+
+
+/* быстрые добавления */
+
+.water-presets {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-top: 14px;
+
+  flex-wrap: wrap;
+}
+
+.water-preset {
+  padding: 8px 13px;
+
+  border-radius: 16px !important;
+
+  border: 1px solid var(--line) !important;
+
+  background: var(--card-soft) !important;
+  background-image: none !important;
+
+  color: var(--accent-strong) !important;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  box-shadow: none !important;
+
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.water-preset:hover {
+  background: var(--accent-soft) !important;
+
+  transform: translateY(-1px);
+}
+
+
+/* ───────────────────────────────────────
+   🎀 PINK
+   ─────────────────────────────────────── */
+
+body.theme-pink .tracker-calendar,
+body.theme-pink .water-tracker {
+  box-shadow:
+    0 10px 30px rgba(201, 159, 184, 0.12),
+    0 0 22px rgba(245, 213, 144, 0.08);
+}
+
+
+/* ───────────────────────────────────────
+   ☁️ ANGEL
+   ─────────────────────────────────────── */
+
+body.theme-angel .tracker-calendar,
+body.theme-angel .water-tracker {
+  box-shadow:
+    0 10px 30px rgba(120, 180, 218, 0.12),
+    0 0 24px rgba(155, 201, 232, 0.13);
+}
+
+
+/* ───────────────────────────────────────
+   📱 МОБИЛЬНАЯ АДАПТАЦИЯ
+   ─────────────────────────────────────── */
+
+@media (max-width: 420px) {
+
+  .tracker-calendar {
+    padding: 17px;
+    border-radius: 24px;
+  }
+
+  .calendar-days {
+    gap: 5px;
+  }
+
+  .calendar-day {
+    font-size: 12px;
+  }
+
+  .water-tracker {
+    padding: 21px 16px;
+    border-radius: 26px;
+  }
+
+  .water-current {
+    font-size: 32px;
+  }
+
+}
