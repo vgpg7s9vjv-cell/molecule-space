@@ -2941,3 +2941,405 @@ body.theme-angel .water-tracker {
   transform: scale(.97);
 }
 
+
+ /* =========================================
+    MOLECULE SUPPLEMENT CALENDAR
+ ========================================= */
+
+.supplement-calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 18px 0 14px;
+}
+
+.supplement-calendar-month {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.supplement-calendar-month strong {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+}
+
+.supplement-calendar-month span {
+  font-size: 12px;
+  opacity: .45;
+  font-weight: 500;
+}
+
+.calendar-nav-button {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: 0;
+  border-radius: 13px;
+
+  background: rgba(255, 255, 255, .055);
+  color: inherit;
+
+  font-size: 23px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background .18s ease,
+    transform .18s ease,
+    opacity .18s ease;
+}
+
+.calendar-nav-button:hover {
+  background: rgba(255, 255, 255, .10);
+}
+
+.calendar-nav-button:active {
+  transform: scale(.90);
+}
+
+
+/* ---------- CALENDAR CONTAINER ---------- */
+
+.supplement-calendar {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 13px 10px 12px;
+
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, .035);
+  border: 1px solid rgba(255, 255, 255, .065);
+}
+
+
+/* ---------- WEEKDAYS ---------- */
+
+.supplement-calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.supplement-calendar-weekdays span {
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: .04em;
+
+  opacity: .38;
+}
+
+
+/* ---------- DAYS GRID ---------- */
+
+.supplement-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  gap: 4px;
+}
+
+
+/* ---------- DAY ---------- */
+
+.supplement-calendar-day {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  min-width: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 14px;
+
+  background: transparent;
+  color: inherit;
+
+  font: inherit;
+
+  cursor: pointer;
+
+  transition:
+    background .16s ease,
+    transform .16s ease,
+    box-shadow .16s ease;
+}
+
+.supplement-calendar-day > span {
+  position: relative;
+  z-index: 2;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  line-height: 1;
+}
+
+.supplement-calendar-day:not(.is-empty):hover {
+  background: rgba(255, 255, 255, .065);
+}
+
+.supplement-calendar-day:not(.is-empty):active {
+  transform: scale(.88);
+}
+
+
+/* ---------- EMPTY ---------- */
+
+.supplement-calendar-day.is-empty {
+  pointer-events: none;
+}
+
+
+/* ---------- TODAY ---------- */
+
+.supplement-calendar-day.is-today {
+  background: rgba(255, 255, 255, .085);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .18);
+}
+
+.supplement-calendar-day.is-today > span {
+  font-weight: 800;
+}
+
+
+/* маленькая точка под сегодняшним днем */
+
+.supplement-calendar-day.is-today::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: 5px;
+  left: 50%;
+
+  width: 4px;
+  height: 4px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: currentColor;
+
+  opacity: .55;
+}
+
+
+/* ---------- TAKEN ---------- */
+
+.supplement-calendar-day.is-done {
+  background: rgba(255, 255, 255, .115);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .055);
+}
+
+.supplement-calendar-day.is-done > span {
+  font-weight: 750;
+}
+
+
+/* маленькая галочка */
+
+.supplement-calendar-day.is-done i {
+  position: absolute;
+
+  right: 4px;
+  bottom: 4px;
+
+  width: 11px;
+  height: 11px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, .82);
+  color: #222;
+
+  font-size: 7px;
+  font-style: normal;
+  font-weight: 900;
+
+  line-height: 1;
+}
+
+
+/* ---------- TODAY + TAKEN ---------- */
+
+.supplement-calendar-day.is-today.is-done {
+  background: rgba(255, 255, 255, .15);
+
+  box-shadow:
+    inset 0 0 0 1.5px rgba(255, 255, 255, .28);
+}
+
+
+/* ---------- SUPPLEMENT SELECTOR ---------- */
+
+.supplement-selector-list {
+  display: flex;
+
+  gap: 7px;
+
+  overflow-x: auto;
+
+  padding: 1px 1px 7px;
+
+  scrollbar-width: none;
+}
+
+.supplement-selector-list::-webkit-scrollbar {
+  display: none;
+}
+
+
+.supplement-selector {
+  flex: 0 0 auto;
+
+  min-height: 36px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 7px 11px;
+
+  border: 1px solid rgba(255, 255, 255, .07);
+  border-radius: 13px;
+
+  background: rgba(255, 255, 255, .035);
+  color: inherit;
+
+  font: inherit;
+
+  cursor: pointer;
+
+  transition:
+    background .18s ease,
+    border-color .18s ease,
+    transform .18s ease;
+}
+
+.supplement-selector:active {
+  transform: scale(.95);
+}
+
+.supplement-selector.is-active {
+  background: rgba(255, 255, 255, .105);
+
+  border-color: rgba(255, 255, 255, .16);
+}
+
+.supplement-selector-icon {
+  font-size: 13px;
+}
+
+.supplement-selector-name {
+  max-width: 120px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.supplement-selector-check {
+  font-size: 11px;
+  opacity: .7;
+}
+
+
+/* ---------- CURRENT SUPPLEMENT ---------- */
+
+.calendar-selected-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 9px;
+
+  font-size: 10px;
+
+  opacity: .42;
+}
+
+.calendar-selected-info strong {
+  opacity: 1;
+  font-weight: 700;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 380px) {
+
+  .supplement-calendar {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .supplement-calendar-grid,
+  .supplement-calendar-weekdays {
+    gap: 3px;
+  }
+
+  .supplement-calendar-day {
+    border-radius: 12px;
+  }
+
+  .supplement-calendar-day > span {
+    font-size: 11px;
+  }
+
+  .supplement-calendar-day.is-done i {
+    right: 3px;
+    bottom: 3px;
+
+    width: 9px;
+    height: 9px;
+
+    font-size: 6px;
+  }
+}
+
