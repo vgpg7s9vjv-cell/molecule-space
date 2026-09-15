@@ -4088,7 +4088,8 @@ function openTrackerOverlay(
 
       if (
         event.target === overlay
-      ) {
+      ) 
+      {
         close();
       }
 
