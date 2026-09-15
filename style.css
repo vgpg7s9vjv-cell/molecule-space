@@ -1988,20 +1988,41 @@ body.theme-angel main {
 }
 
 
-/* кнопки внутри статей */
-body.theme-dark .back-button,
-body.theme-pink .back-button,
-body.theme-angel .back-button,
-body.theme-minimalism .back-button {
+body.theme-dark .article-nav-button,
+body.theme-pink .article-nav-button,
+body.theme-angel .article-nav-button,
+body.theme-minimalism .article-nav-button {
   background: var(--button) !important;
+  background-image: none !important;
   color: var(--button-text) !important;
-  border-color: var(--line) !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: none !important;
 }
 
-body.theme-dark .back-button:active,
-body.theme-pink .back-button:active,
-body.theme-angel .back-button:active,
-body.theme-minimalism .back-button:active {
+body.theme-dark .article-nav-button:hover,
+body.theme-pink .article-nav-button:hover,
+body.theme-angel .article-nav-button:hover,
+body.theme-minimalism .article-nav-button:hover {
   background: var(--accent-soft) !important;
+  background-image: none !important;
   color: var(--text) !important;
+}
+
+body.theme-dark .article-nav-button:active,
+body.theme-pink .article-nav-button:active,
+body.theme-angel .article-nav-button:active,
+body.theme-minimalism .article-nav-button:active {
+  background: var(--accent-soft) !important;
+  background-image: none !important;
+  color: var(--text) !important;
+}
+
+body.theme-dark .article-nav-button.disabled,
+body.theme-pink .article-nav-button.disabled,
+body.theme-angel .article-nav-button.disabled,
+body.theme-minimalism .article-nav-button.disabled {
+  background: var(--button) !important;
+  background-image: none !important;
+  color: var(--button-text) !important;
+  opacity: 0.4;
 }
