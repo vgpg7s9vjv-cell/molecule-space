@@ -3816,479 +3816,221 @@ if (quoteElement) {
     "opacity 0.12s ease";
 }
 
-
-/* ==================================================
-   ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ТРЕКЕРОВ
-================================================== */
-
-const supplementStorageKey =
-  "molecule-space-supplements";
-
-const waterStorageKey =
-  "molecule-space-water";
-
-const waterGoalStorageKey =
-  "molecule-space-water-goal";
-
-const reminderStorageKey =
-  "molecule-space-reminders";
-
+const supplementStorageKey = "molecule-space-supplements";
+const waterStorageKey = "molecule-space-water";
+const waterGoalStorageKey = "molecule-space-water-goal";
+const reminderStorageKey = "molecule-space-reminders";
 
 function trackerDate(date = new Date()) {
   const y = date.getFullYear();
-
-  const m = String(
-    date.getMonth() + 1
-  ).padStart(2, "0");
-
-  const d = String(
-    date.getDate()
-  ).padStart(2, "0");
-
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
   return `${y}-${m}-${d}`;
 }
 
-
 function readLocal(key, fallback) {
   try {
-    const value =
-      localStorage.getItem(key);
-
-    return value
-      ? JSON.parse(value)
-      : fallback;
-
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : fallback;
   } catch (error) {
     return fallback;
   }
 }
 
-
 function writeLocal(key, value) {
-  localStorage.setItem(
-    key,
-    JSON.stringify(value)
-  );
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (error) {}
 }
-
-
-/* ==================================================
-   БАДЫ
-================================================== */
 
 function getSupplements() {
-  return readLocal(
-    supplementStorageKey,
-    []
-  );
+  return readLocal(supplementStorageKey, []);
 }
-
 
 function saveSupplements(items) {
-  writeLocal(
-    supplementStorageKey,
-    items
-  );
+  writeLocal(supplementStorageKey, items);
 }
 
-
-function getSupplementTaken(
-  supplement,
-  date = trackerDate()
-) {
-  return Array.isArray(supplement.taken)
-    && supplement.taken.includes(date);
+function getWaterGoal() {
+  const value = Number(readLocal(waterGoalStorageKey, 2000));
+  return Number.isFinite(value) && value >= 250 ? value : 2000;
 }
 
+function getWaterData() {
+  return readLocal(waterStorageKey, {});
+}
 
-function setSupplementTaken(
-  id,
-  date,
-  value
-) {
+function getTodayWater() {
+  return Number(getWaterData()[trackerDate()] || 0);
+}
+
+function setTodayWater(amount) {
+  const data = getWaterData();
+  data[trackerDate()] = Math.max(0, Math.round(amount));
+  writeLocal(waterStorageKey, data);
+}
+
+function getReminderData() {
+  return readLocal(reminderStorageKey, []);
+}
+
+function saveReminderData(items) {
+  writeLocal(reminderStorageKey, items);
+}
+
+function getSupplementTaken(supplement, date = trackerDate()) {
+  return Array.isArray(supplement.taken) && supplement.taken.includes(date);
+}
+
+function setSupplementTaken(id, date, value) {
   const items = getSupplements();
+  const item = items.find(s => s.id === id);
 
-  const item = items.find(
-    supplement =>
-      supplement.id === id
-  );
+  if (!item) return;
 
-  if (!item) {
-    return;
-  }
+  item.taken = Array.isArray(item.taken) ? item.taken : [];
 
-  if (!Array.isArray(item.taken)) {
-    item.taken = [];
-  }
-
-  if (value) {
-
-    if (!item.taken.includes(date)) {
-      item.taken.push(date);
-    }
-
-  } else {
-
-    item.taken =
-      item.taken.filter(
-        savedDate =>
-          savedDate !== date
-      );
-
-  }
+  item.taken = value
+    ? [...new Set([...item.taken, date])]
+    : item.taken.filter(d => d !== date);
 
   saveSupplements(items);
 }
 
-
-/* ==================================================
-   ВОДА
-================================================== */
-
-function getWaterGoal() {
-  const value =
-    Number(
-      readLocal(
-        waterGoalStorageKey,
-        2000
-      )
-    );
-
-  return value >= 250
-    ? value
-    : 2000;
-}
-
-
-function getWaterData() {
-  return readLocal(
-    waterStorageKey,
-    {}
-  );
-}
-
-
-function getTodayWater() {
-  const data =
-    getWaterData();
-
-  return Number(
-    data[trackerDate()] || 0
-  );
-}
-
-
-function setTodayWater(amount) {
-  const data =
-    getWaterData();
-
-  data[trackerDate()] =
-    Math.max(
-      0,
-      Number(amount) || 0
-    );
-
-  writeLocal(
-    waterStorageKey,
-    data
-  );
-}
-
-
-/* ==================================================
-   НАПОМИНАНИЯ
-================================================== */
-
-function getReminderData() {
-  return readLocal(
-    reminderStorageKey,
-    []
-  );
-}
-
-
-function saveReminderData(items) {
-  writeLocal(
-    reminderStorageKey,
-    items
-  );
-}
-
-
-/* ==================================================
-   ОБЩЕЕ ОКНО ТРЕКЕРОВ
-================================================== */
-
-function openTrackerOverlay(
-  id,
-  title,
-  content
-) {
-
-  const old =
-    document.getElementById(id);
-
-  if (old) {
-    old.remove();
-  }
-
-
-  const overlay =
-    document.createElement("div");
-
-  overlay.id = id;
-
-  overlay.className =
-    "tracker-overlay";
-
-
-  overlay.innerHTML = `
-    <div class="tracker-modal fade-in">
-
-      <button
-        class="tracker-close"
-        type="button"
-        aria-label="закрыть"
-      >
-        ×
-      </button>
-
-      <div class="tracker-modal-kicker">
-        molecule tracker
-      </div>
-
-      <h2>
-        ${title}
-      </h2>
-
-      <div class="tracker-modal-content">
-        ${content}
-      </div>
-
-    </div>
-  `;
-
-
-  document.body.appendChild(
-    overlay
-  );
-
-
-  document.body.style.overflow =
-    "hidden";
-
-
-  const close = () => {
-
-    overlay.remove();
-
-    document.body.style.overflow =
-      "";
-
-  };
-
-
-  overlay
-    .querySelector(".tracker-close")
-    ?.addEventListener(
-      "click",
-      close
-    );
-
-
-  overlay.addEventListener(
-    "click",
-    event => {
-
-      if (
-        event.target === overlay
-      ) {
-        close();
-      }
-
-    }
-  );
-
-
-  return overlay;
-}
-
-
-/* ==================================================
-   СЕРИЯ БАДОВ
-================================================== */
-
 function calculateSupplementStreak() {
+  const items = getSupplements();
 
-  const supplements =
-    getSupplements();
-
-  if (!supplements.length) {
-    return 0;
-  }
-
+  if (!items.length) return 0;
 
   let streak = 0;
-
-  const date =
-    new Date();
-
+  const date = new Date();
 
   while (true) {
+    const key = trackerDate(date);
+    const complete = items.every(item => getSupplementTaken(item, key));
 
-    const key =
-      trackerDate(date);
-
-    const complete =
-      supplements.every(
-        supplement =>
-          getSupplementTaken(
-            supplement,
-            key
-          )
-      );
-
-
-    if (!complete) {
-      break;
-    }
-
+    if (!complete) break;
 
     streak++;
-
-    date.setDate(
-      date.getDate() - 1
-    );
-
+    date.setDate(date.getDate() - 1);
   }
-
 
   return streak;
 }
 
+function refreshHomeTrackers() {
+  const supplements = getSupplements();
+  const streak = calculateSupplementStreak();
 
-/* ==================================================
-   ОБНОВЛЕНИЕ КАРТОЧЕК НА ГЛАВНОЙ
-================================================== */
+  const supplementSummary =
+    document.getElementById("supplementsTrackerSummary");
 
-function pluralize(
-  number,
-  one,
-  few,
-  many
-) {
+  const streakElement =
+    document.getElementById("supplementsStreak");
 
-  const n =
-    Math.abs(number) % 100;
+  const waterSummary =
+    document.getElementById("waterTrackerSummary");
 
-  const n1 =
-    n % 10;
+  const waterProgress =
+    document.getElementById("waterMiniProgress");
 
+  const remindersSummary =
+    document.getElementById("remindersSummary");
 
-  if (
-    n > 10 &&
-    n < 20
-  ) {
-    return many;
+  if (supplementSummary) {
+    supplementSummary.textContent = supplements.length
+      ? `${supplements.length} ${pluralize(
+          supplements.length,
+          "БАД",
+          "БАДа",
+          "БАДов"
+        )} • отметь сегодняшний прием`
+      : "добавь свои БАДы и отмечай прием";
   }
 
-
-  if (n1 === 1) {
-    return one;
+  if (streakElement) {
+    streakElement.textContent = `${streak} 🔥`;
   }
 
+  const water = getTodayWater();
+  const goal = getWaterGoal();
+  const percent = Math.min(100, Math.round((water / goal) * 100));
 
-  if (
-    n1 >= 2 &&
-    n1 <= 4
-  ) {
-    return few;
+  if (waterSummary) {
+    waterSummary.textContent = `${water} мл из ${goal} мл`;
   }
 
+  if (waterProgress) {
+    waterProgress.style.width = `${percent}%`;
+  }
+
+  const reminders = getReminderData().filter(
+    r => r.enabled !== false
+  );
+
+  if (remindersSummary) {
+    remindersSummary.textContent = reminders.length
+      ? `${reminders.length} ${pluralize(
+          reminders.length,
+          "напоминание",
+          "напоминания",
+          "напоминаний"
+        )}`
+      : "настроить прием таблеток";
+  }
+}
+
+function pluralize(number, one, few, many) {
+  const n = Math.abs(number) % 100;
+
+  if (n >= 11 && n <= 19) return many;
+
+  const last = n % 10;
+
+  if (last === 1) return one;
+  if (last >= 2 && last <= 4) return few;
 
   return many;
 }
 
+function openTrackerOverlay(id, title, content) {
+  const old = document.getElementById(id);
 
-function refreshHomeTrackers() {
+  if (old) old.remove();
 
-  const supplementSummary =
-    document.getElementById(
-      "supplementsTrackerSummary"
-    );
+  const overlay = document.createElement("div");
 
-  const supplementStreak =
-    document.getElementById(
-      "supplementsStreak"
-    );
+  overlay.id = id;
+  overlay.className = "tracker-overlay";
 
-  const waterSummary =
-    document.getElementById(
-      "waterTrackerSummary"
-    );
+  overlay.innerHTML = `
+    <div class="tracker-modal fade-in">
+      <button class="tracker-close" type="button" aria-label="закрыть">×</button>
+      <div class="tracker-modal-kicker">molecule tracker</div>
+      <h2>${title}</h2>
+      <div class="tracker-modal-content">${content}</div>
+    </div>
+  `;
 
-  const waterProgress =
-    document.getElementById(
-      "waterMiniProgress"
-    );
+  document.body.appendChild(overlay);
+  document.body.style.overflow = "hidden";
 
+  const close = () => {
+    overlay.remove();
+    document.body.style.overflow = "";
+    refreshHomeTrackers();
+  };
 
-  const supplements =
-    getSupplements();
+  overlay
+    .querySelector(".tracker-close")
+    .addEventListener("click", close);
 
-  const streak =
-    calculateSupplementStreak();
+  overlay.addEventListener("click", event => {
+    if (event.target === overlay) close();
+  });
 
-
-  if (supplementSummary) {
-
-    supplementSummary.textContent =
-      supplements.length
-        ? `${supplements.length} поз. для отслеживания`
-        : "добавь свои БАДы и отмечай прием";
-
-  }
-
-
-  if (supplementStreak) {
-
-    supplementStreak.textContent =
-      `${streak} 🔥`;
-
-  }
-
-
-  const water =
-    getTodayWater();
-
-  const goal =
-    getWaterGoal();
-
-  const percent =
-    Math.min(
-      100,
-      Math.round(
-        (water / goal) * 100
-      )
-    );
-
-
-  if (waterSummary) {
-
-    waterSummary.textContent =
-      `${water} мл из ${goal} мл`;
-
-  }
-
-
-  if (waterProgress) {
-
-    waterProgress.style.width =
-      `${percent}%`;
-
-  }
+  return overlay;
 }
-
 
 function renderSupplementTracker() {
   const supplements = getSupplements();
@@ -4298,7 +4040,6 @@ function renderSupplementTracker() {
 
   for (let i = 6; i >= 0; i--) {
     const date = new Date();
-    date.setHours(12, 0, 0, 0);
     date.setDate(date.getDate() - i);
     lastSeven.push(date);
   }
@@ -4306,11 +4047,12 @@ function renderSupplementTracker() {
   const dayNames = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
 
   const calendar = supplements.length
-    ? supplements.map(item => `
+    ? supplements
+        .map(
+          item => `
       <div class="supplement-row">
         <div class="supplement-row-title">
           <strong>${escapeHtml(item.name)}</strong>
-
           <button
             class="mini-delete"
             type="button"
@@ -4321,33 +4063,41 @@ function renderSupplementTracker() {
         </div>
 
         <div class="supplement-days">
-          ${lastSeven.map(date => {
-            const key = trackerDate(date);
-            const checked = getSupplementTaken(item, key);
-            const isToday = key === today;
+          ${lastSeven
+            .map(date => {
+              const key = trackerDate(date);
+              const checked = getSupplementTaken(item, key);
+              const isToday = key === today;
 
-            return `
-              <button
-                class="supplement-day ${checked ? "is-done" : ""} ${isToday ? "is-today" : ""}"
-                type="button"
-                data-supplement-id="${item.id}"
-                data-supplement-date="${key}"
-                aria-label="${dayNames[date.getDay()]} ${date.getDate()}"
-              >
-                <span>${dayNames[date.getDay()]}</span>
-                <b>${date.getDate()}</b>
-                <i>${checked ? "✓" : ""}</i>
-              </button>
-            `;
-          }).join("")}
+              return `
+                <button
+                  class="supplement-day ${checked ? "is-done" : ""} ${
+                    isToday ? "is-today" : ""
+                  }"
+                  type="button"
+                  data-supplement-id="${item.id}"
+                  data-supplement-date="${key}"
+                  aria-label="${dayNames[date.getDay()]} ${
+                    date.getDate()
+                  }"
+                >
+                  <span>${dayNames[date.getDay()]}</span>
+                  <b>${date.getDate()}</b>
+                  <i>${checked ? "✓" : ""}</i>
+                </button>
+              `;
+            })
+            .join("")}
         </div>
       </div>
-    `).join("")
+    `
+        )
+        .join("")
     : `
-      <div class="empty-tracker-state">
-        <span>💊</span>
-        <strong>пока здесь пусто</strong>
-        <p>добавь БАД или препарат, который хочешь отслеживать.</p>
+      <div class="tracker-empty">
+        <div class="tracker-empty-icon">💊</div>
+        <strong>пока ничего нет</strong>
+        <p>добавь БАДы ниже и отмечай прием по дням</p>
       </div>
     `;
 
@@ -4356,14 +4106,8 @@ function renderSupplementTracker() {
     "трекер БАДов",
     `
       <div class="streak-banner">
-        <div>
-          <span>текущая серия</span>
-          <strong>${calculateSupplementStreak()} дней 🔥</strong>
-        </div>
-
-        <small>
-          серия считается, когда все добавленные позиции отмечены за день
-        </small>
+        <span>текущая серия</span>
+        <strong>${calculateSupplementStreak()} дней 🔥</strong>
       </div>
 
       <div class="tracker-section-heading">
@@ -4379,9 +4123,8 @@ function renderSupplementTracker() {
         <input
           id="newSupplementName"
           type="text"
-          maxlength="40"
-          placeholder="например, магний"
-          autocomplete="off"
+          placeholder="название БАДа"
+          maxlength="60"
         >
 
         <button
@@ -4393,69 +4136,51 @@ function renderSupplementTracker() {
       </div>
 
       <div class="tracker-hint">
-        отметки сохраняются только на этом устройстве.
-        данные можно изменить в любое время.
+        отмечай прием в тот день, когда действительно приняла препарат.
       </div>
     `
   );
 
-  /*
-    отметка дня
-  */
   overlay
     .querySelectorAll("[data-supplement-id]")
     .forEach(button => {
       button.addEventListener("click", () => {
         const item = getSupplements().find(
-          supplement =>
-            supplement.id === button.dataset.supplementId
+          s => s.id === button.dataset.supplementId
         );
 
         if (!item) return;
 
         const date = button.dataset.supplementDate;
-        const currentValue = getSupplementTaken(item, date);
 
         setSupplementTaken(
           item.id,
           date,
-          !currentValue
+          !getSupplementTaken(item, date)
         );
-
-        refreshHomeTrackers();
 
         renderSupplementTracker();
       });
     });
 
-  /*
-    удаление
-  */
   overlay
     .querySelectorAll("[data-delete-supplement]")
     .forEach(button => {
       button.addEventListener("click", () => {
-        const id = button.dataset.deleteSupplement;
-
         saveSupplements(
           getSupplements().filter(
-            supplement => supplement.id !== id
+            s => s.id !== button.dataset.deleteSupplement
           )
         );
 
-        refreshHomeTrackers();
         renderSupplementTracker();
       });
     });
 
-  /*
-    добавление нового препарата
-  */
-  const add = () => {
-    const input = overlay.querySelector(
-      "#newSupplementName"
-    );
+  const addButton = overlay.querySelector("#addSupplementButton");
+  const input = overlay.querySelector("#newSupplementName");
 
+  const add = () => {
     const name = input?.value.trim();
 
     if (!name) return;
@@ -4464,201 +4189,113 @@ function renderSupplementTracker() {
 
     items.push({
       id: `${Date.now()}-${Math.random()
-        .toString(16)
-        .slice(2)}`,
+        .toString(36)
+        .slice(2, 8)}`,
       name,
       taken: []
     });
 
     saveSupplements(items);
-
-    refreshHomeTrackers();
     renderSupplementTracker();
   };
 
-  overlay
-    .querySelector("#addSupplementButton")
-    ?.addEventListener("click", add);
+  addButton?.addEventListener("click", add);
 
-  overlay
-    .querySelector("#newSupplementName")
-    ?.addEventListener("keydown", event => {
-      if (event.key === "Enter") {
-        add();
-      }
-    });
+  input?.addEventListener("keydown", event => {
+    if (event.key === "Enter") add();
+  });
 }
 
 function renderWaterTracker() {
   const water = getTodayWater();
   const goal = getWaterGoal();
-
   const percent = Math.min(
     100,
     Math.round((water / goal) * 100)
   );
 
-  const radius = 82;
-  const circumference = 2 * Math.PI * radius;
-  const offset = circumference - (percent / 100) * circumference;
-
   const overlay = openTrackerOverlay(
     "waterTrackerOverlay",
     "трекер воды",
     `
-      <div class="water-tracker">
-
-        <div class="water-title">
-          <span>сегодня</span>
-          <strong>${percent}%</strong>
+      <div class="water-big-card">
+        <div
+          class="water-orb"
+          style="--water-progress:${percent}%"
+        >
+          <span>${percent}%</span>
         </div>
 
-        <div class="water-subtitle">
-          отмечай выпитую жидкость в течение дня
+        <div>
+          <strong id="waterBigValue">${water} мл</strong>
+          <small>из ${goal} мл сегодня</small>
         </div>
+      </div>
 
-        <div class="water-ring">
+      <div class="water-progress-track">
+        <span style="width:${percent}%"></span>
+      </div>
 
-          <svg
-            viewBox="0 0 200 200"
-            aria-hidden="true"
+      <div class="water-buttons">
+        <button type="button" data-water-add="150">
+          +150 мл
+        </button>
+
+        <button type="button" data-water-add="250">
+          +250 мл
+        </button>
+
+        <button type="button" data-water-add="500">
+          +500 мл
+        </button>
+
+        <button type="button" data-water-add="-250">
+          −250 мл
+        </button>
+      </div>
+
+      <div class="water-goal-row">
+        <label for="waterGoalInput">
+          дневная цель
+        </label>
+
+        <div>
+          <input
+            id="waterGoalInput"
+            type="number"
+            min="250"
+            max="10000"
+            step="50"
+            value="${goal}"
           >
-            <circle
-              class="water-ring-background"
-              cx="100"
-              cy="100"
-              r="${radius}"
-            ></circle>
-
-            <circle
-              class="water-ring-progress"
-              cx="100"
-              cy="100"
-              r="${radius}"
-              style="
-                stroke-dasharray:${circumference};
-                stroke-dashoffset:${offset};
-              "
-            ></circle>
-          </svg>
-
-          <div class="water-ring-center">
-            <div class="water-current" id="waterCurrent">
-              ${water}
-            </div>
-
-            <div class="water-unit">
-              мл
-            </div>
-
-            <div class="water-goal">
-              из ${goal} мл
-            </div>
-
-            <div class="water-percent">
-              ${percent}%
-            </div>
-          </div>
-
+          <span>мл</span>
         </div>
+      </div>
 
-        <div class="water-controls">
-
-          <button
-            type="button"
-            class="water-control-button"
-            data-water-add="-150"
-            aria-label="убавить 150 миллилитров"
-          >
-            −
-          </button>
-
-          <div class="water-amount">
-            ${water} мл
-          </div>
-
-          <button
-            type="button"
-            class="water-control-button"
-            data-water-add="150"
-            aria-label="добавить 150 миллилитров"
-          >
-            +
-          </button>
-
-        </div>
-
-        <div class="water-presets">
-
-          <button
-            type="button"
-            class="water-preset"
-            data-water-add="150"
-          >
-            +150 мл
-          </button>
-
-          <button
-            type="button"
-            class="water-preset"
-            data-water-add="250"
-          >
-            +250 мл
-          </button>
-
-          <button
-            type="button"
-            class="water-preset"
-            data-water-add="500"
-          >
-            +500 мл
-          </button>
-
-        </div>
-
-        <div class="water-goal-row">
-          <label for="waterGoalInput">
-            цель на день
-          </label>
-
-          <div>
-            <input
-              id="waterGoalInput"
-              type="number"
-              min="250"
-              max="10000"
-              step="50"
-              value="${goal}"
-            >
-
-            <span>мл</span>
-          </div>
-        </div>
-
-        <div class="tracker-hint">
-          это простой трекер количества выпитой жидкости, а не медицинское предписание.
-          индивидуальная потребность в жидкости может отличаться.
-        </div>
-
+      <div class="tracker-hint">
+        количество воды можно корректировать в течение дня.
       </div>
     `
   );
 
-  overlay.querySelectorAll("[data-water-add]").forEach(button => {
-    button.addEventListener("click", () => {
-      const amount = Number(button.dataset.waterAdd);
+  const rerender = () => renderWaterTracker();
 
-      setTodayWater(
-        Math.max(0, getTodayWater() + amount)
-      );
+  overlay
+    .querySelectorAll("[data-water-add]")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        setTodayWater(
+          getTodayWater() +
+            Number(button.dataset.waterAdd)
+        );
 
-      renderWaterTracker();
+        rerender();
+      });
     });
-  });
 
-  overlay.querySelector("#waterGoalInput")?.addEventListener(
-    "change",
-    event => {
+  overlay
+    .querySelector("#waterGoalInput")
+    ?.addEventListener("change", event => {
       const value = Math.min(
         10000,
         Math.max(
@@ -4667,27 +4304,366 @@ function renderWaterTracker() {
         )
       );
 
-      writeLocal(
-        waterGoalStorageKey,
-        value
-      );
-
-      renderWaterTracker();
-    }
-  );
+      writeLocal(waterGoalStorageKey, value);
+      rerender();
+    });
 }
 
+function reminderFrequencyLabel(frequency) {
+  if (frequency === "daily") return "каждый день";
+  if (frequency === "weekdays") return "по будням";
+  if (frequency === "weekends") return "по выходным";
 
-/* ==================================================
-   КНОПКИ ТРЕКЕРОВ НА ГЛАВНОЙ
-================================================== */
+  return "каждый день";
+}
+
+function isReminderDueToday(reminder) {
+  if (reminder.enabled === false) return false;
+
+  const day = new Date().getDay();
+
+  if (reminder.frequency === "weekdays") {
+    return day >= 1 && day <= 5;
+  }
+
+  if (reminder.frequency === "weekends") {
+    return day === 0 || day === 6;
+  }
+
+  return true;
+}
+
+function renderReminders() {
+  const reminders = getReminderData();
+
+  const list = reminders.length
+    ? reminders
+        .map(
+          reminder => `
+      <div class="reminder-row">
+        <div class="reminder-row-main">
+          <strong>${escapeHtml(reminder.name)}</strong>
+          <small>
+            ${escapeHtml(reminder.time)} •
+            ${reminderFrequencyLabel(reminder.frequency)}
+          </small>
+        </div>
+
+        <div class="reminder-row-actions">
+          <button
+            type="button"
+            class="reminder-toggle ${
+              reminder.enabled === false ? "" : "is-active"
+            }"
+            data-reminder-toggle="${reminder.id}"
+            aria-label="включить или выключить"
+          >
+            ${reminder.enabled === false ? "○" : "●"}
+          </button>
+
+          <button
+            type="button"
+            class="mini-delete"
+            data-delete-reminder="${reminder.id}"
+          >
+            удалить
+          </button>
+        </div>
+      </div>
+    `
+        )
+        .join("")
+    : `
+      <div class="tracker-empty">
+        <div class="tracker-empty-icon">⏰</div>
+        <strong>напоминаний пока нет</strong>
+        <p>добавь время приема ниже</p>
+      </div>
+    `;
+
+  const overlay = openTrackerOverlay(
+    "remindersOverlay",
+    "напоминания",
+    `
+      <div class="tracker-section-heading">
+        <span>мои напоминания</span>
+        <small>${reminders.length}</small>
+      </div>
+
+      <div class="reminder-list">
+        ${list}
+      </div>
+
+      <div class="reminder-add-form">
+        <input
+          id="newReminderName"
+          type="text"
+          maxlength="60"
+          placeholder="что принять"
+        >
+
+        <input
+          id="newReminderTime"
+          type="time"
+          value="09:00"
+        >
+
+        <select id="newReminderFrequency">
+          <option value="daily">каждый день</option>
+          <option value="weekdays">по будням</option>
+          <option value="weekends">по выходным</option>
+        </select>
+
+        <button
+          id="addReminderButton"
+          type="button"
+        >
+          + добавить
+        </button>
+      </div>
+
+      <div class="tracker-hint">
+        напоминания работают локально внутри приложения.
+      </div>
+    `
+  );
+
+  overlay
+    .querySelectorAll("[data-reminder-toggle]")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        const items = getReminderData();
+
+        const item = items.find(
+          r => r.id === button.dataset.reminderToggle
+        );
+
+        if (!item) return;
+
+        item.enabled = item.enabled === false;
+
+        saveReminderData(items);
+        renderReminders();
+      });
+    });
+
+  overlay
+    .querySelectorAll("[data-delete-reminder]")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        saveReminderData(
+          getReminderData().filter(
+            r => r.id !== button.dataset.deleteReminder
+          )
+        );
+
+        renderReminders();
+      });
+    });
+
+  const addButton =
+    overlay.querySelector("#addReminderButton");
+
+  addButton?.addEventListener("click", () => {
+    const name =
+      overlay
+        .querySelector("#newReminderName")
+        ?.value.trim();
+
+    const time =
+      overlay.querySelector("#newReminderTime")?.value ||
+      "09:00";
+
+    const frequency =
+      overlay.querySelector("#newReminderFrequency")
+        ?.value || "daily";
+
+    if (!name) return;
+
+    const items = getReminderData();
+
+    items.push({
+      id: `${Date.now()}-${Math.random()
+        .toString(36)
+        .slice(2, 8)}`,
+      name,
+      time,
+      frequency,
+      enabled: true,
+      lastShown: ""
+    });
+
+    saveReminderData(items);
+    renderReminders();
+  });
+}
+
+function showLocalReminderToast(reminder) {
+  const existing =
+    document.getElementById("localReminderToast");
+
+  if (existing) existing.remove();
+
+  const toast = document.createElement("div");
+
+  toast.id = "localReminderToast";
+  toast.className = "local-reminder-toast";
+
+  toast.innerHTML = `
+    <div class="local-reminder-toast-icon">⏰</div>
+
+    <div class="local-reminder-toast-content">
+      <strong>напоминание</strong>
+      <span>${escapeHtml(reminder.name)}</span>
+    </div>
+
+    <button type="button" aria-label="закрыть">×</button>
+  `;
+
+  document.body.appendChild(toast);
+
+  toast
+    .querySelector("button")
+    ?.addEventListener("click", () => {
+      toast.remove();
+    });
+
+  setTimeout(() => {
+    toast.remove();
+  }, 8000);
+}
+
+function checkReminders() {
+  const reminders = getReminderData();
+
+  if (!reminders.length) return;
+
+  const now = new Date();
+
+  const currentDate = trackerDate(now);
+
+  const currentTime =
+    `${String(now.getHours()).padStart(2, "0")}:${String(
+      now.getMinutes()
+    ).padStart(2, "0")}`;
+
+  let changed = false;
+
+  reminders.forEach(reminder => {
+    if (!isReminderDueToday(reminder)) return;
+
+    if (reminder.time !== currentTime) return;
+
+    if (reminder.lastShown === currentDate) return;
+
+    reminder.lastShown = currentDate;
+    changed = true;
+
+    showLocalReminderToast(reminder);
+  });
+
+  if (changed) {
+    saveReminderData(reminders);
+  }
+}
+
+function openThemePicker() {
+  const themes = [
+    {
+      id: "dark",
+      name: "темная",
+      description: "спокойная темная тема"
+    },
+    {
+      id: "pink",
+      name: "розовая",
+      description: "мягкая розовая тема"
+    },
+    {
+      id: "angel",
+      name: "angel",
+      description: "светлая воздушная тема"
+    },
+    {
+      id: "minimal",
+      name: "минимализм",
+      description: "чистая минималистичная тема"
+    }
+  ];
+
+  const currentTheme =
+    localStorage.getItem("molecule-space-theme") ||
+    "dark";
+
+  const overlay = openTrackerOverlay(
+    "themePickerOverlay",
+    "тема приложения",
+    `
+      <div class="theme-picker-list">
+        ${themes
+          .map(
+            theme => `
+          <button
+            type="button"
+            class="theme-picker-option ${
+              currentTheme === theme.id ? "is-active" : ""
+            }"
+            data-theme="${theme.id}"
+          >
+            <span class="theme-picker-check">
+              ${currentTheme === theme.id ? "✓" : ""}
+            </span>
+
+            <span>
+              <strong>${theme.name}</strong>
+              <small>${theme.description}</small>
+            </span>
+          </button>
+        `
+          )
+          .join("")}
+      </div>
+    `
+  );
+
+  overlay
+    .querySelectorAll("[data-theme]")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        const theme = button.dataset.theme;
+
+        localStorage.setItem(
+          "molecule-space-theme",
+          theme
+        );
+
+        document.body.dataset.theme = theme;
+
+        renderThemeButtons?.();
+        overlay.remove();
+        document.body.style.overflow = "";
+      });
+    });
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
 
 function ensureTrackerCards() {
-  const diary = document.getElementById("quickDiaryButton");
+  const diary =
+    document.getElementById("quickDiaryButton");
 
   if (
     !diary ||
-    document.getElementById("supplementsTrackerButton")
+    document.getElementById(
+      "supplementsTrackerButton"
+    )
   ) {
     return;
   }
@@ -4706,17 +4682,9 @@ function ensureTrackerCards() {
 
       <span class="tracker-card-content">
         <strong>трекер БАДов</strong>
-
         <small id="supplementsTrackerSummary">
           добавь свои БАДы и отмечай прием
         </small>
-
-        <span
-          class="tracker-today-button"
-          id="quickSupplementCheck"
-        >
-          ✓ отметить сегодня
-        </span>
       </span>
 
       <span
@@ -4736,7 +4704,6 @@ function ensureTrackerCards() {
 
       <span class="tracker-card-content">
         <strong>вода</strong>
-
         <small id="waterTrackerSummary">
           0 мл из 2000 мл
         </small>
@@ -4756,7 +4723,6 @@ function ensureTrackerCards() {
 
       <span class="tracker-card-content">
         <strong>напоминания</strong>
-
         <small id="remindersSummary">
           настроить прием таблеток
         </small>
@@ -4766,16 +4732,8 @@ function ensureTrackerCards() {
     </button>
   `;
 
-  diary.insertAdjacentElement(
-    "afterend",
-    wrap
-  );
+  diary.insertAdjacentElement("afterend", wrap);
 }
-
-
-/* ==================================================
-   ПОДКЛЮЧЕНИЕ КНОПОК
-================================================== */
 
 ensureTrackerCards();
 
@@ -4785,74 +4743,27 @@ const supplementsTrackerButton =
   );
 
 const waterTrackerButton =
-  document.getElementById(
-    "waterTrackerButton"
-  );
+  document.getElementById("waterTrackerButton");
 
 const remindersButton =
-  document.getElementById(
-    "remindersButton"
-  );
+  document.getElementById("remindersButton");
 
-const quickSupplementCheck =
-  document.getElementById("quickSupplementCheck");
+supplementsTrackerButton?.addEventListener(
+  "click",
+  renderSupplementTracker
+);
 
-quickSupplementCheck?.addEventListener("click", event => {
-  event.stopPropagation();
+waterTrackerButton?.addEventListener(
+  "click",
+  renderWaterTracker
+);
 
-  const supplements = getSupplements();
-
-  if (!supplements.length) {
-    renderSupplementTracker();
-    return;
-  }
-
-  const today = trackerDate();
-
-  const allTaken = supplements.every(
-    supplement =>
-      getSupplementTaken(supplement, today)
-  );
-
-  supplements.forEach(supplement => {
-    setSupplementTaken(
-      supplement.id,
-      today,
-      !allTaken
-    );
-  });
-
-  refreshHomeTrackers();
-
-  quickSupplementCheck.textContent =
-    allTaken
-      ? "✓ отметить сегодня"
-      : "✓ отмечено сегодня";
-});
-
-
-if (supplementsTrackerButton) {
-  supplementsTrackerButton.addEventListener(
-    "click",
-    renderSupplementTracker
-  );
-}
-
-
-if (waterTrackerButton) {
-  waterTrackerButton.addEventListener(
-    "click",
-    renderWaterTracker
-  );
-}
-
-
-if (remindersButton) {
-  remindersButton.addEventListener(
-    "click",
-    renderReminders
-  );
-}
-
+remindersButton?.addEventListener(
+  "click",
+  renderReminders
+);
 
 refreshHomeTrackers();
+checkReminders();
+
+setInterval(checkReminders, 30000);
