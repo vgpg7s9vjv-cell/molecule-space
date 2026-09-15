@@ -3835,17 +3835,9 @@ const reminderStorageKey =
 
 
 function trackerDate(date = new Date()) {
-  const localDate = new Date(date);
-
-  const y = localDate.getFullYear();
-  const m = String(
-    localDate.getMonth() + 1
-  ).padStart(2, "0");
-
-  const d = String(
-    localDate.getDate()
-  ).padStart(2, "0");
-
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
   return `${y}-${m}-${d}`;
 }
 
@@ -4106,64 +4098,18 @@ function openTrackerOverlay(
 ================================================== */
 
 function calculateSupplementStreak() {
-  const supplements = getSupplements();
-
-  if (!supplements.length) {
-    return 0;
-  }
-
-  const today = trackerDate(new Date());
-
-  const isComplete = (date) => {
-    return supplements.every((supplement) =>
-      getSupplementTaken(supplement, date)
-    );
-  };
-
-  // если сегодня уже все отмечено,
-  // серия начинается с сегодняшнего дня
-  if (isComplete(today)) {
-    let streak = 0;
-    const date = new Date();
-
-    while (true) {
-      const dateKey = trackerDate(date);
-
-      if (!isComplete(dateKey)) {
-        break;
-      }
-
-      streak++;
-
-      date.setDate(date.getDate() - 1);
-    }
-
-    return streak;
-  }
-
-  // если сегодня еще не отмечено,
-  // не обнуляем вчерашнюю серию
-  const yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
-
-  if (!isComplete(trackerDate(yesterday))) {
-    return 0;
-  }
+  const items = getSupplements();
+  if (!items.length) return 0;
 
   let streak = 0;
+  const date = new Date();
 
   while (true) {
-    const dateKey = trackerDate(yesterday);
-
-    if (!isComplete(dateKey)) {
-      break;
-    }
-
+    const key = trackerDate(date);
+    const complete = items.every(item => getSupplementTaken(item, key));
+    if (!complete) break;
     streak++;
-
-    yesterday.setDate(
-      yesterday.getDate() - 1
-    );
+    date.setDate(date.getDate() - 1);
   }
 
   return streak;
