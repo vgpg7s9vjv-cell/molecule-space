@@ -3816,6 +3816,480 @@ if (quoteElement) {
     "opacity 0.12s ease";
 }
 
+
+/* ==================================================
+   ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ТРЕКЕРОВ
+================================================== */
+
+const supplementStorageKey =
+  "molecule-space-supplements";
+
+const waterStorageKey =
+  "molecule-space-water";
+
+const waterGoalStorageKey =
+  "molecule-space-water-goal";
+
+const reminderStorageKey =
+  "molecule-space-reminders";
+
+
+function trackerDate(date = new Date()) {
+  const y = date.getFullYear();
+
+  const m = String(
+    date.getMonth() + 1
+  ).padStart(2, "0");
+
+  const d = String(
+    date.getDate()
+  ).padStart(2, "0");
+
+  return `${y}-${m}-${d}`;
+}
+
+
+function readLocal(key, fallback) {
+  try {
+    const value =
+      localStorage.getItem(key);
+
+    return value
+      ? JSON.parse(value)
+      : fallback;
+
+  } catch (error) {
+    return fallback;
+  }
+}
+
+
+function writeLocal(key, value) {
+  localStorage.setItem(
+    key,
+    JSON.stringify(value)
+  );
+}
+
+
+/* ==================================================
+   БАДЫ
+================================================== */
+
+function getSupplements() {
+  return readLocal(
+    supplementStorageKey,
+    []
+  );
+}
+
+
+function saveSupplements(items) {
+  writeLocal(
+    supplementStorageKey,
+    items
+  );
+}
+
+
+function getSupplementTaken(
+  supplement,
+  date = trackerDate()
+) {
+  return Array.isArray(supplement.taken)
+    && supplement.taken.includes(date);
+}
+
+
+function setSupplementTaken(
+  id,
+  date,
+  value
+) {
+  const items = getSupplements();
+
+  const item = items.find(
+    supplement =>
+      supplement.id === id
+  );
+
+  if (!item) {
+    return;
+  }
+
+  if (!Array.isArray(item.taken)) {
+    item.taken = [];
+  }
+
+  if (value) {
+
+    if (!item.taken.includes(date)) {
+      item.taken.push(date);
+    }
+
+  } else {
+
+    item.taken =
+      item.taken.filter(
+        savedDate =>
+          savedDate !== date
+      );
+
+  }
+
+  saveSupplements(items);
+}
+
+
+/* ==================================================
+   ВОДА
+================================================== */
+
+function getWaterGoal() {
+  const value =
+    Number(
+      readLocal(
+        waterGoalStorageKey,
+        2000
+      )
+    );
+
+  return value >= 250
+    ? value
+    : 2000;
+}
+
+
+function getWaterData() {
+  return readLocal(
+    waterStorageKey,
+    {}
+  );
+}
+
+
+function getTodayWater() {
+  const data =
+    getWaterData();
+
+  return Number(
+    data[trackerDate()] || 0
+  );
+}
+
+
+function setTodayWater(amount) {
+  const data =
+    getWaterData();
+
+  data[trackerDate()] =
+    Math.max(
+      0,
+      Number(amount) || 0
+    );
+
+  writeLocal(
+    waterStorageKey,
+    data
+  );
+}
+
+
+/* ==================================================
+   НАПОМИНАНИЯ
+================================================== */
+
+function getReminderData() {
+  return readLocal(
+    reminderStorageKey,
+    []
+  );
+}
+
+
+function saveReminderData(items) {
+  writeLocal(
+    reminderStorageKey,
+    items
+  );
+}
+
+
+/* ==================================================
+   ОБЩЕЕ ОКНО ТРЕКЕРОВ
+================================================== */
+
+function openTrackerOverlay(
+  id,
+  title,
+  content
+) {
+
+  const old =
+    document.getElementById(id);
+
+  if (old) {
+    old.remove();
+  }
+
+
+  const overlay =
+    document.createElement("div");
+
+  overlay.id = id;
+
+  overlay.className =
+    "tracker-overlay";
+
+
+  overlay.innerHTML = `
+    <div class="tracker-modal fade-in">
+
+      <button
+        class="tracker-close"
+        type="button"
+        aria-label="закрыть"
+      >
+        ×
+      </button>
+
+      <div class="tracker-modal-kicker">
+        molecule tracker
+      </div>
+
+      <h2>
+        ${title}
+      </h2>
+
+      <div class="tracker-modal-content">
+        ${content}
+      </div>
+
+    </div>
+  `;
+
+
+  document.body.appendChild(
+    overlay
+  );
+
+
+  document.body.style.overflow =
+    "hidden";
+
+
+  const close = () => {
+
+    overlay.remove();
+
+    document.body.style.overflow =
+      "";
+
+  };
+
+
+  overlay
+    .querySelector(".tracker-close")
+    ?.addEventListener(
+      "click",
+      close
+    );
+
+
+  overlay.addEventListener(
+    "click",
+    event => {
+
+      if (
+        event.target === overlay
+      ) {
+        close();
+      }
+
+    }
+  );
+
+
+  return overlay;
+}
+
+
+/* ==================================================
+   СЕРИЯ БАДОВ
+================================================== */
+
+function calculateSupplementStreak() {
+
+  const supplements =
+    getSupplements();
+
+  if (!supplements.length) {
+    return 0;
+  }
+
+
+  let streak = 0;
+
+  const date =
+    new Date();
+
+
+  while (true) {
+
+    const key =
+      trackerDate(date);
+
+    const complete =
+      supplements.every(
+        supplement =>
+          getSupplementTaken(
+            supplement,
+            key
+          )
+      );
+
+
+    if (!complete) {
+      break;
+    }
+
+
+    streak++;
+
+    date.setDate(
+      date.getDate() - 1
+    );
+
+  }
+
+
+  return streak;
+}
+
+
+/* ==================================================
+   ОБНОВЛЕНИЕ КАРТОЧЕК НА ГЛАВНОЙ
+================================================== */
+
+function pluralize(
+  number,
+  one,
+  few,
+  many
+) {
+
+  const n =
+    Math.abs(number) % 100;
+
+  const n1 =
+    n % 10;
+
+
+  if (
+    n > 10 &&
+    n < 20
+  ) {
+    return many;
+  }
+
+
+  if (n1 === 1) {
+    return one;
+  }
+
+
+  if (
+    n1 >= 2 &&
+    n1 <= 4
+  ) {
+    return few;
+  }
+
+
+  return many;
+}
+
+
+function refreshHomeTrackers() {
+
+  const supplementSummary =
+    document.getElementById(
+      "supplementsTrackerSummary"
+    );
+
+  const supplementStreak =
+    document.getElementById(
+      "supplementsStreak"
+    );
+
+  const waterSummary =
+    document.getElementById(
+      "waterTrackerSummary"
+    );
+
+  const waterProgress =
+    document.getElementById(
+      "waterMiniProgress"
+    );
+
+
+  const supplements =
+    getSupplements();
+
+  const streak =
+    calculateSupplementStreak();
+
+
+  if (supplementSummary) {
+
+    supplementSummary.textContent =
+      supplements.length
+        ? `${supplements.length} поз. для отслеживания`
+        : "добавь свои БАДы и отмечай прием";
+
+  }
+
+
+  if (supplementStreak) {
+
+    supplementStreak.textContent =
+      `${streak} 🔥`;
+
+  }
+
+
+  const water =
+    getTodayWater();
+
+  const goal =
+    getWaterGoal();
+
+  const percent =
+    Math.min(
+      100,
+      Math.round(
+        (water / goal) * 100
+      )
+    );
+
+
+  if (waterSummary) {
+
+    waterSummary.textContent =
+      `${water} мл из ${goal} мл`;
+
+  }
+
+
+  if (waterProgress) {
+
+    waterProgress.style.width =
+      `${percent}%`;
+
+  }
+}
+
+
 function renderSupplementTracker() {
   const supplements = getSupplements();
 
