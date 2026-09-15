@@ -1836,3 +1836,38 @@ body.theme-minimalism .section-button.active {
     var(--accent);
 
 }
+/* ==================================================
+   НАПОМИНАНИЕ НА ДЕНЬ — ТЕМЫ
+================================================== */
+
+body.theme-pink .quote-card,
+body.theme-angel .quote-card,
+body.theme-minimalism .quote-card {
+  background: var(--card) !important;
+  border-color: var(--line) !important;
+  color: var(--text) !important;
+  box-shadow: 0 12px 35px rgba(0,0,0,.06) !important;
+}
+
+body.theme-pink .quote-card .support-subtitle,
+body.theme-pink .quote-card .quote-text,
+body.theme-angel .quote-card .support-subtitle,
+body.theme-angel .quote-card .quote-text,
+body.theme-minimalism .quote-card .support-subtitle,
+body.theme-minimalism .quote-card .quote-text {
+  color: var(--text) !important;
+}
+
+body.theme-pink .quote-card .support-subtitle,
+body.theme-angel .quote-card .support-subtitle,
+body.theme-minimalism .quote-card .support-subtitle {
+  color: var(--muted) !important;
+}
+
+body.theme-pink .quote-button,
+body.theme-angel .quote-button,
+body.theme-minimalism .quote-button {
+  background: var(--button, rgba(127,127,127,.09)) !important;
+  color: var(--button-text, var(--text)) !important;
+  border-color: var(--line) !important;
+}
