@@ -2285,7 +2285,7 @@ body.theme-pink::before {
 }
 
 body.theme-pink::after {
-  content: "♡       🍌       ✦       ♡";
+  content: "♡       🎀       ✦       ♡";
   position: fixed;
   bottom: 25px;
   left: 0;
@@ -2300,4 +2300,57 @@ body.theme-pink::after {
   opacity: 0.48;
 
   pointer-events: none;
+}
+/* ← аккуратная кнопка выхода из статьи / раздела */
+
+body.theme-dark .back-button,
+body.theme-pink .back-button,
+body.theme-angel .back-button,
+body.theme-minimalism .back-button {
+  background: transparent !important;
+  background-image: none !important;
+
+  border: none !important;
+  outline: none !important;
+
+  box-shadow: none !important;
+
+  color: var(--accent-strong) !important;
+
+  border-radius: 12px !important;
+
+  padding: 8px 4px !important;
+
+  font-weight: 500 !important;
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease !important;
+}
+
+body.theme-dark .back-button:hover,
+body.theme-pink .back-button:hover,
+body.theme-angel .back-button:hover,
+body.theme-minimalism .back-button:hover {
+  background: transparent !important;
+  background-image: none !important;
+
+  color: var(--accent-strong) !important;
+
+  box-shadow: none !important;
+
+  opacity: 0.75;
+}
+
+body.theme-dark .back-button:active,
+body.theme-pink .back-button:active,
+body.theme-angel .back-button:active,
+body.theme-minimalism .back-button:active {
+  background: transparent !important;
+  background-image: none !important;
+
+  box-shadow: none !important;
+
+  transform: translateX(-2px);
 }
