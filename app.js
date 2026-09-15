@@ -3712,31 +3712,39 @@ if (quoteElement) {
 
 (function initMoleculeThemes() {
 
-  const savedTheme =
-    localStorage.getItem("moleculeSpaceTheme") || "dark";
+  const themes = {
+    dark: "theme-dark",
+    pink: "theme-pink",
+    angel: "theme-angel",
+    minimalism: "theme-minimalism"
+  };
 
-  const validThemes = [
-    "dark",
-    "pink",
-    "angel",
-    "minimal"
-  ];
-
-  const theme =
-    validThemes.includes(savedTheme)
-      ? savedTheme
-      : "dark";
-
+  const saved =
+    localStorage.getItem("moleculeSpaceTheme") ||
+    "dark";
 
   function applyTheme(themeName) {
 
-    if (!validThemes.includes(themeName)) {
-      return;
+    if (!themes[themeName]) {
+      themeName = "dark";
     }
 
-    document.body.dataset.theme =
-      themeName;
+    /* старые классы тем */
+    Object.values(themes).forEach(className => {
+      document.body.classList.remove(className);
+    });
 
+    document.body.classList.add(
+      themes[themeName]
+    );
+
+    /* новый атрибут темы */
+    document.body.dataset.theme =
+      themeName === "minimalism"
+        ? "minimal"
+        : themeName;
+
+    /* сохраняем */
     localStorage.setItem(
       "moleculeSpaceTheme",
       themeName
@@ -3757,10 +3765,13 @@ if (quoteElement) {
         button.classList.toggle(
           "active",
           button.dataset.moleculeTheme ===
-            document.body.dataset.theme
+            localStorage.getItem(
+              "moleculeSpaceTheme"
+            )
         );
 
       });
+
   }
 
 
@@ -3787,24 +3798,15 @@ if (quoteElement) {
 
     picker.innerHTML = `
 
-      <p>
-        оформление
-      </p>
-
+      <p>оформление</p>
 
       <button
         type="button"
         data-molecule-theme="dark"
       >
         <span>☾</span>
-
-        <strong>
-          dark
-        </strong>
-
-        <small>
-          холодная темная
-        </small>
+        <strong>dark</strong>
+        <small>холодная темная</small>
       </button>
 
 
@@ -3813,14 +3815,8 @@ if (quoteElement) {
         data-molecule-theme="pink"
       >
         <span>♡</span>
-
-        <strong>
-          pink
-        </strong>
-
-        <small>
-          мягкая розовая
-        </small>
+        <strong>pink</strong>
+        <small>мягкая розовая</small>
       </button>
 
 
@@ -3829,30 +3825,18 @@ if (quoteElement) {
         data-molecule-theme="angel"
       >
         <span>୨୧</span>
-
-        <strong>
-          angel
-        </strong>
-
-        <small>
-          светлая воздушная
-        </small>
+        <strong>angel</strong>
+        <small>светлая воздушная</small>
       </button>
 
 
       <button
         type="button"
-        data-molecule-theme="minimal"
+        data-molecule-theme="minimalism"
       >
         <span>○</span>
-
-        <strong>
-          minimalism
-        </strong>
-
-        <small>
-          спокойная минимальная
-        </small>
+        <strong>minimalism</strong>
+        <small>спокойная минимальная</small>
       </button>
 
     `;
@@ -3864,13 +3848,14 @@ if (quoteElement) {
       );
 
 
-    if (topbar) {
-
-      topbar.appendChild(
-        picker
-      );
-
+    if (!topbar) {
+      return;
     }
+
+
+    topbar.appendChild(
+      picker
+    );
 
 
     picker
@@ -3920,17 +3905,14 @@ if (quoteElement) {
 
         event.stopPropagation();
 
-
         const picker =
           document.getElementById(
             "moleculeThemePicker"
           );
 
-
         if (!picker) {
           return;
         }
-
 
         picker.classList.toggle(
           "hidden"
@@ -3949,18 +3931,14 @@ if (quoteElement) {
             "moleculeThemePicker"
           );
 
-
-        if (
-          !picker ||
-          picker.classList.contains(
-            "hidden"
-          )
-        ) {
+        if (!picker) {
           return;
         }
 
-
         if (
+          !picker.classList.contains(
+            "hidden"
+          ) &&
           !picker.contains(
             event.target
           ) &&
@@ -3975,12 +3953,12 @@ if (quoteElement) {
 
       }
     );
+
   }
 
 
-  document.body.dataset.theme =
-    theme;
-
+  /* применяем сохраненную тему */
+  applyTheme(saved);
 
   createThemePicker();
 
