@@ -4316,3 +4316,136 @@ function renderWaterTracker() {
     }
   );
 }
+
+
+/* ==================================================
+   КНОПКИ ТРЕКЕРОВ НА ГЛАВНОЙ
+================================================== */
+
+function ensureTrackerCards() {
+  const diary = document.getElementById("quickDiaryButton");
+
+  if (!diary || document.getElementById("supplementsTrackerButton")) {
+    return;
+  }
+
+  const wrap = document.createElement("div");
+
+  wrap.className = "home-trackers";
+
+  wrap.innerHTML = `
+    <button
+      class="tracker-card supplements-tracker-card"
+      id="supplementsTrackerButton"
+      type="button"
+    >
+      <span class="tracker-icon">💊</span>
+
+      <span class="tracker-card-content">
+        <strong>трекер БАДов</strong>
+        <small id="supplementsTrackerSummary">
+          добавь свои БАДы и отмечай прием
+        </small>
+      </span>
+
+      <span
+        class="tracker-card-value"
+        id="supplementsStreak"
+      >
+        0 🔥
+      </span>
+    </button>
+
+
+    <button
+      class="tracker-card water-tracker-card"
+      id="waterTrackerButton"
+      type="button"
+    >
+      <span class="tracker-icon">💧</span>
+
+      <span class="tracker-card-content">
+        <strong>вода</strong>
+        <small id="waterTrackerSummary">
+          0 мл из 2000 мл
+        </small>
+      </span>
+
+      <span class="water-mini-bar">
+        <span id="waterMiniProgress"></span>
+      </span>
+    </button>
+
+
+    <button
+      class="tracker-card reminder-tracker-card"
+      id="remindersButton"
+      type="button"
+    >
+      <span class="tracker-icon">⏰</span>
+
+      <span class="tracker-card-content">
+        <strong>напоминания</strong>
+        <small id="remindersSummary">
+          настроить прием таблеток
+        </small>
+      </span>
+
+      <span class="tracker-card-arrow">›</span>
+    </button>
+  `;
+
+  diary.insertAdjacentElement(
+    "afterend",
+    wrap
+  );
+}
+
+
+/* ==================================================
+   ПОДКЛЮЧЕНИЕ КНОПОК
+================================================== */
+
+ensureTrackerCards();
+
+const supplementsTrackerButton =
+  document.getElementById(
+    "supplementsTrackerButton"
+  );
+
+const waterTrackerButton =
+  document.getElementById(
+    "waterTrackerButton"
+  );
+
+const remindersButton =
+  document.getElementById(
+    "remindersButton"
+  );
+
+
+if (supplementsTrackerButton) {
+  supplementsTrackerButton.addEventListener(
+    "click",
+    renderSupplementTracker
+  );
+}
+
+
+if (waterTrackerButton) {
+  waterTrackerButton.addEventListener(
+    "click",
+    renderWaterTracker
+  );
+}
+
+
+if (remindersButton) {
+  remindersButton.addEventListener(
+    "click",
+    renderReminders
+  );
+}
+
+
+refreshHomeTrackers();
