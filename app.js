@@ -4292,315 +4292,201 @@ function refreshHomeTrackers() {
 
 function renderSupplementTracker() {
   const supplements = getSupplements();
+  const today = trackerDate();
 
-  let currentMonth = new Date();
-  currentMonth.setDate(1);
+  const lastSeven = [];
 
-  const render = () => {
-    const today = trackerDate();
-    const year = currentMonth.getFullYear();
-    const month = currentMonth.getMonth();
+  for (let i = 6; i >= 0; i--) {
+    const date = new Date();
+    date.setHours(12, 0, 0, 0);
+    date.setDate(date.getDate() - i);
+    lastSeven.push(date);
+  }
 
-    const monthNames = [
-      "январь", "февраль", "март", "апрель", "май", "июнь",
-      "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"
-    ];
+  const dayNames = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
 
-    const dayNames = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"];
-
-    const firstDay = new Date(year, month, 1);
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-    let startDay = firstDay.getDay();
-    startDay = startDay === 0 ? 6 : startDay - 1;
-
-    const previousMonthDays = new Date(year, month, 0).getDate();
-
-    const days = [];
-
-    // дни предыдущего месяца
-    for (let i = startDay - 1; i >= 0; i--) {
-      const day = previousMonthDays - i;
-      const date = new Date(year, month - 1, day);
-
-      days.push({
-        date,
-        currentMonth: false
-      });
-    }
-
-    // дни текущего месяца
-    for (let day = 1; day <= daysInMonth; day++) {
-      days.push({
-        date: new Date(year, month, day),
-        currentMonth: true
-      });
-    }
-
-    // дни следующего месяца
-    while (days.length < 42) {
-      const day = days.length - startDay - daysInMonth + 1;
-      days.push({
-        date: new Date(year, month + 1, day),
-        currentMonth: false
-      });
-    }
-
-    // день считается выполненным, если ВСЕ добавленные БАДы отмечены
-    const isDayComplete = (date) => {
-      if (!supplements.length) return false;
-
-      const key = trackerDate(date);
-
-      return supplements.every(item =>
-        getSupplementTaken(item, key)
-      );
-    };
-
-    // текущая серия
-    let streak = 0;
-    const streakDate = new Date();
-
-    while (isDayComplete(streakDate)) {
-      streak++;
-      streakDate.setDate(streakDate.getDate() - 1);
-    }
-
-    const calendarHTML = days.map(({ date, currentMonth }) => {
-      const key = trackerDate(date);
-      const complete = isDayComplete(date);
-      const isToday = key === today;
-
-      const classes = [
-        "calendar-day",
-        !currentMonth ? "other-month" : "",
-        isToday ? "today" : "",
-        complete ? "completed" : ""
-      ].filter(Boolean).join(" ");
-
-      return `
-        <button
-          type="button"
-          class="${classes}"
-          data-calendar-date="${key}"
-          aria-label="${dayNames[date.getDay() === 0 ? 6 : date.getDay() - 1]} ${date.getDate()}"
-        >
-          <span>${date.getDate()}</span>
-          ${complete ? '<i>✓</i>' : ""}
-        </button>
-      `;
-    }).join("");
-
-    const supplementRows = supplements.length
-      ? supplements.map(item => `
-          <div class="supplement-row">
-            <div class="supplement-row-title">
-              <strong>${escapeHtml(item.name)}</strong>
-              <button
-                class="mini-delete"
-                type="button"
-                data-delete-supplement="${item.id}"
-              >
-                удалить
-              </button>
-            </div>
-
-            <div class="supplement-days">
-              ${days.slice(-7).map(({ date }) => {
-                const key = trackerDate(date);
-                const checked = getSupplementTaken(item, key);
-                const isToday = key === today;
-
-                return `
-                  <button
-                    class="supplement-day ${checked ? "is-done" : ""} ${isToday ? "is-today" : ""}"
-                    type="button"
-                    data-supplement-id="${item.id}"
-                    data-supplement-date="${key}"
-                  >
-                    <span>${dayNames[date.getDay() === 0 ? 6 : date.getDay() - 1]}</span>
-                    <b>${date.getDate()}</b>
-                    <i>${checked ? "✓" : ""}</i>
-                  </button>
-                `;
-              }).join("")}
-            </div>
-          </div>
-        `).join("")
-      : `
-        <div class="empty-tracker-state">
-          <span>💊</span>
-          <strong>пока здесь пусто</strong>
-          <p>добавь БАД или препарат, который хочешь отслеживать.</p>
-        </div>
-      `;
-
-    const overlay = openTrackerOverlay(
-      "supplementTrackerOverlay",
-      "трекер БАДов",
-      `
-        <div class="streak-banner">
-          <div>
-            <span>текущая серия</span>
-            <strong>${streak} ${pluralize(streak, "день", "дня", "дней")} 🔥</strong>
-          </div>
-          <small>
-            серия считается, когда все добавленные позиции отмечены за день
-          </small>
-        </div>
-
-        <div class="tracker-calendar">
-
-          <div class="calendar-header">
-            <button
-              type="button"
-              class="calendar-month-button"
-              id="calendarPrevMonth"
-              aria-label="предыдущий месяц"
-            >
-              ‹
-            </button>
-
-            <div class="calendar-month-title">
-              ${monthNames[month]} ${year}
-            </div>
-
-            <button
-              type="button"
-              class="calendar-month-button"
-              id="calendarNextMonth"
-              aria-label="следующий месяц"
-            >
-              ›
-            </button>
-          </div>
-
-          <div class="calendar-weekdays">
-            ${dayNames.map(day => `
-              <span class="calendar-weekday">${day}</span>
-            `).join("")}
-          </div>
-
-          <div class="calendar-days">
-            ${calendarHTML}
-          </div>
-
-          <div class="calendar-streak">
-            <span>🔥</span>
-            <div>
-              <strong>${streak} ${pluralize(streak, "день", "дня", "дней")} подряд</strong>
-              <small>отмечай все позиции, чтобы продолжать серию</small>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="tracker-section-heading">
-          <span>по отдельным позициям</span>
-          <small>${supplements.length} поз.</small>
-        </div>
-
-        <div class="supplement-list">
-          ${supplementRows}
-        </div>
-
-        <div class="tracker-add-row">
-          <input
-            id="newSupplementName"
-            type="text"
-            maxlength="40"
-            placeholder="например, магний"
-            autocomplete="off"
-          >
+  const calendar = supplements.length
+    ? supplements.map(item => `
+      <div class="supplement-row">
+        <div class="supplement-row-title">
+          <strong>${escapeHtml(item.name)}</strong>
 
           <button
-            id="addSupplementButton"
+            class="mini-delete"
             type="button"
+            data-delete-supplement="${item.id}"
           >
-            + добавить
+            удалить
           </button>
         </div>
 
-        <div class="tracker-hint">
-          отметки сохраняются на этом устройстве и могут быть изменены в любое время.
+        <div class="supplement-days">
+          ${lastSeven.map(date => {
+            const key = trackerDate(date);
+            const checked = getSupplementTaken(item, key);
+            const isToday = key === today;
+
+            return `
+              <button
+                class="supplement-day ${checked ? "is-done" : ""} ${isToday ? "is-today" : ""}"
+                type="button"
+                data-supplement-id="${item.id}"
+                data-supplement-date="${key}"
+                aria-label="${dayNames[date.getDay()]} ${date.getDate()}"
+              >
+                <span>${dayNames[date.getDay()]}</span>
+                <b>${date.getDate()}</b>
+                <i>${checked ? "✓" : ""}</i>
+              </button>
+            `;
+          }).join("")}
         </div>
-      `
-    );
+      </div>
+    `).join("")
+    : `
+      <div class="empty-tracker-state">
+        <span>💊</span>
+        <strong>пока здесь пусто</strong>
+        <p>добавь БАД или препарат, который хочешь отслеживать.</p>
+      </div>
+    `;
 
-    overlay.querySelector("#calendarPrevMonth")?.addEventListener("click", () => {
-      currentMonth.setMonth(currentMonth.getMonth() - 1);
-      render();
-    });
+  const overlay = openTrackerOverlay(
+    "supplementTrackerOverlay",
+    "трекер БАДов",
+    `
+      <div class="streak-banner">
+        <div>
+          <span>текущая серия</span>
+          <strong>${calculateSupplementStreak()} дней 🔥</strong>
+        </div>
 
-    overlay.querySelector("#calendarNextMonth")?.addEventListener("click", () => {
-      currentMonth.setMonth(currentMonth.getMonth() + 1);
-      render();
-    });
+        <small>
+          серия считается, когда все добавленные позиции отмечены за день
+        </small>
+      </div>
 
-    overlay.querySelectorAll("[data-supplement-id]").forEach(button => {
+      <div class="tracker-section-heading">
+        <span>последние 7 дней</span>
+        <small>${supplements.length} поз.</small>
+      </div>
+
+      <div class="supplement-list">
+        ${calendar}
+      </div>
+
+      <div class="tracker-add-row">
+        <input
+          id="newSupplementName"
+          type="text"
+          maxlength="40"
+          placeholder="например, магний"
+          autocomplete="off"
+        >
+
+        <button
+          id="addSupplementButton"
+          type="button"
+        >
+          + добавить
+        </button>
+      </div>
+
+      <div class="tracker-hint">
+        отметки сохраняются только на этом устройстве.
+        данные можно изменить в любое время.
+      </div>
+    `
+  );
+
+  /*
+    отметка дня
+  */
+  overlay
+    .querySelectorAll("[data-supplement-id]")
+    .forEach(button => {
       button.addEventListener("click", () => {
         const item = getSupplements().find(
-          s => s.id === button.dataset.supplementId
+          supplement =>
+            supplement.id === button.dataset.supplementId
         );
 
         if (!item) return;
 
         const date = button.dataset.supplementDate;
+        const currentValue = getSupplementTaken(item, date);
 
         setSupplementTaken(
           item.id,
           date,
-          !getSupplementTaken(item, date)
+          !currentValue
         );
 
-        render();
+        refreshHomeTrackers();
+
+        renderSupplementTracker();
       });
     });
 
-    overlay.querySelectorAll("[data-delete-supplement]").forEach(button => {
+  /*
+    удаление
+  */
+  overlay
+    .querySelectorAll("[data-delete-supplement]")
+    .forEach(button => {
       button.addEventListener("click", () => {
+        const id = button.dataset.deleteSupplement;
+
         saveSupplements(
           getSupplements().filter(
-            s => s.id !== button.dataset.deleteSupplement
+            supplement => supplement.id !== id
           )
         );
 
-        render();
+        refreshHomeTrackers();
+        renderSupplementTracker();
       });
     });
 
-    const add = () => {
-      const input = overlay.querySelector("#newSupplementName");
-      const name = input?.value.trim();
-
-      if (!name) return;
-
-      const items = getSupplements();
-
-      items.push({
-        id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
-        name,
-        taken: []
-      });
-
-      saveSupplements(items);
-      render();
-    };
-
-    overlay.querySelector("#addSupplementButton")?.addEventListener(
-      "click",
-      add
+  /*
+    добавление нового препарата
+  */
+  const add = () => {
+    const input = overlay.querySelector(
+      "#newSupplementName"
     );
 
-    overlay.querySelector("#newSupplementName")?.addEventListener(
-      "keydown",
-      event => {
-        if (event.key === "Enter") add();
-      }
-    );
+    const name = input?.value.trim();
+
+    if (!name) return;
+
+    const items = getSupplements();
+
+    items.push({
+      id: `${Date.now()}-${Math.random()
+        .toString(16)
+        .slice(2)}`,
+      name,
+      taken: []
+    });
+
+    saveSupplements(items);
+
+    refreshHomeTrackers();
+    renderSupplementTracker();
   };
 
-  render();
+  overlay
+    .querySelector("#addSupplementButton")
+    ?.addEventListener("click", add);
+
+  overlay
+    .querySelector("#newSupplementName")
+    ?.addEventListener("keydown", event => {
+      if (event.key === "Enter") {
+        add();
+      }
+    });
 }
 
 function renderWaterTracker() {
@@ -4799,7 +4685,10 @@ function renderWaterTracker() {
 function ensureTrackerCards() {
   const diary = document.getElementById("quickDiaryButton");
 
-  if (!diary || document.getElementById("supplementsTrackerButton")) {
+  if (
+    !diary ||
+    document.getElementById("supplementsTrackerButton")
+  ) {
     return;
   }
 
@@ -4817,9 +4706,17 @@ function ensureTrackerCards() {
 
       <span class="tracker-card-content">
         <strong>трекер БАДов</strong>
+
         <small id="supplementsTrackerSummary">
           добавь свои БАДы и отмечай прием
         </small>
+
+        <span
+          class="tracker-today-button"
+          id="quickSupplementCheck"
+        >
+          ✓ отметить сегодня
+        </span>
       </span>
 
       <span
@@ -4830,7 +4727,6 @@ function ensureTrackerCards() {
       </span>
     </button>
 
-
     <button
       class="tracker-card water-tracker-card"
       id="waterTrackerButton"
@@ -4840,6 +4736,7 @@ function ensureTrackerCards() {
 
       <span class="tracker-card-content">
         <strong>вода</strong>
+
         <small id="waterTrackerSummary">
           0 мл из 2000 мл
         </small>
@@ -4850,7 +4747,6 @@ function ensureTrackerCards() {
       </span>
     </button>
 
-
     <button
       class="tracker-card reminder-tracker-card"
       id="remindersButton"
@@ -4860,6 +4756,7 @@ function ensureTrackerCards() {
 
       <span class="tracker-card-content">
         <strong>напоминания</strong>
+
         <small id="remindersSummary">
           настроить прием таблеток
         </small>
@@ -4896,6 +4793,42 @@ const remindersButton =
   document.getElementById(
     "remindersButton"
   );
+
+const quickSupplementCheck =
+  document.getElementById("quickSupplementCheck");
+
+quickSupplementCheck?.addEventListener("click", event => {
+  event.stopPropagation();
+
+  const supplements = getSupplements();
+
+  if (!supplements.length) {
+    renderSupplementTracker();
+    return;
+  }
+
+  const today = trackerDate();
+
+  const allTaken = supplements.every(
+    supplement =>
+      getSupplementTaken(supplement, today)
+  );
+
+  supplements.forEach(supplement => {
+    setSupplementTaken(
+      supplement.id,
+      today,
+      !allTaken
+    );
+  });
+
+  refreshHomeTrackers();
+
+  quickSupplementCheck.textContent =
+    allTaken
+      ? "✓ отметить сегодня"
+      : "✓ отмечено сегодня";
+});
 
 
 if (supplementsTrackerButton) {
