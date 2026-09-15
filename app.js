@@ -3705,3 +3705,285 @@ if (quoteElement) {
     "opacity 0.12s ease";
 }
 
+
+/* ==================================================
+   MOLECULE SPACE — ТЕМЫ
+================================================== */
+
+(function initMoleculeThemes() {
+
+  const savedTheme =
+    localStorage.getItem("moleculeSpaceTheme") || "dark";
+
+  const validThemes = [
+    "dark",
+    "pink",
+    "angel",
+    "minimal"
+  ];
+
+  const theme =
+    validThemes.includes(savedTheme)
+      ? savedTheme
+      : "dark";
+
+
+  function applyTheme(themeName) {
+
+    if (!validThemes.includes(themeName)) {
+      return;
+    }
+
+    document.body.dataset.theme =
+      themeName;
+
+    localStorage.setItem(
+      "moleculeSpaceTheme",
+      themeName
+    );
+
+    updateThemeButtons();
+  }
+
+
+  function updateThemeButtons() {
+
+    document
+      .querySelectorAll(
+        "[data-molecule-theme]"
+      )
+      .forEach(button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.moleculeTheme ===
+            document.body.dataset.theme
+        );
+
+      });
+  }
+
+
+  function createThemePicker() {
+
+    if (
+      document.getElementById(
+        "moleculeThemePicker"
+      )
+    ) {
+      return;
+    }
+
+
+    const picker =
+      document.createElement("div");
+
+    picker.id =
+      "moleculeThemePicker";
+
+    picker.className =
+      "theme-picker hidden";
+
+
+    picker.innerHTML = `
+
+      <p>
+        оформление
+      </p>
+
+
+      <button
+        type="button"
+        data-molecule-theme="dark"
+      >
+        <span>☾</span>
+
+        <strong>
+          dark
+        </strong>
+
+        <small>
+          холодная темная
+        </small>
+      </button>
+
+
+      <button
+        type="button"
+        data-molecule-theme="pink"
+      >
+        <span>♡</span>
+
+        <strong>
+          pink
+        </strong>
+
+        <small>
+          мягкая розовая
+        </small>
+      </button>
+
+
+      <button
+        type="button"
+        data-molecule-theme="angel"
+      >
+        <span>୨୧</span>
+
+        <strong>
+          angel
+        </strong>
+
+        <small>
+          светлая воздушная
+        </small>
+      </button>
+
+
+      <button
+        type="button"
+        data-molecule-theme="minimal"
+      >
+        <span>○</span>
+
+        <strong>
+          minimalism
+        </strong>
+
+        <small>
+          спокойная минимальная
+        </small>
+      </button>
+
+    `;
+
+
+    const topbar =
+      document.querySelector(
+        ".home-topbar"
+      );
+
+
+    if (topbar) {
+
+      topbar.appendChild(
+        picker
+      );
+
+    }
+
+
+    picker
+      .querySelectorAll(
+        "[data-molecule-theme]"
+      )
+      .forEach(button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            applyTheme(
+              button.dataset
+                .moleculeTheme
+            );
+
+            picker.classList.add(
+              "hidden"
+            );
+
+          }
+        );
+
+      });
+
+
+    updateThemeButtons();
+  }
+
+
+  function initThemeButton() {
+
+    const button =
+      document.getElementById(
+        "themeToggle"
+      );
+
+    if (!button) {
+      return;
+    }
+
+
+    button.addEventListener(
+      "click",
+      event => {
+
+        event.stopPropagation();
+
+
+        const picker =
+          document.getElementById(
+            "moleculeThemePicker"
+          );
+
+
+        if (!picker) {
+          return;
+        }
+
+
+        picker.classList.toggle(
+          "hidden"
+        );
+
+      }
+    );
+
+
+    document.addEventListener(
+      "click",
+      event => {
+
+        const picker =
+          document.getElementById(
+            "moleculeThemePicker"
+          );
+
+
+        if (
+          !picker ||
+          picker.classList.contains(
+            "hidden"
+          )
+        ) {
+          return;
+        }
+
+
+        if (
+          !picker.contains(
+            event.target
+          ) &&
+          event.target !== button
+        ) {
+
+          picker.classList.add(
+            "hidden"
+          );
+
+        }
+
+      }
+    );
+  }
+
+
+  document.body.dataset.theme =
+    theme;
+
+
+  createThemePicker();
+
+  initThemeButton();
+
+})();
