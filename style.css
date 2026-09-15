@@ -1619,3 +1619,47 @@ body.light-theme .official-links-warning {
   border-color: rgba(196, 107, 138, 0.18);
 }
 
+/* ==================================================
+   MOLECULE SPACE — FIX THEME PICKER
+================================================== */
+
+.home-topbar {
+  position: relative;
+}
+
+.theme-picker {
+  position: absolute !important;
+  top: 58px !important;
+  right: 0 !important;
+  width: 286px !important;
+  padding: 12px !important;
+  box-sizing: border-box;
+  border-radius: 20px !important;
+}
+
+.theme-picker button {
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+  min-height: 68px;
+}
+
+.theme-picker button span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-picker button strong,
+.theme-picker button small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 380px) {
+  .theme-picker {
+    right: -4px !important;
+    width: calc(100vw - 32px) !important;
+  }
+}
