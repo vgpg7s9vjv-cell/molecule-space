@@ -1619,3 +1619,220 @@ body.light-theme .official-links-warning {
   border-color: rgba(196, 107, 138, 0.18);
 }
 
+/* ==================================================
+   MOLECULE SPACE — THEME COLORS FIX
+================================================== */
+
+
+/* ---------- PINK ---------- */
+
+body.theme-pink {
+  --bg: #fff5fa;
+  --bg-soft: #fffafd;
+  --card: #ffffff;
+  --card-soft: #fff8fc;
+
+  --text: #4d3040;
+  --text-soft: #856879;
+  --muted: #a98998;
+
+  --border: #f1d6e3;
+  --border-soft: #f7e5ed;
+
+  --accent: #d982aa;
+  --accent-soft: #f6d8e6;
+  --accent-strong: #c76595;
+
+  --button: #f0b7d0;
+  --button-text: #4d3040;
+
+  --shadow: 0 12px 35px rgba(180, 100, 140, 0.12);
+}
+
+
+/* ---------- ANGEL ---------- */
+
+body.theme-angel {
+  --button: #ddd0f5;
+  --button-text: #453b59;
+}
+
+
+/* ---------- MINIMALISM ---------- */
+
+body.theme-minimalism {
+  --button: #deded8;
+  --button-text: #33332f;
+}
+
+
+/* ==================================================
+   КНОПКИ
+================================================== */
+
+body.theme-pink button,
+body.theme-angel button,
+body.theme-minimalism button {
+
+  border-color: var(--border);
+
+}
+
+
+/* основные кнопки */
+
+body.theme-pink .primary-button,
+body.theme-pink .action-button,
+body.theme-pink .home-button,
+body.theme-pink .tracker-button,
+body.theme-pink .tool-button,
+
+body.theme-angel .primary-button,
+body.theme-angel .action-button,
+body.theme-angel .home-button,
+body.theme-angel .tracker-button,
+body.theme-angel .tool-button,
+
+body.theme-minimalism .primary-button,
+body.theme-minimalism .action-button,
+body.theme-minimalism .home-button,
+body.theme-minimalism .tracker-button,
+body.theme-minimalism .tool-button {
+
+  background: var(--button);
+  color: var(--button-text);
+  border-color: var(--border);
+
+}
+
+
+/* маленькие кнопки */
+
+body.theme-pink .small-button,
+body.theme-pink .secondary-button,
+body.theme-pink .save-button,
+
+body.theme-angel .small-button,
+body.theme-angel .secondary-button,
+body.theme-angel .save-button,
+
+body.theme-minimalism .small-button,
+body.theme-minimalism .secondary-button,
+body.theme-minimalism .save-button {
+
+  background: var(--button);
+  color: var(--button-text);
+  border-color: var(--border);
+
+}
+
+
+/* ==================================================
+   ТАБЛИЦА / БЛОК «НАПОМИНАНИЕ НА ДЕНЬ»
+================================================== */
+
+body.theme-pink .daily-reminder,
+body.theme-pink .daily-reminder-card,
+body.theme-pink .reminder-card,
+body.theme-pink .today-reminder,
+
+body.theme-angel .daily-reminder,
+body.theme-angel .daily-reminder-card,
+body.theme-angel .reminder-card,
+body.theme-angel .today-reminder,
+
+body.theme-minimalism .daily-reminder,
+body.theme-minimalism .daily-reminder-card,
+body.theme-minimalism .reminder-card,
+body.theme-minimalism .today-reminder {
+
+  background:
+    var(--card);
+
+  color:
+    var(--text);
+
+  border-color:
+    var(--border);
+
+  box-shadow:
+    var(--shadow);
+
+}
+
+
+/* текст внутри напоминания */
+
+body.theme-pink .daily-reminder *,
+body.theme-pink .daily-reminder-card *,
+body.theme-pink .reminder-card *,
+body.theme-pink .today-reminder *,
+
+body.theme-angel .daily-reminder *,
+body.theme-angel .daily-reminder-card *,
+body.theme-angel .reminder-card *,
+body.theme-angel .today-reminder *,
+
+body.theme-minimalism .daily-reminder *,
+body.theme-minimalism .daily-reminder-card *,
+body.theme-minimalism .reminder-card *,
+body.theme-minimalism .today-reminder * {
+
+  color:
+    var(--text);
+
+}
+
+
+/* ==================================================
+   ТАБЫ / РАЗДЕЛЫ
+================================================== */
+
+body.theme-pink .section-tab,
+body.theme-pink .tab-button,
+body.theme-pink .section-button,
+
+body.theme-angel .section-tab,
+body.theme-angel .tab-button,
+body.theme-angel .section-button,
+
+body.theme-minimalism .section-tab,
+body.theme-minimalism .tab-button,
+body.theme-minimalism .section-button {
+
+  background:
+    var(--button);
+
+  color:
+    var(--button-text);
+
+  border-color:
+    var(--border);
+
+}
+
+
+/* активный таб */
+
+body.theme-pink .section-tab.active,
+body.theme-pink .tab-button.active,
+body.theme-pink .section-button.active,
+
+body.theme-angel .section-tab.active,
+body.theme-angel .tab-button.active,
+body.theme-angel .section-button.active,
+
+body.theme-minimalism .section-tab.active,
+body.theme-minimalism .tab-button.active,
+body.theme-minimalism .section-button.active {
+
+  background:
+    var(--accent);
+
+  color:
+    #ffffff;
+
+  border-color:
+    var(--accent);
+
+}
