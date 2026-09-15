@@ -3836,9 +3836,31 @@ const reminderStorageKey =
 
 function trackerDate(date = new Date()) {
   const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, "0");
-  const d = String(date.getDate()).padStart(2, "0");
+
+  const m = String(
+    date.getMonth() + 1
+  ).padStart(2, "0");
+
+  const d = String(
+    date.getDate()
+  ).padStart(2, "0");
+
   return `${y}-${m}-${d}`;
+}
+
+
+function readLocal(key, fallback) {
+  try {
+    const value =
+      localStorage.getItem(key);
+
+    return value
+      ? JSON.parse(value)
+      : fallback;
+
+  } catch (error) {
+    return fallback;
+  }
 }
 
 
@@ -4080,8 +4102,7 @@ function openTrackerOverlay(
 
       if (
         event.target === overlay
-      ) 
-      {
+      ) {
         close();
       }
 
@@ -4098,22 +4119,53 @@ function openTrackerOverlay(
 ================================================== */
 
 function calculateSupplementStreak() {
-  const items = getSupplements();
-  if (!items.length) return 0;
+
+  const supplements =
+    getSupplements();
+
+  if (!supplements.length) {
+    return 0;
+  }
+
 
   let streak = 0;
-  const date = new Date();
+
+  const date =
+    new Date();
+
 
   while (true) {
-    const key = trackerDate(date);
-    const complete = items.every(item => getSupplementTaken(item, key));
-    if (!complete) break;
+
+    const key =
+      trackerDate(date);
+
+    const complete =
+      supplements.every(
+        supplement =>
+          getSupplementTaken(
+            supplement,
+            key
+          )
+      );
+
+
+    if (!complete) {
+      break;
+    }
+
+
     streak++;
-    date.setDate(date.getDate() - 1);
+
+    date.setDate(
+      date.getDate() - 1
+    );
+
   }
+
 
   return streak;
 }
+
 
 /* ==================================================
    ОБНОВЛЕНИЕ КАРТОЧЕК НА ГЛАВНОЙ
