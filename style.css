@@ -2026,81 +2026,6 @@ body.theme-minimalism .article-nav-button.disabled {
   color: var(--button-text) !important;
   opacity: 0.4;
 }
-/* 🎀 BABY PINK */
-body.theme-pink {
-  --bg: #fff8fb !important;
-  --bg-deep: #fff0f6 !important;
-  --card: #ffffff !important;
-  --card-soft: #fff9fc !important;
-
-  --text: #5b4050 !important;
-  --muted: #a47f90 !important;
-
-  --accent: #f2a9c7 !important;
-  --accent-soft: #fce1ec !important;
-  --accent-strong: #e58fb3 !important;
-
-  --line: #f5d9e5 !important;
-  --line-soft: #f9e9f0 !important;
-
-  --button: #f9d4e3 !important;
-  --button-text: #5b4050 !important;
-  --input: #fffafd !important;
-
-  background: #fff8fb !important;
-  color: #5b4050 !important;
-}
-
-/* нежные розовые поверхности */
-body.theme-pink .home-screen,
-body.theme-pink .section-card,
-body.theme-pink .tracker-card,
-body.theme-pink .quote-card,
-body.theme-pink .article-card,
-body.theme-pink .modal-content {
-  background: #ffffff !important;
-  color: #5b4050 !important;
-  border-color: #f5d9e5 !important;
-}
-
-/* 🎀 маленькие бантики и сердечки */
-body.theme-pink::before {
-  content: "♡   🎀   ♡";
-  position: fixed;
-  top: 76px;
-  right: 18px;
-  z-index: 0;
-  font-size: 18px;
-  letter-spacing: 5px;
-  opacity: 0.65;
-  pointer-events: none;
-}
-
-body.theme-pink::after {
-  content: "♡";
-  position: fixed;
-  bottom: 28px;
-  left: 20px;
-  z-index: 0;
-  font-size: 28px;
-  color: #f0abc5;
-  opacity: 0.55;
-  pointer-events: none;
-}
-
-/* розовые кнопочки */
-body.theme-pink button,
-body.theme-pink .article-nav-button {
-  background: #f9d4e3 !important;
-  background-image: none !important;
-  color: #5b4050 !important;
-  border-color: #f2c7d9 !important;
-}
-
-body.theme-pink button:hover,
-body.theme-pink .article-nav-button:hover {
-  background: #fce1ec !important;
-}
 
 /* ☁️ ANGEL */
 body.theme-angel {
@@ -2191,4 +2116,188 @@ body.theme-angel h1,
 body.theme-angel h2,
 body.theme-angel h3 {
   text-shadow: 0 1px 8px rgba(155, 201, 232, 0.25);
+}
+
+
+/* 🎀🍓 BABY PINK — strawberry yogurt & banana cream */
+body.theme-pink {
+  --bg: #fff6fa !important;
+  --bg-deep: #fdebf3 !important;
+
+  --card: rgba(255, 255, 255, 0.94) !important;
+  --card-soft: rgba(255, 249, 252, 0.9) !important;
+
+  /* основной текст */
+  --text: #493844 !important;
+  --muted: #866d7b !important;
+
+  /* холодный розовый */
+  --accent: #c99fb8 !important;
+  --accent-soft: #f3dce8 !important;
+  --accent-strong: #a97896 !important;
+
+  /* banana cream 🍌 */
+  --yellow: #f5d590 !important;
+  --yellow-soft: #fff3cf !important;
+
+  --line: #ecd6e1 !important;
+  --line-soft: #f6e7ee !important;
+
+  --button: #ead0dd !important;
+  --button-text: #493844 !important;
+
+  --input: #fffafd !important;
+
+  background:
+    radial-gradient(
+      circle at 12% 8%,
+      rgba(245, 213, 144, 0.24),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(201, 159, 184, 0.20),
+      transparent 27%
+    ),
+    linear-gradient(
+      145deg,
+      #fff8fb 0%,
+      #fff1f7 48%,
+      #fdf5ef 100%
+    ) !important;
+
+  background-attachment: fixed !important;
+  color: #493844 !important;
+}
+
+/* 🍓 мягкие карточки */
+body.theme-pink .home-screen,
+body.theme-pink .section-card,
+body.theme-pink .tracker-card,
+body.theme-pink .quote-card,
+body.theme-pink .article-card,
+body.theme-pink .modal-content {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.97),
+      rgba(255,247,251,0.94)
+    ) !important;
+
+  color: #493844 !important;
+  border-color: #ecd6e1 !important;
+
+  box-shadow:
+    0 8px 28px rgba(201, 159, 184, 0.13),
+    0 1px 4px rgba(245, 213, 144, 0.10) !important;
+}
+
+/* 📖 читаемость статей */
+body.theme-pink .article-content,
+body.theme-pink .article-body {
+  color: #493844 !important;
+}
+
+body.theme-pink .article-content h1,
+body.theme-pink .article-content h2,
+body.theme-pink .article-content h3,
+body.theme-pink .article-body h1,
+body.theme-pink .article-body h2,
+body.theme-pink .article-body h3 {
+  color: #493844 !important;
+}
+
+body.theme-pink .article-content p,
+body.theme-pink .article-content li,
+body.theme-pink .article-body p,
+body.theme-pink .article-body li {
+  color: #5b4853 !important;
+}
+
+body.theme-pink .article-content strong,
+body.theme-pink .article-body strong {
+  color: #6d4b60 !important;
+}
+
+/* 🎀 кнопки */
+body.theme-pink button,
+body.theme-pink .article-nav-button {
+  background:
+    linear-gradient(
+      135deg,
+      #efd5e2,
+      #f8e0e9
+    ) !important;
+
+  background-image:
+    linear-gradient(
+      135deg,
+      #efd5e2,
+      #f8e0e9
+    ) !important;
+
+  color: #493844 !important;
+  border-color: #e4c4d4 !important;
+
+  box-shadow:
+    0 4px 12px rgba(201, 159, 184, 0.14) !important;
+}
+
+body.theme-pink button:hover,
+body.theme-pink .article-nav-button:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #f4dce7,
+      #fff0cf
+    ) !important;
+
+  background-image:
+    linear-gradient(
+      135deg,
+      #f4dce7,
+      #fff0cf
+    ) !important;
+}
+
+/* 🍌 маленькие золотистые акценты */
+body.theme-pink .section-title,
+body.theme-pink .article-title {
+  text-shadow:
+    0 1px 8px rgba(201, 159, 184, 0.18);
+}
+
+/* 🎀♡ декор */
+body.theme-pink::before {
+  content: "♡   🎀   ♡       ˚₊‧  🍓  ‧₊˚";
+  position: fixed;
+  top: 72px;
+  right: 16px;
+  z-index: 0;
+
+  font-size: 17px;
+  letter-spacing: 3px;
+
+  color: #c99fb8;
+  opacity: 0.62;
+
+  pointer-events: none;
+}
+
+body.theme-pink::after {
+  content: "♡       🍌       ✦       ♡";
+  position: fixed;
+  bottom: 25px;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 6px;
+
+  color: #c99fb8;
+  opacity: 0.48;
+
+  pointer-events: none;
 }
