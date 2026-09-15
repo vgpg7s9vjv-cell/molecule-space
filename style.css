@@ -1986,3 +1986,54 @@ body.theme-angel main {
   position: relative;
   z-index: 1;
 }
+/* ==================================================
+   КНОПКИ ВНУТРИ СТАТЕЙ
+================================================== */
+
+body.theme-dark .article-content button,
+body.theme-dark .article-body button,
+body.theme-dark .article-actions button,
+body.theme-dark .article-content a.button,
+body.theme-dark .article-body a.button,
+
+body.theme-pink .article-content button,
+body.theme-pink .article-body button,
+body.theme-pink .article-actions button,
+body.theme-pink .article-content a.button,
+body.theme-pink .article-body a.button,
+
+body.theme-angel .article-content button,
+body.theme-angel .article-body button,
+body.theme-angel .article-actions button,
+body.theme-angel .article-content a.button,
+body.theme-angel .article-body a.button,
+
+body.theme-minimalism .article-content button,
+body.theme-minimalism .article-body button,
+body.theme-minimalism .article-actions button,
+body.theme-minimalism .article-content a.button,
+body.theme-minimalism .article-body a.button {
+  background: var(--button) !important;
+  color: var(--button-text) !important;
+  border-color: var(--line) !important;
+}
+
+
+/* hover */
+
+body.theme-dark .article-content button:hover,
+body.theme-pink .article-content button:hover,
+body.theme-angel .article-content button:hover,
+body.theme-minimalism .article-content button:hover {
+  background: var(--accent-soft) !important;
+}
+
+
+/* ссылки-кнопки */
+
+body.theme-dark .article-content a,
+body.theme-pink .article-content a,
+body.theme-angel .article-content a,
+body.theme-minimalism .article-content a {
+  color: var(--accent-strong) !important;
+}
