@@ -1883,7 +1883,7 @@ const articles = {
 
 
           <img src="./images/reduksin.jpg"
-          alt="Фото12" 
+          alt="другоефото" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
 
@@ -1920,14 +1920,158 @@ const articles = {
 
         content: `
           <p>
-            человек может похудеть после приема продукта,
-            но это еще не показывает, что причиной был именно этот продукт.
+            <h4>зачем вообще нужны перерывы?</h4>
+            перерывы между курсами необходимы для того, чтобы твой организм смог сделать "передышку" от усиленного
+            воздействия БАДов на него и с новыми силами начать получать новую ударную дозу для похудения<br>
           </p>
 
-          <p>
-            на результат одновременно влияют питание, активность,
-            изменения поведения, вода и множество других факторов.
-          </p>
+
+         <h3>Molecule Plus</h3>
+          <ul>
+            <li>plus → plus — <b>30 дней</b></li>
+            <li>plus → жб — <b>20 дней</b></li> 
+            <li>plus → ultra — <b>21 день</b></li>
+            <li>plus → premium — <b>14 дней</b></li>
+            <li>plus → supressa — <b>14 дней</b></li>
+            <li>plus → mineral — <b>5-7 дней</b></li>
+            <li>plus → heedly slimcomplex — <b>5-7 дней</b></li>         
+            <li>plus → ozempic — <b>7 дней</b></li>
+            <li>plus → neo — <b>14 дней</b></li>      
+            <li>plus → pro — <b>14 дней</b></li> 
+          </ul> 
+
+          
+         <h3>Molecule Premium</h3>
+          <ul>
+            <li>premium → premium — <b>30 дней</b></li>
+            <li>premium → жб — <b>20 дней</b></li>
+            <li>premium → ultra — <b>14 дней</b></li> 
+            <li>premium → plus — <b>14 дней</b></li>
+            <li>premium → supressa — <b>14 дней</b></li> 
+            <li>premium → mineral — <b>5-7 дней</b></li>
+            <li>premium → heedly slimcomplex — <b>5-7 дней</b></li>  
+            <li>premium → ozempic — <b>7 дней</b></li>
+            <li>premium → neo — <b>14 дней</b></li>             
+            <li>premium → pro — <b>14 дней</b></li> 
+          </ul>     
+
+
+         <h3>Molecule Ultra</h3>
+          <ul>
+            <li>ultra → ultra — <b>60 дней</b></li>
+            <li>ultra → жб — <b>20 дней</b></li>
+            <li>ultra → plus — <b>31 день</b></li>
+            <li>ultra → premium — <b>21 день</b></li>
+            <li>ultra → supressa — <b>14 дней</b></li>
+            <li>ultra → mineral — <b>14 дней</b></li>
+            <li>ultra → heedly slimcomplex — <b>5-7 дней</b></li>
+            <li>ultra → ozempic — <b>7 дней</b></li>
+            <li>ultra → neo — <b>14 дней</b></li>  
+            <li>ultra → pro — <b>14 дней</b></li> 
+          </ul>         
+
+
+
+         <h3>Molecule ЖБ</h3>
+          <ul>
+            <li>жб → ultra/plus/premium — <b>21 день</b></li>
+            <li>жб → supressa — <b>20 дней</b></li>
+            <li>жб → mineral — <b>14 дней</b></li>
+            <li>жб → heedly slimcomplex — <b>14 дней</b></li>   
+            <li>жб → ozempic — <b>14 дней</b></li>
+            <li>жб → neo — <b>14 дней</b></li>             
+            <li>жб → pro — <b>14 дней</b></li> 
+          </ul>  
+
+
+         <h3>Supressa</h3>
+          <ul>
+            <li>supressa → supressa — <b>21 день</b></li>
+            <li>supressa → жб — <b>14-20 дней</b></li>
+            <li>supressa → ultra — <b>14 дней</b></li>
+            <li>supressa → premium — <b>14 дней</b></li>
+            <li>supressa → plus — <b>14 дней</b></li>
+            <li>supressa → mineral — <b>7-10 дней</b></li>
+            <li>supressa → heedly slimcomplex — <b>14 дней</b></li>  
+            <li>supressa → ozempic — <b>7 дней</b></li>
+            <li>supressa → neo — <b>14 дней</b></li> 
+            <li>supressa → pro — <b>14 дней</b></li>   
+          </ul>            
+
+
+         <h3>Mineral</h3>
+          <ul>
+            <li>mineral → mnieral — <b>14 дней</b></li>
+            <li>mineral → жб — <b>14 дней</b></li>
+            <li>mineral → ultra — <b>7 дней</b></li>
+            <li>mineral → plus — <b>7 дней</b></li>
+            <li>mineral → premium — <b>7 дней</b></li>
+            <li>mineral → supressa — <b>14 дней</b></li>
+            <li>mineral → ozempic — <b>7 дней</b></li>
+            <li>mineral → heedly slimcomplex — <b>7 дней</b></li> 
+            <li>mineral → neo — <b>14 дней</b></li> 
+            <li>mineral → pro — <b>14 дней</b></li> 
+          </ul> 
+
+
+         <h3>Heedly SlimComplex</h3>
+          <ul>
+            <li>heedly → heedly — <b>14 дней</b></li>
+            <li>heedly → жб — <b>14 дней</b></li>
+            <li>heedly → ultra — <b>7 дней</b></li>
+            <li>heedly → plus — <b>7 дней</b></li>
+            <li>heedly → premium — <b>7 дней</b></li>
+            <li>heedly → supressa — <b>7 дней</b></li>
+            <li>heedly → mineral — <b>7 дней</b></li>
+            <li>heedly → ozempic — <b>7 дней</b></li> 
+            <li>heedly → neo — <b>14 дней</b></li>
+            <li>heedly → pro — <b>14 дней</b></li> 
+          </ul>
+
+          
+         <h3>Swapx NEO</h3>
+          <ul>
+            <li>neo → neo — <b>20 дней</b></li>
+            <li>neo → pro — <b>20 дней</b></li>
+            <li>neo → жб — <b>14 дней</b></li>
+            <li>neo → ultra — <b>14 дней</b></li>
+            <li>neo → plus — <b>14 дней</b></li>
+            <li>neo → premium — <b>14 дней</b></li>
+            <li>neo → supressa — <b>14 дней</b></li>
+            <li>neo → mineral — <b>7-10 дней</b></li>
+            <li>neo → heedly slimcomplex — <b>10 дней</b></li>
+            <li>neo → ozempic — <b>10 дней</b></li>
+          </ul>      
+
+
+         <h3>Swapx PRO</h3>
+          <ul>
+            <li>pro → pro — <b>20 дней</b></li>
+            <li>pro → neo — <b>20 дней</b></li>
+            <li>pro → жб — <b>14 дней</b></li>
+            <li>pro → ultra — <b>14 дней</b></li>
+            <li>pro → plus — <b>14 дней</b></li>
+            <li>pro → premium — <b>14 дней</b></li>
+            <li>pro → supressa — <b>14 дней</b></li>
+            <li>pro → mineral — <b>7-10 дней</b></li>
+            <li>pro → heedly slimcomplex — <b>10 дней</b></li>
+            <li>pro → ozempic — <b>10 дней</b></li>
+          </ul>    
+
+          
+         <h3>Ozempic Pro/Turbo</h3>
+          <ul>
+            <li>ozempic → ozempic — <b>14 дней</b></li>
+            <li>ozempic → жб — <b>14 дней</b></li>
+            <li>ozempic → ultra — <b>10-14 дней</b></li>
+            <li>ozempic → plus — <b>7 дней</b></li>
+            <li>ozempic → premium — <b>7 дней</b></li>
+            <li>ozempic → supressa — <b>14 дней</b></li>
+            <li>ozempic → mineral — <b>7-10 дней</b></li>
+            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
+            <li>ozempic → neo — <b>14 дней</b></li> 
+            <li>ozempic → pro — <b>14 дней</b></li> 
+          </ul>             
         `
       },
 
