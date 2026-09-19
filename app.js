@@ -1084,8 +1084,8 @@ const articles = {
           </ul> 
 
 
-                   <img src="./images/ano5.jpg"
-            alt="ano5"
+                   <img src="./images/tabletki2.jpg"
+            alt="tabletki"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
       },
@@ -1159,8 +1159,8 @@ const articles = {
           </ul> 
 
 
-           <img src="./images/ano5.jpg"
-            alt="ano5"
+           <img src="./images/tabletki4.jpg"
+            alt="tabletki"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
       },
@@ -1243,8 +1243,8 @@ const articles = {
           </p>     
 
 
-        <img src="./images/ano5.jpg"
-            alt="ano5"
+        <img src="./images/tabletki3.jpg"
+            alt="tabletki"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
       },
