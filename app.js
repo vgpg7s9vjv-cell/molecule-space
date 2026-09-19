@@ -487,10 +487,10 @@ const articles = {
 
            <div class="info-box">
             <p>
-            главное заблуждение о расстройствах пищевого поведения — думать, что человек с рпп<br>
+            главное заблуждение о расстройствах пищевого поведения — думать, что человек с рпп 
             обязательно должен выглядеть как скелет, но это не так<br>
-            рпп — это психическое расстройство и оно происходит в голове, а не в теле,<br>
-            а человек может иметь абсолютно обычный, средний вес или даже избыточный,<br>
+            рпп — это психическое расстройство и оно происходит в голове, а не в теле, 
+            а человек может иметь абсолютно обычный, средний вес или даже избыточный<br>
             <b>но при этом внутри него каждый день идет жестокая война с едой, калориями и собственным телом»</b>
             </p>
             </div>
@@ -988,8 +988,8 @@ const articles = {
             </p>
           </div>
 
-         <img src="./images/analizy.jpg"
-            alt="ДРУГАЯФОТКА"
+         <img src="./images/ano4.jpg"
+            alt="ano4"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         `
       },
@@ -1020,8 +1020,8 @@ const articles = {
             </p>
           </div>
 
-                   <img src="./images/analizy.jpg"
-            alt="ДРУГАЯФОТКА"
+                   <img src="./images/ano5.jpg"
+            alt="ano5"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         `
       }       
@@ -1082,6 +1082,11 @@ const articles = {
             <li>Левоцетиризин (Супрастинекс)</li>
             <li>Фексофенадин (Аллегра)</li>
           </ul> 
+
+
+                   <img src="./images/ano5.jpg"
+            alt="ano5"
+            style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
       },
 
@@ -1152,6 +1157,11 @@ const articles = {
             <li>ИПП (Омез, Нексиум, Омепразол)</li>
             <li>Изотретиноин (Акнекутан, Роаккутан, Сотрет)</li>
           </ul> 
+
+
+           <img src="./images/ano5.jpg"
+            alt="ano5"
+            style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
       },
 
@@ -1230,7 +1240,12 @@ const articles = {
           <p>
            🌀<b>рекомендуемые дозы</b>: 1-2 стакана в день (не больше) независимо
            от времени суток и приема еды
-          </p>          
+          </p>     
+
+
+        <img src="./images/ano5.jpg"
+            alt="ano5"
+            style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
       },
 
