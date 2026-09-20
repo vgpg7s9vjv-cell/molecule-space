@@ -5462,3 +5462,40 @@ checkReminders();
 
 setInterval(checkReminders, 30000);
 
+const tg = window.Telegram.WebApp;
+const userId = tg.initDataUnsafe?.user?.id;
+
+function convertToUTC(localTime) {
+    const [hours, minutes] = localTime.split(':');
+    const date = new Date();
+    date.setHours(parseInt(hours), parseInt(minutes), 0, 0);
+    return date.toISOString().substr(11, 5);
+}
+
+async function saveReminderToServer(pillName, localTime, daysType) {
+    if (!userId) {
+        alert("Open inside Telegram");
+        return;
+    }
+
+    const utcTime = convertToUTC(localTime);
+
+const response = await fetch('/api/save', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        userId: userId,
+        pillName: pillName,
+        time: utcTime,
+        daysType: daysType
+    })
+});
+
+    if (response.ok) {
+        tg.showAlert("Успешно сохранено!");
+    } else {
+        tg.showAlert("Ошибка сохранения.");
+    }
+}
