@@ -3834,14 +3834,9 @@ body.theme-pink .official-link-card:hover {
 
 body.theme-angel official-link-card,
 body.theme-angel .official-link-card: {
- background: 
-linear-gradient( 
-  #d3ecfa
-  #40566d
-  ) !important;
-  background-image: 
-    linear-gradient(
-      none
+  background:
+    linear-gradient( 
+    #dff2ff
      ) !important;
 }
 
