@@ -3831,3 +3831,17 @@ body.theme-pink .official-link-card:hover {
       #fff0cf
     ) !important;
 }
+
+body.theme-angel official-link-card,
+body.theme-angel .official-link-card: {
+ background: #d3ecfa !important;
+  background-image: none !important;
+  color: #40566d !important;
+  border-color: #c5e3f3 !important;
+  box-shadow: 0 3px 10px rgba(120, 180, 218, 0.1) !important;
+}
+
+body.theme-angel official-link-card:hover,
+body.theme-angel .official-link-card:hover {
+  background: #dff2ff !important;
+}
