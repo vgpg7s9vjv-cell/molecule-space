@@ -57,25 +57,25 @@ const sections = {
     kicker: "eating disorder",
 
     description:
-      "триггерные фразы, механизм, признаки и борьба с ними",
+      "повторяем теорию, затрагиваем ремиссию и немного изучаем привычки",
 
     topics: [
       {
         id: "rpp-basics",
         title: "база рпп",
-        description: "что это и почему это не просто «любовь к диетам»"
+        description: "теория, которую все знают"
       },
 
       {
         id: "rpp-thoughts",
-        title: "еда, тело и самоощущение",
-        description: "какие мысли становятся навязчивыми, как еда влияет на них и термины РПП-комьюнити"
+        title: "дьявол в деталях",
+        description: "привычки, «чистая» и «грязная» еда"
       },
 
       {
         id: "rpp-cycle",
         title: "вечный круговорот",
-        description: "что скрывается за ограничениями, очищением и чрезмерной физнагрузкой"
+        description: "существует ли ремиссия и можно ли вылечиться навсегда?"
       },
 
       {
@@ -134,14 +134,14 @@ const sections = {
 
       {
         id: "supplements-rules",
-        title: "главные правила",
-        description: "правила приема, что можно и нельзя, побочки и как их избежать"
+        title: "три слона, на которых держится мир БАДов",
+        description: "правила приема, побочки, что можно и нельзя"
       },
 
       {
         id: "supplements-myths",
         title: "«какую таблетку выберешь, Нео?»",
-        description: "разбиваем популярные в интернете мифы вокруг БАДов"
+        description: "разбиваем мифы о БАДах в щепки"
       }     
     ]
   },
@@ -200,7 +200,7 @@ const sections = {
       {
         id: "care-teeth",
         title: "зубы",
-        description: "реально ли лишиться зубов на похудении<br>так ли нужен кальций как его советуют<br>правила сохранения эмали"
+        description: "реально ли лишиться зубов на похудении<br>так ли нужен кальций как его советуют<br> сохранения эмали"
       },
 
 
@@ -222,7 +222,7 @@ const sections = {
 
 
 links: {
-  title: "все ссылки",
+  title: "ссылки",
   category: "links",
   pages: [
     {
@@ -273,7 +273,7 @@ links: {
 
             <div class="official-link-info">
               <strong>канал с информацией</strong>
-              <span>не менее важный и информативный тгк</span>
+              <span>не менее важный и информативный</span>
             </div>
 
             <span class="official-link-arrow">→</span>
@@ -317,7 +317,7 @@ links: {
           <div class="official-links-warning">
 
             <div class="official-links-warning-title">
-              ⚠ только официальные ссылки
+              ⚠ не наткнись на мошенников!
             </div>
 
             <p>
@@ -352,14 +352,14 @@ const articles = {
 
     section: "rpp",
 
-    title: "основы рпп",
+    title: "база рпп",
 
-    category: "база",
+    category: "теория, которую все знают",
 
     pages: [
 
       {
-        heading: "⒈ что это вообще такое, у кого бывает<br>и кто такие дранкорексички",
+        heading: "⒈ что это вообще такое,<br>у кого бывает<br>и кто такие дранкорексички",
 
         content: `
           <p>
@@ -489,15 +489,15 @@ const articles = {
             <p>
             главное заблуждение о расстройствах пищевого поведения — думать, что человек с рпп 
             обязательно должен выглядеть как скелет, но это не так<br>
-            рпп — это психическое расстройство и оно происходит в голове, а не в теле, 
+            ☆ рпп — это психическое расстройство и оно происходит в голове, а не в теле, 
             а человек может иметь абсолютно обычный, средний вес или даже избыточный<br>
             <b>но при этом внутри него каждый день идет жестокая война с едой, калориями и собственным телом»</b>
             </p>
             </div>
             
 
-            <img src="./images/hungry.jpg"
-            alt="голод"
+            <img src="./images/tumblrpost.jpg"
+            alt="tumblrpost"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
       }
@@ -510,7 +510,7 @@ const articles = {
 
     section: "rpp",
 
-    title: "еда, тело и самоощущение",
+    title: "дьявол в деталях",
 
     category: "привычки, «чистая» и «грязная» еда",
 
@@ -624,8 +624,8 @@ const articles = {
             <li>шоколад, фастфуд, макароны</li>
           </ul>
           
-            <img src="./images/arttmolecule.jpg"
-            alt="Фото" 
+            <img src="./images/tortik.jpg"
+            alt="tortik" 
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
         `
       }
@@ -640,7 +640,7 @@ const articles = {
 
     title: "вечный круговорот",
 
-    category: "РПП",
+    category: "теория ремиссии",
 
     pages: [
 
@@ -1909,14 +1909,14 @@ const articles = {
 
     section: "supplements",
 
-    title: "три главных правила",
+    title: "три слона, на которых держится мир БАДов",
 
-    category: "слушаем и запоминаем",
+    category: "правила приема, побочки, что можно и нельзя",
 
     pages: [
 
       {
-        heading: "обязательные перерывы между курсами",
+        heading: "правило 1: обязательные перерывы между курсами",
 
         content: `
           <p>
@@ -1926,7 +1926,7 @@ const articles = {
           </p>
 
 
-         <h3>Molecule Plus</h3>
+         <h2>Molecule Plus</h2>
           <ul>
             <li>plus → plus — <b>30 дней</b></li>
             <li>plus → жб — <b>31 день</b></li> 
@@ -1941,7 +1941,7 @@ const articles = {
           </ul> 
 
           
-         <h3>Molecule Premium</h3>
+         <h2>Molecule Premium</h2>
           <ul>
             <li>premium → premium — <b>30 дней</b></li>
             <li>premium → жб — <b>31 день</b></li>
@@ -1956,7 +1956,7 @@ const articles = {
           </ul>     
 
 
-         <h3>Molecule Ultra</h3>
+         <h2>Molecule Ultra</h2>
           <ul>
             <li>ultra → ultra — <b>60 дней</b></li>
             <li>ultra → жб — <b>31 день</b></li>
@@ -1972,7 +1972,7 @@ const articles = {
 
 
 
-         <h3>Molecule ЖБ</h3>
+         <h2>Molecule ЖБ</h2>
           <ul>
             <li>жб → жб — <b>30 дней</b></li>
             <li>жб → ultra/plus/premium — <b>31 день</b></li>
@@ -1985,7 +1985,7 @@ const articles = {
           </ul>  
 
 
-         <h3>Supressa</h3>
+         <h2>Supressa</h2>
           <ul>
             <li>supressa → supressa — <b>21 день</b></li>
             <li>supressa → жб — <b>14-20 дней</b></li>
@@ -2000,7 +2000,7 @@ const articles = {
           </ul>            
 
 
-         <h3>Mineral</h3>
+         <h2>Mineral</h2>
           <ul>
             <li>mineral → mnieral — <b>14 дней</b></li>
             <li>mineral → жб — <b>14 дней</b></li>
@@ -2015,7 +2015,7 @@ const articles = {
           </ul> 
 
 
-         <h3>Heedly SlimComplex</h3>
+         <h2>Heedly SlimComplex</h2>
           <ul>
             <li>heedly → heedly — <b>14 дней</b></li>
             <li>heedly → жб — <b>14 дней</b></li>
@@ -2030,7 +2030,7 @@ const articles = {
           </ul>
 
           
-         <h3>Swapx NEO</h3>
+         <h2>Swapx NEO</h2>
           <ul>
             <li>neo → neo — <b>20 дней</b></li>
             <li>neo → pro — <b>20 дней</b></li>
@@ -2045,7 +2045,7 @@ const articles = {
           </ul>      
 
 
-         <h3>Swapx PRO</h3>
+         <h2>Swapx PRO</h2>
           <ul>
             <li>pro → pro — <b>20 дней</b></li>
             <li>pro → neo — <b>20 дней</b></li>
@@ -2060,7 +2060,7 @@ const articles = {
           </ul>    
 
           
-         <h3>Ozempic Pro/Turbo</h3>
+         <h2>Ozempic Pro/Turbo</h2>
           <ul>
             <li>ozempic → ozempic — <b>14 дней</b></li>
             <li>ozempic → жб — <b>14 дней</b></li>
@@ -2079,7 +2079,7 @@ const articles = {
 
 
       {
-        heading: "побочные эффекты большинства БАДов",
+        heading: "правило 2: побочные эффекты большинства БАДов",
 
         content: `
          <p>
@@ -2149,7 +2149,7 @@ const articles = {
 
 
       {
-        heading: "какие продукты можно есть/пить на курсе БАДов",
+        heading: "правило 3: какие продукты можно есть/пить на курсе БАДов",
 
         content: `
           <p>
@@ -2306,14 +2306,14 @@ const articles = {
 
     section: "supplements",
 
-    title: "разбиваем мифы в щепки",
+    title: "разбиваем мифы о БАДах в щепки",
 
-    category: "БАДы",
+    category: "«какую таблетку выберешь, Нео?»",
 
     pages: [
 
       {
-        heading: "натуральный не значит безопасный",
+        heading: "миф 1. натуральный не значит безопасный",
 
         content: `
           <p>
@@ -2331,7 +2331,7 @@ const articles = {
 
 
       {
-        heading: "германия сибутрамин и тот самый 2010ый",
+        heading: "миф 2. как связаны Германия, сибутрамин и 2010ый год?",
 
         content: `
           <p>
@@ -2349,6 +2349,24 @@ const articles = {
               «БАД» не является синонимом «без побочных эффектов».
             </p>
           </div>
+        `
+      },
+
+
+      {
+        heading: "миф 3. «ты пьешь паль! оригинал только в тгк:@..»",
+
+        content: `
+          <p>
+            растительное происхождение вещества не делает его
+            автоматически безопасным.
+          </p>
+
+          <p>
+            активные вещества могут взаимодействовать с лекарствами,
+            влиять на сердечно-сосудистую систему, сон, пищеварение
+            и другие процессы.
+          </p>
         `
       }
 
@@ -3365,7 +3383,7 @@ if (sectionId === "mood") {
               <div class="official-link-info">
                 <strong>канал с информацией</strong>
                 <span>
-                  не менее важный и информативный тгк
+                  не менее важный и информативный
                 </span>
               </div>
 
@@ -3414,7 +3432,7 @@ if (sectionId === "mood") {
             <div class="official-links-warning">
 
               <div class="official-links-warning-title">
-                ⚠ только официальные ссылки
+                ⚠ не наткнись на мошенников!
               </div>
 
               <p>
