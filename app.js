@@ -4920,7 +4920,11 @@ function renderWaterTracker() {
       </div>
 
       <div class="water-buttons">
-        <button type="button" data-water-add="150">
+        <button type="button" data-water-add="100">
+          +100 мл
+        </button>
+
+       <button type="button" data-water-add="150">
           +150 мл
         </button>
 
@@ -4928,13 +4932,33 @@ function renderWaterTracker() {
           +250 мл
         </button>
 
+        <button type="button" data-water-add="300">
+          +300 мл
+        </button>        
+
         <button type="button" data-water-add="500">
           +500 мл
         </button>
 
+        <button type="button" data-water-add="-100">
+          −100 мл
+        </button>
+
+        <button type="button" data-water-add="-150">
+          −150 мл
+        </button>
+        
         <button type="button" data-water-add="-250">
           −250 мл
         </button>
+
+        <button type="button" data-water-add="-300">
+          −300 мл
+        </button>      
+
+        <button type="button" data-water-add="-500">
+          −500 мл
+        </button>        
       </div>
 
       <div class="water-goal-row">
@@ -4946,7 +4970,7 @@ function renderWaterTracker() {
           <input
             id="waterGoalInput"
             type="number"
-            min="250"
+            min="100"
             max="10000"
             step="50"
             value="${goal}"
@@ -4956,7 +4980,7 @@ function renderWaterTracker() {
       </div>
 
       <div class="tracker-hint">
-        количество воды можно корректировать в течение дня.
+        количество воды можно корректировать в течение дня ♡₊⋆ 
       </div>
     `
   );
@@ -4982,7 +5006,7 @@ function renderWaterTracker() {
       const value = Math.min(
         10000,
         Math.max(
-          250,
+          100,
           Number(event.target.value) || 2000
         )
       );
@@ -5051,9 +5075,9 @@ function ensureTrackerCards() {
       <span class="tracker-icon">💊</span>
 
       <span class="tracker-card-content">
-        <strong>трекер БАДов</strong>
+        <strong>трекер приема</strong>
         <small id="supplementsTrackerSummary">
-          добавь свои БАДы и отмечай прием
+          отметь прием в каледаре, чтобы не пропустить серию
         </small>
       </span>
 
@@ -5073,7 +5097,7 @@ function ensureTrackerCards() {
       <span class="tracker-icon">💧</span>
 
       <span class="tracker-card-content">
-        <strong>вода</strong>
+        <strong>выпито воды</strong>
         <small id="waterTrackerSummary">
           0 мл из 2000 мл
         </small>
