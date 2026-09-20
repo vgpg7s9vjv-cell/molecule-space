@@ -3834,14 +3834,21 @@ body.theme-pink .official-link-card:hover {
 
 body.theme-angel official-link-card,
 body.theme-angel .official-link-card: {
- background: #d3ecfa !important;
-  background-image: none !important;
-  color: #40566d !important;
-  border-color: #c5e3f3 !important;
-  box-shadow: 0 3px 10px rgba(120, 180, 218, 0.1) !important;
+ background: 
+linear-gradient( 
+  #d3ecfa
+  #40566d
+  ) !important;
+  background-image: 
+    linear-gradient(
+      none
+     ) !important;
 }
 
 body.theme-angel official-link-card:hover,
 body.theme-angel .official-link-card:hover {
-  background: #dff2ff !important;
+  background:
+    linear-gradient( 
+    #dff2ff
+     ) !important;
 }
