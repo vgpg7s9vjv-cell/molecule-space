@@ -3837,7 +3837,14 @@ body.theme-angel .official-link-card: {
   background:
     linear-gradient( 
     #dff2ff
+    #fff0cf
      ) !important;
+
+    color: #c6bceb !important;
+  border-color: #9eb6d9 !important;
+
+  box-shadow:
+    0 4px 12px rgba(201, 159, 184, 0.14) !important;
 }
 
 body.theme-angel official-link-card:hover,
@@ -3845,5 +3852,13 @@ body.theme-angel .official-link-card:hover {
   background:
     linear-gradient( 
     #dff2ff
+    #fff0cf
      ) !important;
+
+    background-image:
+    linear-gradient(
+      135deg,
+      #a9b8cf,
+      #fff0cf
+    ) !important;
 }
