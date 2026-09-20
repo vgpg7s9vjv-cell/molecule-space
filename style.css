@@ -1875,47 +1875,6 @@ body.theme-minimalism .tool-button {
 }
 
 
-/* ==================================================
-   НАПОМИНАНИЕ НА ДЕНЬ
-================================================== */
-
-body.theme-dark .quote-card,
-body.theme-pink .quote-card,
-body.theme-angel .quote-card,
-body.theme-minimalism .quote-card {
-  background: var(--card) !important;
-  color: var(--text) !important;
-  border-color: var(--line) !important;
-}
-
-
-body.theme-dark .quote-card *,
-body.theme-pink .quote-card *,
-body.theme-angel .quote-card *,
-body.theme-minimalism .quote-card * {
-  color: var(--text) !important;
-}
-
-
-body.theme-dark .quote-card .support-subtitle,
-body.theme-pink .quote-card .support-subtitle,
-body.theme-angel .quote-card .support-subtitle,
-body.theme-minimalism .quote-card .support-subtitle {
-  color: var(--muted) !important;
-}
-
-
-/* кнопка внутри напоминания */
-
-body.theme-dark .quote-button,
-body.theme-pink .quote-button,
-body.theme-angel .quote-button,
-body.theme-minimalism .quote-button {
-  background: var(--button) !important;
-  color: var(--button-text) !important;
-  border-color: var(--line) !important;
-}
-
 
 /* ==================================================
    INPUT / SELECT
