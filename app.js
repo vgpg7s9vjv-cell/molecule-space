@@ -5132,7 +5132,10 @@ waterTrackerButton?.addEventListener(
   "click",
   renderWaterTracker
 );
-
+remindersButton?.addEventListener(
+  "click",
+  renderReminders
+);
 
 refreshHomeTrackers();
 checkReminders();
