@@ -4394,17 +4394,6 @@ function refreshHomeTrackers() {
     r => r.enabled !== false
   );
 
-  if (remindersSummary) {
-    remindersSummary.textContent = reminders.length
-      ? `${reminders.length} ${pluralize(
-          reminders.length,
-          "напоминание",
-          "напоминания",
-          "напоминаний"
-        )}`
-      : "настроить прием таблеток";
-  }
-}
 
 function pluralize(number, one, few, many) {
   const n = Math.abs(number) % 100;
