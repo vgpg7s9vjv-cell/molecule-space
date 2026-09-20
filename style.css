@@ -3846,3 +3846,11 @@ body.theme-angel .official-link-card:hover {
   background: #dff2ff !important;
 }
 
+body.theme-minimalism official-link-card,
+body.theme-minimalism .official-link-card {
+  background: #deded8 !important;
+}
+body.theme-minimalism official-link-card:hover,
+body.theme-mnimalism .official-link-card:hover {
+  background: #30302e !important;
+}
