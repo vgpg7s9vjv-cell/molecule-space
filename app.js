@@ -4367,11 +4367,11 @@ function refreshHomeTrackers() {
     supplementSummary.textContent = supplements.length
       ? `${supplements.length} ${pluralize(
           supplements.length,
-          "БАД",
-          "БАДа",
-          "БАДов"
+          "таблетка",
+          "таблетк",
+          "таблеток"
         )} • отметь сегодняшний прием`
-      : "добавь свои БАДы и отмечай прием";
+      : "отметь прием в каледаре, чтобы не пропустить серию";
   }
 
   if (streakElement) {
@@ -4394,6 +4394,17 @@ function refreshHomeTrackers() {
     r => r.enabled !== false
   );
 
+  if (remindersSummary) {
+    remindersSummary.textContent = reminders.length
+      ? `${reminders.length} ${pluralize(
+          reminders.length,
+          "напоминание",
+          "напоминания",
+          "напоминаний"
+        )}`
+      : "настроить прием таблеток";
+  }
+}
 
 function pluralize(number, one, few, many) {
   const n = Math.abs(number) % 100;
@@ -4604,14 +4615,14 @@ function renderSupplementTracker() {
         <strong>пока здесь пусто</strong>
         <p>
           добавь БАД или препарат, который хочешь
-          отслеживать.
+          отслеживать
         </p>
       </div>
     `;
 
   const overlay = openTrackerOverlay(
     "supplementTrackerOverlay",
-    "трекер БАДов",
+    "трекер приема",
     `
       <div class="streak-banner">
         <div>
@@ -4631,7 +4642,7 @@ function renderSupplementTracker() {
         supplements.length
           ? `
             <div class="tracker-section-heading">
-              <span>что отслеживаем</span>
+              <span>что отслеживаешь</span>
               <small>${supplements.length} поз.</small>
             </div>
 
@@ -4689,7 +4700,7 @@ function renderSupplementTracker() {
               ${
                 selectedSupplement
                   ? `
-                    <span>сейчас отмечаем:</span>
+                    <span>сейчас отмечаешь:</span>
                     <strong>
                       ${escapeHtml(
                         selectedSupplement.name
@@ -4750,8 +4761,8 @@ function renderSupplementTracker() {
 
       <div class="tracker-hint">
         выбери БАД сверху и нажимай на даты в календаре,
-        чтобы отметить или снять прием.
-        Отметки сохраняются только на этом устройстве.
+        чтобы отметить или снять прием
+        Отметки сохраняются только на этом устройстве
       </div>
     `
   );
@@ -4928,16 +4939,16 @@ function renderWaterTracker() {
           +150 мл
         </button>
 
+        <button type="button" data-water-add="200">
+          +200 мл
+        </button>
+
         <button type="button" data-water-add="250">
           +250 мл
-        </button>
+        </button>        
 
         <button type="button" data-water-add="300">
           +300 мл
-        </button>        
-
-        <button type="button" data-water-add="500">
-          +500 мл
         </button>
 
         <button type="button" data-water-add="-100">
@@ -4948,16 +4959,16 @@ function renderWaterTracker() {
           −150 мл
         </button>
         
+        <button type="button" data-water-add="-200">
+          −200 мл
+        </button>
+
         <button type="button" data-water-add="-250">
           −250 мл
-        </button>
+        </button>      
 
         <button type="button" data-water-add="-300">
           −300 мл
-        </button>      
-
-        <button type="button" data-water-add="-500">
-          −500 мл
         </button>        
       </div>
 
@@ -5016,10 +5027,65 @@ function renderWaterTracker() {
     });
 }
 
+function openThemePicker() {
+  const themes = [
+    {
+      id: "dark",
+      name: "темная",
+      description: "спокойная темная тема"
+    },
+    {
+      id: "pink",
+      name: "розовая",
+      description: "мягкая розовая тема"
+    },
+    {
+      id: "angel",
+      name: "angel",
+      description: "светлая воздушная тема"
+    },
+    {
+      id: "minimal",
+      name: "минимализм",
+      description: "чистая минималистичная тема"
+    }
+  ];
 
+  const currentTheme =
+    localStorage.getItem("molecule-space-theme") ||
+    "dark";
+   
+  const overlay = openTrackerOverlay(
+    "themePickerOverlay",
+    "тема приложения",
+    `
+      <div class="theme-picker-list">
+        ${themes
+          .map(
+            theme => `
+          <button
+            type="button"
+            class="theme-picker-option ${
+              currentTheme === theme.id ? "is-active" : ""
+            }"
+            data-theme="${theme.id}"
+          >
+            <span class="theme-picker-check">
+              ${currentTheme === theme.id ? "✓" : ""}
+            </span>
 
-
-
+            <span>
+              <strong>${theme.name}</strong>
+              <small>${theme.description}</small>
+            </span>
+          </button>
+        `
+          )
+          .join("")}
+      </div>
+    `
+  );
+   
   overlay
     .querySelectorAll("[data-theme]")
     .forEach(button => {
@@ -5107,11 +5173,6 @@ function ensureTrackerCards() {
         <span id="waterMiniProgress"></span>
       </span>
     </button>
-
-    
-
-      <span class="tracker-card-arrow">›</span>
-    </button>
   `;
 
   diary.insertAdjacentElement("afterend", wrap);
@@ -5124,18 +5185,20 @@ const supplementsTrackerButton =
     "supplementsTrackerButton"
   );
 
-const waterTrackerButton =
-  document.getElementById("waterTrackerButton");
+supplementsTrackerButton?.addEventListener(
+  "click",
+  renderSupplementTracker
+);
 
+const waterTrackerButton =
+  document.getElementById(
+     "waterTrackerButton");
 
 waterTrackerButton?.addEventListener(
   "click",
   renderWaterTracker
 );
-remindersButton?.addEventListener(
-  "click",
-  renderReminders
-);
+
 
 refreshHomeTrackers();
 checkReminders();
