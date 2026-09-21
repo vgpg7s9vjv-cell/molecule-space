@@ -21,7 +21,7 @@ if (tg) {
 
 
 /* ==================================================
-   ФРАЗЫ ДЛЯ ПОДДЕРЖКИ
+   фраза дня
 ================================================== */
 
 const quotes = [
@@ -46,7 +46,7 @@ let currentQuote = 0;
 
 
 /* ==================================================
-   ДАННЫЕ РАЗДЕЛОВ
+  разделы
 ================================================== */
 
 const sections = {
@@ -2430,7 +2430,7 @@ const articles = {
   }
 }
 /* ==================================================
-   СОСТОЯНИЕ ПРИЛОЖЕНИЯ
+   СОСТОЯНИЕ ПРИЛОЖЕНИЯ дневник настроения
 ================================================== */
 let currentSectionId = null;
 
@@ -2441,7 +2441,7 @@ const moodStorageKey = "molecule-space-mood-diary";
 const themeStorageKey = "molecule-space-theme";
 
 /* ==================================================
-   DOM
+   DOM дневник настроения 
 ================================================== */
 
 const homeScreen = document.getElementById("homeScreen");
@@ -2460,7 +2460,7 @@ const quickDiaryButton = document.getElementById("quickDiaryButton");
 
 
 /* ==================================================
-   ФРАЗА
+   ФРАЗА - настройка смены фраз
 ================================================== */
 
 function showNextQuote() {
@@ -2485,7 +2485,7 @@ function showNextQuote() {
 
 
 /* ==================================================
-   ТЕМА
+   кнопка выбора темы
 ================================================== */
 
 function applyTheme(theme) {
@@ -2818,10 +2818,8 @@ function renderMoodJournal() {
 
     });
 
-
   window.scrollTo(0, 0);
 }
-
 
 function escapeHtml(value) {
   return String(value)
@@ -2831,6 +2829,10 @@ function escapeHtml(value) {
     .replace(/\"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
+/* ==================================================
+   имт и дефицит
+================================================== */
 
 function renderTools() {
   contentContainer.innerHTML = `
@@ -2895,7 +2897,7 @@ function calculateEnergy() {
   const result = document.getElementById("energyResult");
   if (!age || age < 12 || !weight || !height) { result.textContent = "введен возраст ниже 12 лет, попробуй ввести другой"; return; }
   const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
-  const tdee = bmr * activity * 0.8;
+  const tdee = (bmr * activity) * 0.8;
   result.innerHTML = `<strong>основное количество сжигаемых тобой калорий ${Math.round(bmr)} ккал/сутки</strong><br>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки`;
 }
 
