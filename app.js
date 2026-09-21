@@ -2860,7 +2860,7 @@ function renderTools() {
           <h3>норма и дефицит калорий</h3>
           <p>оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле Миффлина — Сан Жеора</p>
           <div class="calculator-grid">
-            <div class="calculator-field"><label for="calAge">возраст, лет</label><input class="calculator-input" id="calAge" type="number" min="12" step="1" inputmode="numeric"></div>
+            <div class="calculator-field"><label for="calAge">возраст, лет</label><input class="calculator-input" id="calAge" type="number" min="13" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calWeight">масса, кг</label><input class="calculator-input" id="calWeight" type="number" min="1" step="0.1" inputmode="decimal"></div>
             <div class="calculator-field"><label for="calHeight">рост, см</label><input class="calculator-input" id="calHeight" type="number" min="1" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calSex">пол для формулы</label><select class="calculator-input" id="calSex"><option value="female">женский</option><option value="male">мужской</option></select></div>
@@ -2895,15 +2895,15 @@ function calculateEnergy() {
   const sex = document.getElementById("calSex").value;
   const activity = Number(document.getElementById("calActivity").value);
   const result = document.getElementById("energyResult");
-  if (!age || age < 12 || !weight || !height) { result.textContent = "введен возраст ниже 12 лет, попробуй ввести другой"; return; }
+  if (!age || age < 13 || !weight || !height) { result.textContent = "УПС! твой организм еще растет и тебе не нужен дефицит"; return; }
   const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
-  const tdee = (bmr * activity) * 0.8;
+  const tdee = bmr * activity * 0.7;
   result.innerHTML = `<strong>основное количество сжигаемых тобой калорий ${Math.round(bmr)} ккал/сутки</strong><br>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки`;
 }
 
 
 /* ==================================================
-   ПОКАЗАТЬ ГЛАВНУЮ
+   выход на главную
 ================================================== */
 
 function showHome() {
@@ -2942,127 +2942,9 @@ function showHome() {
 }
 
 
-/* ==================================================
-   ОТКРЫТЬ РАЗДЕЛ
-================================================== */
-
-function openSection(sectionId) {
-
-  const section = sections[sectionId];
-
-  if (!section) {
-    return;
-  }
-
-  if (sectionId === "mood") {
-    currentSectionId = "mood";
-    currentArticleId = null;
-    currentPage = 0;
-    contentScreen.classList.remove("hidden");
-    homeScreen.classList.add("hidden");
-    renderMoodJournal();
-    return;
-  }
-
-  if (sectionId === "tools") {
-    currentSectionId = "tools";
-    currentArticleId = null;
-    currentPage = 0;
-    contentScreen.classList.remove("hidden");
-    homeScreen.classList.add("hidden");
-    renderTools();
-    return;
-  }
-   
-  currentSectionId = sectionId;
-
-  currentArticleId = null;
-
-  currentPage = 0;
-
-  contentScreen.classList.remove("hidden");
-
-  homeScreen.classList.add("hidden");
-
-
-  contentContainer.innerHTML = `
-
-    <div class="screen-inner fade-in">
-
-      <button
-        class="back-button"
-        id="sectionBackButton"
-      >
-        ← назад
-      </button>
-
-
-      <header class="section-header">
-
-        <p class="section-kicker">
-          ${section.kicker}
-        </p>
-
-        <h1>
-          ${section.title}
-        </h1>
-
-        <p>
-          ${section.description}
-        </p>
-
-      </header>
-
-
-      <div class="topic-list">
-
-        ${section.topics.map(topic => `
-
-          <button
-            class="topic-card"
-            data-article="${topic.id}"
-          >
-
-            <div class="topic-card-content">
-
-              <p class="topic-card-title">
-                ${topic.title}
-              </p>
-
-              <p class="topic-card-description">
-                ${topic.description}
-              </p>
-
-            </div>
-
-            <span class="topic-arrow">
-              ›
-            </span>
-
-          </button>
-
-        `).join("")
-        
-        }
-
-      </div>
-
-    </div>
-
-  `;
-
-
-  document
-    .getElementById("sectionBackButton")
-    .addEventListener("click", showHome);
-
-
-  window.scrollTo(0, 0);
-}
-
 
 /* ==================================================
-   ОТКРЫТЬ РАЗДЕЛ
+   ОТКРЫТЬ РАЗДЕЛ 2.0
 ================================================== */
 
 function openSection(sectionId) {
