@@ -4851,7 +4851,7 @@ const supplementsTrackerButton =
 
 supplementsTrackerButton?.addEventListener(
   "click",
-  render (SupplementTracker);
+  render (SupplementTracker)
 );
 
 const waterTrackerButton =
@@ -4861,6 +4861,6 @@ const waterTrackerButton =
 
 waterTrackerButton?.addEventListener(
   "click",
-  render (WaterTracker);
+  render (WaterTracker)
 );
 }
