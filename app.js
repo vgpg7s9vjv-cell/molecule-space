@@ -2668,9 +2668,9 @@ function calculateEnergy() {
   const activity = Number(document.getElementById("calActivity").value);
   const result = document.getElementById("energyResult");
   if (!age || age < 13 || !weight || !height) { result.textContent = "УПС! твой организм еще растет и тебе не нужен дефицит"; return; }
-  const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
-  const tdee = bmr * activity * 0.9;
-  result.innerHTML = `<strong>основное количество сжигаемых тобой калорий ${Math.round(bmr)} ккал/сутки</strong><br>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки`;
+  const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161) * activity;
+  const tdee = bmr * 0.8;
+  result.innerHTML = `основное количество сжигаемых тобой калорий с учетом активности ${Math.round(bmr)} ккал/сутки<br><strong>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки</strong>`;
 }
 
 
