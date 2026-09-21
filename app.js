@@ -2897,7 +2897,7 @@ function calculateEnergy() {
   const result = document.getElementById("energyResult");
   if (!age || age < 13 || !weight || !height) { result.textContent = "УПС! твой организм еще растет и тебе не нужен дефицит"; return; }
   const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
-  const tdee = bmr * activity * 0.7;
+  const tdee = bmr * activity * 0.9;
   result.innerHTML = `<strong>основное количество сжигаемых тобой калорий ${Math.round(bmr)} ккал/сутки</strong><br>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки`;
 }
 
@@ -2942,9 +2942,8 @@ function showHome() {
 }
 
 
-
 /* ==================================================
-   ОТКРЫТЬ РАЗДЕЛ 2.0
+   ОТКРЫТЬ РАЗДЕЛы интерактивные
 ================================================== */
 
 function openSection(sectionId) {
@@ -2954,17 +2953,6 @@ function openSection(sectionId) {
   if (!section) {
     return;
   }
-
-
-  /* удаляем старый экран раздела */
-
-  const oldOverlay =
-    document.getElementById("sectionOverlay");
-
-  if (oldOverlay) {
-    oldOverlay.remove();
-  }
-
 
   /* особые разделы */
 
