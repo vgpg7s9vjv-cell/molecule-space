@@ -2726,7 +2726,9 @@ function openSection(sectionId) {
     return;
   }
 
-  /* особые разделы */
+/* ==================================================
+   ОТКРЫТЬ ДНЕВНИК НАСТРОЕНИЯ
+================================================== */
 
 if (sectionId === "mood") {
 
@@ -3164,7 +3166,7 @@ if (sectionId === "mood") {
   }
    
   /* ================================================
-     ИНСТРУМЕНТЫ
+     КАЛЬКУЛЯТОРЫ
   ================================================ */
 
   if (sectionId === "tools") {
@@ -3283,9 +3285,7 @@ if (sectionId === "mood") {
 
           <section class="calculator-card">
 
-            <h3>
-              норма и дефицит калорий
-            </h3>
+            <h3>норма и дефицит калорий</h3>
 
             <p>
               оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле Миффлина — Сан Жеора
@@ -3303,7 +3303,7 @@ if (sectionId === "mood") {
                   class="calculator-input"
                   id="calAge"
                   type="number"
-                  min="12"
+                  min="13"
                   step="1"
                   inputmode="numeric"
                 >
@@ -3443,7 +3443,7 @@ if (sectionId === "mood") {
 
 
   /* ================================================
-     ОБЫЧНЫЕ РАЗДЕЛЫ
+            ОТКРЫТЬ РАЗДЕЛЫ СО СТАТЬЯМИ
   ================================================ */
 
   currentSectionId = sectionId;
@@ -3542,7 +3542,7 @@ if (sectionId === "mood") {
 }
 
 /* ==================================================
-   ОТКРЫТИЕ СТАТЬИ
+  ОТКРЫТЬ САМУ СТАТЬЮ
 ================================================== */
 
 function openArticle(articleId) {
@@ -3613,7 +3613,7 @@ function renderArticle() {
         class="back-button"
         id="articleBackButton"
       >
-        ← назад
+        ← вернуться к разделу
       </button>
 
 
@@ -3725,7 +3725,7 @@ overlay.style.zIndex = "2147483647";
 }
 
 /* ==================================================
-   НАЗАД ИЗ СТАТЬИ
+   КНОПКА ВЕРНУТЬСЯ К РАЗДЕЛУ
 ================================================== */
 
 function goBackFromArticle() {
@@ -3787,7 +3787,7 @@ function previousPage() {
 
 
 /* ==================================================
-   СОБЫТИЯ ГЛАВНОЙ
+   МЕХАНИКА ВЫБОРА В ГЛАВНОМ МЕНЮ
 ================================================== */
 
 document.addEventListener("click", (event) => {
@@ -3877,6 +3877,9 @@ if (quickDiaryButton) {
   );
 }
 
+/* ==================================================
+                      ТРЕКЕРЫ
+================================================== */
 
 initTheme();
 
@@ -3890,6 +3893,8 @@ const supplementStorageKey = "molecule-space-supplements";
 const waterStorageKey = "molecule-space-water";
 const waterGoalStorageKey = "molecule-space-water-goal";
 const reminderStorageKey = "molecule-space-reminders";
+
+/* --- данные дневника настроения ---*/
 
 function trackerDate(date = new Date()) {
   const y = date.getFullYear();
@@ -3913,6 +3918,8 @@ function writeLocal(key, value) {
   } catch (error) {}
 }
 
+/* --- данные калькуляторов ---*/
+
 function getSupplements() {
   return readLocal(supplementStorageKey, []);
 }
@@ -3921,9 +3928,11 @@ function saveSupplements(items) {
   writeLocal(supplementStorageKey, items);
 }
 
+/* --- данные кольца воды ---*/
+
 function getWaterGoal() {
   const value = Number(readLocal(waterGoalStorageKey, 2000));
-  return Number.isFinite(value) && value >= 250 ? value : 2000;
+  return Number.isFinite(value) && value >= 100 ? value : 2000;
 }
 
 function getWaterData() {
@@ -3939,6 +3948,8 @@ function setTodayWater(amount) {
   data[trackerDate()] = Math.max(0, Math.round(amount));
   writeLocal(waterStorageKey, data);
 }
+
+/* --- данные календаря (напоминания - с припиской reminders - Summary) ---*/
 
 function getReminderData() {
   return readLocal(reminderStorageKey, []);
@@ -3967,6 +3978,10 @@ function setSupplementTaken(id, date, value) {
   saveSupplements(items);
 }
 
+/* --- данные сводки разделов ---*/
+
+
+/*- сводка калькуляторов -*/
 function calculateSupplementStreak() {
   const items = getSupplements();
 
@@ -3988,40 +4003,46 @@ function calculateSupplementStreak() {
   return streak;
 }
 
+/* --- обновить данные на главном экране ---*/
+
 function refreshHomeTrackers() {
   const supplements = getSupplements();
   const streak = calculateSupplementStreak();
 
+/*- данные календаря -*/
   const supplementSummary =
     document.getElementById("supplementsTrackerSummary");
 
+   /*- данные серий -*/
   const streakElement =
     document.getElementById("supplementsStreak");
 
+   /*- данные воды -*/
   const waterSummary =
     document.getElementById("waterTrackerSummary");
 
+   /*- данные выпитой воды -*/
   const waterProgress =
     document.getElementById("waterMiniProgress");
 
-  const remindersSummary =
-    document.getElementById("remindersSummary");
-
+   /*- если данные календаря, то: -*/
   if (supplementSummary) {
     supplementSummary.textContent = supplements.length
       ? `${supplements.length} ${pluralize(
           supplements.length,
           "таблетка",
-          "таблетк",
+          "таблетки",
           "таблеток"
         )} • отметь сегодняшний прием`
       : "отметь прием в каледаре, чтобы не пропустить серию";
   }
 
+   /*- если данные серий, то: -*/
   if (streakElement) {
     streakElement.textContent = `${streak} 🔥`;
   }
 
+   /*- если данные воды, то: -*/
   const water = getTodayWater();
   const goal = getWaterGoal();
   const percent = Math.min(100, Math.round((water / goal) * 100));
@@ -4037,19 +4058,9 @@ function refreshHomeTrackers() {
   const reminders = getReminderData().filter(
     r => r.enabled !== false
   );
-
-  if (remindersSummary) {
-    remindersSummary.textContent = reminders.length
-      ? `${reminders.length} ${pluralize(
-          reminders.length,
-          "напоминание",
-          "напоминания",
-          "напоминаний"
-        )}`
-      : "настроить прием таблеток";
-  }
 }
 
+/*- данные множественных чисел -*/
 function pluralize(number, one, few, many) {
   const n = Math.abs(number) % 100;
 
@@ -4062,6 +4073,11 @@ function pluralize(number, one, few, many) {
 
   return many;
 }
+
+/* ==================================================
+         открытие трекеров с
+                      сохраненным прогрессом
+================================================== */
 
 function openTrackerOverlay(id, title, content) {
   const old = document.getElementById(id);
@@ -4101,6 +4117,8 @@ function openTrackerOverlay(id, title, content) {
 
   return overlay;
 }
+
+/*- открыть сохраненный календарь -*/
 
 function renderSupplementTracker() {
   const supplements = getSupplements();
@@ -4544,6 +4562,8 @@ function renderSupplementTracker() {
     });
 }
 
+/*- открыть сохраннный трекер воды -*/
+
 function renderWaterTracker() {
   const water = getTodayWater();
   const goal = getWaterGoal();
@@ -4671,6 +4691,8 @@ function renderWaterTracker() {
     });
 }
 
+/*- сменить тему приложения по кругу -*/
+
 function openThemePicker() {
   const themes = [
     {
@@ -4787,7 +4809,7 @@ function ensureTrackerCards() {
       <span class="tracker-card-content">
         <strong>трекер приема</strong>
         <small id="supplementsTrackerSummary">
-          отметь прием в каледаре, чтобы не пропустить серию
+          отметь прием в каледаре,<br>чтобы не пропустить серию
         </small>
       </span>
 
@@ -4819,10 +4841,7 @@ function ensureTrackerCards() {
     </button>
   `;
 
-  diary.insertAdjacentElement("afterend", wrap);
-}
-
-ensureTrackerCards();
+ensureTrackerCards()
 
 const supplementsTrackerButton =
   document.getElementById(
@@ -4831,21 +4850,16 @@ const supplementsTrackerButton =
 
 supplementsTrackerButton?.addEventListener(
   "click",
-  renderSupplementTracker
+  render (SupplementTracker);
 );
 
 const waterTrackerButton =
   document.getElementById(
-     "waterTrackerButton");
+     "waterTrackerButton"
+  );
 
 waterTrackerButton?.addEventListener(
   "click",
-  renderWaterTracker
+  render (WaterTracker);
 );
-
-
-refreshHomeTrackers();
-checkReminders();
-
-setInterval(checkReminders, 30000);
-
+}
