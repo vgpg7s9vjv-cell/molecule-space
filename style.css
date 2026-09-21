@@ -955,6 +955,144 @@ button {
   }
 }
 
+/* ==================================================
+   ТЕМА
+================================================== */
+
+:root {
+  --silver: #dce5f2;
+  --home-accent: var(--blue);
+  --input-bg: rgba(255, 255, 255, 0.045);
+}
+
+body,
+.home-screen,
+.content-screen,
+.topic-card,
+.section-tab,
+.quote-card,
+.article-nav-button,
+.diary-quick-card,
+.mood-entry,
+.calculator-card,
+.calculator-input,
+.theme-toggle {
+  transition:
+    background-color 0.45s ease,
+    background 0.45s ease,
+    color 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.home-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.theme-toggle {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line-light);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--silver);
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.theme-toggle:active { transform: scale(0.94); }
+.theme-toggle-icon { font-size: 18px; line-height: 1; }
+
+.diary-quick-card {
+  width: 100%;
+  margin-top: 10px;
+  padding: 16px 17px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-large);
+  background: var(--card);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.12);
+}
+
+.diary-quick-card:active { transform: scale(0.985); }
+.diary-quick-icon {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(168, 156, 255, 0.12);
+  color: var(--purple);
+  font-size: 19px;
+}
+.diary-quick-content { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.diary-quick-content strong { font-size: 13px; font-weight: 750; }
+.diary-quick-content small { color: var(--muted); font-size: 10px; line-height: 1.4; }
+.diary-quick-arrow { margin-left: auto; color: var(--muted); font-size: 22px; }
+
+/* ==================================================
+   СВЕТЛАЯ ТЕМА
+================================================== */
+
+body.light-theme {
+  --bg: #f3f0ff;
+  --bg-deep: #e9e5fb;
+  --card: rgba(255, 255, 255, 0.78);
+  --card-light: rgba(255, 255, 255, 0.94);
+  --text: #27304a;
+  --muted: #7883a0;
+  --muted-light: #56617c;
+  --blue: #83bfe7;
+  --purple: #a995dc;
+  --pink: #e9a9ca;
+  --silver: #68738c;
+  --line: rgba(72, 80, 116, 0.12);
+  --line-light: rgba(72, 80, 116, 0.18);
+  --input-bg: rgba(255, 255, 255, 0.72);
+}
+
+body.light-theme {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.light-theme .home-screen {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(173, 213, 239, 0.32), transparent 32%),
+    radial-gradient(circle at 90% 45%, rgba(199, 186, 235, 0.26), transparent 30%),
+    var(--bg);
+}
+
+body.light-theme .content-screen {
+  background:
+    radial-gradient(circle at 85% 0%, rgba(199, 186, 235, 0.22), transparent 32%),
+    var(--bg);
+}
+
+body.light-theme .quote-card {
+  background: linear-gradient(145deg, rgba(226, 224, 246, 0.92), rgba(236, 244, 250, 0.9));
+  box-shadow: 0 20px 60px rgba(88, 91, 125, 0.11), inset 0 1px 0 rgba(255,255,255,0.75);
+}
+
+body.light-theme .section-tab,
+body.light-theme .diary-quick-card,
+body.light-theme .topic-card,
+body.light-theme .calculator-card,
+body.light-theme .mood-entry {
+  box-shadow: 0 12px 35px rgba(88, 91, 125, 0.08);
+}
 
 /* ==================================================
    КАЛЬКУЛЯТОРЫ
@@ -1049,6 +1187,143 @@ button {
   .calculator-field.full { grid-column: auto; }
 }
 
+/* ==================================================
+   ОТДЕЛЬНОЕ ОКНО СТАТЬИ
+================================================== */
+
+.article-overlay {
+
+  position: fixed;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  z-index: 99999;
+
+  width: 100%;
+  height: 100dvh;
+
+  box-sizing: border-box;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding:
+    calc(18px + env(safe-area-inset-top))
+    18px
+    calc(28px + env(safe-area-inset-bottom));
+
+  background: var(--bg);
+
+  color: var(--text);
+
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.article-overlay-inner {
+
+  width: 100%;
+
+  max-width: 680px;
+
+  min-height: 100%;
+
+  margin: 0 auto;
+
+  padding-bottom: 40px;
+
+  box-sizing: border-box;
+}
+
+
+.article-overlay .back-button {
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 10;
+
+  margin-bottom: 30px;
+
+  padding-top: 7px;
+
+  background: var(--bg);
+}
+
+
+.article-overlay .article-header {
+
+  margin-bottom: 26px;
+}
+
+
+.article-overlay .article-content {
+
+  width: 100%;
+}
+
+
+.article-overlay .article-navigation {
+
+  margin-top: 34px;
+}
+
+
+.article-overlay .page-counter {
+
+  padding-bottom: 20px;
+}
+
+/* ==================================================
+   ARTICLE OVERLAY — ПОВЕРХ ВСЕГО ПРИЛОЖЕНИЯ
+================================================== */
+
+#articleOverlay {
+  position: fixed !important;
+
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+
+  width: 100vw !important;
+  height: 100dvh !important;
+
+  margin: 0 !important;
+  padding:
+    calc(18px + env(safe-area-inset-top))
+    18px
+    calc(28px + env(safe-area-inset-bottom)) !important;
+
+  box-sizing: border-box !important;
+
+  z-index: 2147483647 !important;
+
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  background: var(--bg) !important;
+
+  transform: none !important;
+  filter: none !important;
+}
+
+#articleOverlay .article-overlay-inner {
+  position: relative;
+
+  width: 100%;
+  max-width: 680px;
+
+  min-height: 100%;
+
+  margin: 0 auto;
+
+  box-sizing: border-box;
+}
 
 /* ==================================================
    ПОЛНОЭКРАННЫЕ РАЗДЕЛЫ
@@ -1345,6 +1620,11 @@ body.light-theme .official-links-warning {
 }
 
 
+/* ==================================================
+   MOLECULE SPACE
+   FINAL THEMES
+================================================== */
+
 
 /* ==================================================
    🌑 DARK
@@ -1634,7 +1914,7 @@ body.theme-angel::after {
   font-size: 24px;
   opacity: .55;
 
-  color: ##9bc9e8;
+  color: #ffffff;
   text-shadow:
     0 0 8px rgba(255,255,255,.9),
     0 0 18px rgba(170,215,240,.7);
@@ -1756,7 +2036,7 @@ body.theme-angel::before {
   text-align: center;
   font-size: 20px;
   letter-spacing: 5px;
-  opacity: 1;
+  opacity: 0.65;
   pointer-events: none;
 }
 
@@ -1772,7 +2052,7 @@ body.theme-angel::after {
   font-size: 17px;
   letter-spacing: 7px;
   color: #9bc9e8;
-  opacity: 1;
+  opacity: 0.6;
   pointer-events: none;
 }
 
@@ -1795,7 +2075,7 @@ body.theme-angel .article-nav-button:hover {
 body.theme-angel h1,
 body.theme-angel h2,
 body.theme-angel h3 {
-  text-shadow: 0 1px 8px rgba(155, 201, 232, 0.6);
+  text-shadow: 0 1px 8px rgba(155, 201, 232, 0.25);
 }
 
 
@@ -1997,7 +2277,7 @@ body.theme-minimalism .back-button {
 
   color: var(--accent-strong) !important;
 
-  border-radius: 20px !important;
+  border-radius: 12px !important;
 
   padding: 8px 4px !important;
 
@@ -2033,6 +2313,542 @@ body.theme-minimalism .back-button:active {
   box-shadow: none !important;
 
   transform: translateX(-2px);
+}
+
+
+/* ═══════════════════════════════════════
+   🌸 MOLECULE TRACKERS
+   calendar + water ring
+   ═══════════════════════════════════════ */
+
+
+/* ───────────────────────────────────────
+   📅 КАЛЕНДАРЬ
+   ─────────────────────────────────────── */
+
+.tracker-calendar {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 20px;
+
+  border-radius: 28px;
+
+  background: var(--card) !important;
+  border: 1px solid var(--line) !important;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+
+/* шапка месяца */
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+.calendar-month-title {
+  margin: 0;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  color: var(--text);
+}
+
+.calendar-month-button {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid var(--line) !important;
+  border-radius: 50% !important;
+
+  background: var(--card-soft) !important;
+  background-image: none !important;
+
+  color: var(--accent-strong) !important;
+
+  box-shadow: none !important;
+
+  font-size: 20px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.calendar-month-button:hover {
+  background: var(--accent-soft) !important;
+  transform: scale(1.06);
+}
+
+.calendar-month-button:active {
+  transform: scale(0.94);
+}
+
+
+/* дни недели */
+
+.calendar-weekdays {
+  display: grid;
+
+  grid-template-columns:
+    repeat(7, 1fr);
+
+  gap: 7px;
+
+  margin-bottom: 10px;
+
+  text-align: center;
+}
+
+.calendar-weekday {
+  font-size: 11px;
+  font-weight: 600;
+
+  color: var(--muted);
+
+  opacity: 0.8;
+}
+
+
+/* сетка дней */
+
+.calendar-days {
+  display: grid;
+
+  grid-template-columns:
+    repeat(7, 1fr);
+
+  gap: 8px;
+}
+
+
+/* отдельный день */
+
+.calendar-day {
+  position: relative;
+
+  aspect-ratio: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50% !important;
+
+  border: none !important;
+
+  background: transparent !important;
+  background-image: none !important;
+
+  color: var(--text);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.calendar-day:hover {
+  background: var(--accent-soft) !important;
+
+  transform: scale(1.08);
+}
+
+
+/* день вне текущего месяца */
+
+.calendar-day.other-month {
+  color: var(--muted);
+
+  opacity: 0.28;
+
+  pointer-events: none;
+}
+
+
+/* сегодняшний день */
+
+.calendar-day.today {
+  box-shadow:
+    inset 0 0 0 1.5px var(--accent);
+
+  color: var(--accent-strong);
+}
+
+
+/* выполненный день */
+
+.calendar-day.completed {
+  background: var(--accent) !important;
+
+  color: #ffffff !important;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* выполненный сегодняшний день */
+
+.calendar-day.today.completed {
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.10),
+    0 0 0 3px var(--accent-soft);
+}
+
+
+/* мягкая отметка серии */
+
+.calendar-day.streak {
+  background: var(--accent-soft) !important;
+
+  color: var(--text);
+}
+
+
+/* ───────────────────────────────────────
+   💕 СЕРИЯ
+   ─────────────────────────────────────── */
+
+.calendar-streak {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  margin-top: 18px;
+
+  padding: 10px 14px;
+
+  border-radius: 18px;
+
+  background: var(--accent-soft);
+
+  color: var(--accent-strong);
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* ───────────────────────────────────────
+   💧 ВОДА
+   ─────────────────────────────────────── */
+
+.water-tracker {
+  width: 100%;
+  max-width: 430px;
+
+  margin: 0 auto;
+  padding: 24px 20px 22px;
+
+  border-radius: 30px;
+
+  background: var(--card) !important;
+  border: 1px solid var(--line) !important;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.06);
+
+  text-align: center;
+}
+
+
+/* заголовок */
+
+.water-title {
+  margin: 0 0 4px;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  color: var(--text);
+}
+
+.water-subtitle {
+  margin: 0;
+
+  font-size: 12px;
+
+  color: var(--muted);
+}
+
+
+/* само кольцо */
+
+.water-ring {
+  position: relative;
+
+  width: min(250px, 72vw);
+  aspect-ratio: 1;
+
+  margin: 24px auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* внешний круг */
+
+.water-ring svg {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  transform: rotate(-90deg);
+
+  overflow: visible;
+}
+
+
+/* фоновая дорожка */
+
+.water-ring-background {
+  fill: none;
+
+  stroke: var(--accent-soft);
+
+  stroke-width: 10;
+}
+
+
+/* заполнение */
+
+.water-ring-progress {
+  fill: none;
+
+  stroke: var(--accent);
+
+  stroke-width: 10;
+
+  stroke-linecap: round;
+
+  transition:
+    stroke-dashoffset 0.7s ease,
+    stroke 0.3s ease;
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      color-mix(
+        in srgb,
+        var(--accent) 35%,
+        transparent
+      )
+    );
+}
+
+
+/* центр кольца */
+
+.water-ring-center {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.water-current {
+  font-size: 36px;
+  line-height: 1;
+
+  font-weight: 800;
+
+  color: var(--text);
+}
+
+.water-unit {
+  margin-top: 5px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: var(--muted);
+}
+
+.water-goal {
+  margin-top: 3px;
+
+  font-size: 11px;
+
+  color: var(--muted);
+}
+
+
+/* процент под кольцом */
+
+.water-percent {
+  margin-top: -8px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  color: var(--accent-strong);
+}
+
+
+/* ───────────────────────────────────────
+   💧 КНОПКИ ВОДЫ
+   ─────────────────────────────────────── */
+
+.water-controls {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+.water-control-button {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border-radius: 50% !important;
+
+  border: 1px solid var(--line) !important;
+
+  background: var(--button) !important;
+  background-image: none !important;
+
+  color: var(--button-text) !important;
+
+  box-shadow: none !important;
+
+  font-size: 22px;
+  font-weight: 500;
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease;
+}
+
+.water-control-button:hover {
+  background: var(--accent-soft) !important;
+
+  transform: scale(1.06);
+}
+
+.water-control-button:active {
+  transform: scale(0.92);
+}
+
+
+/* количество выбранной порции */
+
+.water-amount {
+  min-width: 90px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color: var(--text);
+}
+
+
+/* быстрые добавления */
+
+.water-presets {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-top: 14px;
+
+  flex-wrap: wrap;
+}
+
+.water-preset {
+  padding: 8px 13px;
+
+  border-radius: 16px !important;
+
+  border: 1px solid var(--line) !important;
+
+  background: var(--card-soft) !important;
+  background-image: none !important;
+
+  color: var(--accent-strong) !important;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  box-shadow: none !important;
+
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.water-preset:hover {
+  background: var(--accent-soft) !important;
+
+  transform: translateY(-1px);
+}
+
+
+/* ───────────────────────────────────────
+   🎀 PINK
+   ─────────────────────────────────────── */
+
+body.theme-pink .tracker-calendar,
+body.theme-pink .water-tracker {
+  box-shadow:
+    0 10px 30px rgba(201, 159, 184, 0.12),
+    0 0 22px rgba(245, 213, 144, 0.08);
+}
+
+
+/* ───────────────────────────────────────
+   ☁️ ANGEL
+   ─────────────────────────────────────── */
+
+body.theme-angel .tracker-calendar,
+body.theme-angel .water-tracker {
+  box-shadow:
+    0 10px 30px rgba(120, 180, 218, 0.12),
+    0 0 24px rgba(155, 201, 232, 0.13);
 }
 
 
@@ -2574,33 +3390,6 @@ body.theme-minimalism .back-button:active {
 }
 
 
-/* ---------- SMALL SCREENS ---------- */
-
-@media (max-width: 380px) {
-
-  .reminder-row {
-    padding: 10px;
-    border-radius: 16px;
-  }
-
-  .reminder-row-actions {
-    gap: 5px;
-  }
-
-  .reminder-toggle {
-    width: 29px;
-    height: 29px;
-  }
-
-  .reminder-row .mini-delete {
-    font-size: 8px;
-    padding: 5px 6px;
-  }
-
-  .reminder-add-form {
-    grid-template-columns: minmax(0, 1fr) 82px;
-  }
-}
 
 
 /* ---------- меняла таблички ссылок потому что
