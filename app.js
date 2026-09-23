@@ -2511,7 +2511,7 @@ function applyTheme(theme) {
   /* синхронизируем обе системы тем */
   body.dataset.theme =
     theme === "minimalism"
-      ? "minimal"
+      ? "minimalism"
       : theme;
 
   if (themeToggleIcon) {
@@ -3852,9 +3852,7 @@ if (themeToggle) {
         themes.length;
 
 
-smoothApplyTheme(
-  themes[nextIndex]
-);
+applyTheme(themes[nextIndex]);
 
     }
   );
@@ -4709,7 +4707,7 @@ function openThemePicker() {
       description: "светлая воздушная тема"
     },
     {
-      id: "minimal",
+      id: "minimalism",
       name: "минимализм",
       description: "чистая минималистичная тема"
     }
