@@ -51,7 +51,7 @@ const quotes = [
  
 ];
       
-let randomQuote = 0;
+let RandomQuote;
 
 
 /* ==================================================
@@ -2478,7 +2478,7 @@ const randomIndex = Math.floor(Math.random() * quotes.length);
 
 
 
-    quoteElement.textContent = quotes[randomQuote];
+    document.getElementById(quote).textContent = quotes[randomQuote];
 
     quoteElement.style.opacity = "1";
 
