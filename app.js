@@ -2472,26 +2472,21 @@ const quickDiaryButton = document.getElementById("quickDiaryButton");
    ФРАЗА - настройка смены фраз
 ================================================== */
 
-function showNextQuote() {
-
-  currentQuote++;
-
-  if (currentQuote >= quotes.length) {
-    currentQuote = 0;
-  }
+function showRandomQuote() {
+   
+const randomIndex = Math.floor(Math.random() * quotes.length);
 
   quoteElement.style.opacity = "0";
 
-  setTimeout(() => {
 
-    quoteElement.textContent = quotes[currentQuote];
+    quoteElement.textContent = quotes[randomQuote];
 
     quoteElement.style.opacity = "1";
 
-  }, 120);
 
 }
 
+window.onload = showRandomQuote;
 
 /* ==================================================
    кнопка выбора темы
