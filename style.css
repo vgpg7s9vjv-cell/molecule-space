@@ -1238,7 +1238,7 @@ padding:
 
 .article-overlay .back-button {
   position: sticky;
-  top: 2;
+  top: 4;
 
   z-index: 10;
 
