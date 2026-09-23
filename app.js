@@ -2480,9 +2480,6 @@ const randomIndex = Math.floor(Math.random() * quotes.length);
 
     document.getElementById(quote).textContent = quotes[RandomQuote];
 
-    quoteElement.style.opacity = "1";
-
-
 }
 
 window.onload = showRandomQuote;
