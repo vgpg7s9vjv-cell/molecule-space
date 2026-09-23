@@ -299,6 +299,10 @@ button {
   position: relative;
   z-index: 2;
 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
   padding: 10px 14px;
 
   border: 1px solid var(--line-light);
@@ -308,11 +312,6 @@ button {
   background: rgba(255, 255, 255, 0.035);
 
   color: var(--muted-light);
-
-  
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   
   font-size: 12px;
   font-weight: 600;
@@ -327,6 +326,11 @@ button {
 .quote-button:active {
   transform: scale(0.97);
 
+  
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
   background: rgba(255, 255, 255, 0.08);
 }
 
