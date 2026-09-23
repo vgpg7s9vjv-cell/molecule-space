@@ -51,7 +51,7 @@ const quotes = [
  
 ];
       
-let RandomQuote = 1;
+let RandomQuote = Math.floor(Math.random() * quotes.length);
 
 
 /* ==================================================
