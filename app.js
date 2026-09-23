@@ -4779,27 +4779,4 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function smoothApplyTheme(theme) {
-  let transition = document.getElementById(
-    "themeTransition"
-  );
-
-  if (!transition) {
-    transition = document.createElement("div");
-    transition.id = "themeTransition";
-    document.body.appendChild(transition);
-  }
-
-  transition.classList.add("is-visible");
-
-  setTimeout(() => {
-    applyTheme(theme);
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        transition.classList.remove("is-visible");
-      });
-    });
-  }, 120);
-}
 
