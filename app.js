@@ -4598,7 +4598,7 @@ function renderWaterTracker() {
        <button type="button" data-water-add="150">
           +150 мл
         </button>
-
+         <br>
         <button type="button" data-water-add="200">
           +200 мл
         </button>
@@ -4611,6 +4611,7 @@ function renderWaterTracker() {
           +300 мл
         </button>
         <br>
+        <br>
         <button type="button" data-water-add="-100">
           −100 мл
         </button>
@@ -4618,7 +4619,7 @@ function renderWaterTracker() {
         <button type="button" data-water-add="-150">
           −150 мл
         </button>
-        
+        <br>
         <button type="button" data-water-add="-200">
           −200 мл
         </button>
