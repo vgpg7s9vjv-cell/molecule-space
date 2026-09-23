@@ -3811,9 +3811,9 @@ if (themeToggle) {
         themes.length;
 
 
-      applyTheme(
-        themes[nextIndex]
-      );
+smoothApplyTheme(
+  themes[nextIndex]
+);
 
     }
   );
@@ -4740,23 +4740,27 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-/* ==================================================
-   ПЛАВНАЯ СМЕНА ТЕМЫ
-================================================== */
+function smoothApplyTheme(theme) {
+  let transition = document.getElementById(
+    "themeTransition"
+  );
 
-#themeTransition {
-  position: fixed;
-  inset: 0;
-  z-index: 2147483646;
-  pointer-events: none;
+  if (!transition) {
+    transition = document.createElement("div");
+    transition.id = "themeTransition";
+    document.body.appendChild(transition);
+  }
 
-  background: var(--bg);
-  opacity: 0;
+  transition.classList.add("is-visible");
 
-  transition: opacity .24s ease;
-}
+  setTimeout(() => {
+    applyTheme(theme);
 
-#themeTransition.is-visible {
-  opacity: 1;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        transition.classList.remove("is-visible");
+      });
+    });
+  }, 120);
 }
 
