@@ -4841,26 +4841,28 @@ function ensureTrackerCards() {
       </span>
     </button>
   `;
+  document.body.appendChild(wrap);
 
-ensureTrackerCards()
+  const supplementsTrackerButton =
+    document.getElementById(
+      "supplementsTrackerButton"
+    );
 
-const supplementsTrackerButton =
-  document.getElementById(
-    "supplementsTrackerButton"
+  supplementsTrackerButton?.addEventListener(
+    "click",
+    renderSupplementTracker
   );
 
-supplementsTrackerButton?.addEventListener(
-  "click",
-  render (SupplementTracker)
-);
+  const waterTrackerButton =
+    document.getElementById(
+      "waterTrackerButton"
+    );
 
-const waterTrackerButton =
-  document.getElementById(
-     "waterTrackerButton"
+  waterTrackerButton?.addEventListener(
+    "click",
+    renderWaterTracker
   );
 
-waterTrackerButton?.addEventListener(
-  "click",
-  render (WaterTracker)
-);
+  refreshHomeTrackers();
+}
 }
