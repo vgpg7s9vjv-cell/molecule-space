@@ -2475,7 +2475,7 @@ const quickDiaryButton = document.getElementById("quickDiaryButton");
 function showRandomQuote() {
    
 const randomIndex = Math.floor(Math.random() * quotes.length);
-document.getElementById("quote").textContent = quotes[RandomQuote];
+quoteElement = document.getElementById("quote").TextContent = quotes[RandomQuote];
 
 }
 
