@@ -1208,7 +1208,7 @@ body.light-theme .mood-entry {
   overflow-x: hidden;
 
 padding:
-  calc(42px + env(safe-area-inset-top))
+  calc(30px + env(safe-area-inset-top))
   18px
   calc(28px + env(safe-area-inset-bottom)) !important;
 
