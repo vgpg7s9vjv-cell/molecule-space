@@ -49,7 +49,15 @@ const quotes = [
 
   "перестань искать «идеальный понедельник»<br>идеального времени не будет никогда<br>есть только здесь и сейчас"
  
-]
+];
+      
+ script {
+  function showRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+     document.getElementById("quote-text").textContent = quotes[randomIndex];
+        }
+  window.onload = showRandomQuote;
+ }
 
 
 /* ==================================================
