@@ -51,7 +51,7 @@ const quotes = [
  
 ];
       
- script {
+const script {
   function showRandomQuote() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
      document.getElementById("quote-text").textContent = quotes[randomIndex];
