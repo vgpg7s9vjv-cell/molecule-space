@@ -274,7 +274,7 @@ button {
 }
 
 .quote-text {
-  position: relative;
+  position: center;
   z-index: 1;
 
   min-height: 76px;
