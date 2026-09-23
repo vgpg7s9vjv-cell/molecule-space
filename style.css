@@ -504,7 +504,7 @@ transition:
 ================================================== */
 
 .back-button {
-position: sticky;
+position: sticky center;
   top: 4;
 
   z-index: 10;
