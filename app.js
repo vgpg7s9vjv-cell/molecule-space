@@ -2489,7 +2489,6 @@ function showNextQuote() {
 ================================================== */
 
 function applyTheme(theme) {
-
   const validThemes = [
     "dark",
     "pink",
@@ -2501,105 +2500,55 @@ function applyTheme(theme) {
     theme = "dark";
   }
 
-
-  /* убираем старые классы тем */
+  const body = document.body;
 
   validThemes.forEach(themeName => {
-
-    document.body.classList.remove(
-      `theme-${themeName}`
-    );
-
+    body.classList.remove(`theme-${themeName}`);
   });
 
+  body.classList.add(`theme-${theme}`);
 
-  /* добавляем выбранную тему */
-
-  document.body.classList.add(
-    `theme-${theme}`
-  );
-
-
-  /* иконка оставляет смысл кнопки:
-     сама кнопка теперь открывает выбор темы */
+  /* синхронизируем обе системы тем */
+  body.dataset.theme =
+    theme === "minimalism"
+      ? "minimal"
+      : theme;
 
   if (themeToggleIcon) {
     themeToggleIcon.textContent =
-      theme === "dark"
-        ? "☾"
-        : "✦";
+      theme === "dark" ? "☾" : "✦";
   }
 
-
   if (themeToggle) {
-
     themeToggle.setAttribute(
       "aria-label",
       "выбрать оформление"
     );
-
   }
 
-
   try {
-
     localStorage.setItem(
       themeStorageKey,
       theme
     );
-
   } catch (error) {}
 
-
-  /* цвет интерфейса Telegram */
-
   if (tg) {
-
     const colors = {
-
       dark: "#071426",
-
       pink: "#24131f",
-
       angel: "#f7f3ff",
-
       minimalism: "#f3f3ef"
-
     };
 
     if (tg.setHeaderColor) {
-      tg.setHeaderColor(
-        colors[theme]
-      );
+      tg.setHeaderColor(colors[theme]);
     }
 
     if (tg.setBackgroundColor) {
-      tg.setBackgroundColor(
-        colors[theme]
-      );
+      tg.setBackgroundColor(colors[theme]);
     }
-
   }
-
-}
-
-
-function initTheme() {
-
-  let saved = "dark";
-
-  try {
-
-    saved =
-      localStorage.getItem(
-        themeStorageKey
-      ) || "dark";
-
-  } catch (error) {}
-
-
-  applyTheme(saved);
-
 }
 
 /* ==================================================
@@ -3884,6 +3833,15 @@ if (quickDiaryButton) {
 
 initTheme();
 
+/* --- кнопки трекеров на главной ---*/
+
+document
+  .getElementById("supplementsTrackerButton")
+  ?.addEventListener("click", renderSupplementTracker);
+
+document
+  .getElementById("waterTrackerButton")
+  ?.addEventListener("click", renderWaterTracker);
 
 if (quoteElement) {
   quoteElement.style.transition =
@@ -4782,91 +4740,3 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function ensureTrackerCards() {
-  const diary =
-    document.getElementById("quickDiaryButton");
-
-  if (
-    !diary ||
-    document.getElementById(
-      "supplementsTrackerButton"
-    )
-  ) {
-    return;
-  }
-
-  const wrap =
-    document.createElement("div");
-
-  wrap.className = "home-trackers";
-
-  wrap.innerHTML = `
-    <button
-      class="tracker-card supplements-tracker-card"
-      id="supplementsTrackerButton"
-      type="button"
-    >
-      <span class="tracker-icon">💊</span>
-
-      <span class="tracker-card-content">
-        <strong>трекер приема</strong>
-
-        <small id="supplementsTrackerSummary">
-          отметь прием в календаре,<br>
-          чтобы не пропустить серию
-        </small>
-      </span>
-
-      <span
-        class="tracker-card-value"
-        id="supplementsStreak"
-      >
-        0 🔥
-      </span>
-    </button>
-
-    <button
-      class="tracker-card water-tracker-card"
-      id="waterTrackerButton"
-      type="button"
-    >
-      <span class="tracker-icon">💧</span>
-
-      <span class="tracker-card-content">
-        <strong>выпито воды</strong>
-
-        <small id="waterTrackerSummary">
-          0 мл из 2000 мл
-        </small>
-      </span>
-
-      <span class="water-mini-bar">
-        <span id="waterMiniProgress"></span>
-      </span>
-    </button>
-  `;
-
-  diary.parentElement.appendChild(wrap);
-
-  const supplementsTrackerButton =
-    document.getElementById(
-      "supplementsTrackerButton"
-    );
-
-  supplementsTrackerButton?.addEventListener(
-    "click",
-    renderSupplementTracker
-  );
-
-  const waterTrackerButton =
-    document.getElementById(
-      "waterTrackerButton"
-    );
-
-  waterTrackerButton?.addEventListener(
-    "click",
-    renderWaterTracker
-  );
-
-  refreshHomeTrackers();
-}
