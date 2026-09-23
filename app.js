@@ -21,7 +21,7 @@ if (tg) {
 
 
 /* ==================================================
-   фраза дня
+   мотивация
 ================================================== */
 
 const quotes = [
@@ -51,8 +51,12 @@ const quotes = [
  
 ];
 
-let currentQuote = 0;
-
+function showQuote() {
+   const randomIndex = Math.floor(Math.random() * quotes.length);
+   
+   document.getElementById("quote-text").textContent = quotes[randomIndex];
+        
+}
 
 /* ==================================================
   разделы
