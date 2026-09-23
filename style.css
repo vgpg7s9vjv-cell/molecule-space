@@ -507,7 +507,7 @@ transition:
 position: sticky center;
   top: 4;
 
-  z-index: 10;
+  z-index: 7;
 
   min-height: 44px;
   padding: 10px 14px;
