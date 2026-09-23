@@ -2461,7 +2461,7 @@ const contentContainer = document.getElementById("contentContainer");
 
 const quoteElement = document.getElementById("quote");
 
-const RandomQuoteButton = document.getElementById("randomQuote");
+const RandomQuoteButton = document.getElementById("RandomQuote");
 
 const themeToggle = document.getElementById("themeToggle");
 const themeToggleIcon = document.getElementById("themeToggleIcon");
@@ -2475,7 +2475,7 @@ const quickDiaryButton = document.getElementById("quickDiaryButton");
 function showRandomQuote() {
    
 const randomIndex = Math.floor(Math.random() * quotes.length);
-quoteElement = document.getElementById("quote").TextContent = quotes[RandomQuote];
+document.getElementById("quote").TextContent = quotes[RandomQuote];
 
 }
 
@@ -3805,8 +3805,8 @@ document.addEventListener("click", (event) => {
 });
 
 
-if (newQuoteButton) {
-  newQuoteButton.addEventListener(
+if (RandomQuoteButton) {
+  RandomQuoteButton.addEventListener(
     "click",
     showRandomQuote
   );
