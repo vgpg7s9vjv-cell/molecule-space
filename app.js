@@ -4795,7 +4795,8 @@ function ensureTrackerCards() {
     return;
   }
 
-  const wrap = document.createElement("div");
+  const wrap =
+    document.createElement("div");
 
   wrap.className = "home-trackers";
 
@@ -4809,8 +4810,10 @@ function ensureTrackerCards() {
 
       <span class="tracker-card-content">
         <strong>трекер приема</strong>
+
         <small id="supplementsTrackerSummary">
-          отметь прием в каледаре,<br>чтобы не пропустить серию
+          отметь прием в календаре,<br>
+          чтобы не пропустить серию
         </small>
       </span>
 
@@ -4831,6 +4834,7 @@ function ensureTrackerCards() {
 
       <span class="tracker-card-content">
         <strong>выпито воды</strong>
+
         <small id="waterTrackerSummary">
           0 мл из 2000 мл
         </small>
@@ -4841,7 +4845,8 @@ function ensureTrackerCards() {
       </span>
     </button>
   `;
-  document.body.appendChild(wrap);
+
+  diary.parentElement.appendChild(wrap);
 
   const supplementsTrackerButton =
     document.getElementById(
@@ -4864,5 +4869,4 @@ function ensureTrackerCards() {
   );
 
   refreshHomeTrackers();
-}
 }
