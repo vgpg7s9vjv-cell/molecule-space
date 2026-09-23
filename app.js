@@ -2667,6 +2667,47 @@ function showHome() {
 /* ==================================================
    ОТКРЫТЬ РАЗДЕЛы интерактивные
 ================================================== */
+function getMoodEntries() {
+  try {
+    const raw = localStorage.getItem(moodStorageKey);
+
+    if (!raw) {
+      return [];
+    }
+
+    const parsed = JSON.parse(raw);
+
+    return Array.isArray(parsed)
+      ? parsed
+      : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function saveMoodEntry(text, mood) {
+  const entries = getMoodEntries();
+
+  entries.unshift({
+    text: String(text).trim(),
+    mood: mood || "😊",
+    date: new Date().toLocaleDateString(
+      "ru-RU",
+      {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }
+    )
+  });
+
+  try {
+    localStorage.setItem(
+      moodStorageKey,
+      JSON.stringify(entries.slice(0, 100))
+    );
+  } catch (error) {}
+}
 
 function openSection(sectionId) {
 
@@ -3830,8 +3871,6 @@ if (quickDiaryButton) {
 /* ==================================================
                       ТРЕКЕРЫ
 ================================================== */
-
-initTheme();
 
 /* --- кнопки трекеров на главной ---*/
 
