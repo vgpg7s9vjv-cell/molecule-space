@@ -4610,11 +4610,13 @@ function renderWaterTracker() {
         <button type="button" data-water-add="300">
           +300 мл
         </button>
+        
         <button type="button" data-water-add="350">
           +350 мл
         </button>        
-        <br>
-        <br>
+      </div>
+
+      <div class="water-buttons">
         <button type="button" data-water-add="-100">
           −100 мл
         </button>
