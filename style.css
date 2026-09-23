@@ -293,7 +293,7 @@ button {
 
 .quote-button {
   position: relative;
-  z-index: 2;
+  z-index: 10;
 
   padding: 10px 14px;
 
