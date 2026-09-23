@@ -428,13 +428,10 @@ button {
 
   scroll-snap-align: start;
 
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    border-color 0.2s ease;
-}
-
-
+transition:
+  transform 0.2s ease,
+  background 0.2s ease,
+  border-color 0.2s ease;
 }
 
 .section-tab:active {
@@ -3486,3 +3483,31 @@ body.theme-mnimalism .official-link-card:hover {
 #themeTransition.is-visible {
   opacity: 1;
 }
+
+
+.section-overlay,
+.article-overlay {
+  animation: screenFadeIn .22s ease both;
+}
+
+@keyframes screenFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-overlay,
+  .article-overlay,
+  #themeTransition {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
