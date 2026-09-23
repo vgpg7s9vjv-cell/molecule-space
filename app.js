@@ -2558,7 +2558,7 @@ function applyTheme(theme) {
 function renderTools() {
   contentContainer.innerHTML = `
     <div class="screen-inner fade-in">
-      <button class="back-button" id="toolsBackButton">← назад</button>
+      <button class="back-button" id="toolsBackButton">← вернуться на главную </button>
       <header class="section-header">
         <p class="section-kicker">dietary calculations</p>
         <h1>твой виртуальный счетовод</h1>
@@ -2746,7 +2746,7 @@ if (sectionId === "mood") {
           class="back-button"
           id="diaryBackButton"
         >
-          ← назад
+          ← вернуться на главную
         </button>
 
         <header class="section-header">
@@ -3009,7 +3009,7 @@ if (sectionId === "mood") {
             class="back-button"
             id="linksBackButton"
           >
-            ← назад
+            ← вернуться на главную
           </button>
 
           <header class="section-header">
@@ -3190,7 +3190,7 @@ if (sectionId === "mood") {
           class="back-button"
           id="toolsBackButton"
         >
-          ← назад
+          ← вернуться на главную
         </button>
 
         <header class="section-header">
@@ -3459,7 +3459,7 @@ if (sectionId === "mood") {
         class="back-button"
         id="sectionBackButton"
       >
-        ← назад
+        ← вернуться на главную
       </button>
 
 
@@ -3604,7 +3604,7 @@ function renderArticle() {
         class="back-button"
         id="articleBackButton"
       >
-        ← вернуться к разделу
+        ← вернуться к разделам
       </button>
 
 
