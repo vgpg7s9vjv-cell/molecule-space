@@ -21,37 +21,36 @@ if (tg) {
 
 
 /* ==================================================
-   мотивация
+   фраза дня
 ================================================== */
 
 const quotes = [
-  "срыв — не повод бросать все",
-   
-  "лучшая мотивация — это шмотки, которые лежат в шкафу и ждут, когда ты в них влезешь",
+"срыв — не повод бросать все",
 
-  "твой самый трудный день не отменяет весь путь, который был пройден",
+"лучшая мотивация — это шмотки, которые лежат в шкафу и ждут, когда ты в них влезешь",
 
-  "в любой непонятной ситуации — ложись спать<br>во сне невозможно пойти к холодильнику",
+"твой самый трудный день не отменяет весь путь, который был пройден",
 
-  "не делай покупку абонемента в зал своим любимым видом благотворительности",
+"в любой непонятной ситуации — ложись спать<br>во сне невозможно пойти к холодильнику",
 
-  "тебе можно уставать и остановиться",
+"не делай покупку абонемента в зал своим любимым видом благотворительности",
 
-  "минутная слабость во рту не стоит часов разочарования перед зеркалом",
+"тебе можно уставать и остановиться",
 
-  "дисциплина — это решение делать то, чего ты не хочешь, чтобы достичь того, чего ты хочешь больше всего",
+"минутная слабость во рту не стоит часов разочарования перед зеркалом",
 
-  "сделай свое тело местом, в котором тебе приятно жить",
+"дисциплина — это решение делать то, чего ты не хочешь, чтобы достичь того, чего ты хочешь больше всего",
 
-  "уважение к себе начинается с того, чем ты наполняешь свой день и свою тарелку",
+"сделай свое тело местом, в котором тебе приятно жить",
 
-  "твоя лень не сделает тебя увереннее в себе",
+"уважение к себе начинается с того, чем ты наполняешь свой день и свою тарелку",
 
-  "перестань искать «идеальный понедельник»<br>идеального времени не будет никогда<br>есть только здесь и сейчас"
- 
+"твоя лень не сделает тебя увереннее в себе",
+
+"перестань искать «идеальный понедельник»<br>идеального времени не будет никогда<br>есть только здесь и сейчас"
 ];
-      
-let RandomQuote = Math.floor(Math.random() * quotes.length);
+
+let currentQuote = 0;
 
 
 /* ==================================================
@@ -2461,7 +2460,7 @@ const contentContainer = document.getElementById("contentContainer");
 
 const quoteElement = document.getElementById("quote");
 
-const RandomQuoteButton = document.getElementById("RandomQuote");
+const newQuoteButton = document.getElementById("newQuote");
 
 const themeToggle = document.getElementById("themeToggle");
 const themeToggleIcon = document.getElementById("themeToggleIcon");
@@ -2472,14 +2471,26 @@ const quickDiaryButton = document.getElementById("quickDiaryButton");
    ФРАЗА - настройка смены фраз
 ================================================== */
 
-function showRandomQuote() {
-   
-const randomIndex = Math.floor(Math.random() * quotes.length);
-document.getElementById("quote").TextContent = quotes[RandomQuote];
+function showNextQuote() {
+
+  currentQuote++;
+
+  if (currentQuote >= quotes.length) {
+    currentQuote = 0;
+  }
+
+  quoteElement.style.opacity = "0";
+
+  setTimeout(() => {
+
+    quoteElement.textContent = quotes[currentQuote];
+
+    quoteElement.style.opacity = "1";
+
+  }, 120);
 
 }
 
-window.onload = showRandomQuote;
 
 /* ==================================================
    кнопка выбора темы
@@ -3805,10 +3816,10 @@ document.addEventListener("click", (event) => {
 });
 
 
-if (RandomQuoteButton) {
-  RandomQuoteButton.addEventListener(
+if (newQuoteButton) {
+  newQuoteButton.addEventListener(
     "click",
-    showRandomQuote
+    showNextQuote
   );
 }
 
@@ -4783,5 +4794,4 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
-
 
