@@ -51,7 +51,7 @@ const quotes = [
  
 ];
       
-let RandomQuote;
+let RandomQuote = 1;
 
 
 /* ==================================================
@@ -2459,7 +2459,7 @@ const contentScreen = document.getElementById("contentScreen");
 
 const contentContainer = document.getElementById("contentContainer");
 
-const quoteElement = document.getElementById("quote");
+const quoteElement = document.getElementById("quotes");
 
 const RandomQuoteButton = document.getElementById("RandomQuote");
 
@@ -2475,7 +2475,7 @@ const quickDiaryButton = document.getElementById("quickDiaryButton");
 function showRandomQuote() {
    
 const randomIndex = Math.floor(Math.random() * quotes.length);
-document.getElementById("quote").TextContent = quotes[RandomQuote];
+document.getElementById("quotes").TextContent = quotes[RandomQuote];
 
 }
 
