@@ -4740,3 +4740,23 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+/* ==================================================
+   ПЛАВНАЯ СМЕНА ТЕМЫ
+================================================== */
+
+#themeTransition {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  pointer-events: none;
+
+  background: var(--bg);
+  opacity: 0;
+
+  transition: opacity .24s ease;
+}
+
+#themeTransition.is-visible {
+  opacity: 1;
+}
+
