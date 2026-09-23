@@ -2476,7 +2476,6 @@ function showRandomQuote() {
    
 const randomIndex = Math.floor(Math.random() * quotes.length);
 
-  quoteElement.style.opacity = "0";
 
 
     quoteElement.textContent = quotes[randomQuote];
@@ -3815,7 +3814,7 @@ document.addEventListener("click", (event) => {
 if (newQuoteButton) {
   newQuoteButton.addEventListener(
     "click",
-    showNextQuote
+    showRandomQuote
   );
 }
 
