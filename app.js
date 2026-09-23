@@ -51,13 +51,7 @@ const quotes = [
  
 ];
       
-const script {
-  function showRandomQuote() {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-     document.getElementById("quote-text").textContent = quotes[randomIndex];
-        }
-  window.onload = showRandomQuote;
- }
+let randomQuote = 0;
 
 
 /* ==================================================
