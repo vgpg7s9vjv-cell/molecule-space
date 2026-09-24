@@ -2503,40 +2503,24 @@ function applyTheme(theme) {
   }
 
   const body = document.body;
+  const html = document.documentElement;
 
   validThemes.forEach(themeName => {
     body.classList.remove(`theme-${themeName}`);
   });
 
   body.classList.add(`theme-${theme}`);
-
-  /* синхронизируем обе системы тем */
-  body.dataset.theme =
-    theme === "minimalism"
-      ? "minimalism"
-      : theme;
+  html.dataset.theme = theme;
 
   if (themeToggleIcon) {
     themeToggleIcon.textContent =
       theme === "dark" ? "☾" : "✦";
   }
 
-  if (themeToggle) {
-    themeToggle.setAttribute(
-      "aria-label",
-      "выбрать оформление"
-    );
-  }
-
   try {
-    localStorage.setItem(
-      themeStorageKey,
-      theme
-    );
+    localStorage.setItem(themeStorageKey, theme);
   } catch (error) {}
-
-
-  }
+}
 
 /* ==================================================
    имт и дефицит
