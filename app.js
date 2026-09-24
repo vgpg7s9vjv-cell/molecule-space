@@ -4710,11 +4710,6 @@ function renderWaterTracker() {
 function openThemePicker() {
   const themes = [
     {
-      id: "dark",
-      name: "темная",
-      description: "спокойная темная тема"
-    },
-    {
       id: "pink",
       name: "розовая",
       description: "мягкая розовая тема"
