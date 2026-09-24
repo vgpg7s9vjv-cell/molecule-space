@@ -2603,34 +2603,21 @@ function showHome() {
   currentArticleId = null;
   currentPage = 0;
 
-  removeSectionOverlay();
-  removeArticleOverlay();
-
-  document.body.style.overflow = "";
-  homeScreen.classList.remove("hidden");
-  contentScreen.classList.add("hidden");
-
-  window.scrollTo({ top: 0, behavior: "instant" });
-}
-
-  const sectionOverlay =
-    document.getElementById("sectionOverlay");
-
-  if (sectionOverlay) {
-    sectionOverlay.remove();
-  }
-
+  document.getElementById("articleOverlay")?.remove();
+  document.getElementById("sectionOverlay")?.remove();
+  document.getElementById("supplementTrackerOverlay")?.remove();
+  document.getElementById("waterTrackerOverlay")?.remove();
 
   document.body.style.overflow = "";
 
-
-  contentScreen.classList.add("hidden");
-
   homeScreen.classList.remove("hidden");
 
+  window.scrollTo({
+    top: 0,
+    behavior: "instant"
+  });
 
-  window.scrollTo(0, 0);
-
+  refreshHomeTrackers();
 }
 
 
