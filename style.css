@@ -3318,7 +3318,7 @@ body.theme-pink {
 /* декоративные свечения */
 .home-glow {
   position: absolute;
-  animation: bubble 0.5s linear infinite;
+  animation: pulse 1.5s linear infinite;
 
   width: 430px;
   height: 430px;
@@ -3332,16 +3332,23 @@ body.theme-pink {
 
   border-radius: 77%;
 
-  filter: blur(80px);
+  filter: blur(30px);
 
   pointer-events: none;
 
   opacity: 0.65;
 }
 
-@keyframes bubble {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.65;
+  }
+  50% {
+    transform: scale(1.1); 
+    opacity: 0.85;        
+  }
+}
 }
 .glow-one {
   top: -100px;
