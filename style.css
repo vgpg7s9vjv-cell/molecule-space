@@ -3480,3 +3480,43 @@ body.theme-pink .official-link-card {
 
   background: var(--purple);
 }
+
+body.theme-pink {
+--bg: #fff6fa !important;
+--bg-deep: #fdebf3 !important;
+--accent: #c99fb8 !important;
+--accent-soft: #f3dce8 !important;
+--accent-strong: #a97896 !important;
+--yellow: #f5d590 !important;
+--yellow-soft: #fff3cf !important;
+--line-soft: #f6e7ee !important;
+}
+
+body.theme-pink {
+--card: #ffffff;
+--card-soft: #fff9fb;
+--text: #563b48;
+--muted: #9d7888;
+--button: #e2c4d0;
+--button-text: #563b48;
+--input: #fffafd;
+--shadow: 0 14px 40px rgba(205, 130, 160, .12);
+}
+
+:root {
+--silver: #bdbdf7;
+--home-accent: #8f6c96;
+--input-bg: rgba(255, 255, 255, 0.045);
+}
+
+:root {
+--muted-light: #c9b1be;
+--blue: #b1d0ff;
+--pink: #ff9fd2;
+--purple: #c6a6ff
+--line: rgba(255, 255, 255, 0.08);
+--line-light: rgba(255, 255, 255, 0.12);
+--radius-large: 28px;
+--radius-medium: 20px;
+--radius-small: 15px;
+}
