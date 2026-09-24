@@ -3271,36 +3271,7 @@ body.theme-pink .official-link-card {
     0 4px 12px rgba(201, 159, 184, 0.14) !important;
 }
 
-/* декоративные свечения */
 
-.home-glow {
-  position: absolute;
-
-  width: 230px;
-  height: 230px;
-
-  border-radius: 50%;
-
-  filter: blur(75px);
-
-  pointer-events: none;
-
-  opacity: 0.18;
-}
-
-.glow-one {
-  top: -100px;
-  left: -100px;
-
-  background: var(--pink);
-}
-
-.glow-two {
-  right: -110px;
-  top: 38%;
-
-  background: var(--purple);
-}
 
 body.theme-pink {
 --bg: #fff6fa !important;
@@ -3341,4 +3312,35 @@ body.theme-pink {
 --radius-large: 28px;
 --radius-medium: 20px;
 --radius-small: 15px;
+}
+
+
+/* декоративные свечения */
+.home-glow {
+  position: absolute;
+
+  width: 230px;
+  height: 230px;
+
+  border-radius: 70%;
+
+  filter: blur(83px);
+
+  pointer-events: none;
+
+  opacity: 0.24;
+}
+
+.glow-one {
+  top: -100px;
+  left: -100px;
+
+  background: var(--accent);
+}
+
+.glow-two {
+  right: -110px;
+  top: 38%;
+
+  background: var(--accent-soft);
 }
