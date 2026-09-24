@@ -4231,8 +4231,6 @@ function renderSupplementTracker() {
 
   const calendar = getMonthCalendar();
 
-  const calendar = getMonthCalendar();
-
   const supplementOptions = supplements.length
     ? supplements
         .map(
