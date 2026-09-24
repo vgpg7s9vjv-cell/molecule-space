@@ -2493,69 +2493,6 @@ function showNextQuote() {
 
 
 /* ==================================================
-   кнопка выбора темы
-================================================== */
-
-function applyTheme(theme) {
-  const validThemes = [
-    "dark",
-    "pink",
-    "angel",
-    "minimalism"
-  ];
-
-  const body = document.body;
-
-  validThemes.forEach(themeName => {
-    body.classList.remove(`theme-${themeName}`);
-  });
-
-  body.classList.add(`theme-${theme}`);
-
-  /* синхронизируем обе системы тем */
-  body.dataset.theme =
-    theme === "minimalism"
-      ? "minimalism"
-      : theme;
-
-  if (themeToggleIcon) {
-    themeToggleIcon.textContent =
-      theme === "dark" ? "☾" : "✦";
-  }
-
-  if (themeToggle) {
-    themeToggle.setAttribute(
-      "aria-label",
-      "выбрать оформление"
-    );
-  }
-
-  try {
-    localStorage.setItem(
-      themeStorageKey,
-      theme
-    );
-  } catch (error) {}
-
-  if (tg) {
-    const colors = {
-      dark: "#071426",
-      pink: "#24131f",
-      angel: "#f7f3ff",
-      minimalism: "#f3f3ef"
-    };
-
-    if (tg.setHeaderColor) {
-      tg.setHeaderColor(colors[theme]);
-    }
-
-    if (tg.setBackgroundColor) {
-      tg.setBackgroundColor(colors[theme]);
-    }
-  }
-}
-
-/* ==================================================
    имт и дефицит
 ================================================== */
 
@@ -2622,7 +2559,7 @@ function calculateEnergy() {
   const result = document.getElementById("energyResult");
   if (!age || age < 13 || !weight || !height) { result.textContent = "УПС! твой организм еще растет и тебе не нужен дефицит"; return; }
   const bmr = 10 * weight + 6.25 * height - 5 * age - 161;
-  if (!sex || sex <= "male") { bmr = 0 * weight + 6.25 * height - 5 * age + 5 }
+  if (!sex || sex = "male") { const bmr = 10 * weight + 6.25 * height - 5 * age + 5 }
   const tdee = bmr * activity * 0.8;
   result.innerHTML = `основное количество сжигаемых тобой калорий с учетом активности ${Math.round(bmr)} ккал/сутки<br><strong>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки</strong>`;
 }
