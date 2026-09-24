@@ -2,22 +2,6 @@
   box-sizing: border-box;
 }
 
-:root {
-
-  --muted-light: #c9b1be;
-
-  --blue: #b1d0ff;
-  --pink: #ff9fd2;
-  --purple: #c6a6ff
-
-  --line: rgba(255, 255, 255, 0.08);
-  --line-light: rgba(255, 255, 255, 0.12);
-
-  --radius-large: 28px;
-  --radius-medium: 20px;
-  --radius-small: 15px;
-}
-
 html,
 body {
   margin: 0;
@@ -26,8 +10,6 @@ body {
   width: 100%;
   min-height: 100%;
 
-  background: var(--bg);
-
   font-family: "Manrope", sans-serif;
 
   -webkit-font-smoothing: antialiased;
@@ -35,8 +17,6 @@ body {
 }
 
 body {
-  min-height: 100vh;
-  min-height: 100dvh;
   overflow-x: hidden;
 }
 
@@ -288,7 +268,6 @@ button {
 
   background: rgba(255, 255, 255, 0.035);
 
-  color: var(--muted-light);
   
   font-size: 12px;
   font-weight: 600;
@@ -974,11 +953,6 @@ position: sticky center;
    ТЕМА
 ================================================== */
 
-:root {
-  --silver: #bdbdf7;
-  --home-accent: #8f6c96;
-  --input-bg: rgba(255, 255, 255, 0.045);
-}
 
 body,
 .home-screen,
@@ -1677,26 +1651,6 @@ body.theme-dark {
 }
 
 
-/* ==================================================
-   🩷 PINK
-   нежно-розовый / baby pink
-================================================== */
-
-body.theme-pink {
-
-  --card: #ffffff;
-  --card-soft: #fff9fb;
-
-  --text: #563b48;
- --muted: #9d7888;
-
-  --button: #e2c4d0;
-  --button-text: #563b48;
-
-  --input: #fffafd;
-  --shadow: 0 14px 40px rgba(205, 130, 160, .12);
-}
-
 
 /* ==================================================
    ☁️ ANGEL
@@ -2092,39 +2046,6 @@ body.theme-angel h3 {
 
 /* 🎀🍓 BABY PINK — strawberry yogurt & banana cream */
 body.theme-pink {
-  --bg: #fff6fa !important;
-  --bg-deep: #fdebf3 !important;
-
-  /* холодный розовый */
-  --accent: #c99fb8 !important;
-  --accent-soft: #f3dce8 !important;
-  --accent-strong: #a97896 !important;
-
-  /* banana cream 🍌 */
-  --yellow: #f5d590 !important;
-  --yellow-soft: #fff3cf !important;
-
-  --line-soft: #f6e7ee !important;
-
-
-
-  background:
-    radial-gradient(
-      circle at 12% 8%,
-      rgba(245, 213, 144, 0.24),
-      transparent 24%
-    ),
-    radial-gradient(
-      circle at 88% 18%,
-      rgba(201, 159, 184, 0.20),
-      transparent 27%
-    ),
-    linear-gradient(
-      145deg,
-      #fff8fb 0%,
-      #fff1f7 48%,
-      #fdf5ef 100%
-    ) !important;
 
   background-attachment: fixed !important;
 }
@@ -3513,7 +3434,8 @@ body.theme-pink {
 --muted-light: #c9b1be;
 --blue: #b1d0ff;
 --pink: #ff9fd2;
---purple: #c6a6ff
+--purple: #c6a6ff;
+  
 --line: rgba(255, 255, 255, 0.08);
 --line-light: rgba(255, 255, 255, 0.12);
 --radius-large: 28px;
