@@ -348,8 +348,7 @@ links: {
 /* ==================================================
    СТАТЬИ
 ================================================== */
-// src/articles.js
-export const articles = {
+const articles = {
 
 
   /* =========================
@@ -2705,7 +2704,7 @@ function openSection(sectionId) {
 
   removeSectionOverlay();
   removeArticleOverlay();
-}
+
  
 /* ==================================================
    ОТКРЫТЬ ДНЕВНИК НАСТРОЕНИЯ
@@ -2835,9 +2834,9 @@ if (sectionId === "mood") {
 
                     </div>
 
-                    <p class="mood-entry-text">
-                      <h1>${escapeHtml(article.title)}</h1>
-                    </p>
+              <p class="mood-entry-text">
+                  ${escapeHtml(entry.text)}
+                    </p>                 
 
                     <button
                       type="button"
@@ -3148,13 +3147,13 @@ if (sectionId === "mood") {
   /* ================================================
             ОТКРЫТЬ РАЗДЕЛЫ СО СТАТЬЯМИ
   ================================================ */
-
-  currentSectionId = sectionId;
+ 
+  currentSectionId = sectionId; 
   currentArticleId = null;
   currentPage = 0;
 
 
-  const overlay =
+ {  const overlay = 
     document.createElement("div");
 
   overlay.id = "sectionOverlay";
@@ -3259,6 +3258,7 @@ function openArticle(articleId) {
 
   renderArticle();
 
+}
 }
 
 /* ==================================================
@@ -3799,14 +3799,32 @@ function openTrackerOverlay(id, title, content) {
   overlay.id = id;
   overlay.className = "tracker-overlay";
 
-  overlay.innerHTML = `
-    <div class="tracker-modal fade-in">
-      <button class="tracker-close" type="button" aria-label="закрыть">×</button>
-      <div class="tracker-modal-kicker">molecule tracker</div>
-      <h2>${title}</h2>
-      <div class="tracker-modal-content">${content}</div>
+ overlay.innerHTML = `
+  <div
+    class="tracker-modal fade-in"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="trackerTitle"
+  >
+    <button
+      class="tracker-close"
+      type="button"
+      aria-label="закрыть"
+    >
+      ×
+    </button>
+
+    <div class="tracker-modal-kicker">
+      molecule tracker
     </div>
-  `;
+
+    <h2 id="trackerTitle">${escapeHtml(title)}</h2>
+
+    <div class="tracker-modal-content">
+      ${content}
+    </div>
+  </div>
+`;
 
   document.body.appendChild(overlay);
   document.body.style.overflow = "hidden";
@@ -3969,8 +3987,8 @@ function renderSupplementTracker() {
               <span class="supplement-selector-icon">💊</span>
 
               <span class="supplement-selector-name">
-               <p>${escapeHtml(article.category)}</p>
-              </span>
+                     ${escapeHtml(item.name)}
+                          </span>
 
               ${
                 item.id === selectedSupplementId
@@ -4419,7 +4437,6 @@ const currentTheme = readLocal(themeStorageKey, "dark");
 overlay.setAttribute("role", "dialog");
 overlay.setAttribute("aria-modal", "true");
 overlay.setAttribute("aria-labelledby", "trackerTitle");
-<h2 id="trackerTitle">${escapeHtml(title)}</h2>
 
 
 function addEscapeHandler(close) {
