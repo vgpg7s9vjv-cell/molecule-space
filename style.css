@@ -1396,7 +1396,7 @@ body.light-theme .section-tab:active {
   border: 1px solid var(--line);
   border-radius: 17px;
 
-  background: rgba(13, 33, 56, 0.78);
+  background: var(--button);
 
   color: var(--text);
 
