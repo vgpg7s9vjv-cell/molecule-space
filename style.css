@@ -1203,10 +1203,7 @@ padding:
   calc(28px + env(safe-area-inset-bottom)) !important;
 
   background: var(--bg);
-
-  color: var(--text);
-
-  -webkit-overflow-scrolling: touch;
+color: var(--text);
 }
 
 
@@ -1222,7 +1219,6 @@ padding:
 
   padding-bottom: 40px;
 
-  box-sizing: border-box;
 }
 
 
@@ -1309,14 +1305,6 @@ padding:
 
 #articleOverlay .article-overlay-inner {
   position: relative;
-
-  width: 100%;
-  max-width: 680px;
-
-  min-height: 100%;
-
-  margin: 0 auto;
-
 }
 
 /* ==================================================
@@ -1907,7 +1895,7 @@ body.theme-angel {
   --input: #f9fdff !important;
 
   background: #eef8ff !important;
-  color: #40566d !important;
+
 }
 
 /* белые воздушные карточки */
