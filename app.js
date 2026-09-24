@@ -4726,10 +4726,7 @@ function openThemePicker() {
     }
   ];
 
-  const currentTheme =
-    localStorage.getItem("molecule-space-theme") ||
-    "dark";
-   
+
   const overlay = openTrackerOverlay(
     "themePickerOverlay",
     "тема приложения",
