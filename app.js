@@ -8,7 +8,7 @@ const tg = window.Telegram?.WebApp;
 
 if (tg) {
   tg.ready();
-  tg.expand();
+  tg.expand(); 
 
   if (tg.setHeaderColor) {
     tg.setHeaderColor("#ffffff");
