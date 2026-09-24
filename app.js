@@ -11,11 +11,11 @@ if (tg) {
   tg.expand();
 
   if (tg.setHeaderColor) {
-    tg.setHeaderColor(#ffffff);
+    tg.setHeaderColor("#ffffff");
   }
 
   if (tg.setBackgroundColor) {
-    tg.setBackgroundColor(#ffffff);
+    tg.setBackgroundColor("#ffffff");
   }
 }
 
