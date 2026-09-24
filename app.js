@@ -11,11 +11,11 @@ if (tg) {
   tg.expand();
 
   if (tg.setHeaderColor) {
-    tg.setHeaderColor("#CCCCFF");
+    tg.setHeaderColor(" rgba(0, 0, 0, 0)");
   }
 
   if (tg.setBackgroundColor) {
-    tg.setBackgroundColor("#CCCCFF");
+    tg.setBackgroundColor(" rgba(0, 0, 0, 0)");
   }
 }
 
@@ -2541,23 +2541,8 @@ function applyTheme(theme) {
     );
   } catch (error) {}
 
-  if (tg) {
-    const colors = {
-      dark: "#071426",
-      pink: "#24131f",
-      angel: "#f7f3ff",
-      minimalism: "#f3f3ef"
-    };
 
-    if (tg.setHeaderColor) {
-      tg.setHeaderColor(colors[theme]);
-    }
-
-    if (tg.setBackgroundColor) {
-      tg.setBackgroundColor(colors[theme]);
-    }
   }
-}
 
 /* ==================================================
    имт и дефицит
