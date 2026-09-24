@@ -11,11 +11,11 @@ if (tg) {
   tg.expand();
 
   if (tg.setHeaderColor) {
-    tg.setHeaderColor(" rgba(0, 0, 0, 0)");
+    tg.setHeaderColor( rgba(0, 0, 0, 0));
   }
 
   if (tg.setBackgroundColor) {
-    tg.setBackgroundColor(" rgba(0, 0, 0, 0)");
+    tg.setBackgroundColor( rgba(0, 0, 0, 0));
   }
 }
 
@@ -4689,92 +4689,3 @@ function renderWaterTracker() {
     });
 }
 
-/*- сменить тему приложения по кругу -*/
-
-function openThemePicker() {
-  const themes = [
-    {
-      id: "dark",
-      name: "темная",
-      description: "спокойная темная тема"
-    },
-    {
-      id: "pink",
-      name: "розовая",
-      description: "мягкая розовая тема"
-    },
-    {
-      id: "angel",
-      name: "angel",
-      description: "светлая воздушная тема"
-    },
-    {
-      id: "minimalism",
-      name: "минимализм",
-      description: "чистая минималистичная тема"
-    }
-  ];
-
-  const currentTheme =
-    localStorage.getItem("molecule-space-theme") ||
-    "dark";
-   
-  const overlay = openTrackerOverlay(
-    "themePickerOverlay",
-    "тема приложения",
-    `
-      <div class="theme-picker-list">
-        ${themes
-          .map(
-            theme => `
-          <button
-            type="button"
-            class="theme-picker-option ${
-              currentTheme === theme.id ? "is-active" : ""
-            }"
-            data-theme="${theme.id}"
-          >
-            <span class="theme-picker-check">
-              ${currentTheme === theme.id ? "✓" : ""}
-            </span>
-
-            <span>
-              <strong>${theme.name}</strong>
-              <small>${theme.description}</small>
-            </span>
-          </button>
-        `
-          )
-          .join("")}
-      </div>
-    `
-  );
-   
-  overlay
-    .querySelectorAll("[data-theme]")
-    .forEach(button => {
-      button.addEventListener("click", () => {
-        const theme = button.dataset.theme;
-
-        localStorage.setItem(
-          "molecule-space-theme",
-          theme
-        );
-
-        document.body.dataset.theme = theme;
-
-        renderThemeButtons?.();
-        overlay.remove();
-        document.body.style.overflow = "";
-      });
-    });
-}
-
-function escapeHtml(value) {
-  return String(value ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
