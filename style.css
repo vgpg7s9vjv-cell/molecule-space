@@ -3318,7 +3318,7 @@ body.theme-pink {
 /* декоративные свечения */
 .home-glow {
   position: absolute;
-  animation: float 12s linear infinite;
+  animation: bubble 0.5s linear infinite;
 
   width: 430px;
   height: 430px;
@@ -3339,7 +3339,7 @@ body.theme-pink {
   opacity: 0.65;
 }
 
-@keyframes float {
+@keyframes bubble {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
 }
