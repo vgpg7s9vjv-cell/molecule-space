@@ -554,10 +554,16 @@ position: sticky center;
 ================================================== */
 
 .section-header {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   margin-bottom: 28px;
 }
 
 .section-kicker {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   margin: 0 0 8px;
 
   color: var(--blue);
@@ -686,10 +692,16 @@ position: sticky center;
 }
 
 .article-header {
+    justify-content: center;
+  align-items: center;
+  text-align: center;
   margin-bottom: 26px;
 }
 
 .article-category {
+    justify-content: center;
+  align-items: center;
+  text-align: center;
   margin: 0 0 8px;
 
   color: var(--blue);
@@ -703,6 +715,9 @@ position: sticky center;
 }
 
 .article-title {
+    justify-content: center;
+  align-items: center;
+  text-align: center;
   margin: 0;
 
   color: var(--text);
@@ -779,6 +794,9 @@ position: sticky center;
 }
 
 .info-box {
+    justify-content: center;
+  align-items: center;
+  text-align: center;
   margin: 21px 0;
 
   padding: 17px 18px;
@@ -791,6 +809,9 @@ position: sticky center;
 }
 
 .info-box p {
+    justify-content: center;
+  align-items: center;
+  text-align: center;
   margin: 0;
 
   color: var(--muted-light);
@@ -3482,4 +3503,35 @@ body.theme-pink .official-link-card {
 
   box-shadow:
     0 4px 12px rgba(201, 159, 184, 0.14) !important;
+}
+
+/* декоративные свечения */
+
+.home-glow {
+  position: absolute;
+
+  width: 230px;
+  height: 230px;
+
+  border-radius: 50%;
+
+  filter: blur(75px);
+
+  pointer-events: none;
+
+  opacity: 0.18;
+}
+
+.glow-one {
+  top: -100px;
+  left: -100px;
+
+  background: var(--pink);
+}
+
+.glow-two {
+  right: -110px;
+  top: 38%;
+
+  background: var(--purple);
 }
