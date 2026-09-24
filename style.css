@@ -1317,7 +1317,6 @@ padding:
 
   margin: 0 auto;
 
-  box-sizing: border-box;
 }
 
 /* ==================================================
@@ -1901,7 +1900,6 @@ body.theme-angel {
   --accent-soft: #dff2ff !important;
   --accent-strong: #78b4da !important;
 
-  --line: #d4e9f7 !important;
   --line-soft: #e7f4fb !important;
 
   --button: #d3ecfa !important;
