@@ -989,8 +989,8 @@ position: sticky center;
 ================================================== */
 
 :root {
-  --silver: #dce5f2;
-  --home-accent: var(--blue);
+  --silver: (--var blue);
+  --home-accent: #8f6c96;
   --input-bg: rgba(255, 255, 255, 0.045);
 }
 
