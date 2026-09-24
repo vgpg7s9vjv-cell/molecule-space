@@ -3317,7 +3317,7 @@ body.theme-pink {
 
 /* декоративные свечения */
 .home-glow {
-  position: animation;
+  position: animation score(1.5);
 
   width: 430px;
   height: 430px;
@@ -3333,13 +3333,13 @@ body.theme-pink {
 
 .glow-one {
   top: -100px;
-  left: -100px;
+  left: -78px;
 
   background: var(--accent);
 }
 
 .glow-two {
-  right: -110px;
+  right: -78px;
   top: 38%;
 
   background: var(--accent-soft);
