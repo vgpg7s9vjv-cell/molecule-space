@@ -1338,34 +1338,50 @@ body.light-theme .section-tab:active {
 }
 
 .diary-delete-button {
-  margin-top: 12px;
-  padding: 6px 0;
+   background: transparent !important;
+  background-image: none !important;
 
-  border: 0;
-  background: transparent;
+  border: none !important;
+  outline: none !important;
 
-  color: var(--muted);
+  box-shadow: none !important;
 
-  font-size: 11px;
-  font-weight: 600;
+  color: var(--accent-strong) !important;
 
-  cursor: pointer;
+  border-radius: 12px !important;
 
-  opacity: 0.7;
+  padding: 8px 4px !important;
+
+  font-weight: 500 !important;
 
   transition:
+    color 0.2s ease,
     opacity 0.2s ease,
-    color 0.2s ease;
+    transform 0.2s ease !important;
 }
 
 .diary-delete-button:hover {
-  opacity: 1;
-  color: #c46b8a;
+  background: transparent !important;
+  background-image: none !important;
+
+  color: var(--accent-strong) !important;
+
+  box-shadow: none !important;
+
+  opacity: 0.75;
 }
 
+
 .diary-delete-button:active {
-  transform: scale(0.97);
+
+  background: transparent !important;
+  background-image: none !important;
+
+  box-shadow: none !important;
+
+  transform: translateX(-2px);
 }
+
 
 
 /* ==================================================
@@ -1434,7 +1450,7 @@ body.light-theme .section-tab:active {
   border-radius: 12px;
 
   background: 
-    radial-gradient(#f8beeb, #fbf2cf 68.91%);
+    radial-gradient(--accent);
 
   color: var(--accent-strong);
 
@@ -3318,14 +3334,7 @@ body.theme-pink::after {
 /* декоративные свечения */
 .home-glow {
   position: absolute;
-  animation: pulse 1.5s linear infinite;
-
-  width: 430px;
-  height: 430px;
-  border-radius: 77%;
-  filter: blur(80px);
-  pointer-events: none;
-  opacity: 0.65;
+  animation: pulse 1s linear infinite;
 
   width: 430px;
   height: 430px;
