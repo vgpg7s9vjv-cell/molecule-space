@@ -79,16 +79,16 @@ button {
   flex-direction: column;
 
   min-height: 100dvh;
+  min-height: 100vh;
 
   padding:
     calc(24px + env(safe-area-inset-top))
     18px
-    calc(18px + env(safe-area-inset-bottom));
+    calc(12px + env(safe-area-inset-bottom));
 
-  overflow: hidden;
-
+  overflow-x: hidden;
+  overflow-y: auto;
 }
-
 
 /* декоративные свечения */
 
@@ -131,6 +131,7 @@ button {
   z-index: 1;
 
   width: 100%;
+  flex: 0 0 auto;
 }
 
 .brand {
@@ -317,9 +318,10 @@ button {
   position: relative;
   z-index: 2;
 
+  width: 100%;
   margin-top: auto;
-
-  padding-top: 34px;
+  padding-top: 24px;
+  padding-bottom: 4px;
 }
 
 .sections-heading {
@@ -362,20 +364,17 @@ button {
   display: flex;
   gap: 9px;
 
-  width: calc(100% + 18px);
+  width: calc(100% + 36px);
+  margin-left: -18px;
 
   padding:
-    2px
-    18px
-    8px
-    2px;
+    2px 18px
+    calc(8px + env(safe-area-inset-bottom))
+    18px;
 
   overflow-x: auto;
-
   overscroll-behavior-x: contain;
-
   scrollbar-width: none;
-
   scroll-snap-type: x proximity;
 }
 
@@ -442,15 +441,10 @@ transition:
   position: relative;
   z-index: 1;
 
-  margin-top: 13px;
-
-  color: rgba(145, 166, 189, 0.55);
+  margin-top: 8px;
+  padding-bottom: env(safe-area-inset-bottom);
 
   text-align: center;
-
-  font-size: 9px;
-
-  letter-spacing: 0.03em;
 }
 
 
@@ -494,8 +488,8 @@ transition:
   display: block;
     margin-left: auto;
     margin-right: auto;
-position: sticky center;
-  top: 4;
+position: sticky;
+top: 4px;
 
   z-index: 7;
 
@@ -857,12 +851,14 @@ position: sticky center;
   color: var(--text);
 }
 
-.article-nav-button.disabled {
-   color: var(--text);
-}
+.article-nav-button:disabled {
   opacity: 0.35;
-
   pointer-events: none;
+  cursor: default;
+}
+
+.article-nav-button:disabled:active {
+  transform: none;
 }
 
 .page-counter {
