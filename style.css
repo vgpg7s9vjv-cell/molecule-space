@@ -3317,7 +3317,15 @@ body.theme-pink {
 
 /* декоративные свечения */
 .home-glow {
-  position: animation score(linear 3s);
+  position: absolute;
+  animation: float 6s linear infinite;
+
+  width: 430px;
+  height: 430px;
+  border-radius: 77%;
+  filter: blur(80px);
+  pointer-events: none;
+  opacity: 0.65;
 
   width: 430px;
   height: 430px;
@@ -3331,6 +3339,10 @@ body.theme-pink {
   opacity: 0.65;
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
 .glow-one {
   top: -100px;
   left: -78px;
