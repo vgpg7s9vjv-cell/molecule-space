@@ -4427,7 +4427,7 @@ function renderSupplementTracker() {
 
       <div class="tracker-hint">
         выбери БАД сверху и нажимай на даты в календаре,
-        чтобы отметить или снять прием
+        чтобы отметить или снять прием<br>
         Отметки сохраняются только на этом устройстве
       </div>
     `
@@ -4705,78 +4705,7 @@ function renderWaterTracker() {
     });
 }
 
-/*- сменить тему приложения по кругу -*/
 
-function openThemePicker() {
-  const themes = [
-    {
-      id: "pink",
-      name: "розовая",
-      description: "мягкая розовая тема"
-    },
-    {
-      id: "angel",
-      name: "angel",
-      description: "светлая воздушная тема"
-    },
-    {
-      id: "minimalism",
-      name: "минимализм",
-      description: "чистая минималистичная тема"
-    }
-  ];
-
-
-  const overlay = openTrackerOverlay(
-    "themePickerOverlay",
-    "тема приложения",
-    `
-      <div class="theme-picker-list">
-        ${themes
-          .map(
-            theme => `
-          <button
-            type="button"
-            class="theme-picker-option ${
-              currentTheme === theme.id ? "is-active" : ""
-            }"
-            data-theme="${theme.id}"
-          >
-            <span class="theme-picker-check">
-              ${currentTheme === theme.id ? "✓" : ""}
-            </span>
-
-            <span>
-              <strong>${theme.name}</strong>
-              <small>${theme.description}</small>
-            </span>
-          </button>
-        `
-          )
-          .join("")}
-      </div>
-    `
-  );
-   
-  overlay
-    .querySelectorAll("[data-theme]")
-    .forEach(button => {
-      button.addEventListener("click", () => {
-        const theme = button.dataset.theme;
-
-        localStorage.setItem(
-          "molecule-space-theme",
-          theme
-        );
-
-        document.body.dataset.theme = theme;
-
-        renderThemeButtons?.();
-        overlay.remove();
-        document.body.style.overflow = "";
-      });
-    });
-}
 
 function escapeHtml(value) {
   return String(value ?? "")
