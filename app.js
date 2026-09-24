@@ -2491,7 +2491,72 @@ function showNextQuote() {
 
 }
 
+/* ==================================================
+   кнопка выбора темы
+================================================== */
 
+function applyTheme(theme) {
+  const validThemes = [
+    "dark",
+    "pink",
+    "angel",
+    "minimalism"
+  ];
+
+  if (!validThemes.includes(theme)) {
+    theme = "dark";
+  }
+
+  const body = document.body;
+
+  validThemes.forEach(themeName => {
+    body.classList.remove(`theme-${themeName}`);
+  });
+
+  body.classList.add(`theme-${theme}`);
+
+  /* синхронизируем обе системы тем */
+  body.dataset.theme =
+    theme === "minimalism"
+      ? "minimal"
+      : theme;
+
+  if (themeToggleIcon) {
+    themeToggleIcon.textContent =
+      theme === "dark" ? "☾" : "✦";
+  }
+
+  if (themeToggle) {
+    themeToggle.setAttribute(
+      "aria-label",
+      "выбрать оформление"
+    );
+  }
+
+  try {
+    localStorage.setItem(
+      themeStorageKey,
+      theme
+    );
+  } catch (error) {}
+
+  if (tg) {
+    const colors = {
+      dark: "#071426",
+      pink: "#24131f",
+      angel: "#f7f3ff",
+      minimalism: "#f3f3ef"
+    };
+
+    if (tg.setHeaderColor) {
+      tg.setHeaderColor(colors[theme]);
+    }
+
+    if (tg.setBackgroundColor) {
+      tg.setBackgroundColor(colors[theme]);
+    }
+  }
+}
 /* ==================================================
    имт и дефицит
 ================================================== */
