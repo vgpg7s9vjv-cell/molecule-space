@@ -3212,6 +3212,16 @@ body.theme-pink .official-link-card:hover {
       #f4dce7,
       #fff0cf
     ) !important;
+  
+--bg: #fff6fa !important;
+--bg-deep: #fdebf3 !important;
+--accent: #c99fb8 !important;
+--accent-soft: #f3dce8 !important;
+--accent-strong: #a97896 !important;
+--yellow: #f5d590 !important;
+--yellow-soft: #fff3cf !important;
+--line-soft: #f6e7ee !important;
+}
 }
 
 body.theme-angel official-link-card,
@@ -3221,6 +3231,7 @@ body.theme-angel .official-link-card {
   color: #40566d !important;
   border-color: #c5e3f3 !important;
   box-shadow: 0 3px 10px rgba(120, 180, 218, 0.1) !important;
+
 }
 
 body.theme-angel official-link-card:hover,
