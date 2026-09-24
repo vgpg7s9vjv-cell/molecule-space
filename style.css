@@ -3,18 +3,10 @@
 }
 
 :root {
-  --bg: #071426;
-  --bg-deep: #050f1d;
 
-  --card: rgba(13, 33, 56, 0.82);
-  --card-light: rgba(18, 42, 68, 0.9);
+  --muted-light: #c9b1be;
 
-  --text: #f2f7ff;
-  --muted: #91a6bd;
-  --muted-light: #b5c5d7;
-
-  --blue: #79c9ff;
-  --purple: #a89cff;
+  --blue: #b1d0ff;
   --pink: #ff9fd2;
 
   --line: rgba(255, 255, 255, 0.08);
@@ -34,8 +26,6 @@ body {
   min-height: 100%;
 
   background: var(--bg);
-
-  color: var(--text);
 
   font-family: "Manrope", sans-serif;
 
@@ -1037,12 +1027,10 @@ body,
   height: 42px;
   display: grid;
   place-items: center;
-  border: 1px solid var(--line-light);
+
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.045);
-  color: var(--silver);
+
   cursor: pointer;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 .theme-toggle:active { transform: scale(0.94); }
@@ -1709,23 +1697,14 @@ body.theme-dark {
 ================================================== */
 
 body.theme-pink {
-  --bg: #fff5f9;
-  --bg-deep: #ffedf4;
 
   --card: #ffffff;
   --card-soft: #fff9fb;
 
   --text: #563b48;
-  --muted: #9d7888;
 
-  --accent: #e7a8c2;
-  --accent-soft: #f8dce8;
-  --accent-strong: #d98eaf;
 
-  --line: #f1d8e3;
-  --line-soft: #f8e8ef;
-
-  --button: #f4cadb;
+  --button: #e2c4d0;
   --button-text: #563b48;
 
   --input: #fffafd;
@@ -1802,7 +1781,6 @@ body.theme-pink,
 body.theme-angel,
 body.theme-minimalism {
   background: var(--bg);
-  color: var(--text);
 }
 
 
@@ -2131,13 +2109,6 @@ body.theme-pink {
   --bg: #fff6fa !important;
   --bg-deep: #fdebf3 !important;
 
-  --card: rgba(255, 255, 255, 0.94) !important;
-  --card-soft: rgba(255, 249, 252, 0.9) !important;
-
-  /* основной текст */
-  --text: #493844 !important;
-  --muted: #866d7b !important;
-
   /* холодный розовый */
   --accent: #c99fb8 !important;
   --accent-soft: #f3dce8 !important;
@@ -2147,13 +2118,9 @@ body.theme-pink {
   --yellow: #f5d590 !important;
   --yellow-soft: #fff3cf !important;
 
-  --line: #ecd6e1 !important;
   --line-soft: #f6e7ee !important;
 
-  --button: #ead0dd !important;
-  --button-text: #493844 !important;
 
-  --input: #fffafd !important;
 
   background:
     radial-gradient(
@@ -2174,7 +2141,6 @@ body.theme-pink {
     ) !important;
 
   background-attachment: fixed !important;
-  color: #d4a5c2 !important;
 }
 
 /* 🍓 мягкие карточки */
@@ -2191,7 +2157,6 @@ body.theme-pink .modal-content {
       rgba(255,247,251,0.94)
     ) !important;
 
-  color: #493844 !important;
   border-color: #ecd6e1 !important;
 
   box-shadow:
@@ -2229,12 +2194,7 @@ body.theme-pink .article-body strong {
 /* 🎀 кнопки */
 body.theme-pink button,
 body.theme-pink .article-nav-button {
-  background:
-    linear-gradient(
-      135deg,
-      #efd5e2,
-      #f8e0e9
-    ) !important;
+
 
   background-image:
     linear-gradient(
@@ -2244,7 +2204,7 @@ body.theme-pink .article-nav-button {
     ) !important;
 
   color: #493844 !important;
-  border-color: #e4c4d4 !important;
+
 
   box-shadow:
     0 4px 12px rgba(201, 159, 184, 0.14) !important;
