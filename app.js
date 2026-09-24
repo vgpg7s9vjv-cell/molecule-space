@@ -348,8 +348,8 @@ links: {
 /* ==================================================
    СТАТЬИ
 ================================================== */
-
-const articles = {
+// src/articles.js
+export const articles = {
 
 
   /* =========================
@@ -2440,7 +2440,6 @@ const articles = {
 /* ==================================================
    СОСТОЯНИЕ ПРИЛОЖЕНИЯ дневник настроения
 ================================================== */
-let currentSectionId = null;
 
 let currentPage = 0; 
 
@@ -2453,10 +2452,6 @@ const themeStorageKey = "molecule-space-theme";
 ================================================== */
 
 const homeScreen = document.getElementById("homeScreen");
-
-const contentScreen = document.getElementById("contentScreen");
-
-const contentContainer = document.getElementById("contentContainer");
 
 const quoteElement = document.getElementById("quote");
 
@@ -2621,19 +2616,19 @@ function calculateEnergy() {
 ================================================== */
 
 function showHome() {
-
   currentSectionId = null;
   currentArticleId = null;
   currentPage = 0;
 
+  removeSectionOverlay();
+  removeArticleOverlay();
 
-  const articleOverlay =
-    document.getElementById("articleOverlay");
+  document.body.style.overflow = "";
+  homeScreen.classList.remove("hidden");
+  contentScreen.classList.add("hidden");
 
-  if (articleOverlay) {
-    articleOverlay.remove();
-  }
-
+  window.scrollTo({ top: 0, behavior: "instant" });
+}
 
   const sectionOverlay =
     document.getElementById("sectionOverlay");
@@ -2702,13 +2697,16 @@ function saveMoodEntry(text, mood) {
 }
 
 function openSection(sectionId) {
-
   const section = sections[sectionId];
 
   if (!section) {
     return;
   }
 
+  removeSectionOverlay();
+  removeArticleOverlay();
+}
+ 
 /* ==================================================
    ОТКРЫТЬ ДНЕВНИК НАСТРОЕНИЯ
 ================================================== */
@@ -2838,7 +2836,7 @@ if (sectionId === "mood") {
                     </div>
 
                     <p class="mood-entry-text">
-                      ${escapeHtml(entry.text)}
+                      <h1>${escapeHtml(article.title)}</h1>
                     </p>
 
                     <button
@@ -3147,284 +3145,6 @@ if (sectionId === "mood") {
 
     return;
   }
-   
-  /* ================================================
-     КАЛЬКУЛЯТОРЫ
-  ================================================ */
-
-  if (sectionId === "tools") {
-
-    currentSectionId = "tools";
-    currentArticleId = null;
-    currentPage = 0;
-
-    const overlay =
-      document.createElement("div");
-
-    overlay.id = "sectionOverlay";
-    overlay.className = "section-overlay";
-
-    document.body.appendChild(overlay);
-
-    overlay.innerHTML = `
-      <div class="section-overlay-inner">
-        <div id="sectionContent"></div>
-      </div>
-    `;
-
-    const sectionContent =
-      overlay.querySelector("#sectionContent");
-
-    sectionContent.innerHTML = `
-      <div class="screen-inner fade-in">
-
-        <button
-          class="back-button"
-          id="toolsBackButton"
-        >
-          ← вернуться на главную
-        </button>
-
-        <header class="section-header">
-
-          <p class="section-kicker">
-            dietary calculations
-          </p>
-
-          <h1>
-            твой виртуальный счетовод
-          </h1>
-
-          <p>
-            минималистичные калькуляторы с небольшим пояснением результата
-          </p>
-
-        </header>
-
-        <div class="calculator-list">
-
-          <section class="calculator-card">
-
-            <h3>ИМТ</h3>
-
-            <p>
-              индекс массы тела по росту и массе
-            </p>
-
-            <div class="calculator-grid">
-
-              <div class="calculator-field">
-
-                <label for="bmiWeight">
-                  масса, кг
-                </label>
-
-                <input
-                  class="calculator-input"
-                  id="bmiWeight"
-                  type="number"
-                  min="1"
-                  step="0.1"
-                  inputmode="decimal"
-                >
-
-              </div>
-
-              <div class="calculator-field">
-
-                <label for="bmiHeight">
-                  рост, см
-                </label>
-
-                <input
-                  class="calculator-input"
-                  id="bmiHeight"
-                  type="number"
-                  min="1"
-                  step="1"
-                  inputmode="numeric"
-                >
-
-              </div>
-
-            </div>
-
-            <button
-              class="calculator-button"
-              id="calculateBmi"
-            >
-              рассчитать ИМТ
-            </button>
-
-            <div
-              class="calculator-result"
-              id="bmiResult"
-            >
-              введи данные выше
-            </div>
-
-          </section>
-
-
-          <section class="calculator-card">
-
-            <h3>норма и дефицит калорий</h3>
-
-            <p>
-              оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле Миффлина — Сан Жеора
-            </p>
-
-            <div class="calculator-grid">
-
-              <div class="calculator-field">
-
-                <label for="calAge">
-                  возраст, лет
-                </label>
-
-                <input
-                  class="calculator-input"
-                  id="calAge"
-                  type="number"
-                  min="13"
-                  step="1"
-                  inputmode="numeric"
-                >
-
-              </div>
-
-              <div class="calculator-field">
-
-                <label for="calWeight">
-                  масса, кг
-                </label>
-
-                <input
-                  class="calculator-input"
-                  id="calWeight"
-                  type="number"
-                  min="1"
-                  step="0.1"
-                  inputmode="decimal"
-                >
-
-              </div>
-
-              <div class="calculator-field">
-
-                <label for="calHeight">
-                  рост, см
-                </label>
-
-                <input
-                  class="calculator-input"
-                  id="calHeight"
-                  type="number"
-                  min="1"
-                  step="1"
-                  inputmode="numeric"
-                >
-
-              </div>
-
-              <div class="calculator-field">
-
-                <label for="calSex">
-                  пол для формулы
-                </label>
-
-                <select
-                  class="calculator-input"
-                  id="calSex"
-                >
-                  <option value="female">
-                    женский
-                  </option>
-                  <option value="male">
-                    мужской
-                  </option>
-                </select>
-
-              </div>
-
-              <div class="calculator-field full">
-
-                <label for="calActivity">
-                  уровень активности
-                </label>
-
-                <select
-                  class="calculator-input"
-                  id="calActivity"
-                >
-                  <option value="1.2">
-                    минимальная активность(сидячий образ жизни)
-                  </option>
-                  <option value="1.375">
-                    легкая активность(физнагрузка 1-3 раз в неделю)
-                  </option>
-                  <option value="1.55">
-                    умеренная активность(физнагрузка 3-5 раз в неделю)
-                  </option>
-                  <option value="1.725">
-                    высокая активность(физнагрузка 6-7 раз в неделю)
-                  </option>
-                  <option value="1.9">
-                    очень высокая активность(ежедневная физнагрузка)
-                  </option>
-                </select>
-
-              </div>
-
-            </div>
-
-            <button
-              class="calculator-button"
-              id="calculateEnergy"
-            >
-              рассчитать
-            </button>
-
-            <div
-              class="calculator-result"
-              id="energyResult"
-            >
-              введи данные выше
-            </div>
-
-          </section>
-
-        </div>
-
-      </div>
-    `;
-
-
-    document
-      .getElementById("toolsBackButton")
-      .addEventListener(
-        "click",
-        showHome
-      );
-
-    document
-      .getElementById("calculateBmi")
-      .addEventListener(
-        "click",
-        calculateBmi
-      );
-
-    document
-      .getElementById("calculateEnergy")
-      .addEventListener(
-        "click",
-        calculateEnergy
-      );
-
-    return;
-  }
-
-
   /* ================================================
             ОТКРЫТЬ РАЗДЕЛЫ СО СТАТЬЯМИ
   ================================================ */
@@ -3626,22 +3346,25 @@ function renderArticle() {
 
       <div class="article-navigation">
 
-        <button
-          class="article-nav-button ${isFirstPage ? "disabled" : ""}"
-          id="previousButton"
-        >
-          ← назад
-        </button>
+<button
+  class="article-nav-button"
+  id="previousButton"
+  ${isFirstPage ? "disabled" : ""}
+>
+  ← назад
+</button>
 
 
+
         <button
-          class="article-nav-button next ${isLastPage ? "disabled" : ""}"
+          class="article-nav-button"
           id="nextButton"
+         ${isLastPage ? "disabled" : ""}
         >
           дальше →
         </button>
 
-      </div>
+      </button>
 
 
       <p class="page-counter">
@@ -3907,9 +3630,21 @@ function writeLocal(key, value) {
 }
 
 /* --- данные калькуляторов ---*/
-
 function getSupplements() {
-  return readLocal(supplementStorageKey, []);
+  const stored = readLocal(supplementStorageKey, []);
+  return Array.isArray(stored)
+    ? stored.map(normalizeSupplement).filter(item => item.name)
+    : [];
+}
+
+function normalizeSupplement(item) {
+  return {
+    id: String(item?.id ?? crypto.randomUUID()),
+    name: String(item?.name ?? "").trim().slice(0, 40),
+    taken: Array.isArray(item?.taken)
+      ? item.taken.filter(date => /^\d{4}-\d{2}-\d{2}$/.test(date))
+      : []
+  };
 }
 
 function saveSupplements(items) {
@@ -3924,7 +3659,10 @@ function getWaterGoal() {
 }
 
 function getWaterData() {
-  return readLocal(waterStorageKey, {});
+  const value = readLocal(waterStorageKey, {});
+  return value && typeof value === "object" && !Array.isArray(value)
+    ? value
+    : {};
 }
 
 function getTodayWater() {
@@ -3938,13 +3676,9 @@ function setTodayWater(amount) {
 }
 
 /* --- данные календаря (напоминания - с припиской reminders - Summary) ---*/
-
 function getReminderData() {
-  return readLocal(reminderStorageKey, []);
-}
-
-function saveReminderData(items) {
-  writeLocal(reminderStorageKey, items);
+  const value = readLocal(reminderStorageKey, []);
+  return Array.isArray(value) ? value : [];
 }
 
 function getSupplementTaken(supplement, date = trackerDate()) {
@@ -4247,7 +3981,7 @@ function renderSupplementTracker() {
               <span class="supplement-selector-icon">💊</span>
 
               <span class="supplement-selector-name">
-                ${escapeHtml(item.name)}
+               <p>${escapeHtml(article.category)}</p>
               </span>
 
               ${
@@ -4687,5 +4421,39 @@ function renderWaterTracker() {
       writeLocal(waterGoalStorageKey, value);
       rerender();
     });
+}
+
+const savedTheme = readLocal(themeStorageKey, "dark");
+applyTheme(savedTheme);
+refreshHomeTrackers();
+const currentTheme = readLocal(themeStorageKey, "dark");
+
+overlay.setAttribute("role", "dialog");
+overlay.setAttribute("aria-modal", "true");
+overlay.setAttribute("aria-labelledby", "trackerTitle");
+<h2 id="trackerTitle">${escapeHtml(title)}</h2>
+
+
+function addEscapeHandler(close) {
+  const handleKeydown = event => {
+    if (event.key === "Escape") {
+      close();
+    }
+  };
+
+  document.addEventListener("keydown", handleKeydown);
+
+  return () => {
+    document.removeEventListener("keydown", handleKeydown);
+  };
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
 
