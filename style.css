@@ -1346,9 +1346,6 @@ padding:
 
   background: var(--bg) !important;
 
-  color: var(--text);
-
-  -webkit-overflow-scrolling: touch;
 }
 
 
@@ -1492,13 +1489,10 @@ body.light-theme .section-tab:active {
 
   border-radius: 12px;
 
-  background: linear-gradient(
-    135deg,
-    #bca8ff,
-    #9ccfff
-  );
+  background: 
+    radial-gradient(#f8beeb, #fbf2cf 68.91%);
 
-  color: #20233a;
+  color: var(--accent-strong);
 
   font-size: 17px;
   font-weight: 700;
@@ -3364,7 +3358,6 @@ body.theme-pink .official-link-card {
       #f8e0e9
     ) !important;
 
-  color: #493844 !important;
   border-color: #e4c4d4 !important;
 
   box-shadow:
