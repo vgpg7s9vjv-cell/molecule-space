@@ -2491,6 +2491,7 @@ function showNextQuote() {
 
 }
 
+
 /* ==================================================
    кнопка выбора темы
 ================================================== */
@@ -2518,7 +2519,7 @@ function applyTheme(theme) {
   /* синхронизируем обе системы тем */
   body.dataset.theme =
     theme === "minimalism"
-      ? "minimal"
+      ? "minimalism"
       : theme;
 
   if (themeToggleIcon) {
@@ -2557,6 +2558,7 @@ function applyTheme(theme) {
     }
   }
 }
+
 /* ==================================================
    имт и дефицит
 ================================================== */
@@ -2624,7 +2626,7 @@ function calculateEnergy() {
   const result = document.getElementById("energyResult");
   if (!age || age < 13 || !weight || !height) { result.textContent = "УПС! твой организм еще растет и тебе не нужен дефицит"; return; }
   const bmr = 10 * weight + 6.25 * height - 5 * age - 161;
-  if (!sex || sex = "male") { const bmr = 10 * weight + 6.25 * height - 5 * age + 5 }
+  if (!sex || sex <= "male") { bmr = 0 * weight + 6.25 * height - 5 * age + 5 }
   const tdee = bmr * activity * 0.8;
   result.innerHTML = `основное количество сжигаемых тобой калорий с учетом активности ${Math.round(bmr)} ккал/сутки<br><strong>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки</strong>`;
 }
@@ -4425,7 +4427,7 @@ function renderSupplementTracker() {
 
       <div class="tracker-hint">
         выбери БАД сверху и нажимай на даты в календаре,
-        чтобы отметить или снять прием<br>
+        чтобы отметить или снять прием
         Отметки сохраняются только на этом устройстве
       </div>
     `
@@ -4703,5 +4705,92 @@ function renderWaterTracker() {
     });
 }
 
+/*- сменить тему приложения по кругу -*/
 
+function openThemePicker() {
+  const themes = [
+    {
+      id: "dark",
+      name: "темная",
+      description: "спокойная темная тема"
+    },
+    {
+      id: "pink",
+      name: "розовая",
+      description: "мягкая розовая тема"
+    },
+    {
+      id: "angel",
+      name: "angel",
+      description: "светлая воздушная тема"
+    },
+    {
+      id: "minimalism",
+      name: "минимализм",
+      description: "чистая минималистичная тема"
+    }
+  ];
 
+  const currentTheme =
+    localStorage.getItem("molecule-space-theme") ||
+    "dark";
+   
+  const overlay = openTrackerOverlay(
+    "themePickerOverlay",
+    "тема приложения",
+    `
+      <div class="theme-picker-list">
+        ${themes
+          .map(
+            theme => `
+          <button
+            type="button"
+            class="theme-picker-option ${
+              currentTheme === theme.id ? "is-active" : ""
+            }"
+            data-theme="${theme.id}"
+          >
+            <span class="theme-picker-check">
+              ${currentTheme === theme.id ? "✓" : ""}
+            </span>
+
+            <span>
+              <strong>${theme.name}</strong>
+              <small>${theme.description}</small>
+            </span>
+          </button>
+        `
+          )
+          .join("")}
+      </div>
+    `
+  );
+   
+  overlay
+    .querySelectorAll("[data-theme]")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        const theme = button.dataset.theme;
+
+        localStorage.setItem(
+          "molecule-space-theme",
+          theme
+        );
+
+        document.body.dataset.theme = theme;
+
+        renderThemeButtons?.();
+        overlay.remove();
+        document.body.style.overflow = "";
+      });
+    });
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
