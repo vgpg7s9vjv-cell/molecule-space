@@ -3318,7 +3318,7 @@ body.theme-pink {
 /* декоративные свечения */
 .home-glow {
   position: absolute;
-  animation: float 6s linear infinite;
+  animation: float 12s linear infinite;
 
   width: 430px;
   height: 430px;
