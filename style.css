@@ -1860,6 +1860,20 @@ body.theme-angel {
 
   background: #eef8ff !important;
 
+  .official-link-icon {
+display: flex;
+align-items: center;
+justify-content: center;
+flex: 0 0 38px;
+width: 38px;
+height: 38px;
+border-radius: 12px;
+background: radial-gradient(#e1bef8 24.37%, #bae0ff 62.61%);
+color: var(--accent-strong);
+font-size: 17px;
+font-weight: 700;
+}
+
 }
 
 /* белые воздушные карточки */
