@@ -4061,7 +4061,7 @@ function refreshHomeTrackers() {
 
   const reminders = getReminderData().filter(
     r => r.enabled !== false
-  );
+  ); 
 }
 
 /*- данные множественных чисел -*/
