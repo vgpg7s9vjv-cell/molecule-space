@@ -2031,40 +2031,7 @@ body.theme-pink .article-title {
     0 1px 8px rgba(201, 159, 184, 0.18);
 }
 
-/* 🎀♡ декор */
-body.theme-pink::before {
-  content: "♡   🎀   ♡       ˚₊‧  🍓  ‧₊˚";
-  position: fixed;
-  top: 72px;
-  right: 16px;
-  z-index: 0;
 
-  font-size: 17px;
-  letter-spacing: 3px;
-
-  color: #c99fb8;
-  opacity: 0.62;
-
-  pointer-events: none;
-}
-
-body.theme-pink::after {
-  content: "♡       🎀       ✦       ♡";
-  position: fixed;
-  bottom: 25px;
-  left: 0;
-  width: 100%;
-  z-index: 0;
-
-  text-align: center;
-  font-size: 16px;
-  letter-spacing: 6px;
-
-  color: #c99fb8;
-  opacity: 0.48;
-
-  pointer-events: none;
-}
 /* ← аккуратная кнопка выхода из статьи / раздела */
 
 body.theme-dark .back-button,
@@ -2297,7 +2264,7 @@ body.theme-minimalism .back-button:active {
   box-shadow:
     inset 0 0 0 1.5px var(--accent);
 
-  color: var(--accent-strong);
+  color: var(--accent);
 }
 
 
@@ -2306,7 +2273,7 @@ body.theme-minimalism .back-button:active {
 .calendar-day.completed {
   background: var(--accent) !important;
 
-  color: #ffffff !important;
+  color: var(--text) !important;
 
   box-shadow:
     0 4px 12px rgba(0, 0, 0, 0.08);
@@ -2325,7 +2292,7 @@ body.theme-minimalism .back-button:active {
 /* мягкая отметка серии */
 
 .calendar-day.streak {
-  background: var(--accent-soft) !important;
+  background: var(--accent) !important;
 
   color: var(--text);
 }
@@ -2369,7 +2336,7 @@ body.theme-minimalism .back-button:active {
   margin: 0 auto;
   padding: 24px 20px 22px;
 
-  border-radius: 30px;
+  border-radius: 18px;
 
   background: var(--card) !important;
   border: 1px solid var(--line) !important;
@@ -2424,8 +2391,8 @@ body.theme-minimalism .back-button:active {
 
   inset: 0;
 
-  width: 100%;
-  height: 100%;
+  width: 150%;
+  height: 150%;
 
   transform: rotate(-90deg);
 
@@ -2440,7 +2407,7 @@ body.theme-minimalism .back-button:active {
 
   stroke: var(--accent-soft);
 
-  stroke-width: 40;
+  stroke-width: 60;
 }
 
 
@@ -2475,7 +2442,7 @@ body.theme-minimalism .back-button:active {
 
 .water-ring-center {
   position: relative;
-  z-index: 2;
+  z-index: 6;
 
   display: flex;
   flex-direction: column;
@@ -2606,7 +2573,7 @@ body.theme-minimalism .back-button:active {
 .water-preset {
   padding: 8px 13px;
 
-  border-radius: 16px !important;
+  border-radius: 44px !important;
 
   border: 1px solid var(--line) !important;
 
@@ -2676,8 +2643,8 @@ body.theme-angel .water-tracker {
   }
 
   .water-tracker {
-    padding: 21px 16px;
-    border-radius: 40px;
+    padding: 31px 26px;
+    border-radius: 70px;
   }
 
   .water-current {
@@ -2694,7 +2661,7 @@ body.theme-angel .water-tracker {
   margin-top: 7px;
   padding: 5px 9px;
   border-radius: 999px;
-  background: var(--accent-soft);
+  background: var(--accent-strong);
   color: var(--text);
   font-size: 11px;
   font-weight: 700;
@@ -2769,11 +2736,11 @@ body.theme-angel .water-tracker {
 }
 
 .calendar-nav-button:hover {
-  background: rgba(255, 255, 255, .10);
+  background: var(--accent-soft);
 }
 
 .calendar-nav-button:active {
-  transform: scale(.90);
+  transform: var(--accent);
 }
 
 
@@ -3313,7 +3280,40 @@ body.theme-pink {
 --radius-medium: 20px;
 --radius-small: 15px;
 }
+/* 🎀♡ декор */
+body.theme-pink::before {
+  content: "♡   🎀   ♡       ˚₊‧  🍓  ‧₊˚";
+  position: fixed;
+  top: 72px;
+  right: 16px;
+  z-index: 6;
 
+  font-size: 17px;
+  letter-spacing: 3px;
+
+  color: #c99fb8;
+  opacity: 10;
+
+  pointer-events: none;
+}
+
+body.theme-pink::after {
+  content: "♡       🎀       ✦       ♡";
+  position: fixed;
+  bottom: 25px;
+  left: 0;
+  width: 100%;
+  z-index: 6;
+
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 6px;
+
+  color: #c99fb8;
+  opacity: 10;
+
+  pointer-events: none;
+}
 
 /* декоративные свечения */
 .home-glow {
