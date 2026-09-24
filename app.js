@@ -3356,20 +3356,31 @@ function renderArticle() {
 
 
 
-        <button
-          class="article-nav-button"
-          id="nextButton"
-         ${isLastPage ? "disabled" : ""}
-        >
-          дальше →
-        </button>
+</button>
 
-      </button>
+</div>
 
+<div class="article-navigation">
+  <button
+    class="article-nav-button"
+    id="previousButton"
+    ${isFirstPage ? "disabled" : ""}
+  >
+    ← назад
+  </button>
 
-      <p class="page-counter">
-        ${currentPage + 1} / ${totalPages}
-      </p>
+  <button
+    class="article-nav-button"
+    id="nextButton"
+    ${isLastPage ? "disabled" : ""}
+  >
+    дальше →
+  </button>
+</div>
+
+<p class="page-counter">
+  ${currentPage + 1} / ${totalPages}
+</p>
 
     </div>
 
