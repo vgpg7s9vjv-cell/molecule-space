@@ -3314,7 +3314,7 @@ body.theme-pink {
 }
 
 :root {
---muted-light: #c9b1be;
+--muted-light: color: (--var) !important;
 --blue: #b1d0ff;
 --pink: #ff9fd2;
 --purple: #c6a6ff;
