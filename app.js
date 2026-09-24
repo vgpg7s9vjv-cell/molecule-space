@@ -388,7 +388,7 @@ export const articles = {
             когда человек просто недоволен весом, он садится на обычную диету, но рпп — это совсем другое<br>
             это когда внутри живет огромная, болезненная нелюбовь к себе<br>
             и кажется, что если ты уменьшишься в размерах, то эта пустота исчезнет, а тебя, наконец, полюбят и оценят<br>
-            <b>это попытка исправить разбитую душу через изнурение тела<b>
+            <b>это попытка исправить разбитую душу через изнурение тела</b>
           </p>
 
           <div class="info-box">
@@ -415,8 +415,8 @@ export const articles = {
         heading: "основные разновидности рпп",
 
         content: `
-          <p>
              <h3>⟣орторексия⟢</h3>
+             <p>
               — одержимость «чистым» питанием<br>
               это не просто желание питаться правильно, это настоящая мания и страх съесть что-то «вредное»<br>
               человек делит еду на «правильную» и «токсичную» и выбирает еду не по вкусу или чувству голода, а по составу<br>
@@ -433,8 +433,9 @@ export const articles = {
             alt="Фото2"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
             
-          <p>
+
           <h3>⟣дранкорексия⟢</h3>
+          <p>          
                 — алкоголь вместо еды<br>
                это расстройство, при котором человек намеренно отказывается от еды, чтобы «сэкономить» калории для алкоголя<br>
                другой вариант дранкорексии — когда после вечеринки с алкоголем человек устраивает себе жесткие голодовки или изнурительные тренировки,<br>
@@ -446,8 +447,9 @@ export const articles = {
             </p>
             </div>
             
-          <p>
+
           <h3>⟣булимия⟢</h3>
+          <p>          
              — замкнутый круг «срыв-наказание»<br>
             это расстройство, которое проявляется приступами неконтролируемого переедания,<br>
             после которых человек пытается экстренно «очистить» организм<br>
@@ -460,15 +462,17 @@ export const articles = {
              </p>
             </div>
 
-            <p>
+
              <h3>⟣преорексия⟢</h3>
+          <p>             
                — одержимость спортом в положении<br>
                расстройство, при котором беременные женщины изнуряют себя диетами и фитнесом,<br> 
                панически боясь набрать вес во время вынашивания ребенка
             </p>
 
-            <p>
+
             <h3>⟣бигорексия⟢</h3>
+          <p>            
                 (мужская анорексия) — когда человеку кажется,<br> 
                 что он слишком худой и «хилый», даже если он уже выглядит как профессиональный бодибилдер<br> 
                 он живет в зале и одержим ростом мышц
@@ -557,7 +561,6 @@ export const articles = {
             alt="safe"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
-          <p>
           
             <h3>а как же проявляется привычка искать fear-food?</h3>
           <ul>
@@ -572,7 +575,6 @@ export const articles = {
             <img src="./images/fearfood.jpg"
             alt="fear"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-          </p>
         `
       },
 
@@ -607,7 +609,6 @@ export const articles = {
         heading: "списки разрешенных и запрещенных рпп-продуктов",
 
         content: `
-          <p>
            <h3>что есть разрешено</h3>
           <ul>
             <li>огурцы, помидоры, листья салата</li>
@@ -622,7 +623,6 @@ export const articles = {
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
 
 
-           <p>
            <h3>что есть нельзя</h3>
           <ul>
             <li>хлеб</li>
@@ -3496,30 +3496,18 @@ function previousPage() {
    МЕХАНИКА ВЫБОРА В ГЛАВНОМ МЕНЮ
 ================================================== */
 
-document.addEventListener("click", (event) => {
-
+homeScreen.addEventListener("click", event => {
   const sectionButton = event.target.closest("[data-section]");
-
-  if (sectionButton) {
-    const sectionId = sectionButton.dataset.section;
-
-    if (sectionId === "settings") {
-      return;
-    }
-
-    openSection(sectionId);
-    return;
-  }
-
   const articleButton = event.target.closest("[data-article]");
 
-  if (articleButton) {
-    const articleId = articleButton.dataset.article;
-
-    openArticle(articleId);
+  if (sectionButton) {
+    openSection(sectionButton.dataset.section);
     return;
   }
 
+  if (articleButton) {
+    openArticle(articleButton.dataset.article);
+  }
 });
 
 
