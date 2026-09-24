@@ -2504,10 +2504,6 @@ function applyTheme(theme) {
     "minimalism"
   ];
 
-  if (!validThemes.includes(theme)) {
-    theme = "dark";
-  }
-
   const body = document.body;
 
   validThemes.forEach(themeName => {
