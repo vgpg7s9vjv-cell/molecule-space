@@ -2402,7 +2402,7 @@ body.theme-minimalism .back-button:active {
 .calendar-month-title {
   margin: 0;
 
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
 
   color: var(--text);
@@ -2561,7 +2561,7 @@ body.theme-minimalism .back-button:active {
 .calendar-day.today.completed {
   box-shadow:
     0 4px 14px rgba(0, 0, 0, 0.10),
-    0 0 0 3px var(--accent-soft);
+    0 0 0 3px var(--accent-strong);
 }
 
 
@@ -2596,7 +2596,7 @@ body.theme-minimalism .back-button:active {
 
   color: var(--accent-strong);
 
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
 }
 
@@ -2683,7 +2683,7 @@ body.theme-minimalism .back-button:active {
 
   stroke: var(--accent-soft);
 
-  stroke-width: 10;
+  stroke-width: 40;
 }
 
 
@@ -2738,7 +2738,7 @@ body.theme-minimalism .back-button:active {
 .water-unit {
   margin-top: 5px;
 
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
 
   color: var(--muted);
@@ -2747,7 +2747,7 @@ body.theme-minimalism .back-button:active {
 .water-goal {
   margin-top: 3px;
 
-  font-size: 11px;
+  font-size: 15px;
 
   color: var(--muted);
 }
@@ -2825,7 +2825,7 @@ body.theme-minimalism .back-button:active {
 .water-amount {
   min-width: 90px;
 
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 700;
 
   color: var(--text);
@@ -2911,7 +2911,7 @@ body.theme-angel .water-tracker {
   }
 
   .calendar-days {
-    gap: 5px;
+    gap: 8px;
   }
 
   .calendar-day {
@@ -2920,7 +2920,7 @@ body.theme-angel .water-tracker {
 
   .water-tracker {
     padding: 21px 16px;
-    border-radius: 26px;
+    border-radius: 40px;
   }
 
   .water-current {
