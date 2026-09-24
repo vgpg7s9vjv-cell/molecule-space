@@ -4416,7 +4416,6 @@ applyTheme(savedTheme);
 refreshHomeTrackers();
 const currentTheme = readLocal(themeStorageKey, "dark");
 
-overlay.setAttribute("role", "dialog");
 overlay.setAttribute("aria-modal", "true");
 overlay.setAttribute("aria-labelledby", "trackerTitle");
 
