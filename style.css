@@ -3268,3 +3268,91 @@ body.theme-pink {
 --line-soft: #f6e7ee !important;
 }
 
+
+:root {
+--silver: #bdbdf7;
+--home-accent: #8f6c96;
+--input-bg: rgba(255, 255, 255, 0.045);
+}
+
+:root {
+--muted-light: color: (--var) !important;
+--blue: #b1d0ff;
+--pink: #ff9fd2;
+--purple: #c6a6ff;
+  
+--line-light: rgba(255, 255, 255, 0.12);
+--radius-large: 28px;
+--radius-medium: 20px;
+--radius-small: 15px;
+}
+/* 🎀♡ декор */
+body.theme-pink::before {
+  content: "♡   🎀   ♡       ˚₊‧  🍓  ‧₊˚";
+  position: fixed;
+  top: 72px;
+  right: 16px;
+  z-index: 6;
+
+  font-size: 17px;
+  letter-spacing: 3px;
+
+  color: #c99fb8;
+  opacity: 10;
+
+  pointer-events: none;
+}
+
+body.theme-pink::after {
+  content: "♡       🎀       ✦       ♡";
+  position: fixed;
+  bottom: 25px;
+  left: 0;
+  width: 100%;
+  z-index: 6;
+
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 6px;
+
+  color: #c99fb8;
+  opacity: 10;
+
+  pointer-events: none;
+}
+
+/* декоративные свечения */
+.home-glow {
+  position: absolute;
+  animation: pulse 1s linear infinite;
+
+  width: 430px;
+  height: 430px;
+
+  border-radius: 77%;
+
+  filter: blur(30px);
+
+  pointer-events: none;
+
+  opacity: 0.65;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.65; }
+
+}
+
+.glow-one {
+  top: -100px;
+  left: -78px;
+
+  background: var(--accent);
+}
+
+.glow-two {
+  right: -78px;
+  top: 58%;
+
+  background: var(--accent-soft);
+}
