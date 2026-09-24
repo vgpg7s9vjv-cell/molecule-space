@@ -1,21 +1,21 @@
 /* ==================================================
- 
 
-    TELEGRAM
+
+   TELEGRAM
 ================================================== */
 
 const tg = window.Telegram?.WebApp;
 
 if (tg) {
   tg.ready();
-  tg.expand(); 
+  tg.expand();
 
   if (tg.setHeaderColor) {
-    tg.setHeaderColor("#ffffff");
+    tg.setHeaderColor("#CCCCFF");
   }
 
   if (tg.setBackgroundColor) {
-    tg.setBackgroundColor("#ffffff");
+    tg.setBackgroundColor("#CCCCFF");
   }
 }
 
@@ -348,6 +348,7 @@ links: {
 /* ==================================================
    СТАТЬИ
 ================================================== */
+
 const articles = {
 
 
@@ -387,7 +388,7 @@ const articles = {
             когда человек просто недоволен весом, он садится на обычную диету, но рпп — это совсем другое<br>
             это когда внутри живет огромная, болезненная нелюбовь к себе<br>
             и кажется, что если ты уменьшишься в размерах, то эта пустота исчезнет, а тебя, наконец, полюбят и оценят<br>
-            <b>это попытка исправить разбитую душу через изнурение тела</b>
+            <b>это попытка исправить разбитую душу через изнурение тела<b>
           </p>
 
           <div class="info-box">
@@ -414,8 +415,8 @@ const articles = {
         heading: "основные разновидности рпп",
 
         content: `
+          <p>
              <h3>⟣орторексия⟢</h3>
-             <p>
               — одержимость «чистым» питанием<br>
               это не просто желание питаться правильно, это настоящая мания и страх съесть что-то «вредное»<br>
               человек делит еду на «правильную» и «токсичную» и выбирает еду не по вкусу или чувству голода, а по составу<br>
@@ -432,9 +433,8 @@ const articles = {
             alt="Фото2"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
             
-
+          <p>
           <h3>⟣дранкорексия⟢</h3>
-          <p>          
                 — алкоголь вместо еды<br>
                это расстройство, при котором человек намеренно отказывается от еды, чтобы «сэкономить» калории для алкоголя<br>
                другой вариант дранкорексии — когда после вечеринки с алкоголем человек устраивает себе жесткие голодовки или изнурительные тренировки,<br>
@@ -446,9 +446,8 @@ const articles = {
             </p>
             </div>
             
-
+          <p>
           <h3>⟣булимия⟢</h3>
-          <p>          
              — замкнутый круг «срыв-наказание»<br>
             это расстройство, которое проявляется приступами неконтролируемого переедания,<br>
             после которых человек пытается экстренно «очистить» организм<br>
@@ -461,17 +460,15 @@ const articles = {
              </p>
             </div>
 
-
+            <p>
              <h3>⟣преорексия⟢</h3>
-          <p>             
                — одержимость спортом в положении<br>
                расстройство, при котором беременные женщины изнуряют себя диетами и фитнесом,<br> 
                панически боясь набрать вес во время вынашивания ребенка
             </p>
 
-
+            <p>
             <h3>⟣бигорексия⟢</h3>
-          <p>            
                 (мужская анорексия) — когда человеку кажется,<br> 
                 что он слишком худой и «хилый», даже если он уже выглядит как профессиональный бодибилдер<br> 
                 он живет в зале и одержим ростом мышц
@@ -560,6 +557,7 @@ const articles = {
             alt="safe"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
+          <p>
           
             <h3>а как же проявляется привычка искать fear-food?</h3>
           <ul>
@@ -574,6 +572,7 @@ const articles = {
             <img src="./images/fearfood.jpg"
             alt="fear"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          </p>
         `
       },
 
@@ -608,6 +607,7 @@ const articles = {
         heading: "списки разрешенных и запрещенных рпп-продуктов",
 
         content: `
+          <p>
            <h3>что есть разрешено</h3>
           <ul>
             <li>огурцы, помидоры, листья салата</li>
@@ -622,6 +622,7 @@ const articles = {
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
 
 
+           <p>
            <h3>что есть нельзя</h3>
           <ul>
             <li>хлеб</li>
@@ -2439,6 +2440,7 @@ const articles = {
 /* ==================================================
    СОСТОЯНИЕ ПРИЛОЖЕНИЯ дневник настроения
 ================================================== */
+let currentSectionId = null;
 
 let currentPage = 0; 
 
@@ -2451,6 +2453,10 @@ const themeStorageKey = "molecule-space-theme";
 ================================================== */
 
 const homeScreen = document.getElementById("homeScreen");
+
+const contentScreen = document.getElementById("contentScreen");
+
+const contentContainer = document.getElementById("contentContainer");
 
 const quoteElement = document.getElementById("quote");
 
@@ -2503,23 +2509,54 @@ function applyTheme(theme) {
   }
 
   const body = document.body;
-  const html = document.documentElement;
 
   validThemes.forEach(themeName => {
     body.classList.remove(`theme-${themeName}`);
   });
 
   body.classList.add(`theme-${theme}`);
-  html.dataset.theme = theme;
+
+  /* синхронизируем обе системы тем */
+  body.dataset.theme =
+    theme === "minimalism"
+      ? "minimalism"
+      : theme;
 
   if (themeToggleIcon) {
     themeToggleIcon.textContent =
       theme === "dark" ? "☾" : "✦";
   }
 
+  if (themeToggle) {
+    themeToggle.setAttribute(
+      "aria-label",
+      "выбрать оформление"
+    );
+  }
+
   try {
-    localStorage.setItem(themeStorageKey, theme);
+    localStorage.setItem(
+      themeStorageKey,
+      theme
+    );
   } catch (error) {}
+
+  if (tg) {
+    const colors = {
+      dark: "#071426",
+      pink: "#24131f",
+      angel: "#f7f3ff",
+      minimalism: "#f3f3ef"
+    };
+
+    if (tg.setHeaderColor) {
+      tg.setHeaderColor(colors[theme]);
+    }
+
+    if (tg.setBackgroundColor) {
+      tg.setBackgroundColor(colors[theme]);
+    }
+  }
 }
 
 /* ==================================================
@@ -2589,7 +2626,8 @@ function calculateEnergy() {
   const result = document.getElementById("energyResult");
   if (!age || age < 13 || !weight || !height) { result.textContent = "УПС! твой организм еще растет и тебе не нужен дефицит"; return; }
   const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
-  const tdee = (bmr * activity) - 520;
+  const tdee = (bmr * activity) * 0.85;
+  const tdee = bmr * activity * 0.8;
   result.innerHTML = `основное количество сжигаемых тобой калорий с учетом активности ${Math.round(bmr)} ккал/сутки<br><strong>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки</strong>`;
 }
 
@@ -2599,25 +2637,38 @@ function calculateEnergy() {
 ================================================== */
 
 function showHome() {
+
   currentSectionId = null;
   currentArticleId = null;
   currentPage = 0;
 
-  document.getElementById("articleOverlay")?.remove();
-  document.getElementById("sectionOverlay")?.remove();
-  document.getElementById("supplementTrackerOverlay")?.remove();
-  document.getElementById("waterTrackerOverlay")?.remove();
+
+  const articleOverlay =
+    document.getElementById("articleOverlay");
+
+  if (articleOverlay) {
+    articleOverlay.remove();
+  }
+
+
+  const sectionOverlay =
+    document.getElementById("sectionOverlay");
+
+  if (sectionOverlay) {
+    sectionOverlay.remove();
+  }
+
 
   document.body.style.overflow = "";
 
+
+  contentScreen.classList.add("hidden");
+
   homeScreen.classList.remove("hidden");
 
-  window.scrollTo({
-    top: 0,
-    behavior: "instant"
-  });
 
-  refreshHomeTrackers();
+  window.scrollTo(0, 0);
+
 }
 
 
@@ -2667,16 +2718,13 @@ function saveMoodEntry(text, mood) {
 }
 
 function openSection(sectionId) {
+
   const section = sections[sectionId];
 
   if (!section) {
     return;
   }
 
-  removeSectionOverlay();
-  removeArticleOverlay();
-
- 
 /* ==================================================
    ОТКРЫТЬ ДНЕВНИК НАСТРОЕНИЯ
 ================================================== */
@@ -2781,7 +2829,7 @@ if (sectionId === "mood") {
             class="calculator-button diary-save"
             id="saveDiaryButton"
           >
-            записать
+            сохранить запись
           </button>
 
         </section>
@@ -2805,16 +2853,16 @@ if (sectionId === "mood") {
 
                     </div>
 
-              <p class="mood-entry-text">
-                  ${escapeHtml(entry.text)}
-                    </p>                 
+                    <p class="mood-entry-text">
+                      ${escapeHtml(entry.text)}
+                    </p>
 
                     <button
                       type="button"
                       class="diary-delete-button"
                       data-delete-entry="${index}"
                     >
-                      удалить
+                      удалить запись
                     </button>
 
                   </article>
@@ -3115,16 +3163,294 @@ if (sectionId === "mood") {
 
     return;
   }
+   
+  /* ================================================
+     КАЛЬКУЛЯТОРЫ
+  ================================================ */
+
+  if (sectionId === "tools") {
+
+    currentSectionId = "tools";
+    currentArticleId = null;
+    currentPage = 0;
+
+    const overlay =
+      document.createElement("div");
+
+    overlay.id = "sectionOverlay";
+    overlay.className = "section-overlay";
+
+    document.body.appendChild(overlay);
+
+    overlay.innerHTML = `
+      <div class="section-overlay-inner">
+        <div id="sectionContent"></div>
+      </div>
+    `;
+
+    const sectionContent =
+      overlay.querySelector("#sectionContent");
+
+    sectionContent.innerHTML = `
+      <div class="screen-inner fade-in">
+
+        <button
+          class="back-button"
+          id="toolsBackButton"
+        >
+          ← вернуться на главную
+        </button>
+
+        <header class="section-header">
+
+          <p class="section-kicker">
+            dietary calculations
+          </p>
+
+          <h1>
+            твой виртуальный счетовод
+          </h1>
+
+          <p>
+            минималистичные калькуляторы с небольшим пояснением результата
+          </p>
+
+        </header>
+
+        <div class="calculator-list">
+
+          <section class="calculator-card">
+
+            <h3>ИМТ</h3>
+
+            <p>
+              индекс массы тела по росту и массе
+            </p>
+
+            <div class="calculator-grid">
+
+              <div class="calculator-field">
+
+                <label for="bmiWeight">
+                  масса, кг
+                </label>
+
+                <input
+                  class="calculator-input"
+                  id="bmiWeight"
+                  type="number"
+                  min="1"
+                  step="0.1"
+                  inputmode="decimal"
+                >
+
+              </div>
+
+              <div class="calculator-field">
+
+                <label for="bmiHeight">
+                  рост, см
+                </label>
+
+                <input
+                  class="calculator-input"
+                  id="bmiHeight"
+                  type="number"
+                  min="1"
+                  step="1"
+                  inputmode="numeric"
+                >
+
+              </div>
+
+            </div>
+
+            <button
+              class="calculator-button"
+              id="calculateBmi"
+            >
+              рассчитать ИМТ
+            </button>
+
+            <div
+              class="calculator-result"
+              id="bmiResult"
+            >
+              введи данные выше
+            </div>
+
+          </section>
+
+
+          <section class="calculator-card">
+
+            <h3>норма и дефицит калорий</h3>
+
+            <p>
+              оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле Миффлина — Сан Жеора
+            </p>
+
+            <div class="calculator-grid">
+
+              <div class="calculator-field">
+
+                <label for="calAge">
+                  возраст, лет
+                </label>
+
+                <input
+                  class="calculator-input"
+                  id="calAge"
+                  type="number"
+                  min="13"
+                  step="1"
+                  inputmode="numeric"
+                >
+
+              </div>
+
+              <div class="calculator-field">
+
+                <label for="calWeight">
+                  масса, кг
+                </label>
+
+                <input
+                  class="calculator-input"
+                  id="calWeight"
+                  type="number"
+                  min="1"
+                  step="0.1"
+                  inputmode="decimal"
+                >
+
+              </div>
+
+              <div class="calculator-field">
+
+                <label for="calHeight">
+                  рост, см
+                </label>
+
+                <input
+                  class="calculator-input"
+                  id="calHeight"
+                  type="number"
+                  min="1"
+                  step="1"
+                  inputmode="numeric"
+                >
+
+              </div>
+
+              <div class="calculator-field">
+
+                <label for="calSex">
+                  пол для формулы
+                </label>
+
+                <select
+                  class="calculator-input"
+                  id="calSex"
+                >
+                  <option value="female">
+                    женский
+                  </option>
+                  <option value="male">
+                    мужской
+                  </option>
+                </select>
+
+              </div>
+
+              <div class="calculator-field full">
+
+                <label for="calActivity">
+                  уровень активности
+                </label>
+
+                <select
+                  class="calculator-input"
+                  id="calActivity"
+                >
+                  <option value="1.2">
+                    минимальная активность(сидячий образ жизни)
+                  </option>
+                  <option value="1.375">
+                    легкая активность(физнагрузка 1-3 раз в неделю)
+                  </option>
+                  <option value="1.55">
+                    умеренная активность(физнагрузка 3-5 раз в неделю)
+                  </option>
+                  <option value="1.725">
+                    высокая активность(физнагрузка 6-7 раз в неделю)
+                  </option>
+                  <option value="1.9">
+                    очень высокая активность(ежедневная физнагрузка)
+                  </option>
+                </select>
+
+              </div>
+
+            </div>
+
+            <button
+              class="calculator-button"
+              id="calculateEnergy"
+            >
+              рассчитать
+            </button>
+
+            <div
+              class="calculator-result"
+              id="energyResult"
+            >
+              введи данные выше
+            </div>
+
+          </section>
+
+        </div>
+
+      </div>
+    `;
+
+
+    document
+      .getElementById("toolsBackButton")
+      .addEventListener(
+        "click",
+        showHome
+      );
+
+    document
+      .getElementById("calculateBmi")
+      .addEventListener(
+        "click",
+        calculateBmi
+      );
+
+    document
+      .getElementById("calculateEnergy")
+      .addEventListener(
+        "click",
+        calculateEnergy
+      );
+
+    return;
+  }
+
+
   /* ================================================
             ОТКРЫТЬ РАЗДЕЛЫ СО СТАТЬЯМИ
   ================================================ */
- 
-  currentSectionId = sectionId; 
+
+  currentSectionId = sectionId;
   currentArticleId = null;
   currentPage = 0;
 
 
- {  const overlay = 
+  const overlay =
     document.createElement("div");
 
   overlay.id = "sectionOverlay";
@@ -3230,7 +3556,6 @@ function openArticle(articleId) {
   renderArticle();
 
 }
-}
 
 /* ==================================================
    РЕНДЕР СТРАНИЦЫ СТАТЬИ
@@ -3317,41 +3642,27 @@ function renderArticle() {
 
       <div class="article-navigation">
 
-<button
-  class="article-nav-button"
-  id="previousButton"
-  ${isFirstPage ? "disabled" : ""}
->
-  ← назад
-</button>
+        <button
+          class="article-nav-button ${isFirstPage ? "disabled" : ""}"
+          id="previousButton"
+        >
+          ← назад
+        </button>
 
 
+        <button
+          class="article-nav-button next ${isLastPage ? "disabled" : ""}"
+          id="nextButton"
+        >
+          дальше →
+        </button>
 
-</button>
+      </div>
 
-</div>
 
-<div class="article-navigation">
-  <button
-    class="article-nav-button"
-    id="previousButton"
-    ${isFirstPage ? "disabled" : ""}
-  >
-    ← назад
-  </button>
-
-  <button
-    class="article-nav-button"
-    id="nextButton"
-    ${isLastPage ? "disabled" : ""}
-  >
-    дальше →
-  </button>
-</div>
-
-<p class="page-counter">
-  ${currentPage + 1} / ${totalPages}
-</p>
+      <p class="page-counter">
+        ${currentPage + 1} / ${totalPages}
+      </p>
 
     </div>
 
@@ -3478,18 +3789,30 @@ function previousPage() {
    МЕХАНИКА ВЫБОРА В ГЛАВНОМ МЕНЮ
 ================================================== */
 
-homeScreen.addEventListener("click", event => {
+document.addEventListener("click", (event) => {
+
   const sectionButton = event.target.closest("[data-section]");
-  const articleButton = event.target.closest("[data-article]");
 
   if (sectionButton) {
-    openSection(sectionButton.dataset.section);
+    const sectionId = sectionButton.dataset.section;
+
+    if (sectionId === "settings") {
+      return;
+    }
+
+    openSection(sectionId);
     return;
   }
 
+  const articleButton = event.target.closest("[data-article]");
+
   if (articleButton) {
-    openArticle(articleButton.dataset.article);
+    const articleId = articleButton.dataset.article;
+
+    openArticle(articleId);
+    return;
   }
+
 });
 
 
@@ -3600,21 +3923,9 @@ function writeLocal(key, value) {
 }
 
 /* --- данные калькуляторов ---*/
-function getSupplements() {
-  const stored = readLocal(supplementStorageKey, []);
-  return Array.isArray(stored)
-    ? stored.map(normalizeSupplement).filter(item => item.name)
-    : [];
-}
 
-function normalizeSupplement(item) {
-  return {
-    id: String(item?.id ?? crypto.randomUUID()),
-    name: String(item?.name ?? "").trim().slice(0, 40),
-    taken: Array.isArray(item?.taken)
-      ? item.taken.filter(date => /^\d{4}-\d{2}-\d{2}$/.test(date))
-      : []
-  };
+function getSupplements() {
+  return readLocal(supplementStorageKey, []);
 }
 
 function saveSupplements(items) {
@@ -3629,10 +3940,7 @@ function getWaterGoal() {
 }
 
 function getWaterData() {
-  const value = readLocal(waterStorageKey, {});
-  return value && typeof value === "object" && !Array.isArray(value)
-    ? value
-    : {};
+  return readLocal(waterStorageKey, {});
 }
 
 function getTodayWater() {
@@ -3646,9 +3954,13 @@ function setTodayWater(amount) {
 }
 
 /* --- данные календаря (напоминания - с припиской reminders - Summary) ---*/
+
 function getReminderData() {
-  const value = readLocal(reminderStorageKey, []);
-  return Array.isArray(value) ? value : [];
+  return readLocal(reminderStorageKey, []);
+}
+
+function saveReminderData(items) {
+  writeLocal(reminderStorageKey, items);
 }
 
 function getSupplementTaken(supplement, date = trackerDate()) {
@@ -3781,32 +4093,14 @@ function openTrackerOverlay(id, title, content) {
   overlay.id = id;
   overlay.className = "tracker-overlay";
 
- overlay.innerHTML = `
-  <div
-    class="tracker-modal fade-in"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="trackerTitle"
-  >
-    <button
-      class="tracker-close"
-      type="button"
-      aria-label="закрыть"
-    >
-      ×
-    </button>
-
-    <div class="tracker-modal-kicker">
-      molecule tracker
+  overlay.innerHTML = `
+    <div class="tracker-modal fade-in">
+      <button class="tracker-close" type="button" aria-label="закрыть">×</button>
+      <div class="tracker-modal-kicker">molecule tracker</div>
+      <h2>${title}</h2>
+      <div class="tracker-modal-content">${content}</div>
     </div>
-
-    <h2 id="trackerTitle">${escapeHtml(title)}</h2>
-
-    <div class="tracker-modal-content">
-      ${content}
-    </div>
-  </div>
-`;
+  `;
 
   document.body.appendChild(overlay);
   document.body.style.overflow = "hidden";
@@ -3969,8 +4263,8 @@ function renderSupplementTracker() {
               <span class="supplement-selector-icon">💊</span>
 
               <span class="supplement-selector-name">
-                     ${escapeHtml(item.name)}
-                          </span>
+                ${escapeHtml(item.name)}
+              </span>
 
               ${
                 item.id === selectedSupplementId
@@ -4133,7 +4427,7 @@ function renderSupplementTracker() {
 
       <div class="tracker-hint">
         выбери БАД сверху и нажимай на даты в календаре,
-        чтобы отметить или снять прием<br>
+        чтобы отметить или снять прием
         Отметки сохраняются только на этом устройстве
       </div>
     `
@@ -4411,35 +4705,92 @@ function renderWaterTracker() {
     });
 }
 
-const savedTheme = readLocal(themeStorageKey, "dark");
-applyTheme(savedTheme);
-refreshHomeTrackers();
-const currentTheme = readLocal(themeStorageKey, "dark");
+/*- сменить тему приложения по кругу -*/
 
-overlay.setAttribute("aria-modal", "true");
-overlay.setAttribute("aria-labelledby", "trackerTitle");
-
-
-function addEscapeHandler(close) {
-  const handleKeydown = event => {
-    if (event.key === "Escape") {
-      close();
+function openThemePicker() {
+  const themes = [
+    {
+      id: "dark",
+      name: "темная",
+      description: "спокойная темная тема"
+    },
+    {
+      id: "pink",
+      name: "розовая",
+      description: "мягкая розовая тема"
+    },
+    {
+      id: "angel",
+      name: "angel",
+      description: "светлая воздушная тема"
+    },
+    {
+      id: "minimalism",
+      name: "минимализм",
+      description: "чистая минималистичная тема"
     }
-  };
+  ];
 
-  document.addEventListener("keydown", handleKeydown);
+  const currentTheme =
+    localStorage.getItem("molecule-space-theme") ||
+    "dark";
+   
+  const overlay = openTrackerOverlay(
+    "themePickerOverlay",
+    "тема приложения",
+    `
+      <div class="theme-picker-list">
+        ${themes
+          .map(
+            theme => `
+          <button
+            type="button"
+            class="theme-picker-option ${
+              currentTheme === theme.id ? "is-active" : ""
+            }"
+            data-theme="${theme.id}"
+          >
+            <span class="theme-picker-check">
+              ${currentTheme === theme.id ? "✓" : ""}
+            </span>
 
-  return () => {
-    document.removeEventListener("keydown", handleKeydown);
-  };
+            <span>
+              <strong>${theme.name}</strong>
+              <small>${theme.description}</small>
+            </span>
+          </button>
+        `
+          )
+          .join("")}
+      </div>
+    `
+  );
+   
+  overlay
+    .querySelectorAll("[data-theme]")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        const theme = button.dataset.theme;
+
+        localStorage.setItem(
+          "molecule-space-theme",
+          theme
+        );
+
+        document.body.dataset.theme = theme;
+
+        renderThemeButtons?.();
+        overlay.remove();
+        document.body.style.overflow = "";
+      });
+    });
 }
 
 function escapeHtml(value) {
-  return String(value)
+  return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
-
