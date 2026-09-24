@@ -3317,18 +3317,18 @@ body.theme-pink {
 
 /* декоративные свечения */
 .home-glow {
-  position: absolute;
+  position: relative;
 
-  width: 230px;
-  height: 230px;
+  width: 430px;
+  height: 430px;
 
-  border-radius: 70%;
+  border-radius: 77%;
 
-  filter: blur(83px);
+  filter: blur(80px);
 
   pointer-events: none;
 
-  opacity: 0.24;
+  opacity: 0.65;
 }
 
 .glow-one {
