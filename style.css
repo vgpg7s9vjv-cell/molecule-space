@@ -1284,7 +1284,6 @@ color: var(--text);
   width: 100vw !important;
   height: 100dvh !important;
 
-  box-sizing: border-box !important;
 
   z-index: 99998 !important;
 
