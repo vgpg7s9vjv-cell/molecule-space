@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 html,
 body {
   margin: 0;
@@ -73,40 +69,8 @@ button {
   overflow-y: auto;
 }
 
-/* декоративные свечения */
-
-.home-glow {
-  position: absolute;
-
-  width: 230px;
-  height: 230px;
-
-  border-radius: 50%;
-
-  filter: blur(75px);
-
-  pointer-events: none;
-
-  opacity: 0.18;
-}
-
-.glow-one {
-  top: -100px;
-  left: -100px;
-
-  background: var(--pink);
-}
-
-.glow-two {
-  right: -110px;
-  top: 38%;
-
-  background: var(--purple);
-}
-
-
 /* ==================================================
-   БРЕНД
+   заголовок
 ================================================== */
 
 .home-content {
