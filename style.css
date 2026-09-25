@@ -393,7 +393,6 @@ button {
 
   padding: 0 15px;
 
-  border: 1px solid rgba(120, 110, 190, 0.25);
 
   border-radius: 14px;
 
@@ -403,7 +402,7 @@ button {
     #a9cfff 100%
   );
 
-  color: #20233a;
+
 
   font-size: 12px;
   font-weight: 700;
@@ -413,11 +412,6 @@ button {
   cursor: pointer;
 
   scroll-snap-align: start;
-
-transition:
-  transform 0.2s ease,
-  background 0.2s ease,
-  border-color 0.2s ease;
 }
 
 .section-tab:active {
@@ -427,7 +421,7 @@ transition:
 }
 
 .tab-icon {
-  color: var(--blue);
+  color: var(--accent-strong);
 
   font-size: 15px;
 }
@@ -1654,14 +1648,6 @@ body.theme-minimalism {
    ОСНОВНЫЕ ЭЛЕМЕНТЫ
 ================================================== */
 
-body.theme-dark,
-body.theme-pink,
-body.theme-angel,
-body.theme-minimalism {
-}
-
-
-/* карточки */
 
 body.theme-dark .card,
 body.theme-dark .quote-card,
@@ -1693,19 +1679,19 @@ body.theme-minimalism .tool-card {
    ТАБЫ
 ================================================== */
 
-body.theme-dark .section-tab,
+
 body.theme-dark .tab-button,
 body.theme-dark .section-button,
 
-body.theme-pink .section-tab,
-body.theme-pink .tab-button,
-body.theme-pink .section-button,
 
-body.theme-angel .section-tab,
+body.theme-pink .tab-button,
+
+
+
 body.theme-angel .tab-button,
 body.theme-angel .section-button,
 
-body.theme-minimalism .section-tab,
+
 body.theme-minimalism .tab-button,
 body.theme-minimalism .section-button {
   background: var(--button);
@@ -1741,12 +1727,6 @@ body.theme-minimalism .section-button.active {
    КНОПКИ
 ================================================== */
 
-body.theme-dark button,
-body.theme-pink button,
-body.theme-angel button,
-body.theme-minimalism button {
-  border-color: var(--line);
-}
 
 
 body.theme-dark .primary-button,
