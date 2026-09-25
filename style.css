@@ -88,7 +88,7 @@ button {
 
   margin: 3px 2px 0;
 
-  color: var(--muted-light);
+  color: var(--accent-strong);
 
   font-size: 12px;
   font-weight: 700;
@@ -97,42 +97,32 @@ button {
 }
 
 .brand-star {
-  color: var(--purple);
+  color: var(--accent);
 
   font-size: 15px;
 }
 
 
 /* ==================================================
-   БЛОК ПОДДЕРЖКИ
+   фраза дня
 ================================================== */
 
 .support-block {
   margin-top: clamp(48px, 13vh, 90px);
 }
 
-.support-label {
-  margin: 0;
-
-  color: var(--text);
-
-  font-size: clamp(25px, 7vw, 34px);
-  line-height: 1.08;
-
-  font-weight: 800;
-
-  letter-spacing: -0.04em;
-}
-
 .support-subtitle {
   margin: 7px 0 0;
 
-  color: var(--muted);
+  color: var(--text);
 
   font-size: 15px;
   font-weight: 500;
-}
 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 /* ==================================================
    КАРТОЧКА ЦИТАТЫ
@@ -145,7 +135,7 @@ button {
 
   padding: 27px 22px 20px;
 
-  border: 1px solid var(--line);
+  border: none;
 
   border-radius: var(--radius-large);
 
@@ -181,20 +171,6 @@ button {
   filter: blur(10px);
 }
 
-.quote-symbol {
-  position: relative;
-  z-index: 1;
-
-  color: var(--blue);
-  
-  font-size: 44px;
-  line-height: 0.7;
-
-  font-family: Georgia, serif;
-
-  opacity: 0.85;
-}
-
 .quote-text {
   position: relative;
   z-index: 1;
@@ -220,15 +196,16 @@ button {
 .quote-button {
   
   display: block;
-    margin-left: auto;
-    margin-right: auto;
+  
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
+  
   z-index: 2;
-
 
   padding: 10px 14px;
 
-  border: 1px solid var(--line-light);
+  border: none;
 
   border-radius: 12px;
 
@@ -248,7 +225,6 @@ button {
 .quote-button:active {
   transform: scale(0.97);
 
-  
   justify-content: center;
   align-items: center;
   text-align: center;
