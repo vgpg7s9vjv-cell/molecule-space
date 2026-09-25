@@ -1,17 +1,3 @@
-html {
-  background: #071426;
-}
-
-html[data-theme="dark"] {
-  background: #071426;
-}
-
-
-html[data-theme="angel"],
-html[data-theme="minimalism"] {
-  background: #f5f4f1;
-}
-
 * {
   box-sizing: border-box;
 }
