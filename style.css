@@ -1644,35 +1644,6 @@ body.theme-minimalism {
 }
 
 
-/* ==================================================
-   ОСНОВНЫЕ ЭЛЕМЕНТЫ
-================================================== */
-
-
-body.theme-dark .card,
-body.theme-dark .quote-card,
-body.theme-dark .tracker-card,
-body.theme-dark .tool-card,
-
-body.theme-pink .card,
-body.theme-pink .quote-card,
-body.theme-pink .tracker-card,
-body.theme-pink .tool-card,
-
-body.theme-angel .card,
-body.theme-angel .quote-card,
-body.theme-angel .tracker-card,
-body.theme-angel .tool-card,
-
-body.theme-minimalism .card,
-body.theme-minimalism .quote-card,
-body.theme-minimalism .tracker-card,
-body.theme-minimalism .tool-card {
-  background: var(--card);
-  color: var(--text);
-  border-color: var(--line);
-  box-shadow: var(--shadow);
-}
 
 
 /* ==================================================
@@ -2012,9 +1983,6 @@ body.theme-pink .article-nav-button {
 
   color: #493844 !important;
 
-
-  box-shadow:
-    0 4px 12px rgba(201, 159, 184, 0.14) !important;
 }
 
 body.theme-pink button:hover,
