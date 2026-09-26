@@ -71,38 +71,6 @@ button {
   background: var(--bg)
 }
 
-/* ==================================================
-   заголовок
-================================================== */
-
-.home-content {
-  position: relative;
-  z-index: 1;
-
-  width: 100%;
-  flex: 0 0 auto;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  margin: 3px 2px 0;
-
-  color: var(--text-header);
-
-  font-size: 12px;
-  font-weight: 700;
-
-  letter-spacing: 0.04em;
-}
-
-.brand-star {
-  color: var(--accent);
-
-  font-size: 15px;
-}
 
 /* ==================================================
    ТЕМА
@@ -534,6 +502,39 @@ font-size: 22px;
 }
 
 /* ==================================================
+   заголовок
+================================================== */
+
+.home-content {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 3px 2px 0;
+
+  color: var(--text-header);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.04em;
+}
+
+.brand-star {
+  color: var(--accent);
+
+  font-size: 15px;
+}
+
+/* ==================================================
    фраза дня
 ================================================== */
 
@@ -569,12 +570,7 @@ font-size: 22px;
 
   border-radius: var(--radius-large);
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(20, 48, 78, 0.92),
-      rgba(10, 28, 48, 0.82)
-    );
+   background: var(--gradient);
 
   box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.2),
@@ -596,7 +592,7 @@ font-size: 22px;
 
   border-radius: 50%;
 
-  background: rgba(121, 201, 255, 0.09);
+   background: var(--accent-strong);
 
   filter: blur(10px);
 }
@@ -613,7 +609,7 @@ font-size: 22px;
 
   margin: 13px 0 22px;
 
-  color: var(--text-plain);
+  color: var(--text-header);
 
   font-size: 23px;
   line-height: 1.55;
@@ -639,7 +635,7 @@ font-size: 22px;
 
   border-radius: 12px;
 
-  background: rgba(255, 255, 255, 0.035);
+  background: var(--gradient);
 
   
   font-size: 12px;
@@ -659,72 +655,55 @@ font-size: 22px;
   align-items: center;
   text-align: center;
   
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--gradient-bg);
 }
 
-
 /* ==================================================
-   РАЗДЕЛЫ НА ГЛАВНОЙ
+        РАЗДЕЛЫ НА ГЛАВНОЙ
 ================================================== */
 
 .sections-area {
   position: relative;
   z-index: 2;
-
   width: 100%;
   margin-top: auto;
   padding-top: 24px;
   padding-bottom: 4px;
 }
-
 .sections-heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   margin-bottom: 13px;
 }
-
 .sections-title {
   margin: 0;
-
-  color: var(--text-header);
-
   font-size: 16px;
   font-weight: 700;
 }
 
 .sections-description {
   margin: 3px 0 0;
-
-  color: var(--muted);
-
   font-size: 11px;
+   color: var(--muted);
 }
 
 .swipe-hint {
-  color: var(--muted);
-
   font-size: 30px;
-
   opacity: 0.7;
+   color: var(--muted);
 }
 
-
 /* горизонтальный скролл */
-
 .section-tabs {
   display: flex;
   gap: 9px;
-
   width: calc(100% + 36px);
   margin-left: -18px;
-
   padding:
     2px 18px
     calc(8px + env(safe-area-inset-bottom))
     18px;
-
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scrollbar-width: none;
@@ -736,48 +715,33 @@ font-size: 22px;
 }
 
 .section-tab {
-  flex: 0 0 auto;
-
+ flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: 7px;
-
   min-height: 45px;
-
   padding: 0 15px;
-
-
   border-radius: 14px;
-
-  background: linear-gradient(
-    135deg,
-    #c9b6ff 0%,
-    #a9cfff 100%
-  );
-
-
-
   font-size: 12px;
   font-weight: 700;
-
   white-space: nowrap;
-
   cursor: pointer;
-
   scroll-snap-align: start;
+  background: var(--gradient-button);
 }
 
 .section-tab:active {
   transform: scale(0.96);
-
-  background: rgba(30, 58, 88, 0.95);
+ background: var(--gradient-bg);
 }
 
 .tab-icon {
-  color: var(--accent-strong);
-
   font-size: 15px;
+  color: var(--accent-strong);
 }
+
+
+
 
 
 /* ==================================================
