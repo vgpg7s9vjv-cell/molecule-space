@@ -2521,13 +2521,6 @@ applyTheme(savedTheme);
     );
   } catch (error) {}
 
-  if (tg) {
-    const colors = {
-      dark: "#071426",
-      pink: "#24131f",
-      angel: "#f7f3ff",
-      minimalism: "#f3f3ef"
-    };
 
     if (tg.setHeaderColor) {
       tg.setHeaderColor(colors[theme]);
@@ -2550,25 +2543,72 @@ function applyTheme(theme) {
     "angel",
     "minimalism"
   ];
-(function () {
-  const savedTheme =
-    localStorage.getItem("molecule-space-theme") || "dark";
 
-  const allowedThemes = [
-    "dark",
-    "pink",
-    "angel",
-    "minimalism"
-  ];
+  if (!validThemes.includes(theme)) {
+    theme = "dark";
+  }
 
-  const theme = allowedThemes.includes(savedTheme)
-    ? savedTheme
-    : "dark";
+  const body = document.body;
 
-  document.body.classList.add(`theme-${theme}`);
-  document.body.dataset.theme = theme;
-})();
-} 
+  validThemes.forEach(themeName => {
+    body.classList.remove(`theme-${themeName}`);
+  });
+
+  body.classList.add(`theme-${theme}`);
+
+  if (themeToggleIcon) {
+    themeToggleIcon.textContent =
+      theme === "dark" ? "☾" : "✦";
+  }
+
+  if (themeToggle) {
+    themeToggle.setAttribute(
+      "aria-label",
+      "выбрать оформление"
+    );
+  }
+
+  try {
+    localStorage.setItem(
+      themeStorageKey,
+      theme
+    );
+  } catch (error) {}
+
+  /*
+    telegram получает цвет непосредственно
+    из активной CSS-темы.
+    никаких отдельных цветов тем здесь нет.
+  */
+
+  if (tg) {
+    const bg = getComputedStyle(document.body)
+      .getPropertyValue("--bg")
+      .trim();
+
+    if (bg) {
+      if (tg.setHeaderColor) {
+        tg.setHeaderColor(bg);
+      }
+
+      if (tg.setBackgroundColor) {
+        tg.setBackgroundColor(bg);
+      }
+    }
+  }
+}
+
+const savedTheme =
+  (() => {
+    try {
+      return localStorage.getItem(themeStorageKey) || "dark";
+    } catch (error) {
+      return "dark";
+    }
+  })();
+
+applyTheme(savedTheme);
+
 /* ==================================================
    имт и дефицит
 ================================================== */
