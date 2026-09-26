@@ -2504,6 +2504,11 @@ function applyTheme(theme) {
     "minimalism"
   ];
 
+   const savedTheme =
+  localStorage.getItem(themeStorageKey) || "dark";
+
+applyTheme(savedTheme);
+   
   if (!validThemes.includes(theme)) {
     theme = "dark";
   }
