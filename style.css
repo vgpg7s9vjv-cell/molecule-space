@@ -403,6 +403,90 @@ body.theme- minimalism h3 {
   text-shadow: 0 12px 30px rgba(50, 50, 45, .07);
 }
 
+
+/*`` 💖 ``РОЗОВАЯ ТЕМА```💘 ``*/
+
+/* -основные цвета ⬇️ - */
+
+body.theme-pink {
+--bg: #ebcadc !important;
+--bg-deep: #fdebf3 !important;
+--details: #8f6d80 !important;
+--details-soft: #f3dce8 !important;
+--details-strong: #a97896 !important;
+--accent-strong: #f5d590 !important;
+--accent-soft: #fff3cf !important;
+--line-: #f6e7ee !important;
+--text-header: #493844 !important;
+--text-plain: #5b4853 !important; 
+--text-bold: #6d4b60 !important; 
+--button: #f3dce8 !important;
+--button-text: #6d4b60 !important;
+--muted: #af90a9 !important;
+--card: #efd5e2 !important;
+--card-soft: #f8e0e9 !important;
+
+--gradient: linear-gradient(
+      145deg,
+      rgba(255,255,255,0.97),
+      rgba(255,247,251,0.94)
+    ) !important; 
+--gradient-bg: linear-gradient(
+      135deg,
+      #efd5e2,
+      #f8e0e9
+    ) !important;
+--gradient-button:  linear-gradient(
+      135deg,
+      #f4dce7,
+      #fff0cf
+    ) !important;
+}
+
+/* декор сверху главного меню ⬇️  */
+
+body.theme-pink::before {
+  content: "♡   ⋅°₊ • 🍓 ‧₊ ° ⋅ ˚₊  ୨୧‧   ‧₊˚";
+  position: fixed;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  z-index: 6;
+  text-align: center;
+  font-size: 19px;
+  letter-spacing: 5px;
+   color: #c99fb8;
+   opacity: 10;
+   pointer-events: none;
+}
+
+/* декор снизу главного меню ⬇️  */
+
+body.theme-pink::after {
+  content: "♡. ݁₊ ⊹ . ݁˖ . ݁𓏲ᥫ᭡ ₊  🎀  ⋆⟡˖ ࣪  ⊹ ˑ ִ ֶ  ⊹ ࣪ ˖ ♡";
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 6;
+  text-align: center;
+  font-size: 17px;
+  letter-spacing: 7px;
+  color: #c99fb8;
+  opacity: 10;
+  pointer-events: none;
+}
+
+/* легкое свечение у заголовков  ⬇️  */
+
+body.theme-pink h1,
+body.theme-pink h2,
+body.theme-pink h3 {
+  text-shadow: 0 1px 8px rgba(235, 202, 237, 0.25) !important;
+}
+
+
+
 /* ==================================================
    фраза дня
 ================================================== */
