@@ -3837,23 +3837,6 @@ if (themeToggle) {
       ];
 
 
-      let currentTheme =
-        localStorage.getItem(
-          themeStorageKey
-        ) || "dark";
-
-
-      let currentIndex =
-        themes.indexOf(
-          currentTheme
-        );
-
-
-      if (currentIndex === -1) {
-        currentIndex = 0;
-      }
-
-
       const nextIndex =
         (currentIndex + 1) %
         themes.length;
