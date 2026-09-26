@@ -4810,5 +4810,5 @@ function escapeHtml(value) {
       ? savedTheme: "dark";
 
     document.documentElement.dataset.theme = theme
-}
+};
     }
