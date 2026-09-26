@@ -1615,6 +1615,31 @@ color: var(--text-plain);
 }
 
 
+/* ==================================================
+   ARTICLE OVERLAY — ПОВЕРХ ВСЕГО ПРИЛОЖЕНИЯ
+================================================== */
+
+#articleOverlay {
+  
+  margin: 0 !important;
+  padding:
+    calc(18px + env(safe-area-inset-top))
+    18px
+    calc(28px + env(safe-area-inset-bottom)) !important;
+
+
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  background: var(--bg-deep) !important;
+
+  transform: none !important;
+  filter: none !important;
+}
+
+#articleOverlay .article-overlay-inner {
+  position: relative;
+}
 
 /* ==================================================
    ОФИЦИАЛЬНЫЕ ССЫЛКИ
