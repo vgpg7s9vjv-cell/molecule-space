@@ -960,75 +960,49 @@ body,
 .diary-quick-content small { color: var(--muted); font-size: 10px; line-height: 1.4; }
 .diary-quick-arrow { margin-left: auto; color: var(--muted); font-size: 22px; }
 
-/* ==================================================
-   СВЕТЛАЯ ТЕМА
-================================================== */
-
-body.light-theme {
-  --bg: #f3f0ff;
-  --bg-deep: #e9e5fb;
-  --card: rgba(255, 255, 255, 0.78);
-  --card-light: rgba(255, 255, 255, 0.94);
-  --text: #27304a;
-  --muted: #7883a0;
-  --muted-light: #56617c;
-  --blue: #83bfe7;
-  --purple: #a995dc;
-  --pink: #e9a9ca;
-  --silver: #68738c;
-  --line: rgba(72, 80, 116, 0.12);
-  --line-light: rgba(72, 80, 116, 0.18);
-  --input-bg: rgba(255, 255, 255, 0.72);
-}
-
-body.light-theme {
-  background: var(--bg);
-  color: var(--text);
-}
-
-body.light-theme .home-screen {
-  background:
-    radial-gradient(circle at 15% 10%, rgba(173, 213, 239, 0.32), transparent 32%),
-    radial-gradient(circle at 90% 45%, rgba(199, 186, 235, 0.26), transparent 30%),
-    var(--bg);
-}
-
-body.light-theme .content-screen {
-  background:
-    radial-gradient(circle at 85% 0%, rgba(199, 186, 235, 0.22), transparent 32%),
-    var(--bg);
-}
-
-body.light-theme .quote-card {
-  background: linear-gradient(145deg, rgba(226, 224, 246, 0.92), rgba(236, 244, 250, 0.9));
-  box-shadow: 0 20px 60px rgba(88, 91, 125, 0.11), inset 0 1px 0 rgba(255,255,255,0.75);
-}
-
-body.light-theme .section-tab,
-body.light-theme .diary-quick-card,
-body.light-theme .topic-card,
-body.light-theme .calculator-card,
-body.light-theme .mood-entry {
-  box-shadow: 0 12px 35px rgba(88, 91, 125, 0.08);
-}
 
 /* ==================================================
    КАЛЬКУЛЯТОРЫ
 ================================================== */
 
-.calculator-list { display: flex; flex-direction: column; gap: 12px; }
+.calculator-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 .calculator-card {
   padding: 19px;
   border: 1px solid var(--line);
   border-radius: var(--radius-medium);
   background: var(--card);
 }
-.calculator-card h3 { margin: 0 0 6px; font-size: 16px; }
-.calculator-card p { margin: 0 0 15px; color: var(--muted); font-size: 11px; line-height: 1.5; }
-.calculator-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.calculator-field { display: flex; flex-direction: column; gap: 6px; }
-.calculator-field.full { grid-column: 1 / -1; }
-.calculator-field label { color: var(--muted); font-size: 10px; font-weight: 700; }
+.calculator-card h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+.calculator-card p {
+  margin: 0 0 15px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+.calculator-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.calculator-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.calculator-field.full {
+  grid-column: 1 / -1;
+}
+.calculator-field label {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+}
 .calculator-input {
   width: 100%;
   min-height: 44px;
@@ -1039,13 +1013,19 @@ body.light-theme .mood-entry {
   background: var(--input-bg);
   color: var(--text);
 }
-.calculator-input:focus { border-color: rgba(121, 201, 255, 0.5); }
+.calculator-input:focus {
+  border-color: rgba(121, 201, 255, 0.5);
+}
 .calculator-button {
   width: 100%;
   min-height: 44px;
   margin-top: 11px;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(121, 201, 255, 0.18), rgba(168, 156, 255, 0.18));
+  background: linear-gradient(
+    135deg,
+    rgba(121, 201, 255, 0.18),
+    rgba(168, 156, 255, 0.18)
+  );
   border: 1px solid var(--line-light);
   color: var(--text);
   font-size: 12px;
@@ -1068,7 +1048,9 @@ body.light-theme .mood-entry {
    ДНЕВНИК НАСТРОЕНИЯ
 ================================================== */
 
-.diary-page { padding-bottom: 20px; }
+.diary-page { 
+  padding-bottom: 20px;
+}
 .diary-compose {
   padding: 18px;
   border: 1px solid var(--line);
@@ -1076,32 +1058,95 @@ body.light-theme .mood-entry {
   background: var(--card);
   box-shadow: 0 16px 50px rgba(0,0,0,0.1);
 }
-.diary-date { margin: 0 0 13px; color: var(--muted); font-size: 16px; }
-.mood-picker { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 16px; }
+.diary-date { 
+  margin: 0 0 13px; color:
+  var(--muted);
+  font-size: 16px;
+}
+.mood-picker {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
 .mood-choice {
-  width: 39px; height: 39px; display: grid; place-items: center;
-  border: 1px solid var(--line); border-radius: 12px;
-  background: var(--input-bg); cursor: pointer; font-size: 18px;
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--input-bg);
+  cursor: pointer;
+  font-size: 18px;
 }
-.mood-choice.selected { border-color: var(--line); background: var(--accent-soft); transform: translateY(-1px); }
+.mood-choice.selected {
+  border-color: var(--line);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
 .diary-textarea {
-  width: 100%; min-height: 125px; resize: vertical;
-  padding: 13px; border: 1px solid var(--line); border-radius: 14px;
-  outline: none; background: var(--input-bg); color: var(--text);
-  font: inherit; font-size: 13px; line-height: 1.6;
+  width: 100%;
+  min-height: 125px;
+  resize: vertical;
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  outline: none;
+  background: var(--input-bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.6;
 }
-.diary-textarea:focus { border-color: var(--text); }
-.diary-save { margin-top: 10px; }
-.diary-list { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
-.mood-entry { padding: 16px; border: 1px solid var(--line); border-radius: var(--radius-medium); background: var(--card); }
-.mood-entry-head { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
-.mood-entry-emoji { font-size: 21px; }
-.mood-entry-date { color: var(--muted); font-size: 10px; }
-.mood-entry-text { margin: 0; color: var(--muted-light); font-size: 18px; line-height: 1.65; white-space: pre-wrap; }
-.diary-empty { padding: 22px 8px; text-align: center; color: var(--muted); font-size: 18px; line-height: 1.6; }
+.diary-textarea:focus {
+  border-color: var(--text);
+}
+.diary-save {
+  margin-top: 10px;
+}
+.diary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 18px;
+}
+.mood-entry {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-medium);
+  background: var(--card);
+}
+.mood-entry-head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 8px;
+}
+.mood-entry-emoji { 
+  font-size: 21px;
+}
+.mood-entry-date {
+  color: var(--muted);
+  font-size: 10px;
+}
+.mood-entry-text {
+  margin: 0;
+  color: var(--muted-light);
+  font-size: 18px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+.diary-empty {
+  padding: 22px 8px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
 
 @media (max-width: 430px) {
-  .calculator-grid { grid-template-columns: 1fr; }
+  .calculator-grid { grid-template-columns: 1fr;}
   .calculator-field.full { grid-column: auto; }
 }
 
@@ -1244,29 +1289,6 @@ color: var(--text);
   box-sizing: border-box;
 }
 
-/* светлая тема */
-
-body.light-theme .section-tab {
-  background: linear-gradient(
-    135deg,
-    #c9b6ff 0%,
-    #a9cfff 100%
-  );
-
-  color: #20233a;
-
-  border-color: rgba(120, 110, 190, 0.25);
-
-  box-shadow: 0 5px 16px rgba(120, 130, 190, 0.14);
-}
-
-body.light-theme .section-tab:active {
-  background: linear-gradient(
-    135deg,
-    #bda7ff 0%,
-    #98c5ff 100%
-  );
-}
 
 .diary-delete-button {
    background: transparent !important;
@@ -1468,107 +1490,6 @@ body.light-theme .section-tab:active {
 }
 
 
-/* светлая тема */
-
-body.light-theme .official-link-card {
-  background: rgba(255, 255, 255, 0.82);
-
-  border-color: rgba(120, 110, 190, 0.18);
-
-  box-shadow:
-    0 7px 20px rgba(120, 130, 190, 0.10);
-}
-
-body.light-theme .official-link-card:hover {
-  background: rgba(250, 248, 255, 0.98);
-
-  border-color: rgba(120, 110, 190, 0.3);
-}
-
-body.light-theme .official-link-icon {
-  background: linear-gradient(
-    135deg,
-    #c9b6ff,
-    #a9cfff
-  );
-}
-
-body.light-theme .official-links-warning {
-  background: rgba(196, 107, 138, 0.06);
-
-  border-color: rgba(196, 107, 138, 0.18);
-}
-
-
-/* ==================================================
-   MOLECULE SPACE
-   FINAL THEMES
-================================================== */
-
-
-/* ==================================================
-   🌑 DARK
-   холодный темно-синий
-================================================== */
-
-body.theme-dark {
-  --bg: #071426;
-  --bg-deep: #040c18;
-
-  --card: #0d1d32;
-  --card-soft: #10243d;
-
-  --text: #edf4ff;
-  --muted: #9fb2c9;
-
-  --accent: #7899c4;
-  --accent-soft: #203a5a;
-  --accent-strong: #91afd2;
-
-  --line: #1d3552;
-  --line-soft: #162c46;
-
-  --button: #183452;
-  --button-text: #edf4ff;
-
-  --input: #0b1b2f;
-  --shadow: 0 14px 40px rgba(0, 0, 0, .28);
-}
-
-
-
-/* ==================================================
-   🩶 MINIMALISM
-   холодный серый / clean
-================================================== */
-
-body.theme-minimalism {
-  --bg: #eeeeeb;
-  --bg-deep: #e5e5e1;
-
-  --card: #f8f8f5;
-  --card-soft: #f3f3f0;
-
-  --text: #30302e;
-  --muted: #777773;
-
-  --accent: #8c8c87;
-  --accent-soft: #deded9;
-  --accent-strong: #666661;
-
-  --line: #d5d5d0;
-  --line-soft: #e5e5e1;
-
-  --button: #deded8;
-  --button-text: #30302e;
-
-  --input: #ffffff;
-  --shadow: 0 12px 30px rgba(50, 50, 45, .07);
-}
-
-
-
-
 /* ==================================================
    ТАБЫ
 ================================================== */
@@ -1735,202 +1656,7 @@ body.theme-minimalism .article-nav-button.disabled {
   opacity: 0.4;
 }
 
-/* ☁️ ANGEL */
-body.theme-angel {
-  --bg: #eef8ff !important;
-  --bg-deep: #e3f3ff !important;
-  --card: rgba(255, 255, 255, 0.92) !important;
-  --card-soft: rgba(255, 255, 255, 0.78) !important;
 
-  --text: #40566d !important;
-  --muted: #7894ad !important;
-
-  --accent: #9bc9e8 !important;
-  --accent-soft: #dff2ff !important;
-  --accent-strong: #78b4da !important;
-
-  --line-soft: #e7f4fb !important;
-
-  --button: #d3ecfa !important;
-  --button-text: #40566d !important;
-  --input: #f9fdff !important;
-
-  background: #eef8ff !important;
-
-  .official-link-icon {
-display: flex;
-align-items: center;
-justify-content: center;
-flex: 0 0 38px;
-width: 38px;
-height: 38px;
-border-radius: 12px;
-background: radial-gradient(#e1bef8 24.37%, #bae0ff 62.61%);
-color: var(--accent-strong);
-font-size: 17px;
-font-weight: 700;
-}
-
-}
-
-/* белые воздушные карточки */
-body.theme-angel .home-screen,
-body.theme-angel .section-card,
-body.theme-angel .tracker-card,
-body.theme-angel .quote-card,
-body.theme-angel .article-card,
-body.theme-angel .modal-content {
-  background: rgba(255, 255, 255, 0.9) !important;
-  color: #40566d !important;
-  border-color: #d4e9f7 !important;
-  box-shadow: 0 8px 28px rgba(120, 180, 218, 0.12) !important;
-}
-
-/* ☁️ облачко вверху */
-body.theme-angel::before {
-content: "꒰ঌ ✦   ˚ ☁️        ✦  ⁺˚♡˚⁺   ✧        ☁️ ˚   ✧ ໒꒱";
-position: fixed;
-top: 10px;
-left: 0;
-width: 100%;
-z-index: 6;
-text-align: center;
-font-size: 19px;
-letter-spacing: 5px;
-opacity: 10;
-pointer-events: none;
-}
-
-/* ✨ россыпь звезд */
-body.theme-angel::after {
-content: "꒰ঌ ✦   ˚   ✧       ʚ♡ɞ        ✦   ˚   ✧ ໒꒱ ";
-position: fixed;
-bottom: 20px;
-left: 0;
-width: 100%;
-z-index: 6;
-text-align: center;
-font-size: 17px;
-letter-spacing: 7px;
-color: #4d6270;
-opacity: 10;
-pointer-events: none;
-}
-
-/* небесные кнопки */
-body.theme-angel button,
-body.theme-angel .article-nav-button {
-  background: #d3ecfa !important;
-  background-image: none !important;
-  color: #40566d !important;
-  border-color: #c5e3f3 !important;
-  box-shadow: 0 3px 10px rgba(120, 180, 218, 0.1) !important;
-}
-
-body.theme-angel button:hover,
-body.theme-angel .article-nav-button:hover {
-  background: #dff2ff !important;
-}
-
-/* ✨ легкое свечение у заголовков */
-body.theme-angel h1,
-body.theme-angel h2,
-body.theme-angel h3 {
-  text-shadow: 0 1px 8px rgba(155, 201, 232, 0.25);
-}
-
-
-/* 🎀🍓 BABY PINK — strawberry yogurt & banana cream */
-body.theme-pink {
-  background-attachment: fixed !important;
-}
-
-/* 🍓 мягкие карточки */
-body.theme-pink .home-screen,
-body.theme-pink .section-card,
-body.theme-pink .tracker-card,
-body.theme-pink .quote-card,
-body.theme-pink .article-card,
-body.theme-pink .modal-content {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,0.97),
-      rgba(255,247,251,0.94)
-    ) !important;
-
-  border-color: #ecd6e1 !important;
-
-  box-shadow:
-    0 8px 28px rgba(201, 159, 184, 0.13),
-    0 1px 4px rgba(245, 213, 144, 0.10) !important;
-}
-
-/* 📖 читаемость статей */
-body.theme-pink .article-content,
-body.theme-pink .article-body {
-}
-
-body.theme-pink .article-content h1,
-body.theme-pink .article-content h2,
-body.theme-pink .article-content h3,
-body.theme-pink .article-body h1,
-body.theme-pink .article-body h2,
-body.theme-pink .article-body h3 {
-  color: #493844 !important;
-}
-
-body.theme-pink .article-content p,
-body.theme-pink .article-content li,
-body.theme-pink .article-body p,
-body.theme-pink .article-body li {
-  color: #5b4853 !important;
-}
-
-body.theme-pink .article-content strong,
-body.theme-pink .article-body strong {
-  color: #6d4b60 !important;
-}
-
-/* 🎀 кнопки */
-body.theme-pink button,
-body.theme-pink .article-nav-button {
-
-
-  background-image:
-    linear-gradient(
-      135deg,
-      #efd5e2,
-      #f8e0e9
-    ) !important;
-
-  color: #493844 !important;
-
-}
-
-body.theme-pink button:hover,
-body.theme-pink .article-nav-button:hover {
-  background:
-    linear-gradient(
-      135deg,
-      #f4dce7,
-      #fff0cf
-    ) !important;
-
-  background-image:
-    linear-gradient(
-      135deg,
-      #f4dce7,
-      #fff0cf
-    ) !important;
-}
-
-/* 🍌 маленькие золотистые акценты */
-body.theme-pink .section-title,
-body.theme-pink .article-title {
-  text-shadow:
-    0 1px 8px rgba(201, 159, 184, 0.18);
-}
 
 
 /* ← аккуратная кнопка выхода из статьи / раздела */
@@ -2501,18 +2227,6 @@ body.theme-minimalism .back-button:active {
 
 
 /* ───────────────────────────────────────
-   🎀 PINK
-   ─────────────────────────────────────── */
-
-body.theme-pink .tracker-calendar,
-body.theme-pink .water-tracker {
-  box-shadow:
-    0 10px 30px rgba(201, 159, 184, 0.12),
-    0 0 22px rgba(245, 213, 144, 0.08);
-}
-
-
-/* ───────────────────────────────────────
    ☁️ ANGEL
    ─────────────────────────────────────── */
 
@@ -3063,96 +2777,6 @@ body.theme-angel .water-tracker {
 }
 
 
-body.theme-pink official-link-card:hover,
-body.theme-pink .official-link-card:hover {
-  background:
-    linear-gradient(
-      135deg,
-      #f4dce7,
-      #fff0cf
-    ) !important;
-
-  background-image:
-    linear-gradient(
-      135deg,
-      #f4dce7,
-      #fff0cf
-    ) !important;
-  
---bg: #fff6fa !important;
---bg-deep: #fdebf3 !important;
---accent: #c99fb8 !important;
---accent-soft: #f3dce8 !important;
---accent-strong: #a97896 !important;
---yellow: #f5d590 !important;
---yellow-soft: #fff3cf !important;
---line-soft: #f6e7ee !important;
-}
-}
-
-body.theme-angel official-link-card,
-body.theme-angel .official-link-card {
-  background: #d3ecfa !important;
-  background-image: none !important;
-  color: #40566d !important;
-  border-color: #c5e3f3 !important;
-  box-shadow: 0 3px 10px rgba(120, 180, 218, 0.1) !important;
-
-}
-
-body.theme-angel official-link-card:hover,
-body.theme-angel .official-link-card:hover {
-  background: #dff2ff !important;
-}
-
-body.theme-minimalism official-link-card,
-body.theme-minimalism .official-link-card {
-  background: #deded8 !important;
-}
-body.theme-minimalism official-link-card:hover,
-body.theme-mnimalism .official-link-card:hover {
-  background: #30302e !important;
-}
-
-
-/* ---------- меняла таблички ссылок потому что
-были темные на светлых темах---------- */
-
-body.theme-pink official-link-card,
-body.theme-pink .official-link-card {
- background:
-    linear-gradient(
-      135deg,
-      #efd5e2,
-      #f8e0e9
-    ) !important;
-
-  background-image:
-    linear-gradient(
-      135deg,
-      #efd5e2,
-      #f8e0e9
-    ) !important;
-  border-color: #e4c4d4 !important;
-
-  box-shadow:
-    0 4px 12px rgba(201, 159, 184, 0.14) !important;
-}
-
-
-
-body.theme-pink {
---bg: #fff6fa !important;
---bg-deep: #fdebf3 !important;
---accent: #c99fb8 !important;
---accent-soft: #f3dce8 !important;
---accent-strong: #a97896 !important;
---yellow: #f5d590 !important;
---yellow-soft: #fff3cf !important;
---line-soft: #f6e7ee !important;
-}
-
-
 :root {
 --silver: #bdbdf7;
 --home-accent: #8f6c96;
@@ -3170,73 +2794,4 @@ body.theme-pink {
 --radius-medium: 20px;
 --radius-small: 15px;
 }
-/* 🎀♡ декор */
-body.theme-pink::before {
-  content: "♡   🎀   ♡       ˚₊‧  🍓  ‧₊˚";
-  position: fixed;
-  top: 72px;
-  right: 16px;
-  z-index: 6;
 
-  font-size: 17px;
-  letter-spacing: 3px;
-
-  color: #c99fb8;
-  opacity: 10;
-
-  pointer-events: none;
-}
-
-body.theme-pink::after {
-  content: "♡       🎀       ✦       ♡";
-  position: fixed;
-  bottom: 25px;
-  left: 0;
-  width: 100%;
-  z-index: 6;
-
-  text-align: center;
-  font-size: 16px;
-  letter-spacing: 6px;
-
-  color: #c99fb8;
-  opacity: 10;
-
-  pointer-events: none;
-}
-
-/* декоративные свечения */
-.home-glow {
-  position: absolute;
-  animation: pulse 1s linear infinite;
-
-  width: 430px;
-  height: 430px;
-
-  border-radius: 77%;
-
-  filter: blur(30px);
-
-  pointer-events: none;
-
-  opacity: 0.65;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.65; }
-
-}
-
-.glow-one {
-  top: -100px;
-  left: -78px;
-
-  background: var(--accent);
-}
-
-.glow-two {
-  right: -78px;
-  top: 58%;
-
-  background: var(--accent-soft);
-}
