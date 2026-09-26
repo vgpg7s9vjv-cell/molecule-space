@@ -289,7 +289,7 @@ pointer-events: none;
 body.theme-angel h1,
 body.theme-angel h2,
 body.theme-angel h3 {
-  text-shadow: 0 1px 8px rgba(155, 201, 232, 0.25);
+  text-shadow: 0 1px 8px rgba(155, 201, 232, 0.25) !important;
 }
 
 
@@ -298,21 +298,21 @@ body.theme-angel h3 {
 /* -основные цвета ⬇️ - */
 
 body.theme-dark {
-  --bg: #071426;
-  --bg-deep: #040c18;
-  --accent: #7899c4;
-  --accent-soft: #203a5a;
-  --accent-strong: #91afd2;
-  --line: #1d3552;
-  --line-soft: #162c46;
-  --text-header:  #787daf
-  --text-plain: #edf4ff;
-  --text-bold: #989CC2
-  --button: #183452;
-  --button-text: #edf4ff;
-  --muted: #9fb2c9;
-  --card: #0d1d32;
-  --card-soft: #10243d;
+  --bg: #071426 !important;
+  --bg-deep: #040c18 !important;
+  --accent: #7899c4 !important;
+  --accent-soft: #203a5a !important;
+  --accent-strong: #91afd2 !important;
+  --line: #1d3552 !important;
+  --line-soft: #162c46 !important;
+  --text-header:  #787daf !important;
+  --text-plain: #edf4ff !important;
+  --text-bold: #989CC2 !important;
+  --button: #183452 !important;
+  --button-text: #edf4ff !important;
+  --muted: #9fb2c9 !important;
+  --card: #0d1d32 !important;
+  --card-soft: #10243d !important;
   --gradient: linear-gradient(
       135deg,
       #110737
@@ -332,7 +332,7 @@ body.theme-dark {
 
 /* декор сверху главного меню ⬇️  */
 
-body.theme-angel::before {
+body.theme-dark::before {
 content: " ✦ ˚ ✨ 𖥔 ݁˖ ݁ ⊹ . ݁˖ . 🌙  ⊹  ݁˖ . ݁  ˚ ✨  ✧ ";
 position: fixed;
 top: 10px;
@@ -349,7 +349,7 @@ pointer-events: none;
 
 /* декор снизу главного меню ⬇️  */
 
-body.theme-angel::after {
+body.theme-dark::after {
 content: ". ݁₊ ⊹ . ݁✨ ˖  ݁𖥔 ݁˖ ݁ ₊ ݁. 💫  ݁𖥔 ݁˖ . ݁₊ ⊹✨. ݁ ⟡ ݁ ₊ ݁. ";
 position: fixed;
 bottom: 20px;
@@ -369,7 +369,7 @@ pointer-events: none;
 body.theme-dark h1,
 body.theme-dark h2,
 body.theme-dark h3 {
-  text--shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+  text--shadow: 0 14px 40px rgba(0, 0, 0, 0.28) !important;
 }
 
 
@@ -400,7 +400,7 @@ body.theme-minimalism {
 body.theme-minimalism h1,
 body.theme- minimalism h2,
 body.theme- minimalism h3 {
-  text-shadow: 0 12px 30px rgba(50, 50, 45, .07);
+  text-shadow: 0 12px 30px rgba(50, 50, 45, .07)!important;
 }
 
 
