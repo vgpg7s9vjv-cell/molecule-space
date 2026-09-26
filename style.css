@@ -76,7 +76,7 @@ body.theme-angel {
   --accent: #bca8e6 !important;
   --accent-soft: #cabfe0 !important;
   --accent-strong: #79679e !important;
-  --line-: #e7f4fb !important;
+  --line: #e7f4fb !important;
   --text-header: #40566d !important;
   --text-plain: #4d6270 !important;
   --text-bold: #162c46 !important;
@@ -105,12 +105,12 @@ body.theme-angel {
 
 /* воздушные карточки */
 
-.home-screen,
-.section-card,
-.tracker-card,
-.quote-card,
-.article-card,
-.modal-content {
+body.theme-angel .home-screen,
+body.theme-angel .section-card,
+body.theme-angel .tracker-card,
+body.theme-angel .quote-card,
+body.theme-angel .article-card,
+body.theme-angel .modal-content {
   background: rgba(255, 255, 255, 0.9) !important;
   color: #40566d !important;
   border-color: #d4e9f7 !important;
@@ -278,12 +278,10 @@ body.theme-minimalism h3 {
 body.theme-pink {
   --bg: #ebcadc !important;
   --bg-deep: #fdebf3 !important;
-  --details: #8f6d80 !important;
-  --details-soft: #f3dce8 !important;
-  --details-strong: #a97896 !important;
-  --accent-strong: #f5d590 !important;
-  --accent-soft: #fff3cf !important;
-  --line-: #f6e7ee !important;
+  --accent: #8f6d80 !important;
+  --accent-soft: #f3dce8 !important;
+  --accent-strong: #a97896 !important;
+  --line: #f6e7ee !important;
   --text-header: #493844 !important;
   --text-plain: #5b4853 !important;
   --text-bold: #6d4b60 !important;
