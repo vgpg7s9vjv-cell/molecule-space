@@ -4794,21 +4794,3 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-
-    const savedTheme {
-      localStorage.getItem("molecule-space-theme") || "dark";
-
-    const allowedThemes = [
-      "dark",
-      "pink",
-      "angel",
-      "minimalism"
-    ];
-
-    const theme {
-       allowedThemes.includes(savedTheme)
-      ? savedTheme: "dark";
-
-    document.documentElement.dataset.theme = theme
-};
-    }
