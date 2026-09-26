@@ -2471,26 +2471,73 @@ const quickDiaryButton = document.getElementById("quickDiaryButton");
    ФРАЗА - настройка смены фраз
 ================================================== */
 
-function showNextQuote() {
+function applyTheme(theme) {
+  const validThemes = [
+    "dark",
+    "pink",
+    "angel",
+    "minimalism"
+  ];
 
-  currentQuote++;
+   const savedTheme =
+  localStorage.getItem(themeStorageKey) || "dark";
 
-  if (currentQuote >= quotes.length) {
-    currentQuote = 0;
+applyTheme(savedTheme);
+   
+  if (!validThemes.includes(theme)) {
+    theme = "dark";
   }
 
-  quoteElement.style.opacity = "0";
+  const body = document.body;
 
-  setTimeout(() => {
+  validThemes.forEach(themeName => {
+    body.classList.remove(`theme-${themeName}`);
+  });
 
-    quoteElement.textContent = quotes[currentQuote];
+  body.classList.add(`theme-${theme}`);
 
-    quoteElement.style.opacity = "1";
+  /* синхронизируем обе системы тем */
+  body.dataset.theme =
+    theme === "minimalism"
+      ? "minimalism"
+      : theme;
 
-  }, 120);
+  if (themeToggleIcon) {
+    themeToggleIcon.textContent =
+      theme === "dark" ? "☾" : "✦";
+  }
 
+  if (themeToggle) {
+    themeToggle.setAttribute(
+      "aria-label",
+      "выбрать оформление"
+    );
+  }
+
+  try {
+    localStorage.setItem(
+      themeStorageKey,
+      theme
+    );
+  } catch (error) {}
+
+  if (tg) {
+    const colors = {
+      dark: "#071426",
+      pink: "#24131f",
+      angel: "#f7f3ff",
+      minimalism: "#f3f3ef"
+    };
+
+    if (tg.setHeaderColor) {
+      tg.setHeaderColor(colors[theme]);
+    }
+
+    if (tg.setBackgroundColor) {
+      tg.setBackgroundColor(colors[theme]);
+    }
+  }
 }
-
 
 /* ==================================================
    кнопка выбора темы
