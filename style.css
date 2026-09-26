@@ -234,7 +234,7 @@ body.theme-angel {
         #ac99cc,
         #bae0ff
     ) !important;
-}
+};
 
 /* воздушные карточки */
 
@@ -248,7 +248,7 @@ body.theme-angel {
   color: #40566d !important;
   border-color: #d4e9f7 !important;
   box-shadow: 0 8px 28px rgba(120, 180, 218, 0.12) !important;
-}
+};
 
 /* декор сверху главного меню ⬇️  */
 
@@ -265,7 +265,7 @@ letter-spacing: 5px;
 color: #4d6270;
 opacity: 10;
 pointer-events: none;
-}
+};
 
 /* декор снизу главного меню ⬇️  */
 
@@ -282,7 +282,7 @@ letter-spacing: 7px;
 color: #4d6270;
 opacity: 10;
 pointer-events: none;
-}
+};
 
 /* ✨ легкое свечение у заголовков */
 
