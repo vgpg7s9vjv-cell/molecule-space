@@ -2607,7 +2607,7 @@ const savedTheme =
     }
   })();
 
-applyTheme(savedTheme);
+applyTheme(savedTheme); 
 
 /* ==================================================
    имт и дефицит
