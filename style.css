@@ -102,6 +102,306 @@ button {
   font-size: 15px;
 }
 
+/* ==================================================
+   ТЕМА
+================================================== */
+
+body,
+.home-screen,
+.content-screen,
+.topic-card,
+.section-tab,
+.quote-card,
+.article-nav-button,
+.diary-quick-card,
+.mood-entry,
+.calculator-card,
+.calculator-input,
+.theme-toggle {
+  transition:
+    background-color 0.45s ease,
+    background 0.45s ease,
+    color 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.home-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.theme-toggle {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.theme-toggle:active { transform: scale(0.94); }
+.theme-toggle-icon { font-size: 18px; line-height: 1; }
+
+.diary-quick-card {
+  width: 100%;
+  margin-top: 10px;
+  padding: 16px 17px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-large);
+  background: var(--card);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.12);
+}
+
+.diary-quick-card:active { transform: scale(0.985); }
+.diary-quick-icon {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(168, 156, 255, 0.12);
+  color: var(—accent-soft);
+  font-size: 19px;
+}
+.diary-quick-content {
+min-width: 0; 
+display: flex; 
+flex-direction: column; 
+gap: 3px;
+ }
+.diary-quick-content strong { 
+font-size: 13px; 
+font-weight: 750; 
+}
+.diary-quick-content small { 
+color: var(--muted); 
+font-size: 10px; 
+line-height: 1.4;
+ }
+.diary-quick-arrow { 
+margin-left: auto;
+ color: var(--muted); 
+font-size: 22px; 
+}
+
+
+/* ☁️ ```` АНГЕЛЬСКАЯ ТЕМА ``` ☁️ */
+
+/* * основные цвета ⬇️  */
+
+body.theme-angel {
+  --bg: #eef8ff !important;
+  --bg-deep: #e3f3ff !important;
+  --details: #9bc9e8 !important;
+  --details-soft: #dff2ff !important;
+  --details-strong: #78b4da !important;
+  --accent: #bca8e6 !important;
+  --accent-soft: #cabfe0 !important;
+  --accent-strong: #79679e !important;
+  --line-: #e7f4fb !important;
+  --text-header: #40566d !important;
+  --text-plain: #4d6270 !important;
+  --text-bold: #162c46 !important;
+  --muted: #7894ad !important;
+  --button: #d3ecfa !important;
+  --button-text: #40566d !important;
+  --input: #f9fdff !important;
+  --card: rgba(255, 255, 255, 0.92) !important;
+  --card-soft: rgba(255, 255, 255, 0.78) !important;
+  --gradient: radial-gradient(
+       135deg,
+       #b3c0e6,
+       #bae0ff
+    ) !important;
+  --gradient-bg: radial-gradient(
+        135deg,
+        #6e7a9c,
+        #bae0ff
+    ) !important;
+  --gradient-button: radial-gradient(
+        135deg,
+        #ac99cc,
+        #bae0ff
+    ) !important;
+}
+
+/* воздушные карточки */
+
+.home-screen,
+.section-card,
+.tracker-card,
+.quote-card,
+.article-card,
+.modal-content {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #40566d !important;
+  border-color: #d4e9f7 !important;
+  box-shadow: 0 8px 28px rgba(120, 180, 218, 0.12) !important;
+}
+
+/* декор сверху главного меню ⬇️  */
+
+body.theme-angel::before {
+content: "꒰ঌ ✦   ˚ ☁️       ✦  ⁺˚♡˚⁺   ✧     ☁️ ˚   ✧ ໒꒱";
+position: fixed;
+top: 10px;
+left: 0;
+width: 100%;
+z-index: 6;
+text-align: center;
+font-size: 19px;
+letter-spacing: 5px;
+color: #4d6270;
+opacity: 10;
+pointer-events: none;
+}
+
+/* декор снизу главного меню ⬇️  */
+
+body.theme-angel::after {
+content: "꒰ঌ ✦   ˚   ✧      ʚ♡ɞ      ✦   ˚   ✧ ໒꒱ ";
+position: fixed;
+bottom: 20px;
+left: 0;
+width: 100%;
+z-index: 6;
+text-align: center;
+font-size: 17px;
+letter-spacing: 7px;
+color: #4d6270;
+opacity: 10;
+pointer-events: none;
+}
+
+/* ✨ легкое свечение у заголовков */
+
+body.theme-angel h1,
+body.theme-angel h2,
+body.theme-angel h3 {
+  text-shadow: 0 1px 8px rgba(155, 201, 232, 0.25);
+}
+
+
+ /* 🌑 ```` ТЕМНАЯ ТЕМА ``` 🌑 */
+
+/* -основные цвета ⬇️ - */
+
+body.theme-dark {
+  --bg: #071426;
+  --bg-deep: #040c18;
+  --accent: #7899c4;
+  --accent-soft: #203a5a;
+  --accent-strong: #91afd2;
+  --line: #1d3552;
+  --line-soft: #162c46;
+  --text-header:  #787daf
+  --text-plain: #edf4ff;
+  --text-bold: #989CC2
+  --button: #183452;
+  --button-text: #edf4ff;
+  --muted: #9fb2c9;
+  --card: #0d1d32;
+  --card-soft: #10243d;
+  --gradient: linear-gradient(
+      135deg,
+      #110737
+      #9fb2c9
+    ) !important;
+  --gradient-bg: linear-gradient(
+      135deg,
+      #473e56,
+      #b79af2
+    ) !important;
+  --gradient-button: linear-gradient(
+      135deg,
+      #1d3552,
+      #b2bdd8
+    ) !important;
+}
+
+/* декор сверху главного меню ⬇️  */
+
+body.theme-angel::before {
+content: " ✦ ˚ ✨ 𖥔 ݁˖ ݁ ⊹ . ݁˖ . 🌙  ⊹  ݁˖ . ݁  ˚ ✨  ✧ ";
+position: fixed;
+top: 10px;
+left: 0;
+width: 100%;
+z-index: 6;
+text-align: center;
+font-size: 19px;
+letter-spacing: 5px;
+color: #b2bdd8;
+opacity: 10;
+pointer-events: none;
+}
+
+/* декор снизу главного меню ⬇️  */
+
+body.theme-angel::after {
+content: ". ݁₊ ⊹ . ݁✨ ˖  ݁𖥔 ݁˖ ݁ ₊ ݁. 💫  ݁𖥔 ݁˖ . ݁₊ ⊹✨. ݁ ⟡ ݁ ₊ ݁. ";
+position: fixed;
+bottom: 20px;
+left: 0;
+width: 100%;
+z-index: 6;
+text-align: center;
+font-size: 17px;
+letter-spacing: 7px;
+color: #b2bdd8;
+opacity: 10;
+pointer-events: none;
+}
+
+ /* легкое свечение у заголовков  ⬇️  */
+
+body.theme-dark h1,
+body.theme-dark h2,
+body.theme-dark h3 {
+  text--shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+}
+
+
+/* 🩶 ```` MINIMAL ТЕМА ``` 🩶 */
+
+/* -основные цвета ⬇️ - */
+
+body.theme-minimalism {
+  --bg: #eeeeeb !important;
+  --bg-deep: #e5e5e1 !important;
+  --accent: #8c8c87 !important;
+  --accent-soft: #deded9 !important;
+  --accent-strong: #666661 !important;
+  --line: #d5d5d0 !important;
+  --line-soft: #e5e5e1 !important;
+  --text-header: #30302e !important;
+  --text-plain: #666669 !important;
+  --text-bold: #30313e !important;
+  --button: #deded8 !important;
+  --button-text: #30302e !important;
+  --muted: #777773 !important;
+  --card: #f8f8f5 !important;
+  --card-soft: #f3f3f0 !important;
+}
+
+/* легкое свечение у заголовков  ⬇️  */
+
+body.theme-minimalism h1,
+body.theme- minimalism h2,
+body.theme- minimalism h3 {
+  text-shadow: 0 12px 30px rgba(50, 50, 45, .07);
+}
 
 /* ==================================================
    фраза дня
