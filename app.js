@@ -2503,67 +2503,25 @@ function applyTheme(theme) {
     "angel",
     "minimalism"
   ];
+(function () {
+  const savedTheme =
+    localStorage.getItem("molecule-space-theme") || "dark";
 
-   const savedTheme =
-  localStorage.getItem(themeStorageKey) || "dark";
+  const allowedThemes = [
+    "dark",
+    "pink",
+    "angel",
+    "minimalism"
+  ];
 
-applyTheme(savedTheme);
-   
-  if (!validThemes.includes(theme)) {
-    theme = "dark";
-  }
+  const theme = allowedThemes.includes(savedTheme)
+    ? savedTheme
+    : "dark";
 
-  const body = document.body;
-
-  validThemes.forEach(themeName => {
-    body.classList.remove(`theme-${themeName}`);
-  });
-
-  body.classList.add(`theme-${theme}`);
-
-  /* синхронизируем обе системы тем */
-  body.dataset.theme =
-    theme === "minimalism"
-      ? "minimalism"
-      : theme;
-
-  if (themeToggleIcon) {
-    themeToggleIcon.textContent =
-      theme === "dark" ? "☾" : "✦";
-  }
-
-  if (themeToggle) {
-    themeToggle.setAttribute(
-      "aria-label",
-      "выбрать оформление"
-    );
-  }
-
-  try {
-    localStorage.setItem(
-      themeStorageKey,
-      theme
-    );
-  } catch (error) {}
-
-  if (tg) {
-    const colors = {
-      dark: "#071426",
-      pink: "#24131f",
-      angel: "#f7f3ff",
-      minimalism: "#f3f3ef"
-    };
-
-    if (tg.setHeaderColor) {
-      tg.setHeaderColor(colors[theme]);
-    }
-
-    if (tg.setBackgroundColor) {
-      tg.setBackgroundColor(colors[theme]);
-    }
-  }
-}
-
+  document.body.classList.add(`theme-${theme}`);
+  document.body.dataset.theme = theme;
+})();
+} 
 /* ==================================================
    имт и дефицит
 ================================================== */
