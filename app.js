@@ -3078,7 +3078,7 @@ function openSection(sectionId) {
    ОТКРЫТЬ ДНЕВНИК НАСТРОЕНИЯ
 ================================================== */
 
-if (sectionId === "mood") {
+if (sectionId) === ("mood") {
 
   currentSectionId = "mood";
   currentArticleId = null;
