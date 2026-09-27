@@ -3735,14 +3735,6 @@ if (sectionId = "mood") {
       </button>
 
 
-      <header class="section-header">
-
-        <p>
-          ${section.description}
-        </p>
-
-      </header>
-
 
       <div class="topic-list">
 
