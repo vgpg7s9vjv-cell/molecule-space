@@ -3335,7 +3335,6 @@ if (sectionId = "mood") {
 
 
   document.body.style.overflow = "hidden";
-}
 
   /* ================================================
      ОФИЦИАЛЬНЫЕ ССЫЛКИ
