@@ -3438,12 +3438,13 @@ function goBackFromArticle() {
   }
 
   document.body.style.overflow = "hidden";
-
+ {
   currentArticleId = null;
   currentPage = 0;
-
+   
+  renderArticle();
 }
-
+}
 /* ==================================================
    СЛЕДУЮЩАЯ СТРАНИЦА
 ================================================== */
