@@ -3627,7 +3627,7 @@ function openArticle(articleId) {
   renderArticle();
 
 }
-}
+
 
 /* ==================================================
    РЕНДЕР СТРАНИЦЫ СТАТЬИ
@@ -3731,8 +3731,6 @@ function renderArticle() {
         >
           дальше →
         </button>
-
-      </button>
 
 
       <p class="page-counter">
