@@ -2627,7 +2627,7 @@ function showHome() {
   contentScreen.classList.add("hidden");
 
   window.scrollTo({ top: 0, behavior: "instant" });
-}
+
 
   const sectionOverlay =
     document.getElementById("sectionOverlay");
@@ -2647,7 +2647,7 @@ function showHome() {
 
   window.scrollTo(0, 0);
 
-
+}
 /* ==================================================
    ОТКРЫТЬ РАЗДЕЛы интерактивные
 ================================================== */
