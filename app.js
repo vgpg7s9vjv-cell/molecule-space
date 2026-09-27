@@ -3009,18 +3009,18 @@ function showHome() {
   if (sectionOverlay) {
     sectionOverlay.remove();
   }
+
+
+const articleOverlay =
+
+    document.getElementById("articleOverlay");
+
+  if (articleOverlay) {
+
+    articleOverlay.remove();
+
+  }
 }
-
-  document.body.style.overflow = "";
-
-
-  contentScreen.classList.add("hidden");
-
-  homeScreen.classList.remove("hidden");
-
-
-  window.scrollTo(0, 0);
-
 
 /* ==================================================
    ОТКРЫТЬ РАЗДЕЛы интерактивные
