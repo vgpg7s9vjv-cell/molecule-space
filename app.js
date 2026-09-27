@@ -2499,7 +2499,7 @@ function applyTheme(theme) {
   ];
 
   if (!validThemes.includes(theme)) {
-    theme = "dark";
+    theme = "theme";
   }
 
   const body = document.body;
@@ -2518,7 +2518,7 @@ function applyTheme(theme) {
 
   if (themeToggleIcon) {
     themeToggleIcon.textContent =
-      theme === "dark" ? "☾" : "✦";
+      theme === "theme" ? "☾" : "✦";
   }
 
   if (themeToggle) {
@@ -3530,7 +3530,7 @@ if (themeToggle) {
       let currentTheme =
         localStorage.getItem(
           themeStorageKey
-        ) || "dark";
+        ) || "theme";
 
 
       let currentIndex =
@@ -4423,14 +4423,12 @@ function renderWaterTracker() {
     });
 }
 
-const savedTheme = readLocal(themeStorageKey, "dark");
+const savedTheme = readLocal(themeStorageKey, "theme");
 applyTheme(savedTheme);
 refreshHomeTrackers();
-const currentTheme = readLocal(themeStorageKey, "dark");
+const currentTheme = readLocal(themeStorageKey, "theme");
 
-overlay.setAttribute("role", "dialog");
-overlay.setAttribute("aria-modal", "true");
-overlay.setAttribute("aria-labelledby", "trackerTitle");
+
 
 
 function addEscapeHandler(close) {
