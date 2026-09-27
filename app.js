@@ -3758,7 +3758,7 @@ if (sectionId = "mood") {
 
           </button>
 
-        `).join("")}
+        `().join("")}
 
       </div>
 
