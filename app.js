@@ -2619,8 +2619,6 @@ function showHome() {
   currentArticleId = null;
   currentPage = 0;
 
-  removeSectionOverlay();
-  removeArticleOverlay();
 
   document.body.style.overflow = "";
   homeScreen.classList.remove("hidden");
@@ -2636,6 +2634,8 @@ function showHome() {
     sectionOverlay.remove();
   }
 }
+  removeSectionOverlay();
+  removeArticleOverlay();
 
   document.body.style.overflow = "";
 
