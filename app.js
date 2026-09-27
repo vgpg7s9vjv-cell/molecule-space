@@ -3733,12 +3733,7 @@ if (sectionId = "mood") {
       >
         ← вернуться на главную
       </button>
-
-
-
       <div class="topic-list">
-
-        ${section.topics.map(topic => `
 
           <button
             class="topic-card"
@@ -3786,6 +3781,7 @@ if (sectionId = "mood") {
       showHome
     );
 
+}
 }
 
 /* ==================================================
