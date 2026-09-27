@@ -2700,8 +2700,8 @@ function openSection(sectionId) {
     return;
   }
 
-  removeSectionOverlay();
-  removeArticleOverlay();
+  remove SectionOverlay();
+  remove ArticleOverlay();
 
  
 /* ==================================================
