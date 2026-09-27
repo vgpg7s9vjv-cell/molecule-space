@@ -2635,8 +2635,6 @@ function showHome() {
   }
 }
 
-  removeArticleOverlay();
-
   document.body.style.overflow = "";
 
 
