@@ -1,21 +1,21 @@
 /* ==================================================
- 
 
-    TELEGRAM
+
+   TELEGRAM
 ================================================== */
 
 const tg = window.Telegram?.WebApp;
 
 if (tg) {
   tg.ready();
-  tg.expand(); 
+  tg.expand();
 
   if (tg.setHeaderColor) {
-    tg.setHeaderColor("#ffffff");
+    tg.setHeaderColor("#CCCCFF");
   }
 
   if (tg.setBackgroundColor) {
-    tg.setBackgroundColor("#ffffff");
+    tg.setBackgroundColor("#CCCCFF");
   }
 }
 
@@ -2813,8 +2813,9 @@ const articles = {
   }
 }
 /* ==================================================
-   СОСТОЯНИЕ ПРИЛОЖЕНИЯ дневник настроения
+   СОСТОЯНИЕ ПРИЛОЖЕНИЯ
 ================================================== */
+let currentSectionId = null;
 
 let currentPage = 0; 
 
@@ -2823,10 +2824,14 @@ const moodStorageKey = "molecule-space-mood-diary";
 const themeStorageKey = "molecule-space-theme";
 
 /* ==================================================
-   DOM дневник настроения 
+   DOM
 ================================================== */
 
 const homeScreen = document.getElementById("homeScreen");
+
+const contentScreen = document.getElementById("contentScreen");
+
+const contentContainer = document.getElementById("contentContainer");
 
 const quoteElement = document.getElementById("quote");
 
@@ -2836,9 +2841,8 @@ const themeToggle = document.getElementById("themeToggle");
 const themeToggleIcon = document.getElementById("themeToggleIcon");
 const quickDiaryButton = document.getElementById("quickDiaryButton");
 
-
 /* ==================================================
-   ФРАЗА - настройка смены фраз
+   ФРАЗА
 ================================================== */
 
 function showNextQuote() {
@@ -2863,10 +2867,11 @@ function showNextQuote() {
 
 
 /* ==================================================
-   кнопка выбора темы
+   ТЕМА
 ================================================== */
 
 function applyTheme(theme) {
+
   const validThemes = [
     "dark",
     "pink",
@@ -2875,45 +2880,117 @@ function applyTheme(theme) {
   ];
 
   if (!validThemes.includes(theme)) {
-    theme = "theme";
+    theme = "dark";
   }
 
-  const body = document.body;
+
+  /* убираем старые классы тем */
 
   validThemes.forEach(themeName => {
-    body.classList.remove(`theme-${themeName}`);
+
+    document.body.classList.remove(
+      `theme-${themeName}`
+    );
+
   });
 
-  body.classList.add(`theme-${theme}`);
 
-  /* синхронизируем обе системы тем */
-  body.dataset.theme =
-    theme === "minimalism"
-      ? "minimalism"
-      : theme;
+  /* добавляем выбранную тему */
+
+  document.body.classList.add(
+    `theme-${theme}`
+  );
+
+
+  /* иконка оставляет смысл кнопки:
+     сама кнопка теперь открывает выбор темы */
 
   if (themeToggleIcon) {
     themeToggleIcon.textContent =
-      theme === "theme" ? "☾" : "✦";
+      theme === "dark"
+        ? "☾"
+        : "✦";
   }
 
+
   if (themeToggle) {
+
     themeToggle.setAttribute(
       "aria-label",
       "выбрать оформление"
     );
+
   }
 
+
   try {
+
     localStorage.setItem(
       themeStorageKey,
       theme
     );
+
   } catch (error) {}
 
 
+  /* цвет интерфейса Telegram */
+
+  if (tg) {
+
+    const colors = {
+
+      dark: "#071426",
+
+      pink: "#24131f",
+
+      angel: "#f7f3ff",
+
+      minimalism: "#f3f3ef"
+
+    };
+
+    if (tg.setHeaderColor) {
+      tg.setHeaderColor(
+        colors[theme]
+      );
+    }
+
+    if (tg.setBackgroundColor) {
+      tg.setBackgroundColor(
+        colors[theme]
+      );
+    }
+
   }
 
+}
+
+function initTheme() {
+
+  let saved = "dark";
+
+  try {
+
+    saved =
+      localStorage.getItem(
+        themeStorageKey
+      ) || "dark";
+
+  } catch (error) {}
+
+
+  applyTheme(saved);
+
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
 /* ==================================================
    имт и дефицит
 ================================================== */
@@ -2987,20 +3064,22 @@ function calculateEnergy() {
 
 
 /* ==================================================
-   выход на главную
+   ПОКАЗАТЬ ГЛАВНУЮ
 ================================================== */
 
 function showHome() {
+
   currentSectionId = null;
   currentArticleId = null;
   currentPage = 0;
 
 
-  document.body.style.overflow = "";
-  homeScreen.classList.remove("hidden");
-  contentScreen.classList.add("hidden");
+  const articleOverlay =
+    document.getElementById("articleOverlay");
 
-  window.scrollTo({ top: 0, behavior: "instant" });
+  if (articleOverlay) {
+    articleOverlay.remove();
+  }
 
 
   const sectionOverlay =
@@ -3011,15 +3090,134 @@ function showHome() {
   }
 
 
-const articleOverlay =
+  document.body.style.overflow = "";
 
-    document.getElementById("articleOverlay");
 
-  if (articleOverlay) {
+  contentScreen.classList.add("hidden");
 
-    articleOverlay.remove();
+  homeScreen.classList.remove("hidden");
 
+
+  window.scrollTo(0, 0);
+
+}
+
+/* ==================================================
+   ОТКРЫТЬ РАЗДЕЛ
+================================================== */
+
+function openSection(sectionId) {
+
+  const section = sections[sectionId];
+
+  if (!section) {
+    return;
   }
+
+  if (sectionId === "mood") {
+    currentSectionId = "mood";
+    currentArticleId = null;
+    currentPage = 0;
+    contentScreen.classList.remove("hidden");
+    homeScreen.classList.add("hidden");
+    renderMoodJournal();
+    return;
+  }
+
+  if (sectionId === "tools") {
+    currentSectionId = "tools";
+    currentArticleId = null;
+    currentPage = 0;
+    contentScreen.classList.remove("hidden");
+    homeScreen.classList.add("hidden");
+    renderTools();
+    return;
+  }
+   
+  currentSectionId = sectionId;
+
+  currentArticleId = null;
+
+  currentPage = 0;
+
+  contentScreen.classList.remove("hidden");
+
+  homeScreen.classList.add("hidden");
+
+
+  contentContainer.innerHTML = `
+
+    <div class="screen-inner fade-in">
+
+      <button
+        class="back-button"
+        id="sectionBackButton"
+      >
+        ← назад в разделы
+      </button>
+
+
+      <header class="section-header">
+
+        <p class="section-kicker">
+          ${section.kicker}
+        </p>
+
+        <h1>
+          ${section.title}
+        </h1>
+
+        <p>
+          ${section.description}
+        </p>
+
+      </header>
+
+
+      <div class="topic-list">
+
+        ${section.topics.map(topic => `
+
+          <button
+            class="topic-card"
+            data-article="${topic.id}"
+          >
+
+            <div class="topic-card-content">
+
+              <p class="topic-card-title">
+                ${topic.title}
+              </p>
+
+              <p class="topic-card-description">
+                ${topic.description}
+              </p>
+
+            </div>
+
+            <span class="topic-arrow">
+              ›
+            </span>
+
+          </button>
+
+        `).join("")
+        
+        }
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  document
+    .getElementById("sectionBackButton")
+    .addEventListener("click", showHome);
+
+
+  window.scrollTo(0, 0);
 }
 
 /* ==================================================
@@ -3607,7 +3805,7 @@ if (sectionId = "mood") {
 }
 
 /* ==================================================
-  ОТКРЫТЬ САМУ СТАТЬЮ
+   ОТКРЫТИЕ СТАТЬИ
 ================================================== */
 
 function openArticle(articleId) {
@@ -3624,49 +3822,6 @@ function openArticle(articleId) {
 }
 
 
-/* ==================================================
-   РЕНДЕР СТРАНИЦЫ СТАТЬИ
-================================================== */
-
-function renderArticle() {
-
-  const article =
-    articles[currentArticleId];
-
-  if (!article) {
-    return;
-  }
-
-  const page =
-    article.pages[currentPage];
-
-  const totalPages =
-    article.pages.length;
-
-  const isFirstPage =
-    currentPage === 0;
-
-  const isLastPage =
-    currentPage === totalPages - 1;
-
-
-  /* удаляем старое окно статьи */
-
-  const oldOverlay =
-    document.getElementById("articleOverlay");
-
-  if (oldOverlay) {
-    oldOverlay.remove();
-  }
-
-
-  /* создаем настоящее отдельное окно */
-
-  const overlay =
-    document.createElement("div");
-
-  overlay.id = "articleOverlay";
-
   overlay.className =
     "article-overlay";
 
@@ -3679,7 +3834,7 @@ function renderArticle() {
         class="back-button"
         id="articleBackButton"
       >
-        ← вернуться к разделам
+        ← вернуться назад
       </button>
 
 
@@ -3709,23 +3864,22 @@ function renderArticle() {
 
       <div class="article-navigation">
 
-<button
-  class="article-nav-button"
-  id="previousButton"
-  ${isFirstPage ? "disabled" : ""}
->
-  ← назад
-</button>
-
+        <button
+          class="article-nav-button ${isFirstPage ? "disabled" : ""}"
+          id="previousButton"
+        >
+          ← назад
+        </button>
 
 
         <button
-          class="article-nav-button"
+          class="article-nav-button next ${isLastPage ? "disabled" : ""}"
           id="nextButton"
-         ${isLastPage ? "disabled" : ""}
         >
           дальше →
         </button>
+
+      </div>
 
 
       <p class="page-counter">
@@ -3790,9 +3944,8 @@ overlay.style.zIndex = "2147483647";
   overlay.scrollTop = 0;
 
 }
-
 /* ==================================================
-   КНОПКА ВЕРНУТЬСЯ К РАЗДЕЛУ
+   НАЗАД ИЗ СТАТЬИ
 ================================================== */
 
 function goBackFromArticle() {
@@ -3805,12 +3958,10 @@ function goBackFromArticle() {
   }
 
   document.body.style.overflow = "hidden";
- {
+
   currentArticleId = null;
   currentPage = 0;
-   
-  renderArticle();
-}
+
 }
 /* ==================================================
    СЛЕДУЮЩАЯ СТРАНИЦА
@@ -3838,6 +3989,7 @@ function nextPage() {
 }
 
 
+
 /* ==================================================
    ПРЕДЫДУЩАЯ СТРАНИЦА
 ================================================== */
@@ -3858,18 +4010,30 @@ function previousPage() {
    МЕХАНИКА ВЫБОРА В ГЛАВНОМ МЕНЮ
 ================================================== */
 
-homeScreen.addEventListener("click", event => {
+document.addEventListener("click", (event) => {
+
   const sectionButton = event.target.closest("[data-section]");
-  const articleButton = event.target.closest("[data-article]");
 
   if (sectionButton) {
-    openSection(sectionButton.dataset.section);
+    const sectionId = sectionButton.dataset.section;
+
+    if (sectionId === "settings") {
+      return;
+    }
+
+    openSection(sectionId);
     return;
   }
 
+  const articleButton = event.target.closest("[data-article]");
+
   if (articleButton) {
-    openArticle(articleButton.dataset.article);
+    const articleId = articleButton.dataset.article;
+
+    openArticle(articleId);
+    return;
   }
+
 });
 
 
@@ -3898,7 +4062,7 @@ if (themeToggle) {
       let currentTheme =
         localStorage.getItem(
           themeStorageKey
-        ) || "theme";
+        ) || "dark";
 
 
       let currentIndex =
@@ -3917,7 +4081,9 @@ if (themeToggle) {
         themes.length;
 
 
-applyTheme(themes[nextIndex]);
+      applyTheme(
+        themes[nextIndex]
+      );
 
     }
   );
@@ -3929,6 +4095,15 @@ if (quickDiaryButton) {
     "click",
     () => openSection("mood")
   );
+}
+
+
+initTheme();
+
+
+if (quoteElement) {
+  quoteElement.style.transition =
+    "opacity 0.12s ease";
 }
 
 /* ==================================================
@@ -3953,7 +4128,6 @@ if (quoteElement) {
 const supplementStorageKey = "molecule-space-supplements";
 const waterStorageKey = "molecule-space-water";
 const waterGoalStorageKey = "molecule-space-water-goal";
-const reminderStorageKey = "molecule-space-reminders";
 
 /* --- данные дневника настроения ---*/
 
@@ -4025,11 +4199,6 @@ function setTodayWater(amount) {
   writeLocal(waterStorageKey, data);
 }
 
-/* --- данные календаря (напоминания - с припиской reminders - Summary) ---*/
-function getReminderData() {
-  const value = readLocal(reminderStorageKey, []);
-  return Array.isArray(value) ? value : [];
-}
 
 function getSupplementTaken(supplement, date = trackerDate()) {
   return Array.isArray(supplement.taken) && supplement.taken.includes(date);
@@ -4127,9 +4296,6 @@ function refreshHomeTrackers() {
     waterProgress.style.width = `${percent}%`;
   }
 
-  const reminders = getReminderData().filter(
-    r => r.enabled !== false
-  );
 }
 
 /*- данные множественных чисел -*/
@@ -4161,32 +4327,14 @@ function openTrackerOverlay(id, title, content) {
   overlay.id = id;
   overlay.className = "tracker-overlay";
 
- overlay.innerHTML = `
-  <div
-    class="tracker-modal fade-in"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="trackerTitle"
-  >
-    <button
-      class="tracker-close"
-      type="button"
-      aria-label="закрыть"
-    >
-      ×
-    </button>
-
-    <div class="tracker-modal-kicker">
-      molecule tracker
+  overlay.innerHTML = `
+    <div class="tracker-modal fade-in">
+      <button class="tracker-close" type="button" aria-label="закрыть">×</button>
+      <div class="tracker-modal-kicker">molecule tracker</div>
+      <h2>${title}</h2>
+      <div class="tracker-modal-content">${content}</div>
     </div>
-
-    <h2 id="trackerTitle">${escapeHtml(title)}</h2>
-
-    <div class="tracker-modal-content">
-      ${content}
-    </div>
-  </div>
-`;
+  `;
 
   document.body.appendChild(overlay);
   document.body.style.overflow = "hidden";
@@ -4207,7 +4355,6 @@ function openTrackerOverlay(id, title, content) {
 
   return overlay;
 }
-
 /*- открыть сохраненный календарь -*/
 
 function renderSupplementTracker() {
@@ -4233,8 +4380,8 @@ function renderSupplementTracker() {
   }
 
   calendarDate.setDate(1);
-
-  const monthNames = [
+ 
+   const monthNames = [
     "январь",
     "февраль",
     "март",
@@ -4258,7 +4405,7 @@ function renderSupplementTracker() {
     "сб",
     "вс"
   ];
-
+ 
   const saveCalendarState = () => {
     writeLocal(stateKey, {
       selectedSupplementId,
@@ -4289,8 +4436,9 @@ function renderSupplementTracker() {
         <div class="supplement-calendar-day is-empty"></div>
       `);
     }
-
-    for (let day = 1; day <= daysInMonth; day++) {
+   
+    // Пустые ячейки перед первым днем месяца.
+for (let day = 1; day <= daysInMonth; day++) {
       const date = new Date(year, month, day);
       const key = trackerDate(date);
 
@@ -4303,7 +4451,7 @@ function renderSupplementTracker() {
         selectedSupplement &&
         getSupplementTaken(selectedSupplement, key);
 
-      const isToday = key === todayKey;
+ const isToday = key === todayKey;
 
       cells.push(`
         <button
@@ -4332,6 +4480,7 @@ function renderSupplementTracker() {
     getSelectedSupplement();
 
   const calendar = getMonthCalendar();
+
 
   const supplementOptions = supplements.length
     ? supplements
@@ -4791,34 +4940,89 @@ function renderWaterTracker() {
     });
 }
 
-const savedTheme = readLocal(themeStorageKey, "theme");
-applyTheme(savedTheme);
-refreshHomeTrackers();
-const currentTheme = readLocal(themeStorageKey, "theme");
-
-
-
-
-function addEscapeHandler(close) {
-  const handleKeydown = event => {
-    if (event.key === "Escape") {
-      close();
+function openThemePicker() {
+  const themes = [
+    {
+      id: "dark",
+      name: "темная",
+      description: "спокойная темная тема"
+    },
+    {
+      id: "pink",
+      name: "розовая",
+      description: "мягкая розовая тема"
+    },
+    {
+      id: "angel",
+      name: "angel",
+      description: "светлая воздушная тема"
+    },
+    {
+      id: "minimalism",
+      name: "минимализм",
+      description: "чистая минималистичная тема"
     }
-  };
+  ];
+const currentTheme =
+    localStorage.getItem("molecule-space-theme") ||
+    "dark";
 
-  document.addEventListener("keydown", handleKeydown);
+  const overlay = openTrackerOverlay(
+    "themePickerOverlay",
+    "тема приложения",
+    `
+      <div class="theme-picker-list">
+        ${themes
+          .map(
+            theme => `
+          <button
+            type="button"
+            class="theme-picker-option ${
+              currentTheme === theme.id ? "is-active" : ""
+            }"
+            data-theme="${theme.id}"
+          >
+            <span class="theme-picker-check">
+              ${currentTheme === theme.id ? "✓" : ""}
+            </span>
 
-  return () => {
-    document.removeEventListener("keydown", handleKeydown);
-  };
+            <span>
+              <strong>${theme.name}</strong>
+              <small>${theme.description}</small>
+            </span>
+          </button>
+        `
+          )
+          .join("")}
+      </div>
+    `
+  );
+
+  overlay
+    .querySelectorAll("[data-theme]")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        const theme = button.dataset.theme;
+
+        localStorage.setItem(
+          "molecule-space-theme",
+          theme
+        );
+
+        document.body.dataset.theme = theme;
+
+        renderThemeButtons?.();
+        overlay.remove();
+        document.body.style.overflow = "";
+      });
+    });
 }
 
 function escapeHtml(value) {
-  return String(value)
+  return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
-
