@@ -1325,34 +1325,34 @@ const articles = {
       {
         id: "swapx-neo",
         title: "Swap-X Neo"
-      }  
+      },  
 
       {
         id: "swapx-pro",
         title: "Swap-X Pro"
-      }  
+      },  
 
      
      ` <h3> Другие БАДы </h3> `,
       {
         id: "supressa",
         title: "Supressa"
-      }
+      },
 
       {
         id: "mineral",
         title: "Mineral Balance"
-      }    
+      },    
 
       {
         id: "heedly",
         title: "Heedly Slim Complex"
-      }
+      },
 
       {
         id: "ozempic",
         title: "Ozempic Turbo"
-      }
+      },
 
       {
         id: "reducsin",
