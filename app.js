@@ -3083,7 +3083,7 @@ if (sectionId = "mood") {
   currentSectionId = "mood";
   currentArticleId = null;
   currentPage = 0;
-
+}
   const overlay =
     document.createElement("div");
 
