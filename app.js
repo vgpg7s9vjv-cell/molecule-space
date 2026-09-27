@@ -1299,7 +1299,7 @@ const articles = {
 
     topics: [
      
-     ` <h3>Молекула</h3> `
+     ` <h3>Молекула</h3> `,
       {
         id: "mlk-plus",
         title: "Молекула Plus"
@@ -1321,7 +1321,7 @@ const articles = {
       },
 
      
-     ` <h3>Swap-X</h3> `
+     ` <h3>Swap-X</h3> `,
       {
         id: "swapx-neo",
         title: "Swap-X Neo"
@@ -1333,7 +1333,7 @@ const articles = {
       }  
 
      
-     ` <h3> Другие БАДы </h3> `
+     ` <h3> Другие БАДы </h3> `,
       {
         id: "supressa",
         title: "Supressa"
