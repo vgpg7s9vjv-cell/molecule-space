@@ -2634,7 +2634,7 @@ function showHome() {
     sectionOverlay.remove();
   }
 }
-  removeSectionOverlay();
+
   removeArticleOverlay();
 
   document.body.style.overflow = "";
