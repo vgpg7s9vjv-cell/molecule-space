@@ -2635,7 +2635,7 @@ function showHome() {
   if (sectionOverlay) {
     sectionOverlay.remove();
   }
-
+}
 
   document.body.style.overflow = "";
 
@@ -2647,7 +2647,7 @@ function showHome() {
 
   window.scrollTo(0, 0);
 
-}
+
 /* ==================================================
    ОТКРЫТЬ РАЗДЕЛы интерактивные
 ================================================== */
