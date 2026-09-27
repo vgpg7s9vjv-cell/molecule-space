@@ -1446,7 +1446,7 @@ body,
 
 .article-overlay {
   color: var(--text-plain);
-}
+
 
 .article-overlay-inner {
   width: 100%;
@@ -1494,7 +1494,7 @@ body,
 .article-overlay .page-counter {
   padding-bottom: 20px;
 }
-
+}
 /* ==================================================
    ПОЛНОЭКРАННЫЕ РАЗДЕЛЫ
 ================================================== */
