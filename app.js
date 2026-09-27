@@ -741,7 +741,7 @@ const articles = {
 
     section: "medical",
 
-    title: "общие аналзы, медкомиссия и тесты на вещ-ва",
+    title: "общие анализы, медкомиссия и тесты на вещ-ва",
 
     category: "видно ли БАДы для похудения в анализах",
 
@@ -1288,19 +1288,90 @@ const articles = {
      БАДЫ
   ========================== */
 
-  "supplements-voice": {
+   "supplements-voice": {
+    
+    title: "Чек-лист по всем БАДам",
 
-    section: "supplements",
+    kicker: "basic information",
 
-    title: "подробный чек-лист популярных БАДов",
+    description:
+      "здесь мы собрали все подробности и разделили их по полочкам",
+
+    topics: [
+     
+     ` <h3>Молекула</h3> `
+      {
+        id: "mlk-plus",
+        title: "Молекула Plus"
+      },
+
+      {
+        id: "mlk-prem",
+        title: "Молекула Premium"
+      },
+
+      {
+        id: "mlk-ultra",
+        title: "Молекула Ultra"
+      },     
+     
+      {
+        id: "mlk-zb",
+        title: "Молекула ЖБ"
+      },
+
+     
+     ` <h3>Swap-X</h3> `
+      {
+        id: "swapx-neo",
+        title: "Swap-X Neo"
+      }  
+
+      {
+        id: "swapx-pro",
+        title: "Swap-X Pro"
+      }  
+
+     
+     ` <h3> Другие БАДы </h3> `
+      {
+        id: "supressa",
+        title: "Supressa"
+      }
+
+      {
+        id: "mineral",
+        title: "Mineral Balance"
+      }    
+
+      {
+        id: "heedly",
+        title: "Heedly Slim Complex"
+      }
+
+      {
+        id: "ozempic",
+        title: "Ozempic Turbo"
+      }
+
+      {
+        id: "reducsin",
+        title: "Редуксин"
+      }     
+    ]
+  },
+ 
+  "mlk-plus": {
+
+    section: "supplements-voice",
+
+    title: "Molecule Plus 40 капсул",
 
     category: "сложности выбора и как его сделать",
 
     pages: [
 
       {
-        heading: "❶ Molecule Plus 40 капсул",
-
         content: `
            <p>
           <b>что из себя представляет</b>: базовая база<br>
@@ -1350,12 +1421,42 @@ const articles = {
      <li><b>начиная с 16го дня</b>: добавить прием 2ой капсулы за 40 минут до приема пищи, не позднее, чем за 7-8 часов о сна</li>
           </ul> 
         `
-      },
+    },
+     
+      {
+        heading: "перерывы после курса Молекулы Plus",
 
+        content: `   
+       
+              <h2>Ozempic Pro/Turbo</h2>
+          <ul>
+            <li>ozempic → ozempic — <b>14 дней</b></li>
+            <li>ozempic → жб — <b>14 дней</b></li>
+            <li>ozempic → ultra — <b>10-14 дней</b></li>
+            <li>ozempic → plus — <b>7 дней</b></li>
+            <li>ozempic → premium — <b>7 дней</b></li>
+            <li>ozempic → supressa — <b>14 дней</b></li>
+            <li>ozempic → mineral — <b>7-10 дней</b></li>
+            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
+            <li>ozempic → neo — <b>14 дней</b></li> 
+            <li>ozempic → pro — <b>14 дней</b></li> 
+          </ul>             
+        `
+      }
+    ]
+  },
+
+     "mlk-prem": {
+
+    section: "supplements-voice",
+
+    title: "Molecule Premium 46 капсул",
+
+    category: "сложности выбора и как его сделать",
+
+    pages: [
 
       {
-        heading: "❷ Molecule Premium 46 капсул",
-
         content: `
           <p>
           <b>что из себя представляет</b>: младший бро Плюса<br>
@@ -1407,12 +1508,42 @@ const articles = {
        <li><b>2ая капсула</b>: за 40 минут до приема пищи, не позднее, чем за 7-8 часов о сна</li>
           </ul>            
         `
-      },
+    },
+     
+      {
+        heading: "перерывы после курса Молекулы Premium",
 
+        content: `   
+       
+              <h2>Ozempic Pro/Turbo</h2>
+          <ul>
+            <li>ozempic → ozempic — <b>14 дней</b></li>
+            <li>ozempic → жб — <b>14 дней</b></li>
+            <li>ozempic → ultra — <b>10-14 дней</b></li>
+            <li>ozempic → plus — <b>7 дней</b></li>
+            <li>ozempic → premium — <b>7 дней</b></li>
+            <li>ozempic → supressa — <b>14 дней</b></li>
+            <li>ozempic → mineral — <b>7-10 дней</b></li>
+            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
+            <li>ozempic → neo — <b>14 дней</b></li> 
+            <li>ozempic → pro — <b>14 дней</b></li> 
+          </ul>             
+        `
+      }
+    ]
+  },
 
-             {
-        heading: "❸ Molecule Ultra 30 капсул",
+  "mlk-ultra": {
 
+    section: "supplements-voice",
+
+    title: "Molecule Ultra 30 капсул",
+
+    category: "сложности выбора и как его сделать",
+
+    pages: [
+
+      {
         content: `
           <p>
           <b>что из себя представляет</b>: считается сильнее Плюса и Премиума<br>
@@ -1461,12 +1592,42 @@ const articles = {
         <li><b>на протяжении всего курса</b>: по 1 капсуле за 40 минут до первого приема пищи</li>
           </ul>            
         `
-      },
+    },
 
+      {
+        heading: "перерывы после курса Молекулы Ultra",
 
-       {
-        heading: "❹ Molecule Plus/Premium ЖБ 30 капсул",
+        content: `   
+       
+              <h2>Ozempic Pro/Turbo</h2>
+          <ul>
+            <li>ozempic → ozempic — <b>14 дней</b></li>
+            <li>ozempic → жб — <b>14 дней</b></li>
+            <li>ozempic → ultra — <b>10-14 дней</b></li>
+            <li>ozempic → plus — <b>7 дней</b></li>
+            <li>ozempic → premium — <b>7 дней</b></li>
+            <li>ozempic → supressa — <b>14 дней</b></li>
+            <li>ozempic → mineral — <b>7-10 дней</b></li>
+            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
+            <li>ozempic → neo — <b>14 дней</b></li> 
+            <li>ozempic → pro — <b>14 дней</b></li> 
+          </ul>             
+        `
+      }
+    ]
+  },
 
+  "mlk-zb": {
+
+    section: "supplements-voice",
+
+    title: "Molecule Plus/Premium ЖБ 30 капсул",
+
+    category: "сложности выбора и как его сделать",
+
+    pages: [
+
+      {
         content: `
           <p> 
           <b>что из себя представляет</b>: считается одним из самых сильных БАДов на рынке жиросжигателей<br>
@@ -1533,12 +1694,42 @@ const articles = {
             </p>
           </div>
         `
-      },
+    },
+     
+      {
+        heading: "перерывы после курса Молекулы ЖБ",
 
+        content: `   
+       
+              <h2>Ozempic Pro/Turbo</h2>
+          <ul>
+            <li>ozempic → ozempic — <b>14 дней</b></li>
+            <li>ozempic → жб — <b>14 дней</b></li>
+            <li>ozempic → ultra — <b>10-14 дней</b></li>
+            <li>ozempic → plus — <b>7 дней</b></li>
+            <li>ozempic → premium — <b>7 дней</b></li>
+            <li>ozempic → supressa — <b>14 дней</b></li>
+            <li>ozempic → mineral — <b>7-10 дней</b></li>
+            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
+            <li>ozempic → neo — <b>14 дней</b></li> 
+            <li>ozempic → pro — <b>14 дней</b></li> 
+          </ul>             
+        `
+      }
+    ]
+  },
 
-             {
-        heading: "❺ Supressa 36 капсул",
+  "supressa": {
 
+    section: "supplements-voice",
+
+    title: "Supressa 36 капсул",
+
+    category: "сложности выбора и как его сделать",
+
+    pages: [
+
+      {
         content: `
           <p> 
           <b>что из себя представляет</b>: ныне запрещенный БАД, который считается по градации сильнее,<br>
@@ -1587,12 +1778,43 @@ const articles = {
         <li><b>продолжение курса</b>: по 1 капсуле каждый день сразу после первого плотного приема пищи</li> 
           </ul>            
         `
-      },
+    },         
+
+      {
+        heading: "перерывы после курса Supressa",
+
+        content: `   
+       
+              <h2>Ozempic Pro/Turbo</h2>
+          <ul>
+            <li>ozempic → ozempic — <b>14 дней</b></li>
+            <li>ozempic → жб — <b>14 дней</b></li>
+            <li>ozempic → ultra — <b>10-14 дней</b></li>
+            <li>ozempic → plus — <b>7 дней</b></li>
+            <li>ozempic → premium — <b>7 дней</b></li>
+            <li>ozempic → supressa — <b>14 дней</b></li>
+            <li>ozempic → mineral — <b>7-10 дней</b></li>
+            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
+            <li>ozempic → neo — <b>14 дней</b></li> 
+            <li>ozempic → pro — <b>14 дней</b></li> 
+          </ul>             
+        `
+      }
+    ]
+  },    
 
 
-             {
-        heading: "❻ Mineral 30 капсул",
+  "mineral": {
 
+    section: "supplements-voice",
+
+    title: "Mineral 30 капсул",
+
+    category: "сложности выбора и как его сделать",
+
+    pages: [
+
+      {
         content: `
           <p> 
           <b>что из себя представляет</b>: довольно легкий БАД, при передозе которого побочки могут быть хуже,<br>
@@ -1646,11 +1868,42 @@ const articles = {
           </div>          
         `
       },
+     
+      {
+        heading: "перерывы после курса Mineral",
+
+        content: `   
+       
+              <h2>Ozempic Pro/Turbo</h2>
+          <ul>
+            <li>ozempic → ozempic — <b>14 дней</b></li>
+            <li>ozempic → жб — <b>14 дней</b></li>
+            <li>ozempic → ultra — <b>10-14 дней</b></li>
+            <li>ozempic → plus — <b>7 дней</b></li>
+            <li>ozempic → premium — <b>7 дней</b></li>
+            <li>ozempic → supressa — <b>14 дней</b></li>
+            <li>ozempic → mineral — <b>7-10 дней</b></li>
+            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
+            <li>ozempic → neo — <b>14 дней</b></li> 
+            <li>ozempic → pro — <b>14 дней</b></li> 
+          </ul>             
+        `
+      }
+    ]
+  },
 
 
-             {
-        heading: "❼ Heedly Slim-Complex 60 капсул",
+  "heedly": {
 
+    section: "supplements-voice",
+
+    title: "Heedly Slim-Complex 60 капсул",
+
+    category: "сложности выбора и как его сделать",
+
+    pages: [
+
+      {
         content: `
           <p> 
           <b>что из себя представляет</b>: один из самых деликатных БАДов<br>
@@ -1693,11 +1946,41 @@ const articles = {
           </ul>               
         `
       },
-
-
+     
       {
-        heading: "❽ Редуксин 30/90 капсул",
+        heading: "перерывы после курса Heedly",
 
+        content: `   
+       
+              <h2>Ozempic Pro/Turbo</h2>
+          <ul>
+            <li>ozempic → ozempic — <b>14 дней</b></li>
+            <li>ozempic → жб — <b>14 дней</b></li>
+            <li>ozempic → ultra — <b>10-14 дней</b></li>
+            <li>ozempic → plus — <b>7 дней</b></li>
+            <li>ozempic → premium — <b>7 дней</b></li>
+            <li>ozempic → supressa — <b>14 дней</b></li>
+            <li>ozempic → mineral — <b>7-10 дней</b></li>
+            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
+            <li>ozempic → neo — <b>14 дней</b></li> 
+            <li>ozempic → pro — <b>14 дней</b></li> 
+          </ul>             
+        `
+      }
+    ]
+  },
+
+
+  "reducsin": {
+
+    section: "supplements-voice",
+
+    title: "Редуксин 30/90 капсул",
+
+    category: "сложности выбора и как его сделать",
+
+    pages: [
+     {
         content: `
           <p> 
           <b>что из себя представляет</b>: единственный в СНГ рецептурный препарат в составе которого есть <b>сибутрамин</b><br>
@@ -1746,12 +2029,21 @@ const articles = {
         <li><b>на протяжении всего курса</b>: по 1 капсуле до или во время первого приема пищи</li>         
           </ul>           
         `
-      },       
+      }
+    ]
+  },      
 
        
-      {
-        heading: "❾ Swapx Neo/Pro 30 капсул",
+  "swapx-neo": {
 
+    section: "supplements-voice",
+
+    title: "Swapx Neo 30 капсул",
+
+    category: "сложности выбора и как его сделать",
+
+    pages: [
+     {
         content: `
       <div class="info-box">
             <p>
@@ -1759,8 +2051,6 @@ const articles = {
             </p>
           </div>  
 
-          
-          <h2><b>Swapx Neo</b></h2>
           <p> 
           <b>что из себя представляет</b>: более деликатная версия<br>
           <b>курс на одну упаковку</b>: 30 дней<br>
@@ -1805,8 +2095,43 @@ const articles = {
         <li><b>1ая неделя</b>: по 1 капсуле <b>день через день</b> сразу после приема пищи</li>
         <li><b>продолжение курса</b>: по 1 капсуле каждый день сразу после первого приема пищи</li> 
           </ul>  
+          `
+      },
+     
+      {
+        heading: "перерывы после курса Swap-X Neo",
 
-          <h2><b>Swapx Pro</b></h2>
+        content: `   
+       
+              <h2>Ozempic Pro/Turbo</h2>
+          <ul>
+            <li>ozempic → ozempic — <b>14 дней</b></li>
+            <li>ozempic → жб — <b>14 дней</b></li>
+            <li>ozempic → ultra — <b>10-14 дней</b></li>
+            <li>ozempic → plus — <b>7 дней</b></li>
+            <li>ozempic → premium — <b>7 дней</b></li>
+            <li>ozempic → supressa — <b>14 дней</b></li>
+            <li>ozempic → mineral — <b>7-10 дней</b></li>
+            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
+            <li>ozempic → neo — <b>14 дней</b></li> 
+            <li>ozempic → pro — <b>14 дней</b></li> 
+          </ul>             
+        `
+      }
+    ]
+  }, 
+ 
+   "swapx-pro": {
+
+    section: "supplements-voice",
+
+    title: "Swapx Pro 30 капсул",
+
+    category: "сложности выбора и как его сделать",
+
+    pages: [
+     { 
+         content: `
           <p> 
           <b>что из себя представляет</b>: усиленная вдвойне по компонентам версия<br>
           <b>курс на одну упаковку</b>: 30 дней<br>
@@ -1853,11 +2178,41 @@ const articles = {
           </ul> 
         `
       },
-
-
+     
       {
-        heading: "❿ Turbo-Ozempic 60 капсул",
+        heading: "перерывы после курса Swap-X Pro",
 
+        content: `   
+       
+              <h2>Ozempic Pro/Turbo</h2>
+          <ul>
+            <li>ozempic → ozempic — <b>14 дней</b></li>
+            <li>ozempic → жб — <b>14 дней</b></li>
+            <li>ozempic → ultra — <b>10-14 дней</b></li>
+            <li>ozempic → plus — <b>7 дней</b></li>
+            <li>ozempic → premium — <b>7 дней</b></li>
+            <li>ozempic → supressa — <b>14 дней</b></li>
+            <li>ozempic → mineral — <b>7-10 дней</b></li>
+            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
+            <li>ozempic → neo — <b>14 дней</b></li> 
+            <li>ozempic → pro — <b>14 дней</b></li> 
+          </ul>             
+        `
+      }
+    ]
+  },
+
+
+   "swapx-pro": {
+
+    section: "supplements-voice",
+
+    title: "Turbo-Ozempic 60 капсул",
+
+    category: "сложности выбора и как его сделать",
+
+    pages: [
+     {    
         content: `
       <div class="info-box">
             <p>
@@ -1907,7 +2262,28 @@ const articles = {
         <li><b>на протяжении всего курса</b>: по 1 капсуле 2 раза в день во время или после приема пищи</li>         
           </ul>           
         `
-      }         
+      },  
+
+      {
+        heading: "перерывы после курса Ozempic",
+
+        content: `   
+       
+              <h2>Ozempic Pro/Turbo</h2>
+          <ul>
+            <li>ozempic → ozempic — <b>14 дней</b></li>
+            <li>ozempic → жб — <b>14 дней</b></li>
+            <li>ozempic → ultra — <b>10-14 дней</b></li>
+            <li>ozempic → plus — <b>7 дней</b></li>
+            <li>ozempic → premium — <b>7 дней</b></li>
+            <li>ozempic → supressa — <b>14 дней</b></li>
+            <li>ozempic → mineral — <b>7-10 дней</b></li>
+            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
+            <li>ozempic → neo — <b>14 дней</b></li> 
+            <li>ozempic → pro — <b>14 дней</b></li> 
+          </ul>             
+        `
+      }
     ]
   },
 
