@@ -15,7 +15,7 @@ content="width=device-width, initial-scale=1.0, viewport-fit=cover"
   <script>
   (function () {
     const savedTheme =
-      localStorage.getItem("molecule-space-theme") || "dark";
+      localStorage.getItem("molecule-space-theme") || "theme";
 
     const allowedThemes = [
       "dark",
@@ -26,7 +26,7 @@ content="width=device-width, initial-scale=1.0, viewport-fit=cover"
 
     const theme = allowedThemes.includes(savedTheme)
       ? savedTheme
-      : "dark";
+      : "theme";
 
     document.documentElement.dataset.theme = theme;
   })();
