@@ -21,40 +21,32 @@ if (tg) {
 
 
 /* ==================================================
-   фраза дня
+   ФРАЗЫ ДЛЯ ПОДДЕРЖКИ
 ================================================== */
 
 const quotes = [
-"срыв — не повод бросать все",
+  "никто не обязан заслуживать право на еду, отдых и заботу о себе",
 
-"лучшая мотивация — это шмотки, которые лежат в шкафу и ждут, когда ты в них влезешь",
+  "твой самый трудный день не отменяет весь путь, который был пройден",
 
-"твой самый трудный день не отменяет весь путь, который был пройден",
+  "тело не является экзаменом, который нужно сдать на определенный размер",
 
-"в любой непонятной ситуации — ложись спать, ведь во сне невозможно пойти к холодильнику",
+  "один прием пищи не способен определить твою ценность",
 
-"не делай покупку абонемента в зал своим любимым видом благотворительности",
+  "тебе можно уставать. тебе можно остановиться",
 
-"тебе можно уставать и остановиться",
+  "восстановление не обязано быть идеальным, чтобы быть настоящим",
 
-"минутная слабость во рту не стоит часов разочарования перед зеркалом",
+  "ты больше, чем цифры на весах, в приложении или на бирке одежды",
 
-"дисциплина — это решение делать то, чего ты не хочешь, чтобы достичь того, чего ты хочешь больше всего",
-
-"сделай свое тело местом, в котором тебе приятно жить",
-
-"уважение к себе начинается с того, чем ты наполняешь свой день и свою тарелку",
-
-"твоя лень не сделает тебя увереннее в себе",
-
-"перестань искать «идеальный понедельник»! идеального времени не будет никогда, есть только здесь и сейчас"
+  "еда не делает из тебя хорошего или плохого человека, это еда, а не моральный тест"
 ];
 
 let currentQuote = 0;
 
 
 /* ==================================================
-  разделы
+   ДАННЫЕ РАЗДЕЛОВ
 ================================================== */
 
 const sections = {
@@ -65,25 +57,25 @@ const sections = {
     kicker: "eating disorder",
 
     description:
-      "повторяем теорию, затрагиваем ремиссию и немного изучаем привычки",
+      "триггерные фразы, механизм, признаки и борьба с ними",
 
     topics: [
       {
         id: "rpp-basics",
         title: "база рпп",
-        description: "теория, которую все знают"
+        description: "что это и почему это не просто «любовь к диетам»"
       },
 
       {
         id: "rpp-thoughts",
-        title: "дьявол в деталях",
-        description: "привычки, «чистая» и «грязная» еда"
+        title: "еда, тело и самоощущение",
+        description: "какие мысли становятся навязчивыми, как еда влияет на них и термины РПП-комьюнити"
       },
 
       {
         id: "rpp-cycle",
         title: "вечный круговорот",
-        description: "существует ли ремиссия и можно ли вылечиться навсегда?"
+        description: "что скрывается за ограничениями, очищением и чрезмерной физнагрузкой"
       },
 
       {
@@ -137,19 +129,19 @@ const sections = {
       {
         id: "supplements-voice",
         title: "сложности выбора и как его сделать",
-        description: "подробный чек-лист популярных БАДов"
+        description: "Молекула плюс/прем/ультра/жб, Supressa, Mineral и другие"
       },
 
       {
         id: "supplements-rules",
-        title: "три слона, на которых держится мир БАДов",
-        description: "перерывы, побочки, что можно/нельзя"
+        title: "главные правила",
+        description: "правила приема, что можно и нельзя, побочки и как их избежать"
       },
 
       {
         id: "supplements-myths",
         title: "«какую таблетку выберешь, Нео?»",
-        description: "разбиваем мифы о БАДах в щепки"
+        description: "разбиваем популярные в интернете мифы вокруг БАДов"
       }     
     ]
   },
@@ -208,7 +200,7 @@ const sections = {
       {
         id: "care-teeth",
         title: "зубы",
-        description: "реально ли лишиться зубов на похудении<br>так ли нужен кальций как его советуют<br> сохранения эмали"
+        description: "реально ли лишиться зубов на похудении<br>так ли нужен кальций как его советуют<br>правила сохранения эмали"
       },
 
 
@@ -230,7 +222,7 @@ const sections = {
 
 
 links: {
-  title: "ссылки",
+  title: "все ссылки",
   category: "links",
   pages: [
     {
@@ -281,7 +273,7 @@ links: {
 
             <div class="official-link-info">
               <strong>канал с информацией</strong>
-              <span>не менее важный и информативный</span>
+              <span>не менее важный и информативный тгк</span>
             </div>
 
             <span class="official-link-arrow">→</span>
@@ -325,7 +317,7 @@ links: {
           <div class="official-links-warning">
 
             <div class="official-links-warning-title">
-              ⚠ не наткнись на мошенников!
+              ⚠ только официальные ссылки
             </div>
 
             <p>
@@ -348,6 +340,7 @@ links: {
 /* ==================================================
    СТАТЬИ
 ================================================== */
+
 const articles = {
 
 
@@ -359,14 +352,14 @@ const articles = {
 
     section: "rpp",
 
-    title: "теория, которую все знают",
+    title: "основы рпп",
 
-    category: "база рпп",
+    category: "база",
 
     pages: [
 
       {
-        heading: "⒈ что это вообще такое,<br>у кого бывает<br>и кто такие дранкорексички",
+        heading: "⒈ что это вообще такое, у кого бывает<br>и кто такие дранкорексички",
 
         content: `
           <p>
@@ -387,7 +380,7 @@ const articles = {
             когда человек просто недоволен весом, он садится на обычную диету, но рпп — это совсем другое<br>
             это когда внутри живет огромная, болезненная нелюбовь к себе<br>
             и кажется, что если ты уменьшишься в размерах, то эта пустота исчезнет, а тебя, наконец, полюбят и оценят<br>
-            <b>это попытка исправить разбитую душу через изнурение тела</b>
+            <b>это попытка исправить разбитую душу через изнурение тела<b>
           </p>
 
           <div class="info-box">
@@ -414,8 +407,8 @@ const articles = {
         heading: "основные разновидности рпп",
 
         content: `
+          <p>
              <h3>⟣орторексия⟢</h3>
-             <p>
               — одержимость «чистым» питанием<br>
               это не просто желание питаться правильно, это настоящая мания и страх съесть что-то «вредное»<br>
               человек делит еду на «правильную» и «токсичную» и выбирает еду не по вкусу или чувству голода, а по составу<br>
@@ -432,9 +425,8 @@ const articles = {
             alt="Фото2"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
             
-
+          <p>
           <h3>⟣дранкорексия⟢</h3>
-          <p>          
                 — алкоголь вместо еды<br>
                это расстройство, при котором человек намеренно отказывается от еды, чтобы «сэкономить» калории для алкоголя<br>
                другой вариант дранкорексии — когда после вечеринки с алкоголем человек устраивает себе жесткие голодовки или изнурительные тренировки,<br>
@@ -446,9 +438,8 @@ const articles = {
             </p>
             </div>
             
-
+          <p>
           <h3>⟣булимия⟢</h3>
-          <p>          
              — замкнутый круг «срыв-наказание»<br>
             это расстройство, которое проявляется приступами неконтролируемого переедания,<br>
             после которых человек пытается экстренно «очистить» организм<br>
@@ -461,17 +452,15 @@ const articles = {
              </p>
             </div>
 
-
+            <p>
              <h3>⟣преорексия⟢</h3>
-          <p>             
                — одержимость спортом в положении<br>
                расстройство, при котором беременные женщины изнуряют себя диетами и фитнесом,<br> 
                панически боясь набрать вес во время вынашивания ребенка
             </p>
 
-
+            <p>
             <h3>⟣бигорексия⟢</h3>
-          <p>            
                 (мужская анорексия) — когда человеку кажется,<br> 
                 что он слишком худой и «хилый», даже если он уже выглядит как профессиональный бодибилдер<br> 
                 он живет в зале и одержим ростом мышц
@@ -500,15 +489,15 @@ const articles = {
             <p>
             главное заблуждение о расстройствах пищевого поведения — думать, что человек с рпп 
             обязательно должен выглядеть как скелет, но это не так<br>
-            ☆ рпп — это психическое расстройство и оно происходит в голове, а не в теле, 
+            рпп — это психическое расстройство и оно происходит в голове, а не в теле, 
             а человек может иметь абсолютно обычный, средний вес или даже избыточный<br>
             <b>но при этом внутри него каждый день идет жестокая война с едой, калориями и собственным телом»</b>
             </p>
             </div>
             
 
-            <img src="./images/tumblrpost.jpg"
-            alt="tumblrpost"
+            <img src="./images/hungry.jpg"
+            alt="голод"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
       }
@@ -521,9 +510,9 @@ const articles = {
 
     section: "rpp",
 
-    title: "привычки, «чистая» и «грязная» еда",
+    title: "еда, тело и самоощущение",
 
-    category: "дьявол в деталях",
+    category: "привычки, «чистая» и «грязная» еда",
 
     pages: [
 
@@ -560,6 +549,7 @@ const articles = {
             alt="safe"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
+          <p>
           
             <h3>а как же проявляется привычка искать fear-food?</h3>
           <ul>
@@ -574,6 +564,7 @@ const articles = {
             <img src="./images/fearfood.jpg"
             alt="fear"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          </p>
         `
       },
 
@@ -608,6 +599,7 @@ const articles = {
         heading: "списки разрешенных и запрещенных рпп-продуктов",
 
         content: `
+          <p>
            <h3>что есть разрешено</h3>
           <ul>
             <li>огурцы, помидоры, листья салата</li>
@@ -622,6 +614,7 @@ const articles = {
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
 
 
+           <p>
            <h3>что есть нельзя</h3>
           <ul>
             <li>хлеб</li>
@@ -631,8 +624,8 @@ const articles = {
             <li>шоколад, фастфуд, макароны</li>
           </ul>
           
-            <img src="./images/tortik.jpg"
-            alt="tortik" 
+            <img src="./images/arttmolecule.jpg"
+            alt="Фото" 
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
         `
       }
@@ -645,9 +638,9 @@ const articles = {
 
     section: "rpp",
 
-    title: "теория ремиссии",
+    title: "вечный круговорот",
 
-    category: "вечный круговорот",
+    category: "РПП",
 
     pages: [
 
@@ -741,9 +734,9 @@ const articles = {
 
     section: "medical",
 
-    title: "общие анализы, медкомиссия и тесты на вещ-ва",
+    title: "БАДы в анализах крови, мочи, тестах на наркотики",
 
-    category: "видно ли БАДы для похудения в анализах",
+    category: "анализы",
 
     pages: [
 
@@ -866,7 +859,7 @@ const articles = {
 
     section: "medical",
 
-    title: "БАДы и расстройства психики",
+    title: "можно ли пить Молекулу, когда в анамнезе расстройство психики?",
 
     category: "я дединсайд, мне 10 лет",
 
@@ -1041,7 +1034,7 @@ const articles = {
 
     section: "medical",
 
-    title: "витамины и лечебные препараты",
+    title: "витамины и лекарства",
 
     category: "на чем сидит твоя девушка?",
 
@@ -1288,90 +1281,19 @@ const articles = {
      БАДЫ
   ========================== */
 
-   "supplements-voice": {
-    
-    title: "Чек-лист по всем БАДам",
+  "supplements-voice": {
 
-    kicker: "basic information",
+    section: "supplements",
 
-    description:
-      "здесь мы собрали все подробности и разделили их по полочкам",
+    title: "сложности выбора и как его сделать",
 
-    topics: [
-     
-     ` <h3>Молекула</h3> `,
-      {
-        id: "mlk-plus",
-        title: "Молекула Plus"
-      },
-
-      {
-        id: "mlk-prem",
-        title: "Молекула Premium"
-      },
-
-      {
-        id: "mlk-ultra",
-        title: "Молекула Ultra"
-      },     
-     
-      {
-        id: "mlk-zb",
-        title: "Молекула ЖБ"
-      },
-
-     
-     ` <h3>Swap-X</h3> `,
-      {
-        id: "swapx-neo",
-        title: "Swap-X Neo"
-      },  
-
-      {
-        id: "swapx-pro",
-        title: "Swap-X Pro"
-      },  
-
-     
-     ` <h3> Другие БАДы </h3> `,
-      {
-        id: "supressa",
-        title: "Supressa"
-      },
-
-      {
-        id: "mineral",
-        title: "Mineral Balance"
-      },    
-
-      {
-        id: "heedly",
-        title: "Heedly Slim Complex"
-      },
-
-      {
-        id: "ozempic",
-        title: "Ozempic Turbo"
-      },
-
-      {
-        id: "reducsin",
-        title: "Редуксин"
-      }     
-    ]
-  },
- 
-  "mlk-plus": {
-
-    section: "supplements-voice",
-
-    title: "Molecule Plus 40 капсул",
-
-    category: "сложности выбора и как его сделать",
+    category: "похудеть хочу, но выбрать не могу",
 
     pages: [
 
       {
+        heading: "❶ Molecule Plus 40 капсул",
+
         content: `
            <p>
           <b>что из себя представляет</b>: базовая база<br>
@@ -1421,42 +1343,12 @@ const articles = {
      <li><b>начиная с 16го дня</b>: добавить прием 2ой капсулы за 40 минут до приема пищи, не позднее, чем за 7-8 часов о сна</li>
           </ul> 
         `
-    },
-     
-      {
-        heading: "перерывы после курса Молекулы Plus",
+      },
 
-        content: `   
-       
-              <h2>Ozempic Pro/Turbo</h2>
-          <ul>
-            <li>ozempic → ozempic — <b>14 дней</b></li>
-            <li>ozempic → жб — <b>14 дней</b></li>
-            <li>ozempic → ultra — <b>10-14 дней</b></li>
-            <li>ozempic → plus — <b>7 дней</b></li>
-            <li>ozempic → premium — <b>7 дней</b></li>
-            <li>ozempic → supressa — <b>14 дней</b></li>
-            <li>ozempic → mineral — <b>7-10 дней</b></li>
-            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
-            <li>ozempic → neo — <b>14 дней</b></li> 
-            <li>ozempic → pro — <b>14 дней</b></li> 
-          </ul>             
-        `
-      }
-    ]
-  },
-
-     "mlk-prem": {
-
-    section: "supplements-voice",
-
-    title: "Molecule Premium 46 капсул",
-
-    category: "сложности выбора и как его сделать",
-
-    pages: [
 
       {
+        heading: "❷ Molecule Premium 46 капсул",
+
         content: `
           <p>
           <b>что из себя представляет</b>: младший бро Плюса<br>
@@ -1508,42 +1400,12 @@ const articles = {
        <li><b>2ая капсула</b>: за 40 минут до приема пищи, не позднее, чем за 7-8 часов о сна</li>
           </ul>            
         `
-    },
-     
-      {
-        heading: "перерывы после курса Молекулы Premium",
+      },
 
-        content: `   
-       
-              <h2>Ozempic Pro/Turbo</h2>
-          <ul>
-            <li>ozempic → ozempic — <b>14 дней</b></li>
-            <li>ozempic → жб — <b>14 дней</b></li>
-            <li>ozempic → ultra — <b>10-14 дней</b></li>
-            <li>ozempic → plus — <b>7 дней</b></li>
-            <li>ozempic → premium — <b>7 дней</b></li>
-            <li>ozempic → supressa — <b>14 дней</b></li>
-            <li>ozempic → mineral — <b>7-10 дней</b></li>
-            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
-            <li>ozempic → neo — <b>14 дней</b></li> 
-            <li>ozempic → pro — <b>14 дней</b></li> 
-          </ul>             
-        `
-      }
-    ]
-  },
 
-  "mlk-ultra": {
+             {
+        heading: "❸ Molecule Ultra 30 капсул",
 
-    section: "supplements-voice",
-
-    title: "Molecule Ultra 30 капсул",
-
-    category: "сложности выбора и как его сделать",
-
-    pages: [
-
-      {
         content: `
           <p>
           <b>что из себя представляет</b>: считается сильнее Плюса и Премиума<br>
@@ -1592,42 +1454,12 @@ const articles = {
         <li><b>на протяжении всего курса</b>: по 1 капсуле за 40 минут до первого приема пищи</li>
           </ul>            
         `
-    },
+      },
 
-      {
-        heading: "перерывы после курса Молекулы Ultra",
 
-        content: `   
-       
-              <h2>Ozempic Pro/Turbo</h2>
-          <ul>
-            <li>ozempic → ozempic — <b>14 дней</b></li>
-            <li>ozempic → жб — <b>14 дней</b></li>
-            <li>ozempic → ultra — <b>10-14 дней</b></li>
-            <li>ozempic → plus — <b>7 дней</b></li>
-            <li>ozempic → premium — <b>7 дней</b></li>
-            <li>ozempic → supressa — <b>14 дней</b></li>
-            <li>ozempic → mineral — <b>7-10 дней</b></li>
-            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
-            <li>ozempic → neo — <b>14 дней</b></li> 
-            <li>ozempic → pro — <b>14 дней</b></li> 
-          </ul>             
-        `
-      }
-    ]
-  },
+       {
+        heading: "❹ Molecule Plus/Premium ЖБ 30 капсул",
 
-  "mlk-zb": {
-
-    section: "supplements-voice",
-
-    title: "Molecule Plus/Premium ЖБ 30 капсул",
-
-    category: "сложности выбора и как его сделать",
-
-    pages: [
-
-      {
         content: `
           <p> 
           <b>что из себя представляет</b>: считается одним из самых сильных БАДов на рынке жиросжигателей<br>
@@ -1694,42 +1526,12 @@ const articles = {
             </p>
           </div>
         `
-    },
-     
-      {
-        heading: "перерывы после курса Молекулы ЖБ",
+      },
 
-        content: `   
-       
-              <h2>Ozempic Pro/Turbo</h2>
-          <ul>
-            <li>ozempic → ozempic — <b>14 дней</b></li>
-            <li>ozempic → жб — <b>14 дней</b></li>
-            <li>ozempic → ultra — <b>10-14 дней</b></li>
-            <li>ozempic → plus — <b>7 дней</b></li>
-            <li>ozempic → premium — <b>7 дней</b></li>
-            <li>ozempic → supressa — <b>14 дней</b></li>
-            <li>ozempic → mineral — <b>7-10 дней</b></li>
-            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
-            <li>ozempic → neo — <b>14 дней</b></li> 
-            <li>ozempic → pro — <b>14 дней</b></li> 
-          </ul>             
-        `
-      }
-    ]
-  },
 
-  "supressa": {
+             {
+        heading: "❺ Supressa 36 капсул",
 
-    section: "supplements-voice",
-
-    title: "Supressa 36 капсул",
-
-    category: "сложности выбора и как его сделать",
-
-    pages: [
-
-      {
         content: `
           <p> 
           <b>что из себя представляет</b>: ныне запрещенный БАД, который считается по градации сильнее,<br>
@@ -1778,43 +1580,12 @@ const articles = {
         <li><b>продолжение курса</b>: по 1 капсуле каждый день сразу после первого плотного приема пищи</li> 
           </ul>            
         `
-    },         
-
-      {
-        heading: "перерывы после курса Supressa",
-
-        content: `   
-       
-              <h2>Ozempic Pro/Turbo</h2>
-          <ul>
-            <li>ozempic → ozempic — <b>14 дней</b></li>
-            <li>ozempic → жб — <b>14 дней</b></li>
-            <li>ozempic → ultra — <b>10-14 дней</b></li>
-            <li>ozempic → plus — <b>7 дней</b></li>
-            <li>ozempic → premium — <b>7 дней</b></li>
-            <li>ozempic → supressa — <b>14 дней</b></li>
-            <li>ozempic → mineral — <b>7-10 дней</b></li>
-            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
-            <li>ozempic → neo — <b>14 дней</b></li> 
-            <li>ozempic → pro — <b>14 дней</b></li> 
-          </ul>             
-        `
-      }
-    ]
-  },    
+      },
 
 
-  "mineral": {
+             {
+        heading: "❻ Mineral 30 капсул",
 
-    section: "supplements-voice",
-
-    title: "Mineral 30 капсул",
-
-    category: "сложности выбора и как его сделать",
-
-    pages: [
-
-      {
         content: `
           <p> 
           <b>что из себя представляет</b>: довольно легкий БАД, при передозе которого побочки могут быть хуже,<br>
@@ -1868,42 +1639,11 @@ const articles = {
           </div>          
         `
       },
-     
-      {
-        heading: "перерывы после курса Mineral",
-
-        content: `   
-       
-              <h2>Ozempic Pro/Turbo</h2>
-          <ul>
-            <li>ozempic → ozempic — <b>14 дней</b></li>
-            <li>ozempic → жб — <b>14 дней</b></li>
-            <li>ozempic → ultra — <b>10-14 дней</b></li>
-            <li>ozempic → plus — <b>7 дней</b></li>
-            <li>ozempic → premium — <b>7 дней</b></li>
-            <li>ozempic → supressa — <b>14 дней</b></li>
-            <li>ozempic → mineral — <b>7-10 дней</b></li>
-            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
-            <li>ozempic → neo — <b>14 дней</b></li> 
-            <li>ozempic → pro — <b>14 дней</b></li> 
-          </ul>             
-        `
-      }
-    ]
-  },
 
 
-  "heedly": {
+             {
+        heading: "❼ Heedly Slim-Complex 60 капсул",
 
-    section: "supplements-voice",
-
-    title: "Heedly Slim-Complex 60 капсул",
-
-    category: "сложности выбора и как его сделать",
-
-    pages: [
-
-      {
         content: `
           <p> 
           <b>что из себя представляет</b>: один из самых деликатных БАДов<br>
@@ -1946,41 +1686,11 @@ const articles = {
           </ul>               
         `
       },
-     
+
+
       {
-        heading: "перерывы после курса Heedly",
+        heading: "❽ Редуксин 30/90 капсул",
 
-        content: `   
-       
-              <h2>Ozempic Pro/Turbo</h2>
-          <ul>
-            <li>ozempic → ozempic — <b>14 дней</b></li>
-            <li>ozempic → жб — <b>14 дней</b></li>
-            <li>ozempic → ultra — <b>10-14 дней</b></li>
-            <li>ozempic → plus — <b>7 дней</b></li>
-            <li>ozempic → premium — <b>7 дней</b></li>
-            <li>ozempic → supressa — <b>14 дней</b></li>
-            <li>ozempic → mineral — <b>7-10 дней</b></li>
-            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
-            <li>ozempic → neo — <b>14 дней</b></li> 
-            <li>ozempic → pro — <b>14 дней</b></li> 
-          </ul>             
-        `
-      }
-    ]
-  },
-
-
-  "reducsin": {
-
-    section: "supplements-voice",
-
-    title: "Редуксин 30/90 капсул",
-
-    category: "сложности выбора и как его сделать",
-
-    pages: [
-     {
         content: `
           <p> 
           <b>что из себя представляет</b>: единственный в СНГ рецептурный препарат в составе которого есть <b>сибутрамин</b><br>
@@ -2029,21 +1739,12 @@ const articles = {
         <li><b>на протяжении всего курса</b>: по 1 капсуле до или во время первого приема пищи</li>         
           </ul>           
         `
-      }
-    ]
-  },      
+      },       
 
        
-  "swapx-neo": {
+      {
+        heading: "❾ Swapx Neo/Pro 30 капсул",
 
-    section: "supplements-voice",
-
-    title: "Swapx Neo 30 капсул",
-
-    category: "сложности выбора и как его сделать",
-
-    pages: [
-     {
         content: `
       <div class="info-box">
             <p>
@@ -2051,6 +1752,8 @@ const articles = {
             </p>
           </div>  
 
+          
+          <h2><b>Swapx Neo</b></h2>
           <p> 
           <b>что из себя представляет</b>: более деликатная версия<br>
           <b>курс на одну упаковку</b>: 30 дней<br>
@@ -2095,43 +1798,8 @@ const articles = {
         <li><b>1ая неделя</b>: по 1 капсуле <b>день через день</b> сразу после приема пищи</li>
         <li><b>продолжение курса</b>: по 1 капсуле каждый день сразу после первого приема пищи</li> 
           </ul>  
-          `
-      },
-     
-      {
-        heading: "перерывы после курса Swap-X Neo",
 
-        content: `   
-       
-              <h2>Ozempic Pro/Turbo</h2>
-          <ul>
-            <li>ozempic → ozempic — <b>14 дней</b></li>
-            <li>ozempic → жб — <b>14 дней</b></li>
-            <li>ozempic → ultra — <b>10-14 дней</b></li>
-            <li>ozempic → plus — <b>7 дней</b></li>
-            <li>ozempic → premium — <b>7 дней</b></li>
-            <li>ozempic → supressa — <b>14 дней</b></li>
-            <li>ozempic → mineral — <b>7-10 дней</b></li>
-            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
-            <li>ozempic → neo — <b>14 дней</b></li> 
-            <li>ozempic → pro — <b>14 дней</b></li> 
-          </ul>             
-        `
-      }
-    ]
-  }, 
- 
-   "swapx-pro": {
-
-    section: "supplements-voice",
-
-    title: "Swapx Pro 30 капсул",
-
-    category: "сложности выбора и как его сделать",
-
-    pages: [
-     { 
-         content: `
+          <h2><b>Swapx Pro</b></h2>
           <p> 
           <b>что из себя представляет</b>: усиленная вдвойне по компонентам версия<br>
           <b>курс на одну упаковку</b>: 30 дней<br>
@@ -2178,41 +1846,11 @@ const articles = {
           </ul> 
         `
       },
-     
+
+
       {
-        heading: "перерывы после курса Swap-X Pro",
+        heading: "❿ Turbo-Ozempic 60 капсул",
 
-        content: `   
-       
-              <h2>Ozempic Pro/Turbo</h2>
-          <ul>
-            <li>ozempic → ozempic — <b>14 дней</b></li>
-            <li>ozempic → жб — <b>14 дней</b></li>
-            <li>ozempic → ultra — <b>10-14 дней</b></li>
-            <li>ozempic → plus — <b>7 дней</b></li>
-            <li>ozempic → premium — <b>7 дней</b></li>
-            <li>ozempic → supressa — <b>14 дней</b></li>
-            <li>ozempic → mineral — <b>7-10 дней</b></li>
-            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
-            <li>ozempic → neo — <b>14 дней</b></li> 
-            <li>ozempic → pro — <b>14 дней</b></li> 
-          </ul>             
-        `
-      }
-    ]
-  },
-
-
-   "swapx-pro": {
-
-    section: "supplements-voice",
-
-    title: "Turbo-Ozempic 60 капсул",
-
-    category: "сложности выбора и как его сделать",
-
-    pages: [
-     {    
         content: `
       <div class="info-box">
             <p>
@@ -2262,28 +1900,7 @@ const articles = {
         <li><b>на протяжении всего курса</b>: по 1 капсуле 2 раза в день во время или после приема пищи</li>         
           </ul>           
         `
-      },  
-
-      {
-        heading: "перерывы после курса Ozempic",
-
-        content: `   
-       
-              <h2>Ozempic Pro/Turbo</h2>
-          <ul>
-            <li>ozempic → ozempic — <b>14 дней</b></li>
-            <li>ozempic → жб — <b>14 дней</b></li>
-            <li>ozempic → ultra — <b>10-14 дней</b></li>
-            <li>ozempic → plus — <b>7 дней</b></li>
-            <li>ozempic → premium — <b>7 дней</b></li>
-            <li>ozempic → supressa — <b>14 дней</b></li>
-            <li>ozempic → mineral — <b>7-10 дней</b></li>
-            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
-            <li>ozempic → neo — <b>14 дней</b></li> 
-            <li>ozempic → pro — <b>14 дней</b></li> 
-          </ul>             
-        `
-      }
+      }         
     ]
   },
 
@@ -2292,14 +1909,14 @@ const articles = {
 
     section: "supplements",
 
-    title: "перерывы, побочки, что можно/нельзя",
+    title: "три главных правила",
 
-    category: "три слона, на которых держится мир БАДов",
+    category: "слушаем и запоминаем",
 
     pages: [
 
       {
-        heading: "правило 1<br>обязательные перерывы между курсами",
+        heading: "обязательные перерывы между курсами",
 
         content: `
           <p>
@@ -2309,7 +1926,7 @@ const articles = {
           </p>
 
 
-         <h2>Molecule Plus</h2>
+         <h3>Molecule Plus</h3>
           <ul>
             <li>plus → plus — <b>30 дней</b></li>
             <li>plus → жб — <b>31 день</b></li> 
@@ -2324,7 +1941,7 @@ const articles = {
           </ul> 
 
           
-         <h2>Molecule Premium</h2>
+         <h3>Molecule Premium</h3>
           <ul>
             <li>premium → premium — <b>30 дней</b></li>
             <li>premium → жб — <b>31 день</b></li>
@@ -2339,7 +1956,7 @@ const articles = {
           </ul>     
 
 
-         <h2>Molecule Ultra</h2>
+         <h3>Molecule Ultra</h3>
           <ul>
             <li>ultra → ultra — <b>60 дней</b></li>
             <li>ultra → жб — <b>31 день</b></li>
@@ -2355,7 +1972,7 @@ const articles = {
 
 
 
-         <h2>Molecule ЖБ</h2>
+         <h3>Molecule ЖБ</h3>
           <ul>
             <li>жб → жб — <b>30 дней</b></li>
             <li>жб → ultra/plus/premium — <b>31 день</b></li>
@@ -2368,7 +1985,7 @@ const articles = {
           </ul>  
 
 
-         <h2>Supressa</h2>
+         <h3>Supressa</h3>
           <ul>
             <li>supressa → supressa — <b>21 день</b></li>
             <li>supressa → жб — <b>14-20 дней</b></li>
@@ -2383,7 +2000,7 @@ const articles = {
           </ul>            
 
 
-         <h2>Mineral</h2>
+         <h3>Mineral</h3>
           <ul>
             <li>mineral → mnieral — <b>14 дней</b></li>
             <li>mineral → жб — <b>14 дней</b></li>
@@ -2398,7 +2015,7 @@ const articles = {
           </ul> 
 
 
-         <h2>Heedly SlimComplex</h2>
+         <h3>Heedly SlimComplex</h3>
           <ul>
             <li>heedly → heedly — <b>14 дней</b></li>
             <li>heedly → жб — <b>14 дней</b></li>
@@ -2413,7 +2030,7 @@ const articles = {
           </ul>
 
           
-         <h2>Swapx NEO</h2>
+         <h3>Swapx NEO</h3>
           <ul>
             <li>neo → neo — <b>20 дней</b></li>
             <li>neo → pro — <b>20 дней</b></li>
@@ -2428,7 +2045,7 @@ const articles = {
           </ul>      
 
 
-         <h2>Swapx PRO</h2>
+         <h3>Swapx PRO</h3>
           <ul>
             <li>pro → pro — <b>20 дней</b></li>
             <li>pro → neo — <b>20 дней</b></li>
@@ -2443,7 +2060,7 @@ const articles = {
           </ul>    
 
           
-         <h2>Ozempic Pro/Turbo</h2>
+         <h3>Ozempic Pro/Turbo</h3>
           <ul>
             <li>ozempic → ozempic — <b>14 дней</b></li>
             <li>ozempic → жб — <b>14 дней</b></li>
@@ -2462,7 +2079,7 @@ const articles = {
 
 
       {
-        heading: "правило 2<br>побочные эффекты большинства БАДов",
+        heading: "побочные эффекты большинства БАДов",
 
         content: `
          <p>
@@ -2532,7 +2149,7 @@ const articles = {
 
 
       {
-        heading: "правило 3.1<br>какие продукты можно есть/пить на курсе БАДов",
+        heading: "какие продукты можно есть/пить на курсе БАДов",
 
         content: `
           <p>
@@ -2542,15 +2159,12 @@ const articles = {
 
           <p>
             многие, попробовав тысячу рязных спосбобв похудения, до сих пор не могут добиться фигуры мечты
-            и опускают руки, говоря, что диета/тренировка/БАДы и пр. не работают и все "сплошной обман"
-          </p>
-
-          <p>
-            но большинство людей с такой проблемой не понимают того, что <b>любое похудение – труд, а не "волшебная таблетка"</b>
-            <br>
+            и опускают руки, говоря, что диета/тренировка/БАДы и пр. не работают и все "сплошной обман"<br>
+            но большинство людей с такой проблемой не понимают того, что <b>любое похудение – труд, а не "волшебная таблетка"</b><br>
             и, в первую очередь, результат твоего похудения будет зависеть прямо пропорционально от соблюдения дефицита
             потребляемых калорий
           </p>
+
 
          <h2>так что же можно есть на дефиците калорий/курсе?</h2>
 
@@ -2580,17 +2194,15 @@ const articles = {
             <li>🥩 нежирные части говядины</li>
             <li>🐇 кролик</li>
           </ul> 
-
           
-          <ul> 
+          </ul> 
             <li>🥣 творог, <i>но не обезжиренный, так как он усваивается хуже</i></li>
             <li>🥛 молоко</li>
             <li>🍶 нежирный кефир менее 20%</li>
             <li>🍽️ нежирная сметана менее 20%</li>
           </ul> 
 
-
-          <ul>           
+          </ul>           
             <li>🥚 яйца</li>
             <li>🧀 нежирный сливочный сыр</li>
             <li>🫕 творожный сыр</li>
@@ -2608,9 +2220,8 @@ const articles = {
             <li>🫒 масла оливковое/льняное</li>
             <li>🌰 орехи <i>в небольшом количестве</i></li>
           </ul> 
-
           
-          <ul> 
+          </ul> 
             <li>🌾 гречневая крупа</i></li>
             <li>🍚 бурый рис</li>
             <li>🍚 белый рис</li>
@@ -2627,10 +2238,9 @@ const articles = {
             <li>🍫 белый шоколад</li>
             <li>🍮 пастила</li>
             <li>🍭 ириски и леденцы</li>
-          </ul>
+          <ul>
 
-
-          <ul>           
+          </ul>           
             <li>🫖 различные чаи на основе трав: <i>гречишный, иван-чай, мята, ромашка, шиповник</i></li>
             <li>☕️ цикорий</li>
             <li>🥤 компоты</li>
@@ -2642,7 +2252,7 @@ const articles = {
 
 
       {
-        heading: "правило 3.2<br>чего не стоит есть/пить",
+        heading: "чего не стоит есть/пить",
 
         content: `
         
@@ -2655,7 +2265,7 @@ const articles = {
             <li>🫘 какао</li>
             <li>🫖 черный/зеленый чаи, напитки на основе чая из массмаркета</li>
             <li>🍷 алкогольные напитки</li>
-          </ul> 
+          <ul> 
 
 
           <img src="./images/bulochka.jpg"
@@ -2669,15 +2279,14 @@ const articles = {
             <li>🎂 торты</li>
             <li>🥐 выпечка</li>
             <li>🍞 белый хлеб</li>
-          </ul> 
-
+          <ul> 
 
           <ul>
             <li>🐖 свинина</li>
             <li>🥣 майонез</li>
             <li>🧈 сливочное масло</li>
             <li>🍳 жареные в большом количестве растительного масла блюда</li>
-          </ul> 
+          <ul> 
         `
       }
 
@@ -2689,14 +2298,14 @@ const articles = {
 
     section: "supplements",
 
-    title: "разбиваем мифы о БАДах в щепки",
+    title: "разбиваем мифы в щепки",
 
-    category: "«какую таблетку выберешь, Нео?»",
+    category: "БАДы",
 
     pages: [
 
       {
-        heading: "миф 1. натуральный не значит безопасный",
+        heading: "натуральный не значит безопасный",
 
         content: `
           <p>
@@ -2714,7 +2323,7 @@ const articles = {
 
 
       {
-        heading: "миф 2. как связаны Германия, сибутрамин и 2010ый год?",
+        heading: "германия сибутрамин и тот самый 2010ый",
 
         content: `
           <p>
@@ -2733,85 +2342,12 @@ const articles = {
             </p>
           </div>
         `
-      },
-
-
-      {
-        heading: "миф 3. «ты пьешь паль! оригинал только в тгк:@..»",
-
-        content: `
-          <p>
-            растительное происхождение вещества не делает его
-            автоматически безопасным.
-          </p>
-
-          <p>
-            активные вещества могут взаимодействовать с лекарствами,
-            влиять на сердечно-сосудистую систему, сон, пищеварение
-            и другие процессы.
-          </p>
-        `
       }
-    ]
-  },
 
-   
-  "delicate-period": {
-
-    section: "delicate",
-
-    title: "чем чревато продолжать курс во время кд",
-
-    category: "менструация на курсе",
-
-    pages: [
-
-      {
-        heading: "месячные на курсе",
-
-        content: `
-          <p>
-            <b>⟣расстройство пищевого поведения⟢</b> — это не просто желание похудеть
-            или периодическая тревога из-за внешности<br>
-            РПП связано <b>с устойчивым нарушением отношений человека
-            с едой, собственным телом и поведением вокруг питания</b><br>
-            пищевое поведение это не просто мысли о том «что я сегодня буду есть»
-            поэтому фраза «просто перестань думать о еде» своей полезностью
-            на одном уровне с советом, если сказать компу: «просто не зависай»
-          </p>
-        `
-      }
-    ]
-  },
-
-
-  "delicate-constipation": {
-
-    section: "delicate",
-
-    title: "из-за чего<br>что можно есть, чтобы облегчить<br>white/black-lists слабительных",
-
-    category: "запоры на курсе",
-
-    pages: [   
-      {
-        heading: "запоры",
-
-        content: `
-          <p>
-            <b>⟣расстройство пищевого поведения⟢</b> — это не просто желание похудеть
-            или периодическая тревога из-за внешности<br>
-            РПП связано <b>с устойчивым нарушением отношений человека
-            с едой, собственным телом и поведением вокруг питания</b><br>
-            пищевое поведение это не просто мысли о том «что я сегодня буду есть»
-            поэтому фраза «просто перестань думать о еде» своей полезностью
-            на одном уровне с советом, если сказать компу: «просто не зависай»
-          </p>
-        `
-      }
-    ]
-  }
+   ]
 }
+}
+
 /* ==================================================
    СОСТОЯНИЕ ПРИЛОЖЕНИЯ
 ================================================== */
@@ -2840,6 +2376,7 @@ const newQuoteButton = document.getElementById("newQuote");
 const themeToggle = document.getElementById("themeToggle");
 const themeToggleIcon = document.getElementById("themeToggleIcon");
 const quickDiaryButton = document.getElementById("quickDiaryButton");
+
 
 /* ==================================================
    ФРАЗА
@@ -2965,6 +2502,7 @@ function applyTheme(theme) {
 
 }
 
+
 function initTheme() {
 
   let saved = "dark";
@@ -2982,6 +2520,227 @@ function initTheme() {
   applyTheme(saved);
 
 }
+/* ==================================================
+   ДНЕВНИК
+================================================== */
+
+function getMoodEntries() {
+  try {
+    return JSON.parse(localStorage.getItem(moodStorageKey) || "[]");
+  } catch (error) {
+    return [];
+  }
+}
+
+function saveMoodEntry(text, mood) {
+  const entries = getMoodEntries();
+  entries.unshift({
+    id: Date.now(),
+    mood,
+    text,
+    date: new Date().toLocaleString("ru-RU", {
+      day: "2-digit", month: "long", year: "numeric",
+      hour: "2-digit", minute: "2-digit"
+    })
+  });
+
+  try {
+    localStorage.setItem(moodStorageKey, JSON.stringify(entries.slice(0, 100)));
+  } catch (error) {}
+}
+
+function renderMoodJournal() {
+  const entries = getMoodEntries();
+  const moods = ["😊", "🥳", "🥰", "😕", "😣", "😭", "😡", "🫩", "🤒"];
+
+  contentContainer.innerHTML = `
+    <div class="screen-inner diary-page fade-in">
+
+      <button
+        class="back-button"
+        id="diaryBackButton"
+      >
+        ← назад
+      </button>
+
+      <header class="section-header">
+        <p class="section-kicker">mood journal</p>
+
+        <h1>
+          дневник настроения
+        </h1>
+
+        <p>
+          место для коротких заметок о своем состоянии и событиях дня ♡
+        </p>
+      </header>
+
+      <section class="diary-compose">
+
+        <p class="diary-date">
+          сегодня · ${new Date().toLocaleDateString("ru-RU", {
+            day: "numeric",
+            month: "long"
+          })}
+        </p>
+
+        <div
+          class="mood-picker"
+          aria-label="Выбери настроение"
+        >
+          ${moods.map(mood => `
+            <button
+              type="button"
+              class="mood-choice ${selectedMood === mood ? "selected" : ""}"
+              data-mood="${mood}"
+            >
+              ${mood}
+            </button>
+          `).join("")
+          
+          }
+        </div>
+
+        <textarea
+          class="diary-textarea"
+          id="diaryText"
+          placeholder="что хочется записать?"
+        ></textarea>
+
+        <button
+          type="button"
+          class="calculator-button diary-save"
+          id="saveDiaryButton"
+        >
+          сохранить запись
+        </button>
+
+      </section>
+
+      <div class="diary-list">
+
+        ${
+          entries.length
+            ? entries.map((entry, index) => `
+                <article class="mood-entry">
+
+                  <div class="mood-entry-head">
+                    <span class="mood-entry-emoji">
+                      ${entry.mood}
+                    </span>
+
+                    <span class="mood-entry-date">
+                      ${entry.date}
+                    </span>
+                  </div>
+
+                  <p class="mood-entry-text">
+                    ${escapeHtml(entry.text)}
+                  </p>
+
+                  <button
+                    type="button"
+                    class="diary-delete-button"
+                    data-delete-entry="${index}"
+                  >
+                    удалить запись
+                  </button>
+
+                </article>
+              `).join("")
+            : `
+                <div class="diary-empty">
+                  здесь появятся твои записи<br>
+                  они бережно хранятся только в этом приложении
+                </div>
+              `
+        }
+
+      </div>
+
+    </div>
+  `;
+
+  document
+    .getElementById("diaryBackButton")
+    .addEventListener("click", showHome);
+
+
+  document
+    .querySelectorAll("[data-mood]")
+    .forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        selectedMood = button.dataset.mood;
+
+        renderMoodJournal();
+
+      });
+
+    });
+
+
+  document
+    .getElementById("saveDiaryButton")
+    .addEventListener("click", () => {
+
+      const textarea =
+        document.getElementById("diaryText");
+
+      const text =
+        textarea.value.trim();
+
+      if (!text) {
+        textarea.focus();
+        return;
+      }
+
+      saveMoodEntry(
+        text,
+        selectedMood
+      );
+
+      selectedMood = "😊";
+
+      renderMoodJournal();
+
+    });
+
+
+  document
+    .querySelectorAll("[data-delete-entry]")
+    .forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        const index =
+          Number(button.dataset.deleteEntry);
+
+        const entries =
+          getMoodEntries();
+
+        entries.splice(index, 1);
+
+        try {
+          localStorage.setItem(
+            moodStorageKey,
+            JSON.stringify(
+              entries.slice(0, 100)
+            )
+          );
+        } catch (error) {}
+
+        renderMoodJournal();
+
+      });
+
+    });
+
+
+  window.scrollTo(0, 0);
+}
+
 
 function escapeHtml(value) {
   return String(value)
@@ -2991,14 +2750,11 @@ function escapeHtml(value) {
     .replace(/\"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
-/* ==================================================
-   имт и дефицит
-================================================== */
 
 function renderTools() {
   contentContainer.innerHTML = `
     <div class="screen-inner fade-in">
-      <button class="back-button" id="toolsBackButton">← вернуться на главную </button>
+      <button class="back-button" id="toolsBackButton">← назад</button>
       <header class="section-header">
         <p class="section-kicker">dietary calculations</p>
         <h1>твой виртуальный счетовод</h1>
@@ -3021,7 +2777,7 @@ function renderTools() {
           <h3>норма и дефицит калорий</h3>
           <p>оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле Миффлина — Сан Жеора</p>
           <div class="calculator-grid">
-            <div class="calculator-field"><label for="calAge">возраст, лет</label><input class="calculator-input" id="calAge" type="number" min="13" step="1" inputmode="numeric"></div>
+            <div class="calculator-field"><label for="calAge">возраст, лет</label><input class="calculator-input" id="calAge" type="number" min="12" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calWeight">масса, кг</label><input class="calculator-input" id="calWeight" type="number" min="1" step="0.1" inputmode="decimal"></div>
             <div class="calculator-field"><label for="calHeight">рост, см</label><input class="calculator-input" id="calHeight" type="number" min="1" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calSex">пол для формулы</label><select class="calculator-input" id="calSex"><option value="female">женский</option><option value="male">мужской</option></select></div>
@@ -3056,10 +2812,10 @@ function calculateEnergy() {
   const sex = document.getElementById("calSex").value;
   const activity = Number(document.getElementById("calActivity").value);
   const result = document.getElementById("energyResult");
-  if (!age || age < 13 || !weight || !height) { result.textContent = "УПС! твой организм еще растет и тебе не нужен дефицит"; return; }
+  if (!age || age < 12 || !weight || !height) { result.textContent = "введен возраст ниже 12 лет, попробуй ввести другой"; return; }
   const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
-  const tdee = (bmr * activity) - 520;
-  result.innerHTML = `основное количество сжигаемых тобой калорий с учетом активности ${Math.round(bmr)} ккал/сутки<br><strong>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки</strong>`;
+  const tdee = bmr * activity * 0.8;
+  result.innerHTML = `<strong>основное количество сжигаемых тобой калорий ${Math.round(bmr)} ккал/сутки</strong><br>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки`;
 }
 
 
@@ -3101,6 +2857,7 @@ function showHome() {
   window.scrollTo(0, 0);
 
 }
+
 
 /* ==================================================
    ОТКРЫТЬ РАЗДЕЛ
@@ -3153,7 +2910,7 @@ function openSection(sectionId) {
         class="back-button"
         id="sectionBackButton"
       >
-        ← назад в разделы
+        ← назад
       </button>
 
 
@@ -3220,68 +2977,38 @@ function openSection(sectionId) {
   window.scrollTo(0, 0);
 }
 
+
 /* ==================================================
-   ОТКРЫТЬ РАЗДЕЛы интерактивные
+   ОТКРЫТЬ РАЗДЕЛ
 ================================================== */
-function getMoodEntries() {
-  try {
-    const raw = localStorage.getItem(moodStorageKey);
-
-    if (!raw) {
-      return [];
-    }
-
-    const parsed = JSON.parse(raw);
-
-    return Array.isArray(parsed)
-      ? parsed
-      : [];
-  } catch (error) {
-    return [];
-  }
-}
-
-function saveMoodEntry(text, mood) {
-  const entries = getMoodEntries();
-
-  entries.unshift({
-    text: String(text).trim(),
-    mood: mood || "😊",
-    date: new Date().toLocaleDateString(
-      "ru-RU",
-      {
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-      }
-    )
-  });
-
-  try {
-    localStorage.setItem(
-      moodStorageKey,
-      JSON.stringify(entries.slice(0, 100))
-    );
-  } catch (error) {}
-}
 
 function openSection(sectionId) {
+
   const section = sections[sectionId];
 
   if (!section) {
     return;
   }
-} 
-/* ==================================================
-   ОТКРЫТЬ ДНЕВНИК НАСТРОЕНИЯ
-================================================== */
 
-if (sectionId = "mood") {
+
+  /* удаляем старый экран раздела */
+
+  const oldOverlay =
+    document.getElementById("sectionOverlay");
+
+  if (oldOverlay) {
+    oldOverlay.remove();
+  }
+
+
+  /* особые разделы */
+
+if (sectionId === "mood") {
 
   currentSectionId = "mood";
   currentArticleId = null;
   currentPage = 0;
-}
+
   const overlay =
     document.createElement("div");
 
@@ -3301,7 +3028,7 @@ if (sectionId = "mood") {
           class="back-button"
           id="diaryBackButton"
         >
-          ← вернуться на главную
+          ← назад
         </button>
 
         <header class="section-header">
@@ -3376,7 +3103,7 @@ if (sectionId = "mood") {
             class="calculator-button diary-save"
             id="saveDiaryButton"
           >
-            записать
+            сохранить запись
           </button>
 
         </section>
@@ -3400,16 +3127,16 @@ if (sectionId = "mood") {
 
                     </div>
 
-              <p class="mood-entry-text">
-                  ${escapeHtml(entry.text)}
-                    </p>                 
+                    <p class="mood-entry-text">
+                      ${escapeHtml(entry.text)}
+                    </p>
 
                     <button
                       type="button"
                       class="diary-delete-button"
                       data-delete-entry="${index}"
                     >
-                      удалить
+                      удалить запись
                     </button>
 
                   </article>
@@ -3534,6 +3261,9 @@ if (sectionId = "mood") {
 
   document.body.style.overflow = "hidden";
 
+  return;
+}
+
   /* ================================================
      ОФИЦИАЛЬНЫЕ ССЫЛКИ
   ================================================ */
@@ -3561,7 +3291,7 @@ if (sectionId = "mood") {
             class="back-button"
             id="linksBackButton"
           >
-            ← вернуться на главную
+            ← назад
           </button>
 
           <header class="section-header">
@@ -3627,7 +3357,7 @@ if (sectionId = "mood") {
               <div class="official-link-info">
                 <strong>канал с информацией</strong>
                 <span>
-                  не менее важный и информативный
+                  не менее важный и информативный тгк
                 </span>
               </div>
 
@@ -3676,7 +3406,7 @@ if (sectionId = "mood") {
             <div class="official-links-warning">
 
               <div class="official-links-warning-title">
-                ⚠ не наткнись на мошенников!
+                ⚠ только официальные ссылки
               </div>
 
               <p>
@@ -3704,17 +3434,299 @@ if (sectionId = "mood") {
       );
 
     document.body.style.overflow = "hidden";
+
+    return;
   }
+   
   /* ================================================
-            ОТКРЫТЬ РАЗДЕЛЫ СО СТАТЬЯМИ
+     ИНСТРУМЕНТЫ
   ================================================ */
- 
-  currentSectionId = sectionId; 
+
+  if (sectionId === "tools") {
+
+    currentSectionId = "tools";
+    currentArticleId = null;
+    currentPage = 0;
+
+    const overlay =
+      document.createElement("div");
+
+    overlay.id = "sectionOverlay";
+    overlay.className = "section-overlay";
+
+    document.body.appendChild(overlay);
+
+    overlay.innerHTML = `
+      <div class="section-overlay-inner">
+        <div id="sectionContent"></div>
+      </div>
+    `;
+
+    const sectionContent =
+      overlay.querySelector("#sectionContent");
+
+    sectionContent.innerHTML = `
+      <div class="screen-inner fade-in">
+
+        <button
+          class="back-button"
+          id="toolsBackButton"
+        >
+          ← назад
+        </button>
+
+        <header class="section-header">
+
+          <p class="section-kicker">
+            dietary calculations
+          </p>
+
+          <h1>
+            твой виртуальный счетовод
+          </h1>
+
+          <p>
+            минималистичные калькуляторы с небольшим пояснением результата
+          </p>
+
+        </header>
+
+        <div class="calculator-list">
+
+          <section class="calculator-card">
+
+            <h3>ИМТ</h3>
+
+            <p>
+              индекс массы тела по росту и массе
+            </p>
+
+            <div class="calculator-grid">
+
+              <div class="calculator-field">
+
+                <label for="bmiWeight">
+                  масса, кг
+                </label>
+
+                <input
+                  class="calculator-input"
+                  id="bmiWeight"
+                  type="number"
+                  min="1"
+                  step="0.1"
+                  inputmode="decimal"
+                >
+
+              </div>
+
+              <div class="calculator-field">
+
+                <label for="bmiHeight">
+                  рост, см
+                </label>
+
+                <input
+                  class="calculator-input"
+                  id="bmiHeight"
+                  type="number"
+                  min="1"
+                  step="1"
+                  inputmode="numeric"
+                >
+
+              </div>
+
+            </div>
+
+            <button
+              class="calculator-button"
+              id="calculateBmi"
+            >
+              рассчитать ИМТ
+            </button>
+
+            <div
+              class="calculator-result"
+              id="bmiResult"
+            >
+              введи данные выше
+            </div>
+
+          </section>
+
+
+          <section class="calculator-card">
+
+            <h3>
+              норма и дефицит калорий
+            </h3>
+
+            <p>
+              оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле Миффлина — Сан Жеора
+            </p>
+
+            <div class="calculator-grid">
+
+              <div class="calculator-field">
+
+                <label for="calAge">
+                  возраст, лет
+                </label>
+
+                <input
+                  class="calculator-input"
+                  id="calAge"
+                  type="number"
+                  min="12"
+                  step="1"
+                  inputmode="numeric"
+                >
+
+              </div>
+
+              <div class="calculator-field">
+
+                <label for="calWeight">
+                  масса, кг
+                </label>
+
+                <input
+                  class="calculator-input"
+                  id="calWeight"
+                  type="number"
+                  min="1"
+                  step="0.1"
+                  inputmode="decimal"
+                >
+
+              </div>
+
+              <div class="calculator-field">
+
+                <label for="calHeight">
+                  рост, см
+                </label>
+
+                <input
+                  class="calculator-input"
+                  id="calHeight"
+                  type="number"
+                  min="1"
+                  step="1"
+                  inputmode="numeric"
+                >
+
+              </div>
+
+              <div class="calculator-field">
+
+                <label for="calSex">
+                  пол для формулы
+                </label>
+
+                <select
+                  class="calculator-input"
+                  id="calSex"
+                >
+                  <option value="female">
+                    женский
+                  </option>
+                  <option value="male">
+                    мужской
+                  </option>
+                </select>
+
+              </div>
+
+              <div class="calculator-field full">
+
+                <label for="calActivity">
+                  уровень активности
+                </label>
+
+                <select
+                  class="calculator-input"
+                  id="calActivity"
+                >
+                  <option value="1.2">
+                    минимальная активность(сидячий образ жизни)
+                  </option>
+                  <option value="1.375">
+                    легкая активность(физнагрузка 1-3 раз в неделю)
+                  </option>
+                  <option value="1.55">
+                    умеренная активность(физнагрузка 3-5 раз в неделю)
+                  </option>
+                  <option value="1.725">
+                    высокая активность(физнагрузка 6-7 раз в неделю)
+                  </option>
+                  <option value="1.9">
+                    очень высокая активность(ежедневная физнагрузка)
+                  </option>
+                </select>
+
+              </div>
+
+            </div>
+
+            <button
+              class="calculator-button"
+              id="calculateEnergy"
+            >
+              рассчитать
+            </button>
+
+            <div
+              class="calculator-result"
+              id="energyResult"
+            >
+              введи данные выше
+            </div>
+
+          </section>
+
+        </div>
+
+      </div>
+    `;
+
+
+    document
+      .getElementById("toolsBackButton")
+      .addEventListener(
+        "click",
+        showHome
+      );
+
+    document
+      .getElementById("calculateBmi")
+      .addEventListener(
+        "click",
+        calculateBmi
+      );
+
+    document
+      .getElementById("calculateEnergy")
+      .addEventListener(
+        "click",
+        calculateEnergy
+      );
+
+    return;
+  }
+
+
+  /* ================================================
+     ОБЫЧНЫЕ РАЗДЕЛЫ
+  ================================================ */
+
+  currentSectionId = sectionId;
   currentArticleId = null;
   currentPage = 0;
 
 
- {  const overlay = 
+  const overlay =
     document.createElement("div");
 
   overlay.id = "sectionOverlay";
@@ -3731,9 +3743,30 @@ if (sectionId = "mood") {
         class="back-button"
         id="sectionBackButton"
       >
-        ← вернуться на главную
+        ← назад
       </button>
+
+
+      <header class="section-header">
+
+        <p class="section-kicker">
+          ${section.kicker}
+        </p>
+
+        <h1>
+          ${section.title}
+        </h1>
+
+        <p>
+          ${section.description}
+        </p>
+
+      </header>
+
+
       <div class="topic-list">
+
+        ${section.topics.map(topic => `
 
           <button
             class="topic-card"
@@ -3758,7 +3791,7 @@ if (sectionId = "mood") {
 
           </button>
 
-        `().join("")}
+        `).join("")}
 
       </div>
 
@@ -3782,7 +3815,6 @@ if (sectionId = "mood") {
     );
 
 }
-}
 
 /* ==================================================
    ОТКРЫТИЕ СТАТЬИ
@@ -3801,6 +3833,48 @@ function openArticle(articleId) {
 
 }
 
+/* ==================================================
+   РЕНДЕР СТРАНИЦЫ СТАТЬИ
+================================================== */
+
+function renderArticle() {
+
+  const article =
+    articles[currentArticleId];
+
+  if (!article) {
+    return;
+  }
+
+  const page =
+    article.pages[currentPage];
+
+  const totalPages =
+    article.pages.length;
+
+  const isFirstPage =
+    currentPage === 0;
+
+  const isLastPage =
+    currentPage === totalPages - 1;
+
+
+  /* удаляем старое окно статьи */
+
+  const oldOverlay =
+    document.getElementById("articleOverlay");
+
+  if (oldOverlay) {
+    oldOverlay.remove();
+  }
+
+
+  /* создаем настоящее отдельное окно */
+
+  const overlay =
+    document.createElement("div");
+
+  overlay.id = "articleOverlay";
 
   overlay.className =
     "article-overlay";
@@ -3814,7 +3888,7 @@ function openArticle(articleId) {
         class="back-button"
         id="articleBackButton"
       >
-        ← вернуться назад
+        ← назад
       </button>
 
 
@@ -3923,6 +3997,8 @@ overlay.style.zIndex = "2147483647";
 
   overlay.scrollTop = 0;
 
+}
+
 /* ==================================================
    НАЗАД ИЗ СТАТЬИ
 ================================================== */
@@ -3942,6 +4018,7 @@ function goBackFromArticle() {
   currentPage = 0;
 
 }
+
 /* ==================================================
    СЛЕДУЮЩАЯ СТРАНИЦА
 ================================================== */
@@ -3968,7 +4045,6 @@ function nextPage() {
 }
 
 
-
 /* ==================================================
    ПРЕДЫДУЩАЯ СТРАНИЦА
 ================================================== */
@@ -3986,7 +4062,7 @@ function previousPage() {
 
 
 /* ==================================================
-   МЕХАНИКА ВЫБОРА В ГЛАВНОМ МЕНЮ
+   СОБЫТИЯ ГЛАВНОЙ
 ================================================== */
 
 document.addEventListener("click", (event) => {
@@ -4085,30 +4161,10 @@ if (quoteElement) {
     "opacity 0.12s ease";
 }
 
-/* ==================================================
-                      ТРЕКЕРЫ
-================================================== */
-
-/* --- кнопки трекеров на главной ---*/
-
-document
-  .getElementById("supplementsTrackerButton")
-  ?.addEventListener("click", renderSupplementTracker);
-
-document
-  .getElementById("waterTrackerButton")
-  ?.addEventListener("click", renderWaterTracker);
-
-if (quoteElement) {
-  quoteElement.style.transition =
-    "opacity 0.12s ease";
-}
-
 const supplementStorageKey = "molecule-space-supplements";
 const waterStorageKey = "molecule-space-water";
 const waterGoalStorageKey = "molecule-space-water-goal";
-
-/* --- данные дневника настроения ---*/
+const reminderStorageKey = "molecule-space-reminders";
 
 function trackerDate(date = new Date()) {
   const y = date.getFullYear();
@@ -4132,40 +4188,21 @@ function writeLocal(key, value) {
   } catch (error) {}
 }
 
-/* --- данные калькуляторов ---*/
 function getSupplements() {
-  const stored = readLocal(supplementStorageKey, []);
-  return Array.isArray(stored)
-    ? stored.map(normalizeSupplement).filter(item => item.name)
-    : [];
-}
-
-function normalizeSupplement(item) {
-  return {
-    id: String(item?.id ?? crypto.randomUUID()),
-    name: String(item?.name ?? "").trim().slice(0, 40),
-    taken: Array.isArray(item?.taken)
-      ? item.taken.filter(date => /^\d{4}-\d{2}-\d{2}$/.test(date))
-      : []
-  };
+  return readLocal(supplementStorageKey, []);
 }
 
 function saveSupplements(items) {
   writeLocal(supplementStorageKey, items);
 }
 
-/* --- данные кольца воды ---*/
-
 function getWaterGoal() {
   const value = Number(readLocal(waterGoalStorageKey, 2000));
-  return Number.isFinite(value) && value >= 100 ? value : 2000;
+  return Number.isFinite(value) && value >= 250 ? value : 2000;
 }
 
 function getWaterData() {
-  const value = readLocal(waterStorageKey, {});
-  return value && typeof value === "object" && !Array.isArray(value)
-    ? value
-    : {};
+  return readLocal(waterStorageKey, {});
 }
 
 function getTodayWater() {
@@ -4178,6 +4215,13 @@ function setTodayWater(amount) {
   writeLocal(waterStorageKey, data);
 }
 
+function getReminderData() {
+  return readLocal(reminderStorageKey, []);
+}
+
+function saveReminderData(items) {
+  writeLocal(reminderStorageKey, items);
+}
 
 function getSupplementTaken(supplement, date = trackerDate()) {
   return Array.isArray(supplement.taken) && supplement.taken.includes(date);
@@ -4198,10 +4242,6 @@ function setSupplementTaken(id, date, value) {
   saveSupplements(items);
 }
 
-/* --- данные сводки разделов ---*/
-
-
-/*- сводка калькуляторов -*/
 function calculateSupplementStreak() {
   const items = getSupplements();
 
@@ -4223,46 +4263,40 @@ function calculateSupplementStreak() {
   return streak;
 }
 
-/* --- обновить данные на главном экране ---*/
-
 function refreshHomeTrackers() {
   const supplements = getSupplements();
   const streak = calculateSupplementStreak();
 
-/*- данные календаря -*/
   const supplementSummary =
     document.getElementById("supplementsTrackerSummary");
 
-   /*- данные серий -*/
   const streakElement =
     document.getElementById("supplementsStreak");
 
-   /*- данные воды -*/
   const waterSummary =
     document.getElementById("waterTrackerSummary");
 
-   /*- данные выпитой воды -*/
   const waterProgress =
     document.getElementById("waterMiniProgress");
 
-   /*- если данные календаря, то: -*/
+  const remindersSummary =
+    document.getElementById("remindersSummary");
+
   if (supplementSummary) {
     supplementSummary.textContent = supplements.length
       ? `${supplements.length} ${pluralize(
           supplements.length,
-          "таблетка",
-          "таблетки",
-          "таблеток"
+          "БАД",
+          "БАДа",
+          "БАДов"
         )} • отметь сегодняшний прием`
-      : "отметь прием в каледаре, чтобы не пропустить серию";
+      : "добавь свои БАДы и отмечай прием";
   }
 
-   /*- если данные серий, то: -*/
   if (streakElement) {
     streakElement.textContent = `${streak} 🔥`;
   }
 
-   /*- если данные воды, то: -*/
   const water = getTodayWater();
   const goal = getWaterGoal();
   const percent = Math.min(100, Math.round((water / goal) * 100));
@@ -4275,9 +4309,22 @@ function refreshHomeTrackers() {
     waterProgress.style.width = `${percent}%`;
   }
 
+  const reminders = getReminderData().filter(
+    r => r.enabled !== false
+  );
+
+  if (remindersSummary) {
+    remindersSummary.textContent = reminders.length
+      ? `${reminders.length} ${pluralize(
+          reminders.length,
+          "напоминание",
+          "напоминания",
+          "напоминаний"
+        )}`
+      : "настроить прием таблеток";
+  }
 }
 
-/*- данные множественных чисел -*/
 function pluralize(number, one, few, many) {
   const n = Math.abs(number) % 100;
 
@@ -4290,11 +4337,6 @@ function pluralize(number, one, few, many) {
 
   return many;
 }
-
-/* ==================================================
-         открытие трекеров с
-                      сохраненным прогрессом
-================================================== */
 
 function openTrackerOverlay(id, title, content) {
   const old = document.getElementById(id);
@@ -4334,7 +4376,6 @@ function openTrackerOverlay(id, title, content) {
 
   return overlay;
 }
-/*- открыть сохраненный календарь -*/
 
 function renderSupplementTracker() {
   const supplements = getSupplements();
@@ -4359,8 +4400,8 @@ function renderSupplementTracker() {
   }
 
   calendarDate.setDate(1);
- 
-   const monthNames = [
+
+  const monthNames = [
     "январь",
     "февраль",
     "март",
@@ -4384,7 +4425,7 @@ function renderSupplementTracker() {
     "сб",
     "вс"
   ];
- 
+
   const saveCalendarState = () => {
     writeLocal(stateKey, {
       selectedSupplementId,
@@ -4415,9 +4456,8 @@ function renderSupplementTracker() {
         <div class="supplement-calendar-day is-empty"></div>
       `);
     }
-   
-    // Пустые ячейки перед первым днем месяца.
-for (let day = 1; day <= daysInMonth; day++) {
+
+    for (let day = 1; day <= daysInMonth; day++) {
       const date = new Date(year, month, day);
       const key = trackerDate(date);
 
@@ -4430,7 +4470,7 @@ for (let day = 1; day <= daysInMonth; day++) {
         selectedSupplement &&
         getSupplementTaken(selectedSupplement, key);
 
- const isToday = key === todayKey;
+      const isToday = key === todayKey;
 
       cells.push(`
         <button
@@ -4460,7 +4500,6 @@ for (let day = 1; day <= daysInMonth; day++) {
 
   const calendar = getMonthCalendar();
 
-
   const supplementOptions = supplements.length
     ? supplements
         .map(
@@ -4477,8 +4516,8 @@ for (let day = 1; day <= daysInMonth; day++) {
               <span class="supplement-selector-icon">💊</span>
 
               <span class="supplement-selector-name">
-                     ${escapeHtml(item.name)}
-                          </span>
+                ${escapeHtml(item.name)}
+              </span>
 
               ${
                 item.id === selectedSupplementId
@@ -4495,14 +4534,14 @@ for (let day = 1; day <= daysInMonth; day++) {
         <strong>пока здесь пусто</strong>
         <p>
           добавь БАД или препарат, который хочешь
-          отслеживать
+          отслеживать.
         </p>
       </div>
     `;
 
   const overlay = openTrackerOverlay(
     "supplementTrackerOverlay",
-    "трекер приема",
+    "трекер БАДов",
     `
       <div class="streak-banner">
         <div>
@@ -4522,7 +4561,7 @@ for (let day = 1; day <= daysInMonth; day++) {
         supplements.length
           ? `
             <div class="tracker-section-heading">
-              <span>что отслеживаешь</span>
+              <span>что отслеживаем</span>
               <small>${supplements.length} поз.</small>
             </div>
 
@@ -4580,7 +4619,7 @@ for (let day = 1; day <= daysInMonth; day++) {
               ${
                 selectedSupplement
                   ? `
-                    <span>сейчас отмечаешь:</span>
+                    <span>сейчас отмечаем:</span>
                     <strong>
                       ${escapeHtml(
                         selectedSupplement.name
@@ -4641,8 +4680,8 @@ for (let day = 1; day <= daysInMonth; day++) {
 
       <div class="tracker-hint">
         выбери БАД сверху и нажимай на даты в календаре,
-        чтобы отметить или снять прием<br>
-        Отметки сохраняются только на этом устройстве
+        чтобы отметить или снять прием.
+        Отметки сохраняются только на этом устройстве.
       </div>
     `
   );
@@ -4780,8 +4819,6 @@ for (let day = 1; day <= daysInMonth; day++) {
     });
 }
 
-/*- открыть сохраннный трекер воды -*/
-
 function renderWaterTracker() {
   const water = getTodayWater();
   const goal = getWaterGoal();
@@ -4813,55 +4850,21 @@ function renderWaterTracker() {
       </div>
 
       <div class="water-buttons">
-        <button type="button" data-water-add="100">
-          +100 мл
-        </button>
-
-       <button type="button" data-water-add="150">
+        <button type="button" data-water-add="150">
           +150 мл
-        </button>
-
-        <button type="button" data-water-add="200">
-          +200 мл
         </button>
 
         <button type="button" data-water-add="250">
           +250 мл
-        </button>        
-
-        <button type="button" data-water-add="300">
-          +300 мл
-        </button>
-        
-        <button type="button" data-water-add="350">
-          +350 мл
-        </button>        
-      </div>
-
-      <div class="water-buttons">
-        <button type="button" data-water-add="-100">
-          −100 мл
         </button>
 
-        <button type="button" data-water-add="-150">
-          −150 мл
-        </button>
-
-        <button type="button" data-water-add="-200">
-          −200 мл
+        <button type="button" data-water-add="500">
+          +500 мл
         </button>
 
         <button type="button" data-water-add="-250">
           −250 мл
-        </button>      
-
-        <button type="button" data-water-add="-300">
-          −300 мл
-        </button> 
-
-        <button type="button" data-water-add="-350">
-          −350 мл
-        </button>          
+        </button>
       </div>
 
       <div class="water-goal-row">
@@ -4873,7 +4876,7 @@ function renderWaterTracker() {
           <input
             id="waterGoalInput"
             type="number"
-            min="100"
+            min="250"
             max="10000"
             step="50"
             value="${goal}"
@@ -4883,7 +4886,7 @@ function renderWaterTracker() {
       </div>
 
       <div class="tracker-hint">
-        количество воды можно корректировать в течение дня ♡₊⋆ 
+        количество воды можно корректировать в течение дня.
       </div>
     `
   );
@@ -4909,7 +4912,7 @@ function renderWaterTracker() {
       const value = Math.min(
         10000,
         Math.max(
-          100,
+          250,
           Number(event.target.value) || 2000
         )
       );
@@ -4917,6 +4920,264 @@ function renderWaterTracker() {
       writeLocal(waterGoalStorageKey, value);
       rerender();
     });
+}
+
+function reminderFrequencyLabel(frequency) {
+  if (frequency === "daily") return "каждый день";
+  if (frequency === "weekdays") return "по будням";
+  if (frequency === "weekends") return "по выходным";
+
+  return "каждый день";
+}
+
+function isReminderDueToday(reminder) {
+  if (reminder.enabled === false) return false;
+
+  const day = new Date().getDay();
+
+  if (reminder.frequency === "weekdays") {
+    return day >= 1 && day <= 5;
+  }
+
+  if (reminder.frequency === "weekends") {
+    return day === 0 || day === 6;
+  }
+
+  return true;
+}
+
+function renderReminders() {
+  const reminders = getReminderData();
+
+  const list = reminders.length
+    ? reminders
+        .map(
+          reminder => `
+      <div class="reminder-row">
+        <div class="reminder-row-main">
+          <strong>${escapeHtml(reminder.name)}</strong>
+          <small>
+            ${escapeHtml(reminder.time)} •
+            ${reminderFrequencyLabel(reminder.frequency)}
+          </small>
+        </div>
+
+        <div class="reminder-row-actions">
+          <button
+            type="button"
+            class="reminder-toggle ${
+              reminder.enabled === false ? "" : "is-active"
+            }"
+            data-reminder-toggle="${reminder.id}"
+            aria-label="включить или выключить"
+          >
+            ${reminder.enabled === false ? "○" : "●"}
+          </button>
+
+          <button
+            type="button"
+            class="mini-delete"
+            data-delete-reminder="${reminder.id}"
+          >
+            удалить
+          </button>
+        </div>
+      </div>
+    `
+        )
+        .join("")
+    : `
+      <div class="tracker-empty">
+        <div class="tracker-empty-icon">⏰</div>
+        <strong>напоминаний пока нет</strong>
+        <p>добавь время приема ниже</p>
+      </div>
+    `;
+
+  const overlay = openTrackerOverlay(
+    "remindersOverlay",
+    "напоминания",
+    `
+      <div class="tracker-section-heading">
+        <span>мои напоминания</span>
+        <small>${reminders.length}</small>
+      </div>
+
+      <div class="reminder-list">
+        ${list}
+      </div>
+
+      <div class="reminder-add-form">
+        <input
+          id="newReminderName"
+          type="text"
+          maxlength="60"
+          placeholder="что принять"
+        >
+
+        <input
+          id="newReminderTime"
+          type="time"
+          value="09:00"
+        >
+
+        <select id="newReminderFrequency">
+          <option value="daily">каждый день</option>
+          <option value="weekdays">по будням</option>
+          <option value="weekends">по выходным</option>
+        </select>
+
+        <button
+          id="addReminderButton"
+          type="button"
+        >
+          + добавить
+        </button>
+      </div>
+
+      <div class="tracker-hint">
+        напоминания работают локально внутри приложения.
+      </div>
+    `
+  );
+
+  overlay
+    .querySelectorAll("[data-reminder-toggle]")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        const items = getReminderData();
+
+        const item = items.find(
+          r => r.id === button.dataset.reminderToggle
+        );
+
+        if (!item) return;
+
+        item.enabled = item.enabled === false;
+
+        saveReminderData(items);
+        renderReminders();
+      });
+    });
+
+  overlay
+    .querySelectorAll("[data-delete-reminder]")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        saveReminderData(
+          getReminderData().filter(
+            r => r.id !== button.dataset.deleteReminder
+          )
+        );
+
+        renderReminders();
+      });
+    });
+
+  const addButton =
+    overlay.querySelector("#addReminderButton");
+
+  addButton?.addEventListener("click", () => {
+    const name =
+      overlay
+        .querySelector("#newReminderName")
+        ?.value.trim();
+
+    const time =
+      overlay.querySelector("#newReminderTime")?.value ||
+      "09:00";
+
+    const frequency =
+      overlay.querySelector("#newReminderFrequency")
+        ?.value || "daily";
+
+    if (!name) return;
+
+    const items = getReminderData();
+
+    items.push({
+      id: `${Date.now()}-${Math.random()
+        .toString(36)
+        .slice(2, 8)}`,
+      name,
+      time,
+      frequency,
+      enabled: true,
+      lastShown: ""
+    });
+
+    saveReminderData(items);
+    renderReminders();
+  });
+}
+
+function showLocalReminderToast(reminder) {
+  const existing =
+    document.getElementById("localReminderToast");
+
+  if (existing) existing.remove();
+
+  const toast = document.createElement("div");
+
+  toast.id = "localReminderToast";
+  toast.className = "local-reminder-toast";
+
+  toast.innerHTML = `
+    <div class="local-reminder-toast-icon">⏰</div>
+
+    <div class="local-reminder-toast-content">
+      <strong>напоминание</strong>
+      <span>${escapeHtml(reminder.name)}</span>
+    </div>
+
+    <button type="button" aria-label="закрыть">×</button>
+  `;
+
+  document.body.appendChild(toast);
+
+  toast
+    .querySelector("button")
+    ?.addEventListener("click", () => {
+      toast.remove();
+    });
+
+  setTimeout(() => {
+    toast.remove();
+  }, 8000);
+}
+
+function checkReminders() {
+  const reminders = getReminderData();
+
+  if (!reminders.length) return;
+
+  const now = new Date();
+
+  const currentDate = trackerDate(now);
+
+  const currentTime =
+    `${String(now.getHours()).padStart(2, "0")}:${String(
+      now.getMinutes()
+    ).padStart(2, "0")}`;
+
+  let changed = false;
+
+  reminders.forEach(reminder => {
+    if (!isReminderDueToday(reminder)) return;
+
+    if (reminder.time !== currentTime) return;
+
+    if (reminder.lastShown === currentDate) return;
+
+    reminder.lastShown = currentDate;
+    changed = true;
+
+    showLocalReminderToast(reminder);
+  });
+
+  if (changed) {
+    saveReminderData(reminders);
+  }
 }
 
 function openThemePicker() {
@@ -4937,12 +5198,13 @@ function openThemePicker() {
       description: "светлая воздушная тема"
     },
     {
-      id: "minimalism",
+      id: "minimal",
       name: "минимализм",
       description: "чистая минималистичная тема"
     }
   ];
-const currentTheme =
+
+  const currentTheme =
     localStorage.getItem("molecule-space-theme") ||
     "dark";
 
@@ -5005,3 +5267,116 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
+
+function ensureTrackerCards() {
+  const diary =
+    document.getElementById("quickDiaryButton");
+
+  if (
+    !diary ||
+    document.getElementById(
+      "supplementsTrackerButton"
+    )
+  ) {
+    return;
+  }
+
+  const wrap = document.createElement("div");
+
+  wrap.className = "home-trackers";
+
+  wrap.innerHTML = `
+    <button
+      class="tracker-card supplements-tracker-card"
+      id="supplementsTrackerButton"
+      type="button"
+    >
+      <span class="tracker-icon">💊</span>
+
+      <span class="tracker-card-content">
+        <strong>трекер БАДов</strong>
+        <small id="supplementsTrackerSummary">
+          добавь свои БАДы и отмечай прием
+        </small>
+      </span>
+
+      <span
+        class="tracker-card-value"
+        id="supplementsStreak"
+      >
+        0 🔥
+      </span>
+    </button>
+
+    <button
+      class="tracker-card water-tracker-card"
+      id="waterTrackerButton"
+      type="button"
+    >
+      <span class="tracker-icon">💧</span>
+
+      <span class="tracker-card-content">
+        <strong>вода</strong>
+        <small id="waterTrackerSummary">
+          0 мл из 2000 мл
+        </small>
+      </span>
+
+      <span class="water-mini-bar">
+        <span id="waterMiniProgress"></span>
+      </span>
+    </button>
+
+    <button
+      class="tracker-card reminder-tracker-card"
+      id="remindersButton"
+      type="button"
+    >
+      <span class="tracker-icon">⏰</span>
+
+      <span class="tracker-card-content">
+        <strong>напоминания</strong>
+        <small id="remindersSummary">
+          настроить прием таблеток
+        </small>
+      </span>
+
+      <span class="tracker-card-arrow">›</span>
+    </button>
+  `;
+
+  diary.insertAdjacentElement("afterend", wrap);
+}
+
+ensureTrackerCards();
+
+const supplementsTrackerButton =
+  document.getElementById(
+    "supplementsTrackerButton"
+  );
+
+const waterTrackerButton =
+  document.getElementById("waterTrackerButton");
+
+const remindersButton =
+  document.getElementById("remindersButton");
+
+supplementsTrackerButton?.addEventListener(
+  "click",
+  renderSupplementTracker
+);
+
+waterTrackerButton?.addEventListener(
+  "click",
+  renderWaterTracker
+);
+
+remindersButton?.addEventListener(
+  "click",
+  renderReminders
+);
+
+refreshHomeTrackers();
+checkReminders();
+
+setInterval(checkReminders, 30000);
