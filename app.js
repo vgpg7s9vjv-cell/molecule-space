@@ -3507,8 +3507,6 @@ if (sectionId === "mood") {
       );
 
     document.body.style.overflow = "hidden";
-
-    return;
   }
   /* ================================================
             ОТКРЫТЬ РАЗДЕЛЫ СО СТАТЬЯМИ
