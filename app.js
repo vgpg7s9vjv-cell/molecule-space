@@ -2431,14 +2431,14 @@ const articles = {
 /* ==================================================
    СОСТОЯНИЕ ПРИЛОЖЕНИЯ
 ================================================== */
-let currentSectionId = null;
+   { let currentSectionId = null;
 
 let currentPage = 0; 
 
 let selectedMood = "😊";
 const moodStorageKey = "molecule-space-mood-diary";
 const themeStorageKey = "molecule-space-theme";
-
+}
 /* ==================================================
    DOM
 ================================================== */
