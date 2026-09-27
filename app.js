@@ -1,52 +1,60 @@
 /* ==================================================
+ 
 
-
-   TELEGRAM
+    TELEGRAM
 ================================================== */
 
 const tg = window.Telegram?.WebApp;
 
 if (tg) {
   tg.ready();
-  tg.expand();
+  tg.expand(); 
 
   if (tg.setHeaderColor) {
-    tg.setHeaderColor("#CCCCFF");
+    tg.setHeaderColor("#ffffff");
   }
 
   if (tg.setBackgroundColor) {
-    tg.setBackgroundColor("#CCCCFF");
+    tg.setBackgroundColor("#ffffff");
   }
 }
 
 
 /* ==================================================
-   ФРАЗЫ ДЛЯ ПОДДЕРЖКИ
+   фраза дня
 ================================================== */
 
 const quotes = [
-  "никто не обязан заслуживать право на еду, отдых и заботу о себе",
+"срыв — не повод бросать все",
 
-  "твой самый трудный день не отменяет весь путь, который был пройден",
+"лучшая мотивация — это шмотки, которые лежат в шкафу и ждут, когда ты в них влезешь",
 
-  "тело не является экзаменом, который нужно сдать на определенный размер",
+"твой самый трудный день не отменяет весь путь, который был пройден",
 
-  "один прием пищи не способен определить твою ценность",
+"в любой непонятной ситуации — ложись спать, ведь во сне невозможно пойти к холодильнику",
 
-  "тебе можно уставать. тебе можно остановиться",
+"не делай покупку абонемента в зал своим любимым видом благотворительности",
 
-  "восстановление не обязано быть идеальным, чтобы быть настоящим",
+"тебе можно уставать и остановиться",
 
-  "ты больше, чем цифры на весах, в приложении или на бирке одежды",
+"минутная слабость во рту не стоит часов разочарования перед зеркалом",
 
-  "еда не делает из тебя хорошего или плохого человека, это еда, а не моральный тест"
+"дисциплина — это решение делать то, чего ты не хочешь, чтобы достичь того, чего ты хочешь больше всего",
+
+"сделай свое тело местом, в котором тебе приятно жить",
+
+"уважение к себе начинается с того, чем ты наполняешь свой день и свою тарелку",
+
+"твоя лень не сделает тебя увереннее в себе",
+
+"перестань искать «идеальный понедельник»! идеального времени не будет никогда, есть только здесь и сейчас"
 ];
 
 let currentQuote = 0;
 
 
 /* ==================================================
-   ДАННЫЕ РАЗДЕЛОВ
+  разделы
 ================================================== */
 
 const sections = {
@@ -340,7 +348,6 @@ links: {
 /* ==================================================
    СТАТЬИ
 ================================================== */
-
 const articles = {
 
 
@@ -380,7 +387,7 @@ const articles = {
             когда человек просто недоволен весом, он садится на обычную диету, но рпп — это совсем другое<br>
             это когда внутри живет огромная, болезненная нелюбовь к себе<br>
             и кажется, что если ты уменьшишься в размерах, то эта пустота исчезнет, а тебя, наконец, полюбят и оценят<br>
-            <b>это попытка исправить разбитую душу через изнурение тела<b>
+            <b>это попытка исправить разбитую душу через изнурение тела</b>
           </p>
 
           <div class="info-box">
@@ -407,8 +414,8 @@ const articles = {
         heading: "основные разновидности рпп",
 
         content: `
-          <p>
              <h3>⟣орторексия⟢</h3>
+             <p>
               — одержимость «чистым» питанием<br>
               это не просто желание питаться правильно, это настоящая мания и страх съесть что-то «вредное»<br>
               человек делит еду на «правильную» и «токсичную» и выбирает еду не по вкусу или чувству голода, а по составу<br>
@@ -425,8 +432,9 @@ const articles = {
             alt="Фото2"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
             
-          <p>
+
           <h3>⟣дранкорексия⟢</h3>
+          <p>          
                 — алкоголь вместо еды<br>
                это расстройство, при котором человек намеренно отказывается от еды, чтобы «сэкономить» калории для алкоголя<br>
                другой вариант дранкорексии — когда после вечеринки с алкоголем человек устраивает себе жесткие голодовки или изнурительные тренировки,<br>
@@ -438,8 +446,9 @@ const articles = {
             </p>
             </div>
             
-          <p>
+
           <h3>⟣булимия⟢</h3>
+          <p>          
              — замкнутый круг «срыв-наказание»<br>
             это расстройство, которое проявляется приступами неконтролируемого переедания,<br>
             после которых человек пытается экстренно «очистить» организм<br>
@@ -452,15 +461,17 @@ const articles = {
              </p>
             </div>
 
-            <p>
+
              <h3>⟣преорексия⟢</h3>
+          <p>             
                — одержимость спортом в положении<br>
                расстройство, при котором беременные женщины изнуряют себя диетами и фитнесом,<br> 
                панически боясь набрать вес во время вынашивания ребенка
             </p>
 
-            <p>
+
             <h3>⟣бигорексия⟢</h3>
+          <p>            
                 (мужская анорексия) — когда человеку кажется,<br> 
                 что он слишком худой и «хилый», даже если он уже выглядит как профессиональный бодибилдер<br> 
                 он живет в зале и одержим ростом мышц
@@ -549,7 +560,6 @@ const articles = {
             alt="safe"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
-          <p>
           
             <h3>а как же проявляется привычка искать fear-food?</h3>
           <ul>
@@ -564,7 +574,6 @@ const articles = {
             <img src="./images/fearfood.jpg"
             alt="fear"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-          </p>
         `
       },
 
@@ -599,7 +608,6 @@ const articles = {
         heading: "списки разрешенных и запрещенных рпп-продуктов",
 
         content: `
-          <p>
            <h3>что есть разрешено</h3>
           <ul>
             <li>огурцы, помидоры, листья салата</li>
@@ -614,7 +622,6 @@ const articles = {
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
 
 
-           <p>
            <h3>что есть нельзя</h3>
           <ul>
             <li>хлеб</li>
@@ -2367,18 +2374,19 @@ const articles = {
             влиять на сердечно-сосудистую систему, сон, пищеварение
             и другие процессы.
           </p>
-       `
-      }         
+        `
+      }
     ]
   },
 
+   
   "delicate-period": {
 
     section: "delicate",
 
-    title: "теория, которую все знают",
+    title: "чем чревато продолжать курс во время кд",
 
-    category: "база рпп",
+    category: "менструация на курсе",
 
     pages: [
 
@@ -2395,8 +2403,8 @@ const articles = {
             поэтому фраза «просто перестань думать о еде» своей полезностью
             на одном уровне с советом, если сказать компу: «просто не зависай»
           </p>
-                  `
-      }         
+        `
+      }
     ]
   },
 
@@ -2405,9 +2413,9 @@ const articles = {
 
     section: "delicate",
 
-    title: "теория, которую все знают",
+    title: "из-за чего<br>что можно есть, чтобы облегчить<br>white/black-lists слабительных",
 
-    category: "база рпп",
+    category: "запоры на курсе",
 
     pages: [   
       {
@@ -2423,30 +2431,26 @@ const articles = {
             поэтому фраза «просто перестань думать о еде» своей полезностью
             на одном уровне с советом, если сказать компу: «просто не зависай»
           </p>
-                  `
-      }      
-          ]
-                     }
-
+        `
+      }
+    ]
+  }
+}
 /* ==================================================
-   СОСТОЯНИЕ ПРИЛОЖЕНИЯ
+   СОСТОЯНИЕ ПРИЛОЖЕНИЯ дневник настроения
 ================================================== */
-let currentSectionId = 0;
 
 let currentPage = 0; 
 
 let selectedMood = "😊";
 const moodStorageKey = "molecule-space-mood-diary";
 const themeStorageKey = "molecule-space-theme";
+
 /* ==================================================
-   DOM
+   DOM дневник настроения 
 ================================================== */
 
 const homeScreen = document.getElementById("homeScreen");
-
-const contentScreen = document.getElementById("contentScreen");
-
-const contentContainer = document.getElementById("contentContainer");
 
 const quoteElement = document.getElementById("quote");
 
@@ -2458,7 +2462,7 @@ const quickDiaryButton = document.getElementById("quickDiaryButton");
 
 
 /* ==================================================
-   ФРАЗА
+   ФРАЗА - настройка смены фраз
 ================================================== */
 
 function showNextQuote() {
@@ -2483,11 +2487,10 @@ function showNextQuote() {
 
 
 /* ==================================================
-   ТЕМА
+   кнопка выбора темы
 ================================================== */
 
 function applyTheme(theme) {
-
   const validThemes = [
     "dark",
     "pink",
@@ -2499,341 +2502,50 @@ function applyTheme(theme) {
     theme = "dark";
   }
 
-
-  /* убираем старые классы тем */
+  const body = document.body;
 
   validThemes.forEach(themeName => {
-
-    document.body.classList.remove(
-      `theme-${themeName}`
-    );
-
+    body.classList.remove(`theme-${themeName}`);
   });
 
+  body.classList.add(`theme-${theme}`);
 
-  /* добавляем выбранную тему */
-
-  document.body.classList.add(
-    `theme-${theme}`
-  );
-
-
-  /* иконка оставляет смысл кнопки:
-     сама кнопка теперь открывает выбор темы */
+  /* синхронизируем обе системы тем */
+  body.dataset.theme =
+    theme === "minimalism"
+      ? "minimalism"
+      : theme;
 
   if (themeToggleIcon) {
     themeToggleIcon.textContent =
-      theme === "dark"
-        ? "☾"
-        : "✦";
+      theme === "dark" ? "☾" : "✦";
   }
 
-
   if (themeToggle) {
-
     themeToggle.setAttribute(
       "aria-label",
       "выбрать оформление"
     );
-
   }
 
-
   try {
-
     localStorage.setItem(
       themeStorageKey,
       theme
     );
-
   } catch (error) {}
 
-
-  /* цвет интерфейса Telegram */
-
-  if (tg) {
-
-    const colors = {
-
-      dark: "#071426",
-
-      pink: "#24131f",
-
-      angel: "#f7f3ff",
-
-      minimalism: "#f3f3ef"
-
-    };
-
-    if (tg.setHeaderColor) {
-      tg.setHeaderColor(
-        colors[theme]
-      );
-    }
-
-    if (tg.setBackgroundColor) {
-      tg.setBackgroundColor(
-        colors[theme]
-      );
-    }
 
   }
 
-}
-
-
-function initTheme() {
-
-  let saved = "dark";
-
-  try {
-
-    saved =
-      localStorage.getItem(
-        themeStorageKey
-      ) || "dark";
-
-  } catch (error) {}
-
-
-  applyTheme(saved);
-
-}
 /* ==================================================
-   ДНЕВНИК
+   имт и дефицит
 ================================================== */
-
-function getMoodEntries() {
-  try {
-    return JSON.parse(localStorage.getItem(moodStorageKey) || "[]");
-  } catch (error) {
-    return [];
-  }
-}
-
-function saveMoodEntry(text, mood) {
-  const entries = getMoodEntries();
-  entries.unshift({
-    id: Date.now(),
-    mood,
-    text,
-    date: new Date().toLocaleString("ru-RU", {
-      day: "2-digit", month: "long", year: "numeric",
-      hour: "2-digit", minute: "2-digit"
-    })
-  });
-
-  try {
-    localStorage.setItem(moodStorageKey, JSON.stringify(entries.slice(0, 100)));
-  } catch (error) {}
-}
-
-function renderMoodJournal() {
-  const entries = getMoodEntries();
-  const moods = ["😊", "🥳", "🥰", "😕", "😣", "😭", "😡", "🫩", "🤒"];
-
-  contentContainer.innerHTML = `
-    <div class="screen-inner diary-page fade-in">
-
-      <button
-        class="back-button"
-        id="diaryBackButton"
-      >
-        ← назад
-      </button>
-
-      <header class="section-header">
-        <p class="section-kicker">mood journal</p>
-
-        <h1>
-          дневник настроения
-        </h1>
-
-        <p>
-          место для коротких заметок о своем состоянии и событиях дня ♡
-        </p>
-      </header>
-
-      <section class="diary-compose">
-
-        <p class="diary-date">
-          сегодня · ${new Date().toLocaleDateString("ru-RU", {
-            day: "numeric",
-            month: "long"
-          })}
-        </p>
-
-        <div
-          class="mood-picker"
-          aria-label="Выбери настроение"
-        >
-          ${moods.map(mood => `
-            <button
-              type="button"
-              class="mood-choice ${selectedMood === mood ? "selected" : ""}"
-              data-mood="${mood}"
-            >
-              ${mood}
-            </button>
-          `).join("")
-          
-          }
-        </div>
-
-        <textarea
-          class="diary-textarea"
-          id="diaryText"
-          placeholder="что хочется записать?"
-        ></textarea>
-
-        <button
-          type="button"
-          class="calculator-button diary-save"
-          id="saveDiaryButton"
-        >
-          сохранить запись
-        </button>
-
-      </section>
-
-      <div class="diary-list">
-
-        ${
-          entries.length
-            ? entries.map((entry, index) => `
-                <article class="mood-entry">
-
-                  <div class="mood-entry-head">
-                    <span class="mood-entry-emoji">
-                      ${entry.mood}
-                    </span>
-
-                    <span class="mood-entry-date">
-                      ${entry.date}
-                    </span>
-                  </div>
-
-                  <p class="mood-entry-text">
-                    ${escapeHtml(entry.text)}
-                  </p>
-
-                  <button
-                    type="button"
-                    class="diary-delete-button"
-                    data-delete-entry="${index}"
-                  >
-                    удалить запись
-                  </button>
-
-                </article>
-              `).join("")
-            : `
-                <div class="diary-empty">
-                  здесь появятся твои записи<br>
-                  они бережно хранятся только в этом приложении
-                </div>
-              `
-        }
-
-      </div>
-
-    </div>
-  `;
-
-  document
-    .getElementById("diaryBackButton")
-    .addEventListener("click", showHome);
-
-
-  document
-    .querySelectorAll("[data-mood]")
-    .forEach(button => {
-
-      button.addEventListener("click", () => {
-
-        selectedMood = button.dataset.mood;
-
-        renderMoodJournal();
-
-      });
-
-    });
-
-
-  document
-    .getElementById("saveDiaryButton")
-    .addEventListener("click", () => {
-
-      const textarea =
-        document.getElementById("diaryText");
-
-      const text =
-        textarea.value.trim();
-
-      if (!text) {
-        textarea.focus();
-        return;
-      }
-
-      saveMoodEntry(
-        text,
-        selectedMood
-      );
-
-      selectedMood = "😊";
-
-      renderMoodJournal();
-
-    });
-
-
-  document
-    .querySelectorAll("[data-delete-entry]")
-    .forEach(button => {
-
-      button.addEventListener("click", () => {
-
-        const index =
-          Number(button.dataset.deleteEntry);
-
-        const entries =
-          getMoodEntries();
-
-        entries.splice(index, 1);
-
-        try {
-          localStorage.setItem(
-            moodStorageKey,
-            JSON.stringify(
-              entries.slice(0, 100)
-            )
-          );
-        } catch (error) {}
-
-        renderMoodJournal();
-
-      });
-
-    });
-
-
-  window.scrollTo(0, 0);
-}
-
-
-function escapeHtml(value) {
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/\"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
 
 function renderTools() {
   contentContainer.innerHTML = `
     <div class="screen-inner fade-in">
-      <button class="back-button" id="toolsBackButton">← назад</button>
+      <button class="back-button" id="toolsBackButton">← вернуться на главную </button>
       <header class="section-header">
         <p class="section-kicker">dietary calculations</p>
         <h1>твой виртуальный счетовод</h1>
@@ -2856,7 +2568,7 @@ function renderTools() {
           <h3>норма и дефицит калорий</h3>
           <p>оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле Миффлина — Сан Жеора</p>
           <div class="calculator-grid">
-            <div class="calculator-field"><label for="calAge">возраст, лет</label><input class="calculator-input" id="calAge" type="number" min="12" step="1" inputmode="numeric"></div>
+            <div class="calculator-field"><label for="calAge">возраст, лет</label><input class="calculator-input" id="calAge" type="number" min="13" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calWeight">масса, кг</label><input class="calculator-input" id="calWeight" type="number" min="1" step="0.1" inputmode="decimal"></div>
             <div class="calculator-field"><label for="calHeight">рост, см</label><input class="calculator-input" id="calHeight" type="number" min="1" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calSex">пол для формулы</label><select class="calculator-input" id="calSex"><option value="female">женский</option><option value="male">мужской</option></select></div>
@@ -2891,31 +2603,31 @@ function calculateEnergy() {
   const sex = document.getElementById("calSex").value;
   const activity = Number(document.getElementById("calActivity").value);
   const result = document.getElementById("energyResult");
-  if (!age || age < 12 || !weight || !height) { result.textContent = "введен возраст ниже 12 лет, попробуй ввести другой"; return; }
+  if (!age || age < 13 || !weight || !height) { result.textContent = "УПС! твой организм еще растет и тебе не нужен дефицит"; return; }
   const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
-  const tdee = bmr * activity * 0.8;
-  result.innerHTML = `<strong>основное количество сжигаемых тобой калорий ${Math.round(bmr)} ккал/сутки</strong><br>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки`;
+  const tdee = (bmr * activity) - 520;
+  result.innerHTML = `основное количество сжигаемых тобой калорий с учетом активности ${Math.round(bmr)} ккал/сутки<br><strong>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки</strong>`;
 }
 
 
 /* ==================================================
-   ПОКАЗАТЬ ГЛАВНУЮ
+   выход на главную
 ================================================== */
 
 function showHome() {
-
   currentSectionId = null;
   currentArticleId = null;
   currentPage = 0;
 
+  removeSectionOverlay();
+  removeArticleOverlay();
 
-  const articleOverlay =
-    document.getElementById("articleOverlay");
+  document.body.style.overflow = "";
+  homeScreen.classList.remove("hidden");
+  contentScreen.classList.add("hidden");
 
-  if (articleOverlay) {
-    articleOverlay.remove();
-  }
-
+  window.scrollTo({ top: 0, behavior: "instant" });
+}
 
   const sectionOverlay =
     document.getElementById("sectionOverlay");
@@ -2939,148 +2651,64 @@ function showHome() {
 
 
 /* ==================================================
-   ОТКРЫТЬ РАЗДЕЛ
+   ОТКРЫТЬ РАЗДЕЛы интерактивные
 ================================================== */
+function getMoodEntries() {
+  try {
+    const raw = localStorage.getItem(moodStorageKey);
 
-function openSection(sectionId) {
+    if (!raw) {
+      return [];
+    }
 
-  const section = sections[sectionId];
+    const parsed = JSON.parse(raw);
 
-  if (!section) {
-    return;
+    return Array.isArray(parsed)
+      ? parsed
+      : [];
+  } catch (error) {
+    return [];
   }
-
-  if (sectionId === "mood") {
-    currentSectionId = "mood";
-    currentArticleId = null;
-    currentPage = 0;
-    contentScreen.classList.remove("hidden");
-    homeScreen.classList.add("hidden");
-    renderMoodJournal();
-    return;
-  }
-
-  if (sectionId === "tools") {
-    currentSectionId = "tools";
-    currentArticleId = null;
-    currentPage = 0;
-    contentScreen.classList.remove("hidden");
-    homeScreen.classList.add("hidden");
-    renderTools();
-    return;
-  }
-   
-  currentSectionId = sectionId;
-
-  currentArticleId = null;
-
-  currentPage = 0;
-
-  contentScreen.classList.remove("hidden");
-
-  homeScreen.classList.add("hidden");
-
-
-  contentContainer.innerHTML = `
-
-    <div class="screen-inner fade-in">
-
-      <button
-        class="back-button"
-        id="sectionBackButton"
-      >
-        ← назад
-      </button>
-
-
-      <header class="section-header">
-
-        <p class="section-kicker">
-          ${section.kicker}
-        </p>
-
-        <h1>
-          ${section.title}
-        </h1>
-
-        <p>
-          ${section.description}
-        </p>
-
-      </header>
-
-
-      <div class="topic-list">
-
-        ${section.topics.map(topic => `
-
-          <button
-            class="topic-card"
-            data-article="${topic.id}"
-          >
-
-            <div class="topic-card-content">
-
-              <p class="topic-card-title">
-                ${topic.title}
-              </p>
-
-              <p class="topic-card-description">
-                ${topic.description}
-              </p>
-
-            </div>
-
-            <span class="topic-arrow">
-              ›
-            </span>
-
-          </button>
-
-        `).join("")
-        
-        }
-
-      </div>
-
-    </div>
-
-  `;
-
-
-  document
-    .getElementById("sectionBackButton")
-    .addEventListener("click", showHome);
-
-
-  window.scrollTo(0, 0);
 }
 
+function saveMoodEntry(text, mood) {
+  const entries = getMoodEntries();
 
-/* ==================================================
-   ОТКРЫТЬ РАЗДЕЛ
-================================================== */
+  entries.unshift({
+    text: String(text).trim(),
+    mood: mood || "😊",
+    date: new Date().toLocaleDateString(
+      "ru-RU",
+      {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }
+    )
+  });
+
+  try {
+    localStorage.setItem(
+      moodStorageKey,
+      JSON.stringify(entries.slice(0, 100))
+    );
+  } catch (error) {}
+}
 
 function openSection(sectionId) {
-
   const section = sections[sectionId];
 
   if (!section) {
     return;
   }
 
+  removeSectionOverlay();
+  removeArticleOverlay();
 
-  /* удаляем старый экран раздела */
-
-  const oldOverlay =
-    document.getElementById("sectionOverlay");
-
-  if (oldOverlay) {
-    oldOverlay.remove();
-  }
-
-
-  /* особые разделы */
+ 
+/* ==================================================
+   ОТКРЫТЬ ДНЕВНИК НАСТРОЕНИЯ
+================================================== */
 
 if (sectionId === "mood") {
 
@@ -3107,7 +2735,7 @@ if (sectionId === "mood") {
           class="back-button"
           id="diaryBackButton"
         >
-          ← назад
+          ← вернуться на главную
         </button>
 
         <header class="section-header">
@@ -3182,7 +2810,7 @@ if (sectionId === "mood") {
             class="calculator-button diary-save"
             id="saveDiaryButton"
           >
-            сохранить запись
+            записать
           </button>
 
         </section>
@@ -3206,16 +2834,16 @@ if (sectionId === "mood") {
 
                     </div>
 
-                    <p class="mood-entry-text">
-                      ${escapeHtml(entry.text)}
-                    </p>
+              <p class="mood-entry-text">
+                  ${escapeHtml(entry.text)}
+                    </p>                 
 
                     <button
                       type="button"
                       class="diary-delete-button"
                       data-delete-entry="${index}"
                     >
-                      удалить запись
+                      удалить
                     </button>
 
                   </article>
@@ -3370,7 +2998,7 @@ if (sectionId === "mood") {
             class="back-button"
             id="linksBackButton"
           >
-            ← назад
+            ← вернуться на главную
           </button>
 
           <header class="section-header">
@@ -3516,296 +3144,16 @@ if (sectionId === "mood") {
 
     return;
   }
-   
   /* ================================================
-     ИНСТРУМЕНТЫ
+            ОТКРЫТЬ РАЗДЕЛЫ СО СТАТЬЯМИ
   ================================================ */
-
-  if (sectionId === "tools") {
-
-    currentSectionId = "tools";
-    currentArticleId = null;
-    currentPage = 0;
-
-    const overlay =
-      document.createElement("div");
-
-    overlay.id = "sectionOverlay";
-    overlay.className = "section-overlay";
-
-    document.body.appendChild(overlay);
-
-    overlay.innerHTML = `
-      <div class="section-overlay-inner">
-        <div id="sectionContent"></div>
-      </div>
-    `;
-
-    const sectionContent =
-      overlay.querySelector("#sectionContent");
-
-    sectionContent.innerHTML = `
-      <div class="screen-inner fade-in">
-
-        <button
-          class="back-button"
-          id="toolsBackButton"
-        >
-          ← назад
-        </button>
-
-        <header class="section-header">
-
-          <p class="section-kicker">
-            dietary calculations
-          </p>
-
-          <h1>
-            твой виртуальный счетовод
-          </h1>
-
-          <p>
-            минималистичные калькуляторы с небольшим пояснением результата
-          </p>
-
-        </header>
-
-        <div class="calculator-list">
-
-          <section class="calculator-card">
-
-            <h3>ИМТ</h3>
-
-            <p>
-              индекс массы тела по росту и массе
-            </p>
-
-            <div class="calculator-grid">
-
-              <div class="calculator-field">
-
-                <label for="bmiWeight">
-                  масса, кг
-                </label>
-
-                <input
-                  class="calculator-input"
-                  id="bmiWeight"
-                  type="number"
-                  min="1"
-                  step="0.1"
-                  inputmode="decimal"
-                >
-
-              </div>
-
-              <div class="calculator-field">
-
-                <label for="bmiHeight">
-                  рост, см
-                </label>
-
-                <input
-                  class="calculator-input"
-                  id="bmiHeight"
-                  type="number"
-                  min="1"
-                  step="1"
-                  inputmode="numeric"
-                >
-
-              </div>
-
-            </div>
-
-            <button
-              class="calculator-button"
-              id="calculateBmi"
-            >
-              рассчитать ИМТ
-            </button>
-
-            <div
-              class="calculator-result"
-              id="bmiResult"
-            >
-              введи данные выше
-            </div>
-
-          </section>
-
-
-          <section class="calculator-card">
-
-            <h3>
-              норма и дефицит калорий
-            </h3>
-
-            <p>
-              оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле Миффлина — Сан Жеора
-            </p>
-
-            <div class="calculator-grid">
-
-              <div class="calculator-field">
-
-                <label for="calAge">
-                  возраст, лет
-                </label>
-
-                <input
-                  class="calculator-input"
-                  id="calAge"
-                  type="number"
-                  min="12"
-                  step="1"
-                  inputmode="numeric"
-                >
-
-              </div>
-
-              <div class="calculator-field">
-
-                <label for="calWeight">
-                  масса, кг
-                </label>
-
-                <input
-                  class="calculator-input"
-                  id="calWeight"
-                  type="number"
-                  min="1"
-                  step="0.1"
-                  inputmode="decimal"
-                >
-
-              </div>
-
-              <div class="calculator-field">
-
-                <label for="calHeight">
-                  рост, см
-                </label>
-
-                <input
-                  class="calculator-input"
-                  id="calHeight"
-                  type="number"
-                  min="1"
-                  step="1"
-                  inputmode="numeric"
-                >
-
-              </div>
-
-              <div class="calculator-field">
-
-                <label for="calSex">
-                  пол для формулы
-                </label>
-
-                <select
-                  class="calculator-input"
-                  id="calSex"
-                >
-                  <option value="female">
-                    женский
-                  </option>
-                  <option value="male">
-                    мужской
-                  </option>
-                </select>
-
-              </div>
-
-              <div class="calculator-field full">
-
-                <label for="calActivity">
-                  уровень активности
-                </label>
-
-                <select
-                  class="calculator-input"
-                  id="calActivity"
-                >
-                  <option value="1.2">
-                    минимальная активность(сидячий образ жизни)
-                  </option>
-                  <option value="1.375">
-                    легкая активность(физнагрузка 1-3 раз в неделю)
-                  </option>
-                  <option value="1.55">
-                    умеренная активность(физнагрузка 3-5 раз в неделю)
-                  </option>
-                  <option value="1.725">
-                    высокая активность(физнагрузка 6-7 раз в неделю)
-                  </option>
-                  <option value="1.9">
-                    очень высокая активность(ежедневная физнагрузка)
-                  </option>
-                </select>
-
-              </div>
-
-            </div>
-
-            <button
-              class="calculator-button"
-              id="calculateEnergy"
-            >
-              рассчитать
-            </button>
-
-            <div
-              class="calculator-result"
-              id="energyResult"
-            >
-              введи данные выше
-            </div>
-
-          </section>
-
-        </div>
-
-      </div>
-    `;
-
-
-    document
-      .getElementById("toolsBackButton")
-      .addEventListener(
-        "click",
-        showHome
-      );
-
-    document
-      .getElementById("calculateBmi")
-      .addEventListener(
-        "click",
-        calculateBmi
-      );
-
-    document
-      .getElementById("calculateEnergy")
-      .addEventListener(
-        "click",
-        calculateEnergy
-      );
-
-    return;
-  }
-
-
-  /* ================================================
-     ОБЫЧНЫЕ РАЗДЕЛЫ
-  ================================================ */
-
-  currentSectionId = sectionId;
+ 
+  currentSectionId = sectionId; 
   currentArticleId = null;
   currentPage = 0;
 
 
-  const overlay =
+ {  const overlay = 
     document.createElement("div");
 
   overlay.id = "sectionOverlay";
@@ -3822,7 +3170,7 @@ if (sectionId === "mood") {
         class="back-button"
         id="sectionBackButton"
       >
-        ← назад
+        ← вернуться на главную
       </button>
 
 
@@ -3896,7 +3244,7 @@ if (sectionId === "mood") {
 }
 
 /* ==================================================
-   ОТКРЫТИЕ СТАТЬИ
+  ОТКРЫТЬ САМУ СТАТЬЮ
 ================================================== */
 
 function openArticle(articleId) {
@@ -3910,6 +3258,7 @@ function openArticle(articleId) {
 
   renderArticle();
 
+}
 }
 
 /* ==================================================
@@ -3967,7 +3316,7 @@ function renderArticle() {
         class="back-button"
         id="articleBackButton"
       >
-        ← назад
+        ← вернуться к разделам
       </button>
 
 
@@ -3997,22 +3346,25 @@ function renderArticle() {
 
       <div class="article-navigation">
 
-        <button
-          class="article-nav-button ${isFirstPage ? "disabled" : ""}"
-          id="previousButton"
-        >
-          ← назад
-        </button>
+<button
+  class="article-nav-button"
+  id="previousButton"
+  ${isFirstPage ? "disabled" : ""}
+>
+  ← назад
+</button>
 
 
+
         <button
-          class="article-nav-button next ${isLastPage ? "disabled" : ""}"
+          class="article-nav-button"
           id="nextButton"
+         ${isLastPage ? "disabled" : ""}
         >
           дальше →
         </button>
 
-      </div>
+      </button>
 
 
       <p class="page-counter">
@@ -4079,7 +3431,7 @@ overlay.style.zIndex = "2147483647";
 }
 
 /* ==================================================
-   НАЗАД ИЗ СТАТЬИ
+   КНОПКА ВЕРНУТЬСЯ К РАЗДЕЛУ
 ================================================== */
 
 function goBackFromArticle() {
@@ -4141,33 +3493,21 @@ function previousPage() {
 
 
 /* ==================================================
-   СОБЫТИЯ ГЛАВНОЙ
+   МЕХАНИКА ВЫБОРА В ГЛАВНОМ МЕНЮ
 ================================================== */
 
-document.addEventListener("click", (event) => {
-
+homeScreen.addEventListener("click", event => {
   const sectionButton = event.target.closest("[data-section]");
-
-  if (sectionButton) {
-    const sectionId = sectionButton.dataset.section;
-
-    if (sectionId === "settings") {
-      return;
-    }
-
-    openSection(sectionId);
-    return;
-  }
-
   const articleButton = event.target.closest("[data-article]");
 
-  if (articleButton) {
-    const articleId = articleButton.dataset.article;
-
-    openArticle(articleId);
+  if (sectionButton) {
+    openSection(sectionButton.dataset.section);
     return;
   }
 
+  if (articleButton) {
+    openArticle(articleButton.dataset.article);
+  }
 });
 
 
@@ -4215,9 +3555,7 @@ if (themeToggle) {
         themes.length;
 
 
-      applyTheme(
-        themes[nextIndex]
-      );
+applyTheme(themes[nextIndex]);
 
     }
   );
@@ -4231,9 +3569,19 @@ if (quickDiaryButton) {
   );
 }
 
+/* ==================================================
+                      ТРЕКЕРЫ
+================================================== */
 
-initTheme();
+/* --- кнопки трекеров на главной ---*/
 
+document
+  .getElementById("supplementsTrackerButton")
+  ?.addEventListener("click", renderSupplementTracker);
+
+document
+  .getElementById("waterTrackerButton")
+  ?.addEventListener("click", renderWaterTracker);
 
 if (quoteElement) {
   quoteElement.style.transition =
@@ -4244,6 +3592,8 @@ const supplementStorageKey = "molecule-space-supplements";
 const waterStorageKey = "molecule-space-water";
 const waterGoalStorageKey = "molecule-space-water-goal";
 const reminderStorageKey = "molecule-space-reminders";
+
+/* --- данные дневника настроения ---*/
 
 function trackerDate(date = new Date()) {
   const y = date.getFullYear();
@@ -4267,21 +3617,40 @@ function writeLocal(key, value) {
   } catch (error) {}
 }
 
+/* --- данные калькуляторов ---*/
 function getSupplements() {
-  return readLocal(supplementStorageKey, []);
+  const stored = readLocal(supplementStorageKey, []);
+  return Array.isArray(stored)
+    ? stored.map(normalizeSupplement).filter(item => item.name)
+    : [];
+}
+
+function normalizeSupplement(item) {
+  return {
+    id: String(item?.id ?? crypto.randomUUID()),
+    name: String(item?.name ?? "").trim().slice(0, 40),
+    taken: Array.isArray(item?.taken)
+      ? item.taken.filter(date => /^\d{4}-\d{2}-\d{2}$/.test(date))
+      : []
+  };
 }
 
 function saveSupplements(items) {
   writeLocal(supplementStorageKey, items);
 }
 
+/* --- данные кольца воды ---*/
+
 function getWaterGoal() {
   const value = Number(readLocal(waterGoalStorageKey, 2000));
-  return Number.isFinite(value) && value >= 250 ? value : 2000;
+  return Number.isFinite(value) && value >= 100 ? value : 2000;
 }
 
 function getWaterData() {
-  return readLocal(waterStorageKey, {});
+  const value = readLocal(waterStorageKey, {});
+  return value && typeof value === "object" && !Array.isArray(value)
+    ? value
+    : {};
 }
 
 function getTodayWater() {
@@ -4294,12 +3663,10 @@ function setTodayWater(amount) {
   writeLocal(waterStorageKey, data);
 }
 
+/* --- данные календаря (напоминания - с припиской reminders - Summary) ---*/
 function getReminderData() {
-  return readLocal(reminderStorageKey, []);
-}
-
-function saveReminderData(items) {
-  writeLocal(reminderStorageKey, items);
+  const value = readLocal(reminderStorageKey, []);
+  return Array.isArray(value) ? value : [];
 }
 
 function getSupplementTaken(supplement, date = trackerDate()) {
@@ -4321,6 +3688,10 @@ function setSupplementTaken(id, date, value) {
   saveSupplements(items);
 }
 
+/* --- данные сводки разделов ---*/
+
+
+/*- сводка калькуляторов -*/
 function calculateSupplementStreak() {
   const items = getSupplements();
 
@@ -4342,40 +3713,46 @@ function calculateSupplementStreak() {
   return streak;
 }
 
+/* --- обновить данные на главном экране ---*/
+
 function refreshHomeTrackers() {
   const supplements = getSupplements();
   const streak = calculateSupplementStreak();
 
+/*- данные календаря -*/
   const supplementSummary =
     document.getElementById("supplementsTrackerSummary");
 
+   /*- данные серий -*/
   const streakElement =
     document.getElementById("supplementsStreak");
 
+   /*- данные воды -*/
   const waterSummary =
     document.getElementById("waterTrackerSummary");
 
+   /*- данные выпитой воды -*/
   const waterProgress =
     document.getElementById("waterMiniProgress");
 
-  const remindersSummary =
-    document.getElementById("remindersSummary");
-
+   /*- если данные календаря, то: -*/
   if (supplementSummary) {
     supplementSummary.textContent = supplements.length
       ? `${supplements.length} ${pluralize(
           supplements.length,
-          "БАД",
-          "БАДа",
-          "БАДов"
+          "таблетка",
+          "таблетки",
+          "таблеток"
         )} • отметь сегодняшний прием`
-      : "добавь свои БАДы и отмечай прием";
+      : "отметь прием в каледаре, чтобы не пропустить серию";
   }
 
+   /*- если данные серий, то: -*/
   if (streakElement) {
     streakElement.textContent = `${streak} 🔥`;
   }
 
+   /*- если данные воды, то: -*/
   const water = getTodayWater();
   const goal = getWaterGoal();
   const percent = Math.min(100, Math.round((water / goal) * 100));
@@ -4391,19 +3768,9 @@ function refreshHomeTrackers() {
   const reminders = getReminderData().filter(
     r => r.enabled !== false
   );
-
-  if (remindersSummary) {
-    remindersSummary.textContent = reminders.length
-      ? `${reminders.length} ${pluralize(
-          reminders.length,
-          "напоминание",
-          "напоминания",
-          "напоминаний"
-        )}`
-      : "настроить прием таблеток";
-  }
 }
 
+/*- данные множественных чисел -*/
 function pluralize(number, one, few, many) {
   const n = Math.abs(number) % 100;
 
@@ -4417,6 +3784,11 @@ function pluralize(number, one, few, many) {
   return many;
 }
 
+/* ==================================================
+         открытие трекеров с
+                      сохраненным прогрессом
+================================================== */
+
 function openTrackerOverlay(id, title, content) {
   const old = document.getElementById(id);
 
@@ -4427,14 +3799,32 @@ function openTrackerOverlay(id, title, content) {
   overlay.id = id;
   overlay.className = "tracker-overlay";
 
-  overlay.innerHTML = `
-    <div class="tracker-modal fade-in">
-      <button class="tracker-close" type="button" aria-label="закрыть">×</button>
-      <div class="tracker-modal-kicker">molecule tracker</div>
-      <h2>${title}</h2>
-      <div class="tracker-modal-content">${content}</div>
+ overlay.innerHTML = `
+  <div
+    class="tracker-modal fade-in"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="trackerTitle"
+  >
+    <button
+      class="tracker-close"
+      type="button"
+      aria-label="закрыть"
+    >
+      ×
+    </button>
+
+    <div class="tracker-modal-kicker">
+      molecule tracker
     </div>
-  `;
+
+    <h2 id="trackerTitle">${escapeHtml(title)}</h2>
+
+    <div class="tracker-modal-content">
+      ${content}
+    </div>
+  </div>
+`;
 
   document.body.appendChild(overlay);
   document.body.style.overflow = "hidden";
@@ -4455,6 +3845,8 @@ function openTrackerOverlay(id, title, content) {
 
   return overlay;
 }
+
+/*- открыть сохраненный календарь -*/
 
 function renderSupplementTracker() {
   const supplements = getSupplements();
@@ -4595,8 +3987,8 @@ function renderSupplementTracker() {
               <span class="supplement-selector-icon">💊</span>
 
               <span class="supplement-selector-name">
-                ${escapeHtml(item.name)}
-              </span>
+                     ${escapeHtml(item.name)}
+                          </span>
 
               ${
                 item.id === selectedSupplementId
@@ -4613,14 +4005,14 @@ function renderSupplementTracker() {
         <strong>пока здесь пусто</strong>
         <p>
           добавь БАД или препарат, который хочешь
-          отслеживать.
+          отслеживать
         </p>
       </div>
     `;
 
   const overlay = openTrackerOverlay(
     "supplementTrackerOverlay",
-    "трекер БАДов",
+    "трекер приема",
     `
       <div class="streak-banner">
         <div>
@@ -4640,7 +4032,7 @@ function renderSupplementTracker() {
         supplements.length
           ? `
             <div class="tracker-section-heading">
-              <span>что отслеживаем</span>
+              <span>что отслеживаешь</span>
               <small>${supplements.length} поз.</small>
             </div>
 
@@ -4698,7 +4090,7 @@ function renderSupplementTracker() {
               ${
                 selectedSupplement
                   ? `
-                    <span>сейчас отмечаем:</span>
+                    <span>сейчас отмечаешь:</span>
                     <strong>
                       ${escapeHtml(
                         selectedSupplement.name
@@ -4759,8 +4151,8 @@ function renderSupplementTracker() {
 
       <div class="tracker-hint">
         выбери БАД сверху и нажимай на даты в календаре,
-        чтобы отметить или снять прием.
-        Отметки сохраняются только на этом устройстве.
+        чтобы отметить или снять прием<br>
+        Отметки сохраняются только на этом устройстве
       </div>
     `
   );
@@ -4898,6 +4290,8 @@ function renderSupplementTracker() {
     });
 }
 
+/*- открыть сохраннный трекер воды -*/
+
 function renderWaterTracker() {
   const water = getTodayWater();
   const goal = getWaterGoal();
@@ -4929,21 +4323,55 @@ function renderWaterTracker() {
       </div>
 
       <div class="water-buttons">
-        <button type="button" data-water-add="150">
+        <button type="button" data-water-add="100">
+          +100 мл
+        </button>
+
+       <button type="button" data-water-add="150">
           +150 мл
+        </button>
+
+        <button type="button" data-water-add="200">
+          +200 мл
         </button>
 
         <button type="button" data-water-add="250">
           +250 мл
+        </button>        
+
+        <button type="button" data-water-add="300">
+          +300 мл
+        </button>
+        
+        <button type="button" data-water-add="350">
+          +350 мл
+        </button>        
+      </div>
+
+      <div class="water-buttons">
+        <button type="button" data-water-add="-100">
+          −100 мл
         </button>
 
-        <button type="button" data-water-add="500">
-          +500 мл
+        <button type="button" data-water-add="-150">
+          −150 мл
+        </button>
+
+        <button type="button" data-water-add="-200">
+          −200 мл
         </button>
 
         <button type="button" data-water-add="-250">
           −250 мл
-        </button>
+        </button>      
+
+        <button type="button" data-water-add="-300">
+          −300 мл
+        </button> 
+
+        <button type="button" data-water-add="-350">
+          −350 мл
+        </button>          
       </div>
 
       <div class="water-goal-row">
@@ -4955,7 +4383,7 @@ function renderWaterTracker() {
           <input
             id="waterGoalInput"
             type="number"
-            min="250"
+            min="100"
             max="10000"
             step="50"
             value="${goal}"
@@ -4965,7 +4393,7 @@ function renderWaterTracker() {
       </div>
 
       <div class="tracker-hint">
-        количество воды можно корректировать в течение дня.
+        количество воды можно корректировать в течение дня ♡₊⋆ 
       </div>
     `
   );
@@ -4991,7 +4419,7 @@ function renderWaterTracker() {
       const value = Math.min(
         10000,
         Math.max(
-          250,
+          100,
           Number(event.target.value) || 2000
         )
       );
@@ -5001,461 +4429,35 @@ function renderWaterTracker() {
     });
 }
 
-function reminderFrequencyLabel(frequency) {
-  if (frequency === "daily") return "каждый день";
-  if (frequency === "weekdays") return "по будням";
-  if (frequency === "weekends") return "по выходным";
+const savedTheme = readLocal(themeStorageKey, "dark");
+applyTheme(savedTheme);
+refreshHomeTrackers();
+const currentTheme = readLocal(themeStorageKey, "dark");
 
-  return "каждый день";
-}
+overlay.setAttribute("role", "dialog");
+overlay.setAttribute("aria-modal", "true");
+overlay.setAttribute("aria-labelledby", "trackerTitle");
 
-function isReminderDueToday(reminder) {
-  if (reminder.enabled === false) return false;
 
-  const day = new Date().getDay();
-
-  if (reminder.frequency === "weekdays") {
-    return day >= 1 && day <= 5;
-  }
-
-  if (reminder.frequency === "weekends") {
-    return day === 0 || day === 6;
-  }
-
-  return true;
-}
-
-function renderReminders() {
-  const reminders = getReminderData();
-
-  const list = reminders.length
-    ? reminders
-        .map(
-          reminder => `
-      <div class="reminder-row">
-        <div class="reminder-row-main">
-          <strong>${escapeHtml(reminder.name)}</strong>
-          <small>
-            ${escapeHtml(reminder.time)} •
-            ${reminderFrequencyLabel(reminder.frequency)}
-          </small>
-        </div>
-
-        <div class="reminder-row-actions">
-          <button
-            type="button"
-            class="reminder-toggle ${
-              reminder.enabled === false ? "" : "is-active"
-            }"
-            data-reminder-toggle="${reminder.id}"
-            aria-label="включить или выключить"
-          >
-            ${reminder.enabled === false ? "○" : "●"}
-          </button>
-
-          <button
-            type="button"
-            class="mini-delete"
-            data-delete-reminder="${reminder.id}"
-          >
-            удалить
-          </button>
-        </div>
-      </div>
-    `
-        )
-        .join("")
-    : `
-      <div class="tracker-empty">
-        <div class="tracker-empty-icon">⏰</div>
-        <strong>напоминаний пока нет</strong>
-        <p>добавь время приема ниже</p>
-      </div>
-    `;
-
-  const overlay = openTrackerOverlay(
-    "remindersOverlay",
-    "напоминания",
-    `
-      <div class="tracker-section-heading">
-        <span>мои напоминания</span>
-        <small>${reminders.length}</small>
-      </div>
-
-      <div class="reminder-list">
-        ${list}
-      </div>
-
-      <div class="reminder-add-form">
-        <input
-          id="newReminderName"
-          type="text"
-          maxlength="60"
-          placeholder="что принять"
-        >
-
-        <input
-          id="newReminderTime"
-          type="time"
-          value="09:00"
-        >
-
-        <select id="newReminderFrequency">
-          <option value="daily">каждый день</option>
-          <option value="weekdays">по будням</option>
-          <option value="weekends">по выходным</option>
-        </select>
-
-        <button
-          id="addReminderButton"
-          type="button"
-        >
-          + добавить
-        </button>
-      </div>
-
-      <div class="tracker-hint">
-        напоминания работают локально внутри приложения.
-      </div>
-    `
-  );
-
-  overlay
-    .querySelectorAll("[data-reminder-toggle]")
-    .forEach(button => {
-      button.addEventListener("click", () => {
-        const items = getReminderData();
-
-        const item = items.find(
-          r => r.id === button.dataset.reminderToggle
-        );
-
-        if (!item) return;
-
-        item.enabled = item.enabled === false;
-
-        saveReminderData(items);
-        renderReminders();
-      });
-    });
-
-  overlay
-    .querySelectorAll("[data-delete-reminder]")
-    .forEach(button => {
-      button.addEventListener("click", () => {
-        saveReminderData(
-          getReminderData().filter(
-            r => r.id !== button.dataset.deleteReminder
-          )
-        );
-
-        renderReminders();
-      });
-    });
-
-  const addButton =
-    overlay.querySelector("#addReminderButton");
-
-  addButton?.addEventListener("click", () => {
-    const name =
-      overlay
-        .querySelector("#newReminderName")
-        ?.value.trim();
-
-    const time =
-      overlay.querySelector("#newReminderTime")?.value ||
-      "09:00";
-
-    const frequency =
-      overlay.querySelector("#newReminderFrequency")
-        ?.value || "daily";
-
-    if (!name) return;
-
-    const items = getReminderData();
-
-    items.push({
-      id: `${Date.now()}-${Math.random()
-        .toString(36)
-        .slice(2, 8)}`,
-      name,
-      time,
-      frequency,
-      enabled: true,
-      lastShown: ""
-    });
-
-    saveReminderData(items);
-    renderReminders();
-  });
-}
-
-function showLocalReminderToast(reminder) {
-  const existing =
-    document.getElementById("localReminderToast");
-
-  if (existing) existing.remove();
-
-  const toast = document.createElement("div");
-
-  toast.id = "localReminderToast";
-  toast.className = "local-reminder-toast";
-
-  toast.innerHTML = `
-    <div class="local-reminder-toast-icon">⏰</div>
-
-    <div class="local-reminder-toast-content">
-      <strong>напоминание</strong>
-      <span>${escapeHtml(reminder.name)}</span>
-    </div>
-
-    <button type="button" aria-label="закрыть">×</button>
-  `;
-
-  document.body.appendChild(toast);
-
-  toast
-    .querySelector("button")
-    ?.addEventListener("click", () => {
-      toast.remove();
-    });
-
-  setTimeout(() => {
-    toast.remove();
-  }, 8000);
-}
-
-function checkReminders() {
-  const reminders = getReminderData();
-
-  if (!reminders.length) return;
-
-  const now = new Date();
-
-  const currentDate = trackerDate(now);
-
-  const currentTime =
-    `${String(now.getHours()).padStart(2, "0")}:${String(
-      now.getMinutes()
-    ).padStart(2, "0")}`;
-
-  let changed = false;
-
-  reminders.forEach(reminder => {
-    if (!isReminderDueToday(reminder)) return;
-
-    if (reminder.time !== currentTime) return;
-
-    if (reminder.lastShown === currentDate) return;
-
-    reminder.lastShown = currentDate;
-    changed = true;
-
-    showLocalReminderToast(reminder);
-  });
-
-  if (changed) {
-    saveReminderData(reminders);
-  }
-}
-
-function openThemePicker() {
-  const themes = [
-    {
-      id: "dark",
-      name: "темная",
-      description: "спокойная темная тема"
-    },
-    {
-      id: "pink",
-      name: "розовая",
-      description: "мягкая розовая тема"
-    },
-    {
-      id: "angel",
-      name: "angel",
-      description: "светлая воздушная тема"
-    },
-    {
-      id: "minimal",
-      name: "минимализм",
-      description: "чистая минималистичная тема"
+function addEscapeHandler(close) {
+  const handleKeydown = event => {
+    if (event.key === "Escape") {
+      close();
     }
-  ];
+  };
 
-  const currentTheme =
-    localStorage.getItem("molecule-space-theme") ||
-    "dark";
+  document.addEventListener("keydown", handleKeydown);
 
-  const overlay = openTrackerOverlay(
-    "themePickerOverlay",
-    "тема приложения",
-    `
-      <div class="theme-picker-list">
-        ${themes
-          .map(
-            theme => `
-          <button
-            type="button"
-            class="theme-picker-option ${
-              currentTheme === theme.id ? "is-active" : ""
-            }"
-            data-theme="${theme.id}"
-          >
-            <span class="theme-picker-check">
-              ${currentTheme === theme.id ? "✓" : ""}
-            </span>
-
-            <span>
-              <strong>${theme.name}</strong>
-              <small>${theme.description}</small>
-            </span>
-          </button>
-        `
-          )
-          .join("")}
-      </div>
-    `
-  );
-
-  overlay
-    .querySelectorAll("[data-theme]")
-    .forEach(button => {
-      button.addEventListener("click", () => {
-        const theme = button.dataset.theme;
-
-        localStorage.setItem(
-          "molecule-space-theme",
-          theme
-        );
-
-        document.body.dataset.theme = theme;
-
-        renderThemeButtons?.();
-        overlay.remove();
-        document.body.style.overflow = "";
-      });
-    });
+  return () => {
+    document.removeEventListener("keydown", handleKeydown);
+  };
 }
 
 function escapeHtml(value) {
-  return String(value ?? "")
+  return String(value)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
-
-function ensureTrackerCards() {
-  const diary =
-    document.getElementById("quickDiaryButton");
-
-  if (
-    !diary ||
-    document.getElementById(
-      "supplementsTrackerButton"
-    )
-  ) {
-    return;
-  }
-
-  const wrap = document.createElement("div");
-
-  wrap.className = "home-trackers";
-
-  wrap.innerHTML = `
-    <button
-      class="tracker-card supplements-tracker-card"
-      id="supplementsTrackerButton"
-      type="button"
-    >
-      <span class="tracker-icon">💊</span>
-
-      <span class="tracker-card-content">
-        <strong>трекер БАДов</strong>
-        <small id="supplementsTrackerSummary">
-          добавь свои БАДы и отмечай прием
-        </small>
-      </span>
-
-      <span
-        class="tracker-card-value"
-        id="supplementsStreak"
-      >
-        0 🔥
-      </span>
-    </button>
-
-    <button
-      class="tracker-card water-tracker-card"
-      id="waterTrackerButton"
-      type="button"
-    >
-      <span class="tracker-icon">💧</span>
-
-      <span class="tracker-card-content">
-        <strong>вода</strong>
-        <small id="waterTrackerSummary">
-          0 мл из 2000 мл
-        </small>
-      </span>
-
-      <span class="water-mini-bar">
-        <span id="waterMiniProgress"></span>
-      </span>
-    </button>
-
-    <button
-      class="tracker-card reminder-tracker-card"
-      id="remindersButton"
-      type="button"
-    >
-      <span class="tracker-icon">⏰</span>
-
-      <span class="tracker-card-content">
-        <strong>напоминания</strong>
-        <small id="remindersSummary">
-          настроить прием таблеток
-        </small>
-      </span>
-
-      <span class="tracker-card-arrow">›</span>
-    </button>
-  `;
-
-  diary.insertAdjacentElement("afterend", wrap);
-}
-
-ensureTrackerCards();
-
-const supplementsTrackerButton =
-  document.getElementById(
-    "supplementsTrackerButton"
-  );
-
-const waterTrackerButton =
-  document.getElementById("waterTrackerButton");
-
-const remindersButton =
-  document.getElementById("remindersButton");
-
-supplementsTrackerButton?.addEventListener(
-  "click",
-  renderSupplementTracker
-);
-
-waterTrackerButton?.addEventListener(
-  "click",
-  renderWaterTracker
-);
-
-remindersButton?.addEventListener(
-  "click",
-  renderReminders
-);
-
-refreshHomeTrackers();
-checkReminders();
-
-setInterval(checkReminders, 30000);
