@@ -2699,10 +2699,6 @@ function openSection(sectionId) {
   if (!section) {
     return;
   }
-
-  remove SectionOverlay();
-  remove ArticleOverlay();
-
  
 /* ==================================================
    ОТКРЫТЬ ДНЕВНИК НАСТРОЕНИЯ
