@@ -3335,8 +3335,6 @@ if (sectionId === "mood") {
 
 
   document.body.style.overflow = "hidden";
-
-  return;
 }
 
   /* ================================================
