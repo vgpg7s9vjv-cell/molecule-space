@@ -3737,10 +3737,6 @@ if (sectionId = "mood") {
 
       <header class="section-header">
 
-        <p class="section-kicker">
-          ${section.kicker}
-        </p>
-
         <h1>
           ${section.title}
         </h1>
