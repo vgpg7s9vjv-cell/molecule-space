@@ -1288,7 +1288,7 @@ const articles = {
   /* =========================
      БАДЫ
   ========================== */
-    supplements-voice: { 
+    "supplements-voice": { 
       
     section: "supplements",
 
