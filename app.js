@@ -2489,7 +2489,6 @@ function showNextQuote() {
 ================================================== */
 
 function applyTheme(theme) {
-
   const validThemes = [
     "dark",
     "pink",
@@ -2501,105 +2500,55 @@ function applyTheme(theme) {
     theme = "dark";
   }
 
-
-  /* убираем старые классы тем */
+  const body = document.body;
 
   validThemes.forEach(themeName => {
-
-    document.body.classList.remove(
-      `theme-${themeName}`
-    );
-
+    body.classList.remove(`theme-${themeName}`);
   });
 
+  body.classList.add(`theme-${theme}`);
 
-  /* добавляем выбранную тему */
-
-  document.body.classList.add(
-    `theme-${theme}`
-  );
-
-
-  /* иконка оставляет смысл кнопки:
-     сама кнопка теперь открывает выбор темы */
+  /* синхронизируем обе системы тем */
+  body.dataset.theme =
+    theme === "minimalism"
+      ? "minimalism"
+      : theme;
 
   if (themeToggleIcon) {
     themeToggleIcon.textContent =
-      theme === "dark"
-        ? "☾"
-        : "✦";
+      theme === "dark" ? "☾" : "✦";
   }
 
-
   if (themeToggle) {
-
     themeToggle.setAttribute(
       "aria-label",
       "выбрать оформление"
     );
-
   }
 
-
   try {
-
     localStorage.setItem(
       themeStorageKey,
       theme
     );
-
   } catch (error) {}
 
-
-  /* цвет интерфейса Telegram */
-
   if (tg) {
-
     const colors = {
-
       dark: "#071426",
-
       pink: "#24131f",
-
       angel: "#f7f3ff",
-
       minimalism: "#f3f3ef"
-
     };
 
     if (tg.setHeaderColor) {
-      tg.setHeaderColor(
-        colors[theme]
-      );
+      tg.setHeaderColor(colors[theme]);
     }
 
     if (tg.setBackgroundColor) {
-      tg.setBackgroundColor(
-        colors[theme]
-      );
+      tg.setBackgroundColor(colors[theme]);
     }
-
   }
-
-}
-
-
-function initTheme() {
-
-  let saved = "dark";
-
-  try {
-
-    saved =
-      localStorage.getItem(
-        themeStorageKey
-      ) || "dark";
-
-  } catch (error) {}
-
-
-  applyTheme(saved);
-
 }
 
 /* ==================================================
@@ -2609,7 +2558,7 @@ function initTheme() {
 function renderTools() {
   contentContainer.innerHTML = `
     <div class="screen-inner fade-in">
-      <button class="back-button" id="toolsBackButton">← назад</button>
+      <button class="back-button" id="toolsBackButton">← вернуться на главную </button>
       <header class="section-header">
         <p class="section-kicker">dietary calculations</p>
         <h1>твой виртуальный счетовод</h1>
@@ -2718,6 +2667,47 @@ function showHome() {
 /* ==================================================
    ОТКРЫТЬ РАЗДЕЛы интерактивные
 ================================================== */
+function getMoodEntries() {
+  try {
+    const raw = localStorage.getItem(moodStorageKey);
+
+    if (!raw) {
+      return [];
+    }
+
+    const parsed = JSON.parse(raw);
+
+    return Array.isArray(parsed)
+      ? parsed
+      : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function saveMoodEntry(text, mood) {
+  const entries = getMoodEntries();
+
+  entries.unshift({
+    text: String(text).trim(),
+    mood: mood || "😊",
+    date: new Date().toLocaleDateString(
+      "ru-RU",
+      {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }
+    )
+  });
+
+  try {
+    localStorage.setItem(
+      moodStorageKey,
+      JSON.stringify(entries.slice(0, 100))
+    );
+  } catch (error) {}
+}
 
 function openSection(sectionId) {
 
@@ -2756,7 +2746,7 @@ if (sectionId === "mood") {
           class="back-button"
           id="diaryBackButton"
         >
-          ← назад
+          ← вернуться на главную
         </button>
 
         <header class="section-header">
@@ -3019,7 +3009,7 @@ if (sectionId === "mood") {
             class="back-button"
             id="linksBackButton"
           >
-            ← назад
+            ← вернуться на главную
           </button>
 
           <header class="section-header">
@@ -3200,7 +3190,7 @@ if (sectionId === "mood") {
           class="back-button"
           id="toolsBackButton"
         >
-          ← назад
+          ← вернуться на главную
         </button>
 
         <header class="section-header">
@@ -3469,7 +3459,7 @@ if (sectionId === "mood") {
         class="back-button"
         id="sectionBackButton"
       >
-        ← назад
+        ← вернуться на главную
       </button>
 
 
@@ -3614,7 +3604,7 @@ function renderArticle() {
         class="back-button"
         id="articleBackButton"
       >
-        ← вернуться к разделу
+        ← вернуться к разделам
       </button>
 
 
@@ -3862,9 +3852,7 @@ if (themeToggle) {
         themes.length;
 
 
-      applyTheme(
-        themes[nextIndex]
-      );
+applyTheme(themes[nextIndex]);
 
     }
   );
@@ -3882,8 +3870,15 @@ if (quickDiaryButton) {
                       ТРЕКЕРЫ
 ================================================== */
 
-initTheme();
+/* --- кнопки трекеров на главной ---*/
 
+document
+  .getElementById("supplementsTrackerButton")
+  ?.addEventListener("click", renderSupplementTracker);
+
+document
+  .getElementById("waterTrackerButton")
+  ?.addEventListener("click", renderWaterTracker);
 
 if (quoteElement) {
   quoteElement.style.transition =
@@ -4615,7 +4610,13 @@ function renderWaterTracker() {
         <button type="button" data-water-add="300">
           +300 мл
         </button>
+        
+        <button type="button" data-water-add="350">
+          +350 мл
+        </button>        
+      </div>
 
+      <div class="water-buttons">
         <button type="button" data-water-add="-100">
           −100 мл
         </button>
@@ -4623,7 +4624,7 @@ function renderWaterTracker() {
         <button type="button" data-water-add="-150">
           −150 мл
         </button>
-        
+
         <button type="button" data-water-add="-200">
           −200 мл
         </button>
@@ -4634,7 +4635,11 @@ function renderWaterTracker() {
 
         <button type="button" data-water-add="-300">
           −300 мл
-        </button>        
+        </button> 
+
+        <button type="button" data-water-add="-350">
+          −350 мл
+        </button>          
       </div>
 
       <div class="water-goal-row">
@@ -4712,7 +4717,7 @@ function openThemePicker() {
       description: "светлая воздушная тема"
     },
     {
-      id: "minimal",
+      id: "minimalism",
       name: "минимализм",
       description: "чистая минималистичная тема"
     }
@@ -4782,85 +4787,3 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function ensureTrackerCards() {
-  const diary =
-    document.getElementById("quickDiaryButton");
-
-  if (
-    !diary ||
-    document.getElementById(
-      "supplementsTrackerButton"
-    )
-  ) {
-    return;
-  }
-
-  const wrap = document.createElement("div");
-
-  wrap.className = "home-trackers";
-
-  wrap.innerHTML = `
-    <button
-      class="tracker-card supplements-tracker-card"
-      id="supplementsTrackerButton"
-      type="button"
-    >
-      <span class="tracker-icon">💊</span>
-
-      <span class="tracker-card-content">
-        <strong>трекер приема</strong>
-        <small id="supplementsTrackerSummary">
-          отметь прием в каледаре,<br>чтобы не пропустить серию
-        </small>
-      </span>
-
-      <span
-        class="tracker-card-value"
-        id="supplementsStreak"
-      >
-        0 🔥
-      </span>
-    </button>
-
-    <button
-      class="tracker-card water-tracker-card"
-      id="waterTrackerButton"
-      type="button"
-    >
-      <span class="tracker-icon">💧</span>
-
-      <span class="tracker-card-content">
-        <strong>выпито воды</strong>
-        <small id="waterTrackerSummary">
-          0 мл из 2000 мл
-        </small>
-      </span>
-
-      <span class="water-mini-bar">
-        <span id="waterMiniProgress"></span>
-      </span>
-    </button>
-  `;
-
-ensureTrackerCards()
-
-const supplementsTrackerButton =
-  document.getElementById(
-    "supplementsTrackerButton"
-  );
-
-supplementsTrackerButton?.addEventListener(
-  "click",
-  render (SupplementTracker)
-);
-
-const waterTrackerButton =
-  document.getElementById(
-     "waterTrackerButton"
-  );
-
-waterTrackerButton?.addEventListener(
-  "click",
-  render (WaterTracker)
-);
-}
