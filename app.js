@@ -21,7 +21,7 @@ if (tg) {
 
 
 /* ==================================================
-   ФРАЗЫ ДЛЯ ПОДДЕРЖКИ
+   фраза дня
 ================================================== */
 
 const quotes = [
@@ -46,7 +46,7 @@ let currentQuote = 0;
 
 
 /* ==================================================
-   ДАННЫЕ РАЗДЕЛОВ
+  разделы
 ================================================== */
 
 const sections = {
@@ -57,31 +57,31 @@ const sections = {
     kicker: "eating disorder",
 
     description:
-      "триггерные фразы, механизм, признаки и борьба с ними",
+      "повторяем теорию, затрагиваем ремиссию и немного изучаем привычки",
 
     topics: [
       {
         id: "rpp-basics",
         title: "база рпп",
-        description: "что это и почему это не просто «любовь к диетам»"
+        description: "теория, которую все знают"
       },
 
       {
         id: "rpp-thoughts",
-        title: "еда, тело и самоощущение",
-        description: "какие мысли становятся навязчивыми, как еда влияет на них и термины РПП-комьюнити"
+        title: "дьявол в деталях",
+        description: "привычки, «чистая» и «грязная» еда"
       },
 
       {
         id: "rpp-cycle",
         title: "вечный круговорот",
-        description: "что скрывается за ограничениями, очищением и чрезмерной физнагрузкой"
+        description: "существует ли ремиссия и можно ли вылечиться навсегда?"
       },
 
       {
         id: "toxic-motivation",
         title: "TW!!: деструктивная мотивация",
-        description: "вы просили – мы сделали! мотивация в жестком формате доступна по подписке 99 рублей  месяц"
+        description: "вы просили – мы сделали! мотивация в жестком формате доступна по подписке 99 ₽/месяц"
       }
     ]
   },
@@ -129,19 +129,19 @@ const sections = {
       {
         id: "supplements-voice",
         title: "сложности выбора и как его сделать",
-        description: "Молекула плюс/прем/ультра/жб, Supressa, Mineral, Heedley и новый Swapx"
+        description: "подробный чек-лист популярных БАДов"
       },
 
       {
         id: "supplements-rules",
-        title: "главные правила",
-        description: "правила приема, что можно и нельзя, побочки и как их избежать"
+        title: "три слона, на которых держится мир БАДов",
+        description: "перерывы, побочки, что можно/нельзя"
       },
 
       {
         id: "supplements-myths",
         title: "«какую таблетку выберешь, Нео?»",
-        description: "разбиваем популярные в интернете мифы вокруг БАДов"
+        description: "разбиваем мифы о БАДах в щепки"
       }     
     ]
   },
@@ -200,7 +200,7 @@ const sections = {
       {
         id: "care-teeth",
         title: "зубы",
-        description: "реально ли лишиться зубов на похудении<br>так ли нужен кальций как его советуют<br>правила сохранения эмали"
+        description: "реально ли лишиться зубов на похудении<br>так ли нужен кальций как его советуют<br> сохранения эмали"
       },
 
 
@@ -222,7 +222,7 @@ const sections = {
 
 
 links: {
-  title: "все ссылки",
+  title: "ссылки",
   category: "links",
   pages: [
     {
@@ -273,7 +273,7 @@ links: {
 
             <div class="official-link-info">
               <strong>канал с информацией</strong>
-              <span>не менее важный и информативный тгк</span>
+              <span>не менее важный и информативный</span>
             </div>
 
             <span class="official-link-arrow">→</span>
@@ -317,7 +317,7 @@ links: {
           <div class="official-links-warning">
 
             <div class="official-links-warning-title">
-              ⚠ только официальные ссылки
+              ⚠ не наткнись на мошенников!
             </div>
 
             <p>
@@ -352,18 +352,18 @@ const articles = {
 
     section: "rpp",
 
-    title: "основы рпп",
+    title: "теория, которую все знают",
 
-    category: "база",
+    category: "база рпп",
 
     pages: [
 
       {
-        heading: "что это вообще такое, у кого бывает<br>и кто такие дранкорексички",
+        heading: "⒈ что это вообще такое,<br>у кого бывает<br>и кто такие дранкорексички",
 
         content: `
           <p>
-            <b>расстройство пищевого поведения</b> — это не просто желание похудеть
+            <b>⟣расстройство пищевого поведения⟢</b> — это не просто желание похудеть
             или периодическая тревога из-за внешности<br>
             РПП связано <b>с устойчивым нарушением отношений человека
             с едой, собственным телом и поведением вокруг питания</b><br>
@@ -408,7 +408,8 @@ const articles = {
 
         content: `
           <p>
-              <b>орторексия</b> — одержимость «чистым» питанием<br>
+             <h3>⟣орторексия⟢</h3>
+              — одержимость «чистым» питанием<br>
               это не просто желание питаться правильно, это настоящая мания и страх съесть что-то «вредное»<br>
               человек делит еду на «правильную» и «токсичную» и выбирает еду не по вкусу или чувству голода, а по составу<br>
               нарушение собственных правил вызывает у него панику и жесткое самобичевание
@@ -425,7 +426,8 @@ const articles = {
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
             
           <p>
-               <b>дранкорексия</b> — алкоголь вместо еды<br>
+          <h3>⟣дранкорексия⟢</h3>
+                — алкоголь вместо еды<br>
                это расстройство, при котором человек намеренно отказывается от еды, чтобы «сэкономить» калории для алкоголя<br>
                другой вариант дранкорексии — когда после вечеринки с алкоголем человек устраивает себе жесткие голодовки или изнурительные тренировки,<br>
                чтобы «отработать» выпитое
@@ -437,7 +439,8 @@ const articles = {
             </div>
             
           <p>
-            <b>булимия</b> — замкнутый круг «срыв-наказание»<br>
+          <h3>⟣булимия⟢</h3>
+             — замкнутый круг «срыв-наказание»<br>
             это расстройство, которое проявляется приступами неконтролируемого переедания,<br>
             после которых человек пытается экстренно «очистить» организм<br>
           </p>
@@ -450,13 +453,15 @@ const articles = {
             </div>
 
             <p>
-               <b>преорексия</b> — одержимость спортом в положении<br>
+             <h3>⟣преорексия⟢</h3>
+               — одержимость спортом в положении<br>
                расстройство, при котором беременные женщины изнуряют себя диетами и фитнесом,<br> 
                панически боясь набрать вес во время вынашивания ребенка
             </p>
 
             <p>
-                <b>бигорексия (мужская анорексия)</b> — когда человеку кажется,<br> 
+            <h3>⟣бигорексия⟢</h3>
+                (мужская анорексия) — когда человеку кажется,<br> 
                 что он слишком худой и «хилый», даже если он уже выглядит как профессиональный бодибилдер<br> 
                 он живет в зале и одержим ростом мышц
             </p>
@@ -480,17 +485,19 @@ const articles = {
             компенсаторные действия начинают управлять жизнью человека<b>
           </p>
 
-          <p>
-            главное заблуждение о расстройствах пищевого поведения — думать, что человек с рпп<br>
-            обязательно должен выглядеть как скелет, но это не так</b><br>
-            рпп — это психическое расстройство и оно происходит в голове, а не в теле,<br>
-            а человек может иметь абсолютно обычный, средний вес или даже избыточный,<br>
-            
+           <div class="info-box">
+            <p>
+            главное заблуждение о расстройствах пищевого поведения — думать, что человек с рпп 
+            обязательно должен выглядеть как скелет, но это не так<br>
+            ☆ рпп — это психическое расстройство и оно происходит в голове, а не в теле, 
+            а человек может иметь абсолютно обычный, средний вес или даже избыточный<br>
             <b>но при этом внутри него каждый день идет жестокая война с едой, калориями и собственным телом»</b>
-          </p>
+            </p>
+            </div>
+            
 
-            <img src="./images/hungry.jpg"
-            alt="голод"
+            <img src="./images/tumblrpost.jpg"
+            alt="tumblrpost"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
       }
@@ -503,9 +510,9 @@ const articles = {
 
     section: "rpp",
 
-    title: "еда, тело и самоощущение",
+    title: "привычки, «чистая» и «грязная» еда",
 
-    category: "привычки, «чистая» и «грязная» еда",
+    category: "дьявол в деталях",
 
     pages: [
 
@@ -581,8 +588,8 @@ const articles = {
             </p>
           </div>
 
-           <img src="./images/bulochka.jpg"
-            alt="bulka"
+           <img src="./images/hellokittyfood.jpg"
+            alt="hkfood"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         `
       },
@@ -617,8 +624,8 @@ const articles = {
             <li>шоколад, фастфуд, макароны</li>
           </ul>
           
-            <img src="./images/arttmolecule.jpg"
-            alt="Фото" 
+            <img src="./images/tortik.jpg"
+            alt="tortik" 
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
         `
       }
@@ -631,9 +638,9 @@ const articles = {
 
     section: "rpp",
 
-    title: "вечный круговорот",
+    title: "теория ремиссии",
 
-    category: "РПП",
+    category: "вечный круговорот",
 
     pages: [
 
@@ -727,9 +734,9 @@ const articles = {
 
     section: "medical",
 
-    title: "БАДы в анализах крови, мочи, тестах на наркотики",
+    title: "общие аналзы, медкомиссия и тесты на вещ-ва",
 
-    category: "анализы",
+    category: "видно ли БАДы для похудения в анализах",
 
     pages: [
 
@@ -852,7 +859,7 @@ const articles = {
 
     section: "medical",
 
-    title: "можно ли пить Молекулу, когда в анамнезе расстройство психики?",
+    title: "БАДы и расстройства психики",
 
     category: "я дединсайд, мне 10 лет",
 
@@ -981,8 +988,8 @@ const articles = {
             </p>
           </div>
 
-         <img src="./images/analizy.jpg"
-            alt="ДРУГАЯФОТКА"
+         <img src="./images/ano4.jpg"
+            alt="ano4"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         `
       },
@@ -1013,8 +1020,8 @@ const articles = {
             </p>
           </div>
 
-                   <img src="./images/analizy.jpg"
-            alt="ДРУГАЯФОТКА"
+                   <img src="./images/ano5.jpg"
+            alt="ano5"
             style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         `
       }       
@@ -1027,7 +1034,7 @@ const articles = {
 
     section: "medical",
 
-    title: "витамины и лекарства",
+    title: "витамины и лечебные препараты",
 
     category: "на чем сидит твоя девушка?",
 
@@ -1075,6 +1082,11 @@ const articles = {
             <li>Левоцетиризин (Супрастинекс)</li>
             <li>Фексофенадин (Аллегра)</li>
           </ul> 
+
+
+                   <img src="./images/tabletki2.jpg"
+            alt="tabletki"
+            style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
       },
 
@@ -1145,6 +1157,11 @@ const articles = {
             <li>ИПП (Омез, Нексиум, Омепразол)</li>
             <li>Изотретиноин (Акнекутан, Роаккутан, Сотрет)</li>
           </ul> 
+
+
+           <img src="./images/tabletki4.jpg"
+            alt="tabletki"
+            style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
       },
 
@@ -1223,7 +1240,12 @@ const articles = {
           <p>
            🌀<b>рекомендуемые дозы</b>: 1-2 стакана в день (не больше) независимо
            от времени суток и приема еды
-          </p>          
+          </p>     
+
+
+        <img src="./images/tabletki3.jpg"
+            alt="tabletki"
+            style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
       },
 
@@ -1263,9 +1285,9 @@ const articles = {
 
     section: "supplements",
 
-    title: "сложности выбора и как его сделать",
+    title: "подробный чек-лист популярных БАДов",
 
-    category: "похудеть хочу, но выбрать не могу",
+    category: "сложности выбора и как его сделать",
 
     pages: [
 
@@ -1861,7 +1883,7 @@ const articles = {
 
 
           <img src="./images/reduksin.jpg"
-          alt="Фото12" 
+          alt="другоефото" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
 
@@ -1887,61 +1909,392 @@ const articles = {
 
     section: "supplements",
 
-    title: "три главных правила",
+    title: "перерывы, побочки, что можно/нельзя",
 
-    category: "слушаем и запоминаем",
+    category: "три слона, на которых держится мир БАДов",
 
     pages: [
 
       {
-        heading: "обязательные перерывы между курсами",
+        heading: "правило 1<br>обязательные перерывы между курсами",
 
         content: `
           <p>
-            человек может похудеть после приема продукта,
-            но это еще не показывает, что причиной был именно этот продукт.
+            <h4>зачем вообще нужны перерывы?</h4>
+            перерывы между курсами необходимы для того, чтобы твой организм смог сделать "передышку" от усиленного
+            воздействия БАДов на него и с новыми силами начать получать новую ударную дозу для похудения<br>
           </p>
 
-          <p>
-            на результат одновременно влияют питание, активность,
-            изменения поведения, вода и множество других факторов.
-          </p>
+
+         <h2>Molecule Plus</h2>
+          <ul>
+            <li>plus → plus — <b>30 дней</b></li>
+            <li>plus → жб — <b>31 день</b></li> 
+            <li>plus → ultra — <b>21 день</b></li>
+            <li>plus → premium — <b>14 дней</b></li>
+            <li>plus → supressa — <b>14 дней</b></li>
+            <li>plus → mineral — <b>5-7 дней</b></li>
+            <li>plus → heedly slimcomplex — <b>5-7 дней</b></li>         
+            <li>plus → ozempic — <b>7 дней</b></li>
+            <li>plus → neo — <b>14 дней</b></li>      
+            <li>plus → pro — <b>14 дней</b></li> 
+          </ul> 
+
+          
+         <h2>Molecule Premium</h2>
+          <ul>
+            <li>premium → premium — <b>30 дней</b></li>
+            <li>premium → жб — <b>31 день</b></li>
+            <li>premium → ultra — <b>14 дней</b></li> 
+            <li>premium → plus — <b>14 дней</b></li>
+            <li>premium → supressa — <b>14 дней</b></li> 
+            <li>premium → mineral — <b>5-7 дней</b></li>
+            <li>premium → heedly slimcomplex — <b>5-7 дней</b></li>  
+            <li>premium → ozempic — <b>7 дней</b></li>
+            <li>premium → neo — <b>14 дней</b></li>             
+            <li>premium → pro — <b>14 дней</b></li> 
+          </ul>     
+
+
+         <h2>Molecule Ultra</h2>
+          <ul>
+            <li>ultra → ultra — <b>60 дней</b></li>
+            <li>ultra → жб — <b>31 день</b></li>
+            <li>ultra → plus — <b>31 день</b></li>
+            <li>ultra → premium — <b>21 день</b></li>
+            <li>ultra → supressa — <b>14 дней</b></li>
+            <li>ultra → mineral — <b>14 дней</b></li>
+            <li>ultra → heedly slimcomplex — <b>5-7 дней</b></li>
+            <li>ultra → ozempic — <b>7 дней</b></li>
+            <li>ultra → neo — <b>14 дней</b></li>  
+            <li>ultra → pro — <b>14 дней</b></li> 
+          </ul>         
+
+
+
+         <h2>Molecule ЖБ</h2>
+          <ul>
+            <li>жб → жб — <b>30 дней</b></li>
+            <li>жб → ultra/plus/premium — <b>31 день</b></li>
+            <li>жб → supressa — <b>20 дней</b></li>
+            <li>жб → mineral — <b>14 дней</b></li>
+            <li>жб → heedly slimcomplex — <b>14 дней</b></li>   
+            <li>жб → ozempic — <b>14 дней</b></li>
+            <li>жб → neo — <b>30 дней</b></li>             
+            <li>жб → pro — <b>30 дней</b></li> 
+          </ul>  
+
+
+         <h2>Supressa</h2>
+          <ul>
+            <li>supressa → supressa — <b>21 день</b></li>
+            <li>supressa → жб — <b>14-20 дней</b></li>
+            <li>supressa → ultra — <b>14 дней</b></li>
+            <li>supressa → premium — <b>14 дней</b></li>
+            <li>supressa → plus — <b>14 дней</b></li>
+            <li>supressa → mineral — <b>7-10 дней</b></li>
+            <li>supressa → heedly slimcomplex — <b>14 дней</b></li>  
+            <li>supressa → ozempic — <b>7 дней</b></li>
+            <li>supressa → neo — <b>14 дней</b></li> 
+            <li>supressa → pro — <b>14 дней</b></li>   
+          </ul>            
+
+
+         <h2>Mineral</h2>
+          <ul>
+            <li>mineral → mnieral — <b>14 дней</b></li>
+            <li>mineral → жб — <b>14 дней</b></li>
+            <li>mineral → ultra — <b>7 дней</b></li>
+            <li>mineral → plus — <b>7 дней</b></li>
+            <li>mineral → premium — <b>7 дней</b></li>
+            <li>mineral → supressa — <b>14 дней</b></li>
+            <li>mineral → ozempic — <b>7 дней</b></li>
+            <li>mineral → heedly slimcomplex — <b>7 дней</b></li> 
+            <li>mineral → neo — <b>14 дней</b></li> 
+            <li>mineral → pro — <b>14 дней</b></li> 
+          </ul> 
+
+
+         <h2>Heedly SlimComplex</h2>
+          <ul>
+            <li>heedly → heedly — <b>14 дней</b></li>
+            <li>heedly → жб — <b>14 дней</b></li>
+            <li>heedly → ultra — <b>7 дней</b></li>
+            <li>heedly → plus — <b>7 дней</b></li>
+            <li>heedly → premium — <b>7 дней</b></li>
+            <li>heedly → supressa — <b>7 дней</b></li>
+            <li>heedly → mineral — <b>7 дней</b></li>
+            <li>heedly → ozempic — <b>7 дней</b></li> 
+            <li>heedly → neo — <b>14 дней</b></li>
+            <li>heedly → pro — <b>14 дней</b></li> 
+          </ul>
+
+          
+         <h2>Swapx NEO</h2>
+          <ul>
+            <li>neo → neo — <b>20 дней</b></li>
+            <li>neo → pro — <b>20 дней</b></li>
+            <li>neo → жб — <b>30 дней</b></li>
+            <li>neo → ultra — <b>14 дней</b></li>
+            <li>neo → plus — <b>14 дней</b></li>
+            <li>neo → premium — <b>14 дней</b></li>
+            <li>neo → supressa — <b>14 дней</b></li>
+            <li>neo → mineral — <b>7-10 дней</b></li>
+            <li>neo → heedly slimcomplex — <b>10 дней</b></li>
+            <li>neo → ozempic — <b>10 дней</b></li>
+          </ul>      
+
+
+         <h2>Swapx PRO</h2>
+          <ul>
+            <li>pro → pro — <b>20 дней</b></li>
+            <li>pro → neo — <b>20 дней</b></li>
+            <li>pro → жб — <b>30 дней</b></li>
+            <li>pro → ultra — <b>14 дней</b></li>
+            <li>pro → plus — <b>14 дней</b></li>
+            <li>pro → premium — <b>14 дней</b></li>
+            <li>pro → supressa — <b>14 дней</b></li>
+            <li>pro → mineral — <b>7-10 дней</b></li>
+            <li>pro → heedly slimcomplex — <b>10 дней</b></li>
+            <li>pro → ozempic — <b>10 дней</b></li>
+          </ul>    
+
+          
+         <h2>Ozempic Pro/Turbo</h2>
+          <ul>
+            <li>ozempic → ozempic — <b>14 дней</b></li>
+            <li>ozempic → жб — <b>14 дней</b></li>
+            <li>ozempic → ultra — <b>10-14 дней</b></li>
+            <li>ozempic → plus — <b>7 дней</b></li>
+            <li>ozempic → premium — <b>7 дней</b></li>
+            <li>ozempic → supressa — <b>14 дней</b></li>
+            <li>ozempic → mineral — <b>7-10 дней</b></li>
+            <li>ozempic → heedly slimcomplex — <b>14 дней</b></li> 
+            <li>ozempic → neo — <b>14 дней</b></li> 
+            <li>ozempic → pro — <b>14 дней</b></li> 
+          </ul>             
         `
       },
 
 
 
       {
-        heading: "нельзя на курсе",
+        heading: "правило 2<br>побочные эффекты большинства БАДов",
+
+        content: `
+         <p>
+            БАДы могут отличаться составом, действующим веществом и дозировкой, но большинство побочных
+            эффектов всегда совпадают
+          </p>
+
+          <img src="./images/upackovki.jpg"
+          alt="upackovki" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+
+          
+          <h3>⟣сухость во рту⟢</h3>
+              <p>
+                кофеин/экстракт кофе в составе большинства БАДов вытягивает воду из всего организма
+             </p>
+
+
+          <h3>⟣бессонница⟢</h3>
+              <p>
+                концентрация стимуляторов в составах дает дополнительный прилив энергии, чтобы иметь
+                силы функционировать на дефиците/недостатке энергии из калорий<br>
+                именно поэтому мы рекомендуем пить БАДы для похудения не позднее, чем за 7-8 часов
+                до сна
+             </p>
+
+
+          <h3>⟣увеличение потоотделения⟢</h3>
+              <p>
+                кофеин вызывает повышение норадреналина в крови, который запускает симпатичесую систему "бей или беги"
+                и повышает "стрессовое" потоотделение, которое еще называют "холодный пот"
+             </p>
+
+
+          <h3>⟣тахикардия и увеличение ЧСС⟢</h3>
+              <p>
+                по той же причине кофеин выбрасывает в кровь норадреналин и кортизол, которые запускают
+                симпатическую систему "выживания", а она в свою очередь увеличивает частоту сердечных сокращений
+             </p>
+
+
+
+          <h3>⟣потемнение в глазах и обмороки⟢</h3>
+              <p>
+                так как кофеин высасывает воду из организма, вместе с водой выводятся жизненно важные электролиты,
+                что способствует данным побочным эффектам<br>
+                в тяжелых случаях может вызывать тремор и судороги конечностей, кратковременное онемение языка
+             </p>
+
+
+
+          <h3>⟣запоры⟢</h3>
+              <p>
+                так как кофеин высасывает воду из всего организма, то это касается и кишечника,
+                для которого наличие воды — важный фактор для его опустошения<br>
+                обезвоживание приводит к замедлению работы перистальтики и застою содержимого кишечного тракта
+             </p>
+
+
+          <h3>⟣провалы в памяти/отсутствие концентрации⟢</h3>
+              <p>
+               могут быть вызваны некоторыми вышеперечисленными факторами, например, бессонницей
+               или слишком высоким дефицитом калорий/голодания
+             </p>
+        `
+      },               
+
+
+      {
+        heading: "правило 3.1<br>какие продукты можно есть/пить на курсе БАДов",
 
         content: `
           <p>
-            человек может похудеть после приема продукта,
-            но это еще не показывает, что причиной был именно этот продукт.
+            не секрет, что на любом похудении необходимо соблюдать дефицит калорий/более менее правильное
+            питание, чтобы процесс похудения не затягивался на долгие годы
           </p>
 
           <p>
-            на результат одновременно влияют питание, активность,
-            изменения поведения, вода и множество других факторов.
+            многие, попробовав тысячу рязных спосбобв похудения, до сих пор не могут добиться фигуры мечты
+            и опускают руки, говоря, что диета/тренировка/БАДы и пр. не работают и все "сплошной обман"
           </p>
+
+          <p>
+            но большинство людей с такой проблемой не понимают того, что <b>любое похудение – труд, а не "волшебная таблетка"</b>
+            <br>
+            и, в первую очередь, результат твоего похудения будет зависеть прямо пропорционально от соблюдения дефицита
+            потребляемых калорий
+          </p>
+
+         <h2>так что же можно есть на дефиците калорий/курсе?</h2>
+
+         <h3>овощи</h3>
+          <ul>
+            <li>🥦 брокколи</li>
+            <li>🍆 баклажаны/кабачки</li>
+            <li>🥒 огурцы</li>
+            <li>🍅 томаты <i>в разумных количествах, так как они вызывают отеки</i></li>
+            <li>🥑 авокадо</li>
+          </ul> 
+
+
+         <h3>фрукты</h3>
+          <ul>
+            <li>🍏 яблоки</li>
+            <li>🥝 киви, <i>особенно при запорах</i></li>
+            <li>🍋‍🟩 цитрусовые <i>в небольшом количестве, так как они разрушают эмаль и ее защитный слой</i></li>
+            <li>🍐 груши</li>
+          </ul> 
+
+
+         <h3>продукты животного происхождения</h3>
+          <ul>
+            <li>🐔 курица</li>
+            <li>🦃 индейка</li>
+            <li>🥩 нежирные части говядины</li>
+            <li>🐇 кролик</li>
+          </ul> 
+
+          
+          <ul> 
+            <li>🥣 творог, <i>но не обезжиренный, так как он усваивается хуже</i></li>
+            <li>🥛 молоко</li>
+            <li>🍶 нежирный кефир менее 20%</li>
+            <li>🍽️ нежирная сметана менее 20%</li>
+          </ul> 
+
+
+          <ul>           
+            <li>🥚 яйца</li>
+            <li>🧀 нежирный сливочный сыр</li>
+            <li>🫕 творожный сыр</li>
+            <li>🍤 любые морепродукты</li>      
+          </ul> 
+
+
+          <img src="./images/kasha.jpg"
+          alt="kasha" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+
+          
+         <h3>полезные жиры и крупы/бобовые</h3>
+          <ul>
+            <li>🫒 масла оливковое/льняное</li>
+            <li>🌰 орехи <i>в небольшом количестве</i></li>
+          </ul> 
+
+          
+          <ul> 
+            <li>🌾 гречневая крупа</i></li>
+            <li>🍚 бурый рис</li>
+            <li>🍚 белый рис</li>
+            <li>🥣 овсянка</li>
+            <li>🌾 пшенная крупа</li>
+            <li>🫘 фасоль красная/белая</li>
+          </ul> 
+
+
+         <h3>сладости/напитки</h3>
+          <ul>
+            <li>🍬 мармелад</li>
+            <li>🍡 зефир</li>
+            <li>🍫 белый шоколад</li>
+            <li>🍮 пастила</li>
+            <li>🍭 ириски и леденцы</li>
+          </ul>
+
+
+          <ul>           
+            <li>🫖 различные чаи на основе трав: <i>гречишный, иван-чай, мята, ромашка, шиповник</i></li>
+            <li>☕️ цикорий</li>
+            <li>🥤 компоты</li>
+            <li>🍨 молочные коктейли</li>
+            <li>💧 минеральная вода</li>
+          </ul> 
         `
       },       
 
 
       {
-        heading: "можно на курсе",
+        heading: "правило 3.2<br>чего не стоит есть/пить",
 
         content: `
-          <p>
-            при оценке эффективности вмешательства учитывают качество
-            исследований, размер выборки, контрольную группу,
-            длительность наблюдения и воспроизводимость результатов.
-          </p>
+        
+         <h3>сладости/напитки</h3>
+          <ul>
+            <li>☕️ черный кофе</li>
+            <li>🥤 кола, кола без сахара</li>
+            <li>🍫 горький шоколад</li>
+            <li>⚡️ энергетические напитки</li>
+            <li>🫘 какао</li>
+            <li>🫖 черный/зеленый чаи, напитки на основе чая из массмаркета</li>
+            <li>🍷 алкогольные напитки</li>
+          </ul> 
 
-          <p>
-            чем громче обещание, тем важнее смотреть на реальные данные,
-            а не на красивую фотографию «до и после».
-          </p>
+
+          <img src="./images/bulochka.jpg"
+          alt="bulochka" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+
+          
+         <h3>быстрые углеводы</h3>
+          <ul>
+            <li>🍔 фастфуд</li>
+            <li>🎂 торты</li>
+            <li>🥐 выпечка</li>
+            <li>🍞 белый хлеб</li>
+          </ul> 
+
+
+          <ul>
+            <li>🐖 свинина</li>
+            <li>🥣 майонез</li>
+            <li>🧈 сливочное масло</li>
+            <li>🍳 жареные в большом количестве растительного масла блюда</li>
+          </ul> 
         `
       }
 
@@ -1953,14 +2306,14 @@ const articles = {
 
     section: "supplements",
 
-    title: "разбиваем мифы в щепки",
+    title: "разбиваем мифы о БАДах в щепки",
 
-    category: "БАДы",
+    category: "«какую таблетку выберешь, Нео?»",
 
     pages: [
 
       {
-        heading: "натуральный не значит безопасный",
+        heading: "миф 1. натуральный не значит безопасный",
 
         content: `
           <p>
@@ -1978,7 +2331,7 @@ const articles = {
 
 
       {
-        heading: "германия сибутрамин и тот самый 2010ый",
+        heading: "миф 2. как связаны Германия, сибутрамин и 2010ый год?",
 
         content: `
           <p>
@@ -1997,14 +2350,87 @@ const articles = {
             </p>
           </div>
         `
+      },
+
+
+      {
+        heading: "миф 3. «ты пьешь паль! оригинал только в тгк:@..»",
+
+        content: `
+          <p>
+            растительное происхождение вещества не делает его
+            автоматически безопасным.
+          </p>
+
+          <p>
+            активные вещества могут взаимодействовать с лекарствами,
+            влиять на сердечно-сосудистую систему, сон, пищеварение
+            и другие процессы.
+          </p>
+        `
       }
+    ]
+  },
 
-   ]
-}
-}
+   
+  "delicate-period": {
 
+    section: "delicate",
+
+    title: "чем чревато продолжать курс во время кд",
+
+    category: "менструация на курсе",
+
+    pages: [
+
+      {
+        heading: "месячные на курсе",
+
+        content: `
+          <p>
+            <b>⟣расстройство пищевого поведения⟢</b> — это не просто желание похудеть
+            или периодическая тревога из-за внешности<br>
+            РПП связано <b>с устойчивым нарушением отношений человека
+            с едой, собственным телом и поведением вокруг питания</b><br>
+            пищевое поведение это не просто мысли о том «что я сегодня буду есть»
+            поэтому фраза «просто перестань думать о еде» своей полезностью
+            на одном уровне с советом, если сказать компу: «просто не зависай»
+          </p>
+        `
+      }
+    ]
+  },
+
+
+  "delicate-constipation": {
+
+    section: "delicate",
+
+    title: "из-за чего<br>что можно есть, чтобы облегчить<br>white/black-lists слабительных",
+
+    category: "запоры на курсе",
+
+    pages: [   
+      {
+        heading: "запоры",
+
+        content: `
+          <p>
+            <b>⟣расстройство пищевого поведения⟢</b> — это не просто желание похудеть
+            или периодическая тревога из-за внешности<br>
+            РПП связано <b>с устойчивым нарушением отношений человека
+            с едой, собственным телом и поведением вокруг питания</b><br>
+            пищевое поведение это не просто мысли о том «что я сегодня буду есть»
+            поэтому фраза «просто перестань думать о еде» своей полезностью
+            на одном уровне с советом, если сказать компу: «просто не зависай»
+          </p>
+        `
+      }
+    ]
+  }
+}
 /* ==================================================
-   СОСТОЯНИЕ ПРИЛОЖЕНИЯ
+   СОСТОЯНИЕ ПРИЛОЖЕНИЯ дневник настроения
 ================================================== */
 let currentSectionId = null;
 
@@ -2015,7 +2441,7 @@ const moodStorageKey = "molecule-space-mood-diary";
 const themeStorageKey = "molecule-space-theme";
 
 /* ==================================================
-   DOM
+   DOM дневник настроения 
 ================================================== */
 
 const homeScreen = document.getElementById("homeScreen");
@@ -2034,7 +2460,7 @@ const quickDiaryButton = document.getElementById("quickDiaryButton");
 
 
 /* ==================================================
-   ФРАЗА
+   ФРАЗА - настройка смены фраз
 ================================================== */
 
 function showNextQuote() {
@@ -2059,277 +2485,80 @@ function showNextQuote() {
 
 
 /* ==================================================
-   ТЕМА
+   кнопка выбора темы
 ================================================== */
 
 function applyTheme(theme) {
-  const isLight = theme === "light";
-  document.body.classList.toggle("light-theme", isLight);
+  const validThemes = [
+    "dark",
+    "pink",
+    "angel",
+    "minimalism"
+  ];
+
+  if (!validThemes.includes(theme)) {
+    theme = "dark";
+  }
+
+  const body = document.body;
+
+  validThemes.forEach(themeName => {
+    body.classList.remove(`theme-${themeName}`);
+  });
+
+  body.classList.add(`theme-${theme}`);
+
+  /* синхронизируем обе системы тем */
+  body.dataset.theme =
+    theme === "minimalism"
+      ? "minimalism"
+      : theme;
 
   if (themeToggleIcon) {
-    themeToggleIcon.textContent = isLight ? "☼" : "☾";
+    themeToggleIcon.textContent =
+      theme === "dark" ? "☾" : "✦";
   }
 
   if (themeToggle) {
     themeToggle.setAttribute(
       "aria-label",
-      isLight ? "Включить темную тему" : "Включить светлую тему"
+      "выбрать оформление"
     );
   }
 
   try {
-    localStorage.setItem(themeStorageKey, isLight ? "light" : "dark");
+    localStorage.setItem(
+      themeStorageKey,
+      theme
+    );
   } catch (error) {}
 
   if (tg) {
-    if (tg.setHeaderColor) tg.setHeaderColor(isLight ? "#f3f0ff" : "#071426");
-    if (tg.setBackgroundColor) tg.setBackgroundColor(isLight ? "#f3f0ff" : "#071426");
-  }
-}
+    const colors = {
+      dark: "#071426",
+      pink: "#24131f",
+      angel: "#f7f3ff",
+      minimalism: "#f3f3ef"
+    };
 
-function initTheme() {
-  let saved = "dark";
-  try {
-    saved = localStorage.getItem(themeStorageKey) || "dark";
-  } catch (error) {}
-  applyTheme(saved);
+    if (tg.setHeaderColor) {
+      tg.setHeaderColor(colors[theme]);
+    }
+
+    if (tg.setBackgroundColor) {
+      tg.setBackgroundColor(colors[theme]);
+    }
+  }
 }
 
 /* ==================================================
-   ДНЕВНИК
+   имт и дефицит
 ================================================== */
-
-function getMoodEntries() {
-  try {
-    return JSON.parse(localStorage.getItem(moodStorageKey) || "[]");
-  } catch (error) {
-    return [];
-  }
-}
-
-function saveMoodEntry(text, mood) {
-  const entries = getMoodEntries();
-  entries.unshift({
-    id: Date.now(),
-    mood,
-    text,
-    date: new Date().toLocaleString("ru-RU", {
-      day: "2-digit", month: "long", year: "numeric",
-      hour: "2-digit", minute: "2-digit"
-    })
-  });
-
-  try {
-    localStorage.setItem(moodStorageKey, JSON.stringify(entries.slice(0, 100)));
-  } catch (error) {}
-}
-
-function renderMoodJournal() {
-  const entries = getMoodEntries();
-  const moods = ["😊", "🥳", "🥰", "😕", "😣", "😭", "😡", "🫩", "🤒"];
-
-  contentContainer.innerHTML = `
-    <div class="screen-inner diary-page fade-in">
-
-      <button
-        class="back-button"
-        id="diaryBackButton"
-      >
-        ← назад
-      </button>
-
-      <header class="section-header">
-        <p class="section-kicker">mood journal</p>
-
-        <h1>
-          дневник настроения
-        </h1>
-
-        <p>
-          место для коротких заметок о своем состоянии и событиях дня ♡
-        </p>
-      </header>
-
-      <section class="diary-compose">
-
-        <p class="diary-date">
-          сегодня · ${new Date().toLocaleDateString("ru-RU", {
-            day: "numeric",
-            month: "long"
-          })}
-        </p>
-
-        <div
-          class="mood-picker"
-          aria-label="Выбери настроение"
-        >
-          ${moods.map(mood => `
-            <button
-              type="button"
-              class="mood-choice ${selectedMood === mood ? "selected" : ""}"
-              data-mood="${mood}"
-            >
-              ${mood}
-            </button>
-          `).join("")
-          
-          }
-        </div>
-
-        <textarea
-          class="diary-textarea"
-          id="diaryText"
-          placeholder="что хочется записать?"
-        ></textarea>
-
-        <button
-          type="button"
-          class="calculator-button diary-save"
-          id="saveDiaryButton"
-        >
-          сохранить запись
-        </button>
-
-      </section>
-
-      <div class="diary-list">
-
-        ${
-          entries.length
-            ? entries.map((entry, index) => `
-                <article class="mood-entry">
-
-                  <div class="mood-entry-head">
-                    <span class="mood-entry-emoji">
-                      ${entry.mood}
-                    </span>
-
-                    <span class="mood-entry-date">
-                      ${entry.date}
-                    </span>
-                  </div>
-
-                  <p class="mood-entry-text">
-                    ${escapeHtml(entry.text)}
-                  </p>
-
-                  <button
-                    type="button"
-                    class="diary-delete-button"
-                    data-delete-entry="${index}"
-                  >
-                    удалить запись
-                  </button>
-
-                </article>
-              `).join("")
-            : `
-                <div class="diary-empty">
-                  здесь появятся твои записи<br>
-                  они бережно хранятся только в этом приложении
-                </div>
-              `
-        }
-
-      </div>
-
-    </div>
-  `;
-
-  document
-    .getElementById("diaryBackButton")
-    .addEventListener("click", showHome);
-
-
-  document
-    .querySelectorAll("[data-mood]")
-    .forEach(button => {
-
-      button.addEventListener("click", () => {
-
-        selectedMood = button.dataset.mood;
-
-        renderMoodJournal();
-
-      });
-
-    });
-
-
-  document
-    .getElementById("saveDiaryButton")
-    .addEventListener("click", () => {
-
-      const textarea =
-        document.getElementById("diaryText");
-
-      const text =
-        textarea.value.trim();
-
-      if (!text) {
-        textarea.focus();
-        return;
-      }
-
-      saveMoodEntry(
-        text,
-        selectedMood
-      );
-
-      selectedMood = "😊";
-
-      renderMoodJournal();
-
-    });
-
-
-  document
-    .querySelectorAll("[data-delete-entry]")
-    .forEach(button => {
-
-      button.addEventListener("click", () => {
-
-        const index =
-          Number(button.dataset.deleteEntry);
-
-        const entries =
-          getMoodEntries();
-
-        entries.splice(index, 1);
-
-        try {
-          localStorage.setItem(
-            moodStorageKey,
-            JSON.stringify(
-              entries.slice(0, 100)
-            )
-          );
-        } catch (error) {}
-
-        renderMoodJournal();
-
-      });
-
-    });
-
-
-  window.scrollTo(0, 0);
-}
-
-
-function escapeHtml(value) {
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/\"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
 
 function renderTools() {
   contentContainer.innerHTML = `
     <div class="screen-inner fade-in">
-      <button class="back-button" id="toolsBackButton">← назад</button>
+      <button class="back-button" id="toolsBackButton">← вернуться на главную </button>
       <header class="section-header">
         <p class="section-kicker">dietary calculations</p>
         <h1>твой виртуальный счетовод</h1>
@@ -2352,7 +2581,7 @@ function renderTools() {
           <h3>норма и дефицит калорий</h3>
           <p>оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле Миффлина — Сан Жеора</p>
           <div class="calculator-grid">
-            <div class="calculator-field"><label for="calAge">возраст, лет</label><input class="calculator-input" id="calAge" type="number" min="12" step="1" inputmode="numeric"></div>
+            <div class="calculator-field"><label for="calAge">возраст, лет</label><input class="calculator-input" id="calAge" type="number" min="13" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calWeight">масса, кг</label><input class="calculator-input" id="calWeight" type="number" min="1" step="0.1" inputmode="decimal"></div>
             <div class="calculator-field"><label for="calHeight">рост, см</label><input class="calculator-input" id="calHeight" type="number" min="1" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calSex">пол для формулы</label><select class="calculator-input" id="calSex"><option value="female">женский</option><option value="male">мужской</option></select></div>
@@ -2387,15 +2616,16 @@ function calculateEnergy() {
   const sex = document.getElementById("calSex").value;
   const activity = Number(document.getElementById("calActivity").value);
   const result = document.getElementById("energyResult");
-  if (!age || age < 12 || !weight || !height) { result.textContent = "введен возраст ниже 12 лет, попробуй ввести другой"; return; }
-  const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
+  if (!age || age < 13 || !weight || !height) { result.textContent = "УПС! твой организм еще растет и тебе не нужен дефицит"; return; }
+  const bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+  if (!sex || sex <= "male") { bmr = 0 * weight + 6.25 * height - 5 * age + 5 }
   const tdee = bmr * activity * 0.8;
-  result.innerHTML = `<strong>основное количество сжигаемых тобой калорий ${Math.round(bmr)} ккал/сутки</strong><br>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки`;
+  result.innerHTML = `основное количество сжигаемых тобой калорий с учетом активности ${Math.round(bmr)} ккал/сутки<br><strong>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки</strong>`;
 }
 
 
 /* ==================================================
-   ПОКАЗАТЬ ГЛАВНУЮ
+   выход на главную
 ================================================== */
 
 function showHome() {
@@ -2435,127 +2665,49 @@ function showHome() {
 
 
 /* ==================================================
-   ОТКРЫТЬ РАЗДЕЛ
+   ОТКРЫТЬ РАЗДЕЛы интерактивные
 ================================================== */
+function getMoodEntries() {
+  try {
+    const raw = localStorage.getItem(moodStorageKey);
 
-function openSection(sectionId) {
+    if (!raw) {
+      return [];
+    }
 
-  const section = sections[sectionId];
+    const parsed = JSON.parse(raw);
 
-  if (!section) {
-    return;
+    return Array.isArray(parsed)
+      ? parsed
+      : [];
+  } catch (error) {
+    return [];
   }
-
-  if (sectionId === "mood") {
-    currentSectionId = "mood";
-    currentArticleId = null;
-    currentPage = 0;
-    contentScreen.classList.remove("hidden");
-    homeScreen.classList.add("hidden");
-    renderMoodJournal();
-    return;
-  }
-
-  if (sectionId === "tools") {
-    currentSectionId = "tools";
-    currentArticleId = null;
-    currentPage = 0;
-    contentScreen.classList.remove("hidden");
-    homeScreen.classList.add("hidden");
-    renderTools();
-    return;
-  }
-   
-  currentSectionId = sectionId;
-
-  currentArticleId = null;
-
-  currentPage = 0;
-
-  contentScreen.classList.remove("hidden");
-
-  homeScreen.classList.add("hidden");
-
-
-  contentContainer.innerHTML = `
-
-    <div class="screen-inner fade-in">
-
-      <button
-        class="back-button"
-        id="sectionBackButton"
-      >
-        ← назад
-      </button>
-
-
-      <header class="section-header">
-
-        <p class="section-kicker">
-          ${section.kicker}
-        </p>
-
-        <h1>
-          ${section.title}
-        </h1>
-
-        <p>
-          ${section.description}
-        </p>
-
-      </header>
-
-
-      <div class="topic-list">
-
-        ${section.topics.map(topic => `
-
-          <button
-            class="topic-card"
-            data-article="${topic.id}"
-          >
-
-            <div class="topic-card-content">
-
-              <p class="topic-card-title">
-                ${topic.title}
-              </p>
-
-              <p class="topic-card-description">
-                ${topic.description}
-              </p>
-
-            </div>
-
-            <span class="topic-arrow">
-              ›
-            </span>
-
-          </button>
-
-        `).join("")
-        
-        }
-
-      </div>
-
-    </div>
-
-  `;
-
-
-  document
-    .getElementById("sectionBackButton")
-    .addEventListener("click", showHome);
-
-
-  window.scrollTo(0, 0);
 }
 
+function saveMoodEntry(text, mood) {
+  const entries = getMoodEntries();
 
-/* ==================================================
-   ОТКРЫТЬ РАЗДЕЛ
-================================================== */
+  entries.unshift({
+    text: String(text).trim(),
+    mood: mood || "😊",
+    date: new Date().toLocaleDateString(
+      "ru-RU",
+      {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }
+    )
+  });
+
+  try {
+    localStorage.setItem(
+      moodStorageKey,
+      JSON.stringify(entries.slice(0, 100))
+    );
+  } catch (error) {}
+}
 
 function openSection(sectionId) {
 
@@ -2565,18 +2717,9 @@ function openSection(sectionId) {
     return;
   }
 
-
-  /* удаляем старый экран раздела */
-
-  const oldOverlay =
-    document.getElementById("sectionOverlay");
-
-  if (oldOverlay) {
-    oldOverlay.remove();
-  }
-
-
-  /* особые разделы */
+/* ==================================================
+   ОТКРЫТЬ ДНЕВНИК НАСТРОЕНИЯ
+================================================== */
 
 if (sectionId === "mood") {
 
@@ -2603,7 +2746,7 @@ if (sectionId === "mood") {
           class="back-button"
           id="diaryBackButton"
         >
-          ← назад
+          ← вернуться на главную
         </button>
 
         <header class="section-header">
@@ -2866,7 +3009,7 @@ if (sectionId === "mood") {
             class="back-button"
             id="linksBackButton"
           >
-            ← назад
+            ← вернуться на главную
           </button>
 
           <header class="section-header">
@@ -2932,7 +3075,7 @@ if (sectionId === "mood") {
               <div class="official-link-info">
                 <strong>канал с информацией</strong>
                 <span>
-                  не менее важный и информативный тгк
+                  не менее важный и информативный
                 </span>
               </div>
 
@@ -2981,7 +3124,7 @@ if (sectionId === "mood") {
             <div class="official-links-warning">
 
               <div class="official-links-warning-title">
-                ⚠ только официальные ссылки
+                ⚠ не наткнись на мошенников!
               </div>
 
               <p>
@@ -3014,7 +3157,7 @@ if (sectionId === "mood") {
   }
    
   /* ================================================
-     ИНСТРУМЕНТЫ
+     КАЛЬКУЛЯТОРЫ
   ================================================ */
 
   if (sectionId === "tools") {
@@ -3047,7 +3190,7 @@ if (sectionId === "mood") {
           class="back-button"
           id="toolsBackButton"
         >
-          ← назад
+          ← вернуться на главную
         </button>
 
         <header class="section-header">
@@ -3133,9 +3276,7 @@ if (sectionId === "mood") {
 
           <section class="calculator-card">
 
-            <h3>
-              норма и дефицит калорий
-            </h3>
+            <h3>норма и дефицит калорий</h3>
 
             <p>
               оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле Миффлина — Сан Жеора
@@ -3153,7 +3294,7 @@ if (sectionId === "mood") {
                   class="calculator-input"
                   id="calAge"
                   type="number"
-                  min="12"
+                  min="13"
                   step="1"
                   inputmode="numeric"
                 >
@@ -3293,7 +3434,7 @@ if (sectionId === "mood") {
 
 
   /* ================================================
-     ОБЫЧНЫЕ РАЗДЕЛЫ
+            ОТКРЫТЬ РАЗДЕЛЫ СО СТАТЬЯМИ
   ================================================ */
 
   currentSectionId = sectionId;
@@ -3318,7 +3459,7 @@ if (sectionId === "mood") {
         class="back-button"
         id="sectionBackButton"
       >
-        ← назад
+        ← вернуться на главную
       </button>
 
 
@@ -3392,7 +3533,7 @@ if (sectionId === "mood") {
 }
 
 /* ==================================================
-   ОТКРЫТИЕ СТАТЬИ
+  ОТКРЫТЬ САМУ СТАТЬЮ
 ================================================== */
 
 function openArticle(articleId) {
@@ -3463,7 +3604,7 @@ function renderArticle() {
         class="back-button"
         id="articleBackButton"
       >
-        ← назад
+        ← вернуться к разделам
       </button>
 
 
@@ -3575,7 +3716,7 @@ overlay.style.zIndex = "2147483647";
 }
 
 /* ==================================================
-   НАЗАД ИЗ СТАТЬИ
+   КНОПКА ВЕРНУТЬСЯ К РАЗДЕЛУ
 ================================================== */
 
 function goBackFromArticle() {
@@ -3637,7 +3778,7 @@ function previousPage() {
 
 
 /* ==================================================
-   СОБЫТИЯ ГЛАВНОЙ
+   МЕХАНИКА ВЫБОРА В ГЛАВНОМ МЕНЮ
 ================================================== */
 
 document.addEventListener("click", (event) => {
@@ -3676,18 +3817,47 @@ if (newQuoteButton) {
 
 
 if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
 
-    const isLight =
-      document.body.classList.contains("light-theme");
+  themeToggle.addEventListener(
+    "click",
+    () => {
 
-    applyTheme(
-      isLight ? "dark" : "light"
-    );
+      const themes = [
+        "dark",
+        "pink",
+        "angel",
+        "minimalism"
+      ];
 
-  });
+
+      let currentTheme =
+        localStorage.getItem(
+          themeStorageKey
+        ) || "dark";
+
+
+      let currentIndex =
+        themes.indexOf(
+          currentTheme
+        );
+
+
+      if (currentIndex === -1) {
+        currentIndex = 0;
+      }
+
+
+      const nextIndex =
+        (currentIndex + 1) %
+        themes.length;
+
+
+applyTheme(themes[nextIndex]);
+
+    }
+  );
+
 }
-
 
 if (quickDiaryButton) {
   quickDiaryButton.addEventListener(
@@ -3696,272 +3866,914 @@ if (quickDiaryButton) {
   );
 }
 
+/* ==================================================
+                      ТРЕКЕРЫ
+================================================== */
 
-initTheme();
+/* --- кнопки трекеров на главной ---*/
 
+document
+  .getElementById("supplementsTrackerButton")
+  ?.addEventListener("click", renderSupplementTracker);
+
+document
+  .getElementById("waterTrackerButton")
+  ?.addEventListener("click", renderWaterTracker);
 
 if (quoteElement) {
   quoteElement.style.transition =
     "opacity 0.12s ease";
 }
 
+const supplementStorageKey = "molecule-space-supplements";
+const waterStorageKey = "molecule-space-water";
+const waterGoalStorageKey = "molecule-space-water-goal";
+const reminderStorageKey = "molecule-space-reminders";
+
+/* --- данные дневника настроения ---*/
+
+function trackerDate(date = new Date()) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
+function readLocal(key, fallback) {
+  try {
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : fallback;
+  } catch (error) {
+    return fallback;
+  }
+}
+
+function writeLocal(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (error) {}
+}
+
+/* --- данные калькуляторов ---*/
+
+function getSupplements() {
+  return readLocal(supplementStorageKey, []);
+}
+
+function saveSupplements(items) {
+  writeLocal(supplementStorageKey, items);
+}
+
+/* --- данные кольца воды ---*/
+
+function getWaterGoal() {
+  const value = Number(readLocal(waterGoalStorageKey, 2000));
+  return Number.isFinite(value) && value >= 100 ? value : 2000;
+}
+
+function getWaterData() {
+  return readLocal(waterStorageKey, {});
+}
+
+function getTodayWater() {
+  return Number(getWaterData()[trackerDate()] || 0);
+}
+
+function setTodayWater(amount) {
+  const data = getWaterData();
+  data[trackerDate()] = Math.max(0, Math.round(amount));
+  writeLocal(waterStorageKey, data);
+}
+
+/* --- данные календаря (напоминания - с припиской reminders - Summary) ---*/
+
+function getReminderData() {
+  return readLocal(reminderStorageKey, []);
+}
+
+function saveReminderData(items) {
+  writeLocal(reminderStorageKey, items);
+}
+
+function getSupplementTaken(supplement, date = trackerDate()) {
+  return Array.isArray(supplement.taken) && supplement.taken.includes(date);
+}
+
+function setSupplementTaken(id, date, value) {
+  const items = getSupplements();
+  const item = items.find(s => s.id === id);
+
+  if (!item) return;
+
+  item.taken = Array.isArray(item.taken) ? item.taken : [];
+
+  item.taken = value
+    ? [...new Set([...item.taken, date])]
+    : item.taken.filter(d => d !== date);
+
+  saveSupplements(items);
+}
+
+/* --- данные сводки разделов ---*/
+
+
+/*- сводка калькуляторов -*/
+function calculateSupplementStreak() {
+  const items = getSupplements();
+
+  if (!items.length) return 0;
+
+  let streak = 0;
+  const date = new Date();
+
+  while (true) {
+    const key = trackerDate(date);
+    const complete = items.every(item => getSupplementTaken(item, key));
+
+    if (!complete) break;
+
+    streak++;
+    date.setDate(date.getDate() - 1);
+  }
+
+  return streak;
+}
+
+/* --- обновить данные на главном экране ---*/
+
+function refreshHomeTrackers() {
+  const supplements = getSupplements();
+  const streak = calculateSupplementStreak();
+
+/*- данные календаря -*/
+  const supplementSummary =
+    document.getElementById("supplementsTrackerSummary");
+
+   /*- данные серий -*/
+  const streakElement =
+    document.getElementById("supplementsStreak");
+
+   /*- данные воды -*/
+  const waterSummary =
+    document.getElementById("waterTrackerSummary");
+
+   /*- данные выпитой воды -*/
+  const waterProgress =
+    document.getElementById("waterMiniProgress");
+
+   /*- если данные календаря, то: -*/
+  if (supplementSummary) {
+    supplementSummary.textContent = supplements.length
+      ? `${supplements.length} ${pluralize(
+          supplements.length,
+          "таблетка",
+          "таблетки",
+          "таблеток"
+        )} • отметь сегодняшний прием`
+      : "отметь прием в каледаре, чтобы не пропустить серию";
+  }
+
+   /*- если данные серий, то: -*/
+  if (streakElement) {
+    streakElement.textContent = `${streak} 🔥`;
+  }
+
+   /*- если данные воды, то: -*/
+  const water = getTodayWater();
+  const goal = getWaterGoal();
+  const percent = Math.min(100, Math.round((water / goal) * 100));
+
+  if (waterSummary) {
+    waterSummary.textContent = `${water} мл из ${goal} мл`;
+  }
+
+  if (waterProgress) {
+    waterProgress.style.width = `${percent}%`;
+  }
+
+  const reminders = getReminderData().filter(
+    r => r.enabled !== false
+  );
+}
+
+/*- данные множественных чисел -*/
+function pluralize(number, one, few, many) {
+  const n = Math.abs(number) % 100;
+
+  if (n >= 11 && n <= 19) return many;
+
+  const last = n % 10;
+
+  if (last === 1) return one;
+  if (last >= 2 && last <= 4) return few;
+
+  return many;
+}
 
 /* ==================================================
-   MOLECULE SPACE — ТЕМЫ
+         открытие трекеров с
+                      сохраненным прогрессом
 ================================================== */
 
-(function initMoleculeThemes() {
+function openTrackerOverlay(id, title, content) {
+  const old = document.getElementById(id);
 
-  const themes = {
-    dark: "theme-dark",
-    pink: "theme-pink",
-    angel: "theme-angel",
-    minimalism: "theme-minimalism"
+  if (old) old.remove();
+
+  const overlay = document.createElement("div");
+
+  overlay.id = id;
+  overlay.className = "tracker-overlay";
+
+  overlay.innerHTML = `
+    <div class="tracker-modal fade-in">
+      <button class="tracker-close" type="button" aria-label="закрыть">×</button>
+      <div class="tracker-modal-kicker">molecule tracker</div>
+      <h2>${title}</h2>
+      <div class="tracker-modal-content">${content}</div>
+    </div>
+  `;
+
+  document.body.appendChild(overlay);
+  document.body.style.overflow = "hidden";
+
+  const close = () => {
+    overlay.remove();
+    document.body.style.overflow = "";
+    refreshHomeTrackers();
   };
 
-  const saved =
-    localStorage.getItem("moleculeSpaceTheme") ||
-    "dark";
+  overlay
+    .querySelector(".tracker-close")
+    .addEventListener("click", close);
 
-  function applyTheme(themeName) {
+  overlay.addEventListener("click", event => {
+    if (event.target === overlay) close();
+  });
 
-    if (!themes[themeName]) {
-      themeName = "dark";
+  return overlay;
+}
+
+/*- открыть сохраненный календарь -*/
+
+function renderSupplementTracker() {
+  const supplements = getSupplements();
+
+  const today = new Date();
+  const todayKey = trackerDate(today);
+
+  const stateKey = "molecule-space-supplement-calendar";
+  const savedState = readLocal(stateKey, {});
+
+  let selectedSupplementId =
+    savedState.selectedSupplementId ||
+    (supplements[0]?.id || "");
+
+  let calendarDate = new Date();
+
+  if (savedState.month) {
+    const savedDate = new Date(savedState.month);
+    if (!Number.isNaN(savedDate.getTime())) {
+      calendarDate = savedDate;
     }
-
-    /* старые классы тем */
-    Object.values(themes).forEach(className => {
-      document.body.classList.remove(className);
-    });
-
-    document.body.classList.add(
-      themes[themeName]
-    );
-
-    /* новый атрибут темы */
-    document.body.dataset.theme =
-      themeName === "minimalism"
-        ? "minimal"
-        : themeName;
-
-    /* сохраняем */
-    localStorage.setItem(
-      "moleculeSpaceTheme",
-      themeName
-    );
-
-    updateThemeButtons();
   }
 
+  calendarDate.setDate(1);
 
-  function updateThemeButtons() {
+  const monthNames = [
+    "январь",
+    "февраль",
+    "март",
+    "апрель",
+    "май",
+    "июнь",
+    "июль",
+    "август",
+    "сентябрь",
+    "октябрь",
+    "ноябрь",
+    "декабрь"
+  ];
 
-    document
-      .querySelectorAll(
-        "[data-molecule-theme]"
-      )
-      .forEach(button => {
+  const weekDays = [
+    "пн",
+    "вт",
+    "ср",
+    "чт",
+    "пт",
+    "сб",
+    "вс"
+  ];
 
-        button.classList.toggle(
-          "active",
-          button.dataset.moleculeTheme ===
-            localStorage.getItem(
-              "moleculeSpaceTheme"
-            )
+  const saveCalendarState = () => {
+    writeLocal(stateKey, {
+      selectedSupplementId,
+      month: calendarDate.toISOString()
+    });
+  };
+
+  const getMonthCalendar = () => {
+    const year = calendarDate.getFullYear();
+    const month = calendarDate.getMonth();
+
+    const firstDay = new Date(year, month, 1);
+
+    let startDay = firstDay.getDay();
+
+    // JS считает воскресенье первым днем недели.
+    // Нам нужен понедельник.
+    startDay = startDay === 0 ? 6 : startDay - 1;
+
+    const daysInMonth =
+      new Date(year, month + 1, 0).getDate();
+
+    const cells = [];
+
+    // Пустые ячейки перед первым днем месяца.
+    for (let i = 0; i < startDay; i++) {
+      cells.push(`
+        <div class="supplement-calendar-day is-empty"></div>
+      `);
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const date = new Date(year, month, day);
+      const key = trackerDate(date);
+
+      const selectedSupplement =
+        supplements.find(
+          item => item.id === selectedSupplementId
         );
 
-      });
+      const checked =
+        selectedSupplement &&
+        getSupplementTaken(selectedSupplement, key);
 
-  }
+      const isToday = key === todayKey;
 
-
-  function createThemePicker() {
-
-    if (
-      document.getElementById(
-        "moleculeThemePicker"
-      )
-    ) {
-      return;
+      cells.push(`
+        <button
+          class="supplement-calendar-day
+            ${checked ? "is-done" : ""}
+            ${isToday ? "is-today" : ""}"
+          type="button"
+          data-calendar-date="${key}"
+          aria-label="${day} ${monthNames[month]}"
+        >
+          <span>${day}</span>
+          ${checked ? '<i>✓</i>' : ""}
+        </button>
+      `);
     }
 
+    return cells.join("");
+  };
 
-    const picker =
-      document.createElement("div");
+  const getSelectedSupplement = () =>
+    supplements.find(
+      item => item.id === selectedSupplementId
+    );
 
-    picker.id =
-      "moleculeThemePicker";
+  const selectedSupplement =
+    getSelectedSupplement();
 
-    picker.className =
-      "theme-picker hidden";
+  const calendar = getMonthCalendar();
 
+  const supplementOptions = supplements.length
+    ? supplements
+        .map(
+          item => `
+            <button
+              type="button"
+              class="supplement-selector ${
+                item.id === selectedSupplementId
+                  ? "is-active"
+                  : ""
+              }"
+              data-select-supplement="${item.id}"
+            >
+              <span class="supplement-selector-icon">💊</span>
 
-    picker.innerHTML = `
+              <span class="supplement-selector-name">
+                ${escapeHtml(item.name)}
+              </span>
 
-      <p>оформление</p>
-
-      <button
-        type="button"
-        data-molecule-theme="dark"
-      >
-        <span>☾</span>
-        <strong>dark</strong>
-        <small>холодная темная</small>
-      </button>
-
-
-      <button
-        type="button"
-        data-molecule-theme="pink"
-      >
-        <span>♡</span>
-        <strong>pink</strong>
-        <small>мягкая розовая</small>
-      </button>
-
-
-      <button
-        type="button"
-        data-molecule-theme="angel"
-      >
-        <span>୨୧</span>
-        <strong>angel</strong>
-        <small>светлая воздушная</small>
-      </button>
-
-
-      <button
-        type="button"
-        data-molecule-theme="minimalism"
-      >
-        <span>○</span>
-        <strong>minimalism</strong>
-        <small>спокойная минимальная</small>
-      </button>
-
+              ${
+                item.id === selectedSupplementId
+                  ? '<span class="supplement-selector-check">✓</span>'
+                  : ""
+              }
+            </button>
+          `
+        )
+        .join("")
+    : `
+      <div class="empty-tracker-state">
+        <span>💊</span>
+        <strong>пока здесь пусто</strong>
+        <p>
+          добавь БАД или препарат, который хочешь
+          отслеживать
+        </p>
+      </div>
     `;
 
+  const overlay = openTrackerOverlay(
+    "supplementTrackerOverlay",
+    "трекер приема",
+    `
+      <div class="streak-banner">
+        <div>
+          <span>текущая серия</span>
+          <strong>
+            ${calculateSupplementStreak()} дней 🔥
+          </strong>
+        </div>
 
-    const topbar =
-      document.querySelector(
-        ".home-topbar"
-      );
+        <small>
+          серия считается, когда все добавленные
+          позиции отмечены за день
+        </small>
+      </div>
 
+      ${
+        supplements.length
+          ? `
+            <div class="tracker-section-heading">
+              <span>что отслеживаешь</span>
+              <small>${supplements.length} поз.</small>
+            </div>
 
-    if (!topbar) {
-      return;
-    }
+            <div class="supplement-selector-list">
+              ${supplementOptions}
+            </div>
 
+            <div class="supplement-calendar-header">
+              <button
+                type="button"
+                class="calendar-nav-button"
+                id="supplementCalendarPrev"
+                aria-label="предыдущий месяц"
+              >
+                ‹
+              </button>
 
-    topbar.appendChild(
-      picker
-    );
+              <div class="supplement-calendar-month">
+                <strong>
+                  ${monthNames[calendarDate.getMonth()]}
+                </strong>
 
+                <span>
+                  ${calendarDate.getFullYear()}
+                </span>
+              </div>
 
-    picker
-      .querySelectorAll(
-        "[data-molecule-theme]"
-      )
-      .forEach(button => {
+              <button
+                type="button"
+                class="calendar-nav-button"
+                id="supplementCalendarNext"
+                aria-label="следующий месяц"
+              >
+                ›
+              </button>
+            </div>
 
-        button.addEventListener(
-          "click",
-          () => {
+            <div class="supplement-calendar">
+              <div class="supplement-calendar-weekdays">
+                ${weekDays
+                  .map(
+                    day => `
+                      <span>${day}</span>
+                    `
+                  )
+                  .join("")}
+              </div>
 
-            applyTheme(
-              button.dataset
-                .moleculeTheme
-            );
+              <div class="supplement-calendar-grid">
+                ${calendar}
+              </div>
+            </div>
 
-            picker.classList.add(
-              "hidden"
-            );
+            <div class="calendar-selected-info">
+              ${
+                selectedSupplement
+                  ? `
+                    <span>сейчас отмечаешь:</span>
+                    <strong>
+                      ${escapeHtml(
+                        selectedSupplement.name
+                      )}
+                    </strong>
+                  `
+                  : ""
+              }
+            </div>
+          `
+          : ""
+      }
 
-          }
-        );
+      <div class="tracker-add-row">
+        <input
+          id="newSupplementName"
+          type="text"
+          maxlength="40"
+          placeholder="например, магний"
+          autocomplete="off"
+        >
 
+        <button
+          id="addSupplementButton"
+          type="button"
+        >
+          + добавить
+        </button>
+      </div>
+
+      ${
+        supplements.length
+          ? `
+            <div class="tracker-manage-list">
+              ${supplements
+                .map(
+                  item => `
+                    <div class="tracker-manage-row">
+                      <span>
+                        ${escapeHtml(item.name)}
+                      </span>
+
+                      <button
+                        class="mini-delete"
+                        type="button"
+                        data-delete-supplement="${item.id}"
+                      >
+                        удалить
+                      </button>
+                    </div>
+                  `
+                )
+                .join("")}
+            </div>
+          `
+          : ""
+      }
+
+      <div class="tracker-hint">
+        выбери БАД сверху и нажимай на даты в календаре,
+        чтобы отметить или снять прием
+        Отметки сохраняются только на этом устройстве
+      </div>
+    `
+  );
+
+  // Переключение между БАДами.
+  overlay
+    .querySelectorAll("[data-select-supplement]")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        selectedSupplementId =
+          button.dataset.selectSupplement;
+
+        saveCalendarState();
+        renderSupplementTracker();
       });
+    });
 
-
-    updateThemeButtons();
-  }
-
-
-  function initThemeButton() {
-
-    const button =
-      document.getElementById(
-        "themeToggle"
+  // Предыдущий месяц.
+  overlay
+    .querySelector("#supplementCalendarPrev")
+    ?.addEventListener("click", () => {
+      calendarDate.setMonth(
+        calendarDate.getMonth() - 1
       );
 
-    if (!button) {
-      return;
-    }
+      saveCalendarState();
+      renderSupplementTracker();
+    });
 
+  // Следующий месяц.
+  overlay
+    .querySelector("#supplementCalendarNext")
+    ?.addEventListener("click", () => {
+      calendarDate.setMonth(
+        calendarDate.getMonth() + 1
+      );
 
-    button.addEventListener(
-      "click",
-      event => {
+      saveCalendarState();
+      renderSupplementTracker();
+    });
 
-        event.stopPropagation();
+  // Отметка даты.
+  overlay
+    .querySelectorAll("[data-calendar-date]")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        const date =
+          button.dataset.calendarDate;
 
-        const picker =
-          document.getElementById(
-            "moleculeThemePicker"
-          );
-
-        if (!picker) {
-          return;
-        }
-
-        picker.classList.toggle(
-          "hidden"
+        const item = getSupplements().find(
+          supplement =>
+            supplement.id === selectedSupplementId
         );
 
-      }
-    );
+        if (!item) return;
 
+        setSupplementTaken(
+          item.id,
+          date,
+          !getSupplementTaken(item, date)
+        );
 
-    document.addEventListener(
-      "click",
-      event => {
+        saveCalendarState();
+        renderSupplementTracker();
+      });
+    });
 
-        const picker =
-          document.getElementById(
-            "moleculeThemePicker"
-          );
+  // Удаление БАДа.
+  overlay
+    .querySelectorAll("[data-delete-supplement]")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        const id =
+          button.dataset.deleteSupplement;
 
-        if (!picker) {
-          return;
+        saveSupplements(
+          getSupplements().filter(
+            item => item.id !== id
+          )
+        );
+
+        const remaining = getSupplements();
+
+        if (selectedSupplementId === id) {
+          selectedSupplementId =
+            remaining[0]?.id || "";
         }
 
-        if (
-          !picker.classList.contains(
-            "hidden"
-          ) &&
-          !picker.contains(
-            event.target
-          ) &&
-          event.target !== button
-        ) {
+        saveCalendarState();
+        renderSupplementTracker();
+      });
+    });
 
-          picker.classList.add(
-            "hidden"
-          );
+  // Добавление нового БАДа.
+  const add = () => {
+    const input =
+      overlay.querySelector(
+        "#newSupplementName"
+      );
 
-        }
+    const name = input?.value.trim();
 
+    if (!name) return;
+
+    const items = getSupplements();
+
+    const newItem = {
+      id: `${Date.now()}-${Math.random()
+        .toString(16)
+        .slice(2)}`,
+      name,
+      taken: []
+    };
+
+    items.push(newItem);
+
+    saveSupplements(items);
+
+    selectedSupplementId = newItem.id;
+
+    saveCalendarState();
+    renderSupplementTracker();
+  };
+
+  overlay
+    .querySelector("#addSupplementButton")
+    ?.addEventListener("click", add);
+
+  overlay
+    .querySelector("#newSupplementName")
+    ?.addEventListener("keydown", event => {
+      if (event.key === "Enter") {
+        add();
       }
-    );
+    });
+}
 
-  }
+/*- открыть сохраннный трекер воды -*/
 
+function renderWaterTracker() {
+  const water = getTodayWater();
+  const goal = getWaterGoal();
+  const percent = Math.min(
+    100,
+    Math.round((water / goal) * 100)
+  );
 
-  /* применяем сохраненную тему */
-  applyTheme(saved);
+  const overlay = openTrackerOverlay(
+    "waterTrackerOverlay",
+    "трекер воды",
+    `
+      <div class="water-big-card">
+        <div
+          class="water-orb"
+          style="--water-progress:${percent}%"
+        >
+          <span>${percent}%</span>
+        </div>
 
-  createThemePicker();
+        <div>
+          <strong id="waterBigValue">${water} мл</strong>
+          <small>из ${goal} мл сегодня</small>
+        </div>
+      </div>
 
-  initThemeButton();
+      <div class="water-progress-track">
+        <span style="width:${percent}%"></span>
+      </div>
 
-})();
+      <div class="water-buttons">
+        <button type="button" data-water-add="100">
+          +100 мл
+        </button>
+
+       <button type="button" data-water-add="150">
+          +150 мл
+        </button>
+
+        <button type="button" data-water-add="200">
+          +200 мл
+        </button>
+
+        <button type="button" data-water-add="250">
+          +250 мл
+        </button>        
+
+        <button type="button" data-water-add="300">
+          +300 мл
+        </button>
+        <br>
+        <button type="button" data-water-add="-100">
+          −100 мл
+        </button>
+
+        <button type="button" data-water-add="-150">
+          −150 мл
+        </button>
+        
+        <button type="button" data-water-add="-200">
+          −200 мл
+        </button>
+
+        <button type="button" data-water-add="-250">
+          −250 мл
+        </button>      
+
+        <button type="button" data-water-add="-300">
+          −300 мл
+        </button>        
+      </div>
+
+      <div class="water-goal-row">
+        <label for="waterGoalInput">
+          дневная цель
+        </label>
+
+        <div>
+          <input
+            id="waterGoalInput"
+            type="number"
+            min="100"
+            max="10000"
+            step="50"
+            value="${goal}"
+          >
+          <span>мл</span>
+        </div>
+      </div>
+
+      <div class="tracker-hint">
+        количество воды можно корректировать в течение дня ♡₊⋆ 
+      </div>
+    `
+  );
+
+  const rerender = () => renderWaterTracker();
+
+  overlay
+    .querySelectorAll("[data-water-add]")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        setTodayWater(
+          getTodayWater() +
+            Number(button.dataset.waterAdd)
+        );
+
+        rerender();
+      });
+    });
+
+  overlay
+    .querySelector("#waterGoalInput")
+    ?.addEventListener("change", event => {
+      const value = Math.min(
+        10000,
+        Math.max(
+          100,
+          Number(event.target.value) || 2000
+        )
+      );
+
+      writeLocal(waterGoalStorageKey, value);
+      rerender();
+    });
+}
+
+/*- сменить тему приложения по кругу -*/
+
+function openThemePicker() {
+  const themes = [
+    {
+      id: "dark",
+      name: "темная",
+      description: "спокойная темная тема"
+    },
+    {
+      id: "pink",
+      name: "розовая",
+      description: "мягкая розовая тема"
+    },
+    {
+      id: "angel",
+      name: "angel",
+      description: "светлая воздушная тема"
+    },
+    {
+      id: "minimalism",
+      name: "минимализм",
+      description: "чистая минималистичная тема"
+    }
+  ];
+
+  const currentTheme =
+    localStorage.getItem("molecule-space-theme") ||
+    "dark";
+   
+  const overlay = openTrackerOverlay(
+    "themePickerOverlay",
+    "тема приложения",
+    `
+      <div class="theme-picker-list">
+        ${themes
+          .map(
+            theme => `
+          <button
+            type="button"
+            class="theme-picker-option ${
+              currentTheme === theme.id ? "is-active" : ""
+            }"
+            data-theme="${theme.id}"
+          >
+            <span class="theme-picker-check">
+              ${currentTheme === theme.id ? "✓" : ""}
+            </span>
+
+            <span>
+              <strong>${theme.name}</strong>
+              <small>${theme.description}</small>
+            </span>
+          </button>
+        `
+          )
+          .join("")}
+      </div>
+    `
+  );
+   
+  overlay
+    .querySelectorAll("[data-theme]")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        const theme = button.dataset.theme;
+
+        localStorage.setItem(
+          "molecule-space-theme",
+          theme
+        );
+
+        document.body.dataset.theme = theme;
+
+        renderThemeButtons?.();
+        overlay.remove();
+        document.body.style.overflow = "";
+      });
+    });
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
