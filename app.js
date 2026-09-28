@@ -345,10 +345,8 @@ links: {
   }
 };
 
-const articles = {
-   
-"supplements-voice": { 
-      
+const topics("supplements-voice") = {
+   {
     section: "supplements",
 
     title: "Чек-лист по всем БАДам",
@@ -411,8 +409,9 @@ const articles = {
         id: "reducsin",
         title: "Редуксин"
        }
-    ]
-  }
+      
+  ]
+   }
 };
    
 /* ==================================================
