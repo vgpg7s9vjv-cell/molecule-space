@@ -345,10 +345,8 @@ links: {
   }
 };
 
+if(topic-card = "supplements-voice") {
 const section = {
-   
-   "supplements-voice":{
-
     title: "Чек-лист по всем БАДам",
 
     category: "сложности выбора и как его сделать",     
@@ -409,7 +407,7 @@ const section = {
         id: "reducsin",
         title: "Редуксин"
        }
-     ]
+       ]
    }
 };
    
