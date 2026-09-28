@@ -137,65 +137,7 @@ const sections = {
       {
         id: "supplements-voice",
         title: "сложности выбора и как его сделать",
-        description: "подробный чек-лист популярных БАДов",
-         topics: [
-      {
-        id: "mlk-plus",
-        title: "Молекула Plus"
-      },
-
-      {
-        id: "mlk-prem",
-        title: "Молекула Premium"
-      },
-
-      {
-        id: "mlk-ultra",
-        title: "Молекула Ultra"
-      },     
-     
-      {
-        id: "mlk-zb",
-        title: "Молекула ЖБ"
-      },
-
-      {
-        id: "swapx-neo",
-        title: "Swap-X Neo"
-      },  
-
-      {
-        id: "swapx-pro",
-        title: "Swap-X Pro"
-      },  
-
-
-      {
-        id: "supressa",
-        title: "Supressa"
-      },
-
-      {
-        id: "mineral",
-        title: "Mineral Balance"
-      },    
-
-      {
-        id: "heedly",
-        title: "Heedly Slim Complex"
-      },
-
-      {
-        id: "ozempic",
-        title: "Ozempic Turbo"
-      },
-
-      {
-        id: "reducsin",
-        title: "Редуксин"
-      }
-            ],
-           
+        description: "подробный чек-лист популярных БАДов"           
       },
 
       {
