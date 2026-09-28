@@ -1418,13 +1418,13 @@ const articles = {
    СОСТОЯНИЕ ПРИЛОЖЕНИЯ
 ================================================== */
 
-let currentSectionId = null;
+currentSectionId = null;
 
-let currentArticleId = null;
+currentArticleId = null;
 
-let currentPage = 0;
+currentPage = 0;
 
-let selectedMood = "🙂";
+selectedMood = "🙂";
 const moodStorageKey = "molecule-space-mood-diary";
 const themeStorageKey = "molecule-space-theme";
 
