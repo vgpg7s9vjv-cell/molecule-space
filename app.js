@@ -346,8 +346,8 @@ links: {
 };
 
 const section = {
+   
    "supplements-voice":{
-    section: "supplements",
 
     title: "Чек-лист по всем БАДам",
 
