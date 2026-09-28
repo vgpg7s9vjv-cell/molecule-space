@@ -194,7 +194,7 @@ const sections = {
         id: "reducsin",
         title: "Редуксин"
       }
-            ]
+            ],
            
       },
 
