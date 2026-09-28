@@ -184,6 +184,14 @@ body.theme-minimalism .home-screen { background:var(--bg); }
 
       <button
         class="theme-toggle"
+        type="button"
+        data-section="links"
+      >
+        <span class="theme-toggle-icon" >📎</span>
+      </button>
+      
+      <button
+        class="theme-toggle"
         id="themeToggle"
         type="button"
         aria-label="Переключить тему"
@@ -193,26 +201,7 @@ body.theme-minimalism .home-screen { background:var(--bg); }
 
     </div>
 
-    <div class="quote-card">
-
-      <h4 class="support-subtitle">
-        напоминание
-      </h4>
-
-      <p class="quote-text" id="quote">
-        никто не обязан заслуживать право на еду, отдых и заботу о себе
-      </p>
-
-      <button
-        class="quote-button"
-        id="newQuote"
-        type="button"
-      >
-        сменить фразу
-      </button>
-
-    </div>
-
+    
     <button
       class="diary-quick-card"
       id="quickDiaryButton"
@@ -227,6 +216,23 @@ body.theme-minimalism .home-screen { background:var(--bg); }
 
       <span class="diary-quick-arrow">›</span>
     </button>
+    
+    <div>
+ <p class="quote-text" id="quote">
+       срыв — не повод бросать все
+      </p>
+
+      
+      <button
+        class="quote-button"
+        id="newQuote"
+        type="button"
+      >
+        еще мотивации
+      </button>
+
+    </div>
+
 
     <div class="home-trackers">
       <button class="tracker-card supplements-tracker-card" id="supplementsTrackerButton" type="button">
@@ -328,15 +334,6 @@ body.theme-minimalism .home-screen { background:var(--bg); }
       >
         <span class="tab-icon">✿</span>
         <span>molecular care</span>
-      </button>
-
-      <button
-        class="section-tab"
-        type="button"
-        data-section="links"
-      >
-        <span class="tab-icon">📎</span>
-        <span>ссылки</span>
       </button>
 
     </nav>
