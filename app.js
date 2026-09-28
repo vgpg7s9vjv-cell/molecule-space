@@ -1294,12 +1294,10 @@ const articles = {
 
     title: "Чек-лист по всем БАДам",
 
-    category: "сложности выбора и как его сделать",
-
-    description:
-      "здесь мы собрали все подробности и разделили их по полочкам",
+    category: "сложности выбора и как его сделать",     
 
     topics: [
+       
       {
         id: "mlk-plus",
         title: "Молекула Plus"
@@ -1356,7 +1354,7 @@ const articles = {
         title: "Редуксин"
       }     
     ]
-  },
+  };
 
    
   "supplements-rules": {
