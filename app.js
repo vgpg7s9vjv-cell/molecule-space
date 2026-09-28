@@ -1288,11 +1288,13 @@ const articles = {
   /* =========================
      БАДЫ
   ========================== */
-    "supplements-voice": {
-    
+    supplements-voice: { 
+      
+    section: "supplements",
+
     title: "Чек-лист по всем БАДам",
 
-    kicker: "basic information",
+    category: "сложности выбора и как его сделать",
 
     description:
       "здесь мы собрали все подробности и разделили их по полочкам",
