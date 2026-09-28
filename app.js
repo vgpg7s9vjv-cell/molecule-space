@@ -345,7 +345,7 @@ links: {
   }
 };
 
-const sections = {
+const articles = {
    
 "supplements-voice": { 
       
