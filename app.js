@@ -1296,7 +1296,7 @@ const articles = {
 
     category: "сложности выбора и как его сделать",     
 
-    topics: [
+    pages: [
        
       {
         id: "mlk-plus",
@@ -1354,7 +1354,7 @@ const articles = {
         title: "Редуксин"
       }     
     ]
-    }
+    },
 
    
   "supplements-rules": {
@@ -1527,7 +1527,6 @@ const articles = {
           </ul>             
         `
       },
-
 
 
       {
