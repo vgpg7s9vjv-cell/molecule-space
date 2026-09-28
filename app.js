@@ -345,7 +345,7 @@ links: {
   }
 };
 
-const topics = {
+const section = {
    "supplements-voice":{
     section: "supplements",
 
