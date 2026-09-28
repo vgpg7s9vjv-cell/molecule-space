@@ -1354,7 +1354,7 @@ const articles = {
         title: "Редуксин"
       }     
     ]
-  };
+    }
 
    
   "supplements-rules": {
