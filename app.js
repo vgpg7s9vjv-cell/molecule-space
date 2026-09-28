@@ -1411,7 +1411,7 @@ const articles = {
     title: "ИМТ",
 
     category: "calculations"
-  },
+  }
 
 
 /* ==================================================
