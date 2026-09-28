@@ -346,7 +346,7 @@ links: {
 };
 
 if(topics = "supplements-voice") {
-const section = {
+const OpenSection = {
     title: "Чек-лист по всем БАДам",
 
     category: "сложности выбора и как его сделать",     
