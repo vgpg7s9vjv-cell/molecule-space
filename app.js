@@ -345,7 +345,7 @@ links: {
   }
 };
 
-if(topic-card = "supplements-voice") {
+if(topics = "supplements-voice") {
 const section = {
     title: "Чек-лист по всем БАДам",
 
