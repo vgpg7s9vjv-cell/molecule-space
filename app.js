@@ -21,7 +21,7 @@ if (tg) {
 
 
 /* ==================================================
-   ФРАЗЫ ДЛЯ ПОДДЕРЖКИ
+   фраза дня
 ================================================== */
 
 const quotes = [
@@ -46,7 +46,7 @@ let currentQuote = 0;
 
 
 /* ==================================================
-   ДАННЫЕ РАЗДЕЛОВ
+  разделы
 ================================================== */
 
 const sections = {
@@ -2430,7 +2430,7 @@ const articles = {
   }
 }
 /* ==================================================
-   СОСТОЯНИЕ ПРИЛОЖЕНИЯ
+   СОСТОЯНИЕ ПРИЛОЖЕНИЯ дневник настроения
 ================================================== */
 let currentSectionId = null;
 
@@ -2441,7 +2441,7 @@ const moodStorageKey = "molecule-space-mood-diary";
 const themeStorageKey = "molecule-space-theme";
 
 /* ==================================================
-   DOM
+   DOM дневник настроения 
 ================================================== */
 
 const homeScreen = document.getElementById("homeScreen");
@@ -2460,7 +2460,7 @@ const quickDiaryButton = document.getElementById("quickDiaryButton");
 
 
 /* ==================================================
-   ФРАЗА
+   ФРАЗА - настройка смены фраз
 ================================================== */
 
 function showNextQuote() {
@@ -2485,7 +2485,7 @@ function showNextQuote() {
 
 
 /* ==================================================
-   ТЕМА
+   кнопка выбора темы
 ================================================== */
 
 function applyTheme(theme) {
@@ -2601,236 +2601,10 @@ function initTheme() {
   applyTheme(saved);
 
 }
+
 /* ==================================================
-   ДНЕВНИК
+   имт и дефицит
 ================================================== */
-
-function getMoodEntries() {
-  try {
-    return JSON.parse(localStorage.getItem(moodStorageKey) || "[]");
-  } catch (error) {
-    return [];
-  }
-}
-
-function saveMoodEntry(text, mood) {
-  const entries = getMoodEntries();
-  entries.unshift({
-    id: Date.now(),
-    mood,
-    text,
-    date: new Date().toLocaleString("ru-RU", {
-      day: "2-digit", month: "long", year: "numeric",
-      hour: "2-digit", minute: "2-digit"
-    })
-  });
-
-  try {
-    localStorage.setItem(moodStorageKey, JSON.stringify(entries.slice(0, 100)));
-  } catch (error) {}
-}
-
-function renderMoodJournal() {
-  const entries = getMoodEntries();
-  const moods = ["😊", "🥳", "🥰", "😕", "😣", "😭", "😡", "🫩", "🤒"];
-
-  contentContainer.innerHTML = `
-    <div class="screen-inner diary-page fade-in">
-
-      <button
-        class="back-button"
-        id="diaryBackButton"
-      >
-        ← назад
-      </button>
-
-      <header class="section-header">
-        <p class="section-kicker">mood journal</p>
-
-        <h1>
-          дневник настроения
-        </h1>
-
-        <p>
-          место для коротких заметок о своем состоянии и событиях дня ♡
-        </p>
-      </header>
-
-      <section class="diary-compose">
-
-        <p class="diary-date">
-          сегодня · ${new Date().toLocaleDateString("ru-RU", {
-            day: "numeric",
-            month: "long"
-          })}
-        </p>
-
-        <div
-          class="mood-picker"
-          aria-label="Выбери настроение"
-        >
-          ${moods.map(mood => `
-            <button
-              type="button"
-              class="mood-choice ${selectedMood === mood ? "selected" : ""}"
-              data-mood="${mood}"
-            >
-              ${mood}
-            </button>
-          `).join("")
-          
-          }
-        </div>
-
-        <textarea
-          class="diary-textarea"
-          id="diaryText"
-          placeholder="что хочется записать?"
-        ></textarea>
-
-        <button
-          type="button"
-          class="calculator-button diary-save"
-          id="saveDiaryButton"
-        >
-          сохранить запись
-        </button>
-
-      </section>
-
-      <div class="diary-list">
-
-        ${
-          entries.length
-            ? entries.map((entry, index) => `
-                <article class="mood-entry">
-
-                  <div class="mood-entry-head">
-                    <span class="mood-entry-emoji">
-                      ${entry.mood}
-                    </span>
-
-                    <span class="mood-entry-date">
-                      ${entry.date}
-                    </span>
-                  </div>
-
-                  <p class="mood-entry-text">
-                    ${escapeHtml(entry.text)}
-                  </p>
-
-                  <button
-                    type="button"
-                    class="diary-delete-button"
-                    data-delete-entry="${index}"
-                  >
-                    удалить запись
-                  </button>
-
-                </article>
-              `).join("")
-            : `
-                <div class="diary-empty">
-                  здесь появятся твои записи<br>
-                  они бережно хранятся только в этом приложении
-                </div>
-              `
-        }
-
-      </div>
-
-    </div>
-  `;
-
-  document
-    .getElementById("diaryBackButton")
-    .addEventListener("click", showHome);
-
-
-  document
-    .querySelectorAll("[data-mood]")
-    .forEach(button => {
-
-      button.addEventListener("click", () => {
-
-        selectedMood = button.dataset.mood;
-
-        renderMoodJournal();
-
-      });
-
-    });
-
-
-  document
-    .getElementById("saveDiaryButton")
-    .addEventListener("click", () => {
-
-      const textarea =
-        document.getElementById("diaryText");
-
-      const text =
-        textarea.value.trim();
-
-      if (!text) {
-        textarea.focus();
-        return;
-      }
-
-      saveMoodEntry(
-        text,
-        selectedMood
-      );
-
-      selectedMood = "😊";
-
-      renderMoodJournal();
-
-    });
-
-
-  document
-    .querySelectorAll("[data-delete-entry]")
-    .forEach(button => {
-
-      button.addEventListener("click", () => {
-
-        const index =
-          Number(button.dataset.deleteEntry);
-
-        const entries =
-          getMoodEntries();
-
-        entries.splice(index, 1);
-
-        try {
-          localStorage.setItem(
-            moodStorageKey,
-            JSON.stringify(
-              entries.slice(0, 100)
-            )
-          );
-        } catch (error) {}
-
-        renderMoodJournal();
-
-      });
-
-    });
-
-
-  window.scrollTo(0, 0);
-}
-
-
-function escapeHtml(value) {
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/\"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
 
 function renderTools() {
   contentContainer.innerHTML = `
@@ -2858,7 +2632,7 @@ function renderTools() {
           <h3>норма и дефицит калорий</h3>
           <p>оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле Миффлина — Сан Жеора</p>
           <div class="calculator-grid">
-            <div class="calculator-field"><label for="calAge">возраст, лет</label><input class="calculator-input" id="calAge" type="number" min="12" step="1" inputmode="numeric"></div>
+            <div class="calculator-field"><label for="calAge">возраст, лет</label><input class="calculator-input" id="calAge" type="number" min="13" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calWeight">масса, кг</label><input class="calculator-input" id="calWeight" type="number" min="1" step="0.1" inputmode="decimal"></div>
             <div class="calculator-field"><label for="calHeight">рост, см</label><input class="calculator-input" id="calHeight" type="number" min="1" step="1" inputmode="numeric"></div>
             <div class="calculator-field"><label for="calSex">пол для формулы</label><select class="calculator-input" id="calSex"><option value="female">женский</option><option value="male">мужской</option></select></div>
@@ -2893,15 +2667,16 @@ function calculateEnergy() {
   const sex = document.getElementById("calSex").value;
   const activity = Number(document.getElementById("calActivity").value);
   const result = document.getElementById("energyResult");
-  if (!age || age < 12 || !weight || !height) { result.textContent = "введен возраст ниже 12 лет, попробуй ввести другой"; return; }
-  const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
+  if (!age || age < 13 || !weight || !height) { result.textContent = "УПС! твой организм еще растет и тебе не нужен дефицит"; return; }
+  const bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+  if (!sex || sex <= "male") { bmr = 0 * weight + 6.25 * height - 5 * age + 5 }
   const tdee = bmr * activity * 0.8;
-  result.innerHTML = `<strong>основное количество сжигаемых тобой калорий ${Math.round(bmr)} ккал/сутки</strong><br>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки`;
+  result.innerHTML = `основное количество сжигаемых тобой калорий с учетом активности ${Math.round(bmr)} ккал/сутки<br><strong>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки</strong>`;
 }
 
 
 /* ==================================================
-   ПОКАЗАТЬ ГЛАВНУЮ
+   выход на главную
 ================================================== */
 
 function showHome() {
@@ -2941,7 +2716,7 @@ function showHome() {
 
 
 /* ==================================================
-   ОТКРЫТЬ РАЗДЕЛ
+   ОТКРЫТЬ РАЗДЕЛы интерактивные
 ================================================== */
 
 function openSection(sectionId) {
@@ -2951,138 +2726,10 @@ function openSection(sectionId) {
   if (!section) {
     return;
   }
-
-  if (sectionId === "mood") {
-    currentSectionId = "mood";
-    currentArticleId = null;
-    currentPage = 0;
-    contentScreen.classList.remove("hidden");
-    homeScreen.classList.add("hidden");
-    renderMoodJournal();
-    return;
-  }
-
-  if (sectionId === "tools") {
-    currentSectionId = "tools";
-    currentArticleId = null;
-    currentPage = 0;
-    contentScreen.classList.remove("hidden");
-    homeScreen.classList.add("hidden");
-    renderTools();
-    return;
-  }
-   
-  currentSectionId = sectionId;
-
-  currentArticleId = null;
-
-  currentPage = 0;
-
-  contentScreen.classList.remove("hidden");
-
-  homeScreen.classList.add("hidden");
-
-
-  contentContainer.innerHTML = `
-
-    <div class="screen-inner fade-in">
-
-      <button
-        class="back-button"
-        id="sectionBackButton"
-      >
-        ← назад
-      </button>
-
-
-      <header class="section-header">
-
-        <p class="section-kicker">
-          ${section.kicker}
-        </p>
-
-        <h1>
-          ${section.title}
-        </h1>
-
-        <p>
-          ${section.description}
-        </p>
-
-      </header>
-
-
-      <div class="topic-list">
-
-        ${section.topics.map(topic => `
-
-          <button
-            class="topic-card"
-            data-article="${topic.id}"
-          >
-
-            <div class="topic-card-content">
-
-              <p class="topic-card-title">
-                ${topic.title}
-              </p>
-
-              <p class="topic-card-description">
-                ${topic.description}
-              </p>
-
-            </div>
-
-            <span class="topic-arrow">
-              ›
-            </span>
-
-          </button>
-
-        `).join("")
-        
-        }
-
-      </div>
-
-    </div>
-
-  `;
-
-
-  document
-    .getElementById("sectionBackButton")
-    .addEventListener("click", showHome);
-
-
-  window.scrollTo(0, 0);
-}
-
 
 /* ==================================================
-   ОТКРЫТЬ РАЗДЕЛ
+   ОТКРЫТЬ ДНЕВНИК НАСТРОЕНИЯ
 ================================================== */
-
-function openSection(sectionId) {
-
-  const section = sections[sectionId];
-
-  if (!section) {
-    return;
-  }
-
-
-  /* удаляем старый экран раздела */
-
-  const oldOverlay =
-    document.getElementById("sectionOverlay");
-
-  if (oldOverlay) {
-    oldOverlay.remove();
-  }
-
-
-  /* особые разделы */
 
 if (sectionId === "mood") {
 
@@ -3520,7 +3167,7 @@ if (sectionId === "mood") {
   }
    
   /* ================================================
-     ИНСТРУМЕНТЫ
+     КАЛЬКУЛЯТОРЫ
   ================================================ */
 
   if (sectionId === "tools") {
@@ -3639,9 +3286,7 @@ if (sectionId === "mood") {
 
           <section class="calculator-card">
 
-            <h3>
-              норма и дефицит калорий
-            </h3>
+            <h3>норма и дефицит калорий</h3>
 
             <p>
               оценка суточной нормы сжигаемых тобой калорий и дефицит калорий по формуле Миффлина — Сан Жеора
@@ -3659,7 +3304,7 @@ if (sectionId === "mood") {
                   class="calculator-input"
                   id="calAge"
                   type="number"
-                  min="12"
+                  min="13"
                   step="1"
                   inputmode="numeric"
                 >
@@ -3799,7 +3444,7 @@ if (sectionId === "mood") {
 
 
   /* ================================================
-     ОБЫЧНЫЕ РАЗДЕЛЫ
+            ОТКРЫТЬ РАЗДЕЛЫ СО СТАТЬЯМИ
   ================================================ */
 
   currentSectionId = sectionId;
@@ -3898,7 +3543,7 @@ if (sectionId === "mood") {
 }
 
 /* ==================================================
-   ОТКРЫТИЕ СТАТЬИ
+  ОТКРЫТЬ САМУ СТАТЬЮ
 ================================================== */
 
 function openArticle(articleId) {
@@ -3969,7 +3614,7 @@ function renderArticle() {
         class="back-button"
         id="articleBackButton"
       >
-        ← назад
+        ← вернуться к разделу
       </button>
 
 
@@ -4081,7 +3726,7 @@ overlay.style.zIndex = "2147483647";
 }
 
 /* ==================================================
-   НАЗАД ИЗ СТАТЬИ
+   КНОПКА ВЕРНУТЬСЯ К РАЗДЕЛУ
 ================================================== */
 
 function goBackFromArticle() {
@@ -4143,7 +3788,7 @@ function previousPage() {
 
 
 /* ==================================================
-   СОБЫТИЯ ГЛАВНОЙ
+   МЕХАНИКА ВЫБОРА В ГЛАВНОМ МЕНЮ
 ================================================== */
 
 document.addEventListener("click", (event) => {
@@ -4233,6 +3878,9 @@ if (quickDiaryButton) {
   );
 }
 
+/* ==================================================
+                      ТРЕКЕРЫ
+================================================== */
 
 initTheme();
 
@@ -4246,6 +3894,8 @@ const supplementStorageKey = "molecule-space-supplements";
 const waterStorageKey = "molecule-space-water";
 const waterGoalStorageKey = "molecule-space-water-goal";
 const reminderStorageKey = "molecule-space-reminders";
+
+/* --- данные дневника настроения ---*/
 
 function trackerDate(date = new Date()) {
   const y = date.getFullYear();
@@ -4269,6 +3919,8 @@ function writeLocal(key, value) {
   } catch (error) {}
 }
 
+/* --- данные калькуляторов ---*/
+
 function getSupplements() {
   return readLocal(supplementStorageKey, []);
 }
@@ -4277,9 +3929,11 @@ function saveSupplements(items) {
   writeLocal(supplementStorageKey, items);
 }
 
+/* --- данные кольца воды ---*/
+
 function getWaterGoal() {
   const value = Number(readLocal(waterGoalStorageKey, 2000));
-  return Number.isFinite(value) && value >= 250 ? value : 2000;
+  return Number.isFinite(value) && value >= 100 ? value : 2000;
 }
 
 function getWaterData() {
@@ -4295,6 +3949,8 @@ function setTodayWater(amount) {
   data[trackerDate()] = Math.max(0, Math.round(amount));
   writeLocal(waterStorageKey, data);
 }
+
+/* --- данные календаря (напоминания - с припиской reminders - Summary) ---*/
 
 function getReminderData() {
   return readLocal(reminderStorageKey, []);
@@ -4323,6 +3979,10 @@ function setSupplementTaken(id, date, value) {
   saveSupplements(items);
 }
 
+/* --- данные сводки разделов ---*/
+
+
+/*- сводка калькуляторов -*/
 function calculateSupplementStreak() {
   const items = getSupplements();
 
@@ -4344,40 +4004,46 @@ function calculateSupplementStreak() {
   return streak;
 }
 
+/* --- обновить данные на главном экране ---*/
+
 function refreshHomeTrackers() {
   const supplements = getSupplements();
   const streak = calculateSupplementStreak();
 
+/*- данные календаря -*/
   const supplementSummary =
     document.getElementById("supplementsTrackerSummary");
 
+   /*- данные серий -*/
   const streakElement =
     document.getElementById("supplementsStreak");
 
+   /*- данные воды -*/
   const waterSummary =
     document.getElementById("waterTrackerSummary");
 
+   /*- данные выпитой воды -*/
   const waterProgress =
     document.getElementById("waterMiniProgress");
 
-  const remindersSummary =
-    document.getElementById("remindersSummary");
-
+   /*- если данные календаря, то: -*/
   if (supplementSummary) {
     supplementSummary.textContent = supplements.length
       ? `${supplements.length} ${pluralize(
           supplements.length,
-          "БАД",
-          "БАДа",
-          "БАДов"
+          "таблетка",
+          "таблетки",
+          "таблеток"
         )} • отметь сегодняшний прием`
-      : "добавь свои БАДы и отмечай прием";
+      : "отметь прием в каледаре, чтобы не пропустить серию";
   }
 
+   /*- если данные серий, то: -*/
   if (streakElement) {
     streakElement.textContent = `${streak} 🔥`;
   }
 
+   /*- если данные воды, то: -*/
   const water = getTodayWater();
   const goal = getWaterGoal();
   const percent = Math.min(100, Math.round((water / goal) * 100));
@@ -4393,19 +4059,9 @@ function refreshHomeTrackers() {
   const reminders = getReminderData().filter(
     r => r.enabled !== false
   );
-
-  if (remindersSummary) {
-    remindersSummary.textContent = reminders.length
-      ? `${reminders.length} ${pluralize(
-          reminders.length,
-          "напоминание",
-          "напоминания",
-          "напоминаний"
-        )}`
-      : "настроить прием таблеток";
-  }
 }
 
+/*- данные множественных чисел -*/
 function pluralize(number, one, few, many) {
   const n = Math.abs(number) % 100;
 
@@ -4418,6 +4074,11 @@ function pluralize(number, one, few, many) {
 
   return many;
 }
+
+/* ==================================================
+         открытие трекеров с
+                      сохраненным прогрессом
+================================================== */
 
 function openTrackerOverlay(id, title, content) {
   const old = document.getElementById(id);
@@ -4457,6 +4118,8 @@ function openTrackerOverlay(id, title, content) {
 
   return overlay;
 }
+
+/*- открыть сохраненный календарь -*/
 
 function renderSupplementTracker() {
   const supplements = getSupplements();
@@ -4615,14 +4278,14 @@ function renderSupplementTracker() {
         <strong>пока здесь пусто</strong>
         <p>
           добавь БАД или препарат, который хочешь
-          отслеживать.
+          отслеживать
         </p>
       </div>
     `;
 
   const overlay = openTrackerOverlay(
     "supplementTrackerOverlay",
-    "трекер БАДов",
+    "трекер приема",
     `
       <div class="streak-banner">
         <div>
@@ -4642,7 +4305,7 @@ function renderSupplementTracker() {
         supplements.length
           ? `
             <div class="tracker-section-heading">
-              <span>что отслеживаем</span>
+              <span>что отслеживаешь</span>
               <small>${supplements.length} поз.</small>
             </div>
 
@@ -4700,7 +4363,7 @@ function renderSupplementTracker() {
               ${
                 selectedSupplement
                   ? `
-                    <span>сейчас отмечаем:</span>
+                    <span>сейчас отмечаешь:</span>
                     <strong>
                       ${escapeHtml(
                         selectedSupplement.name
@@ -4761,8 +4424,8 @@ function renderSupplementTracker() {
 
       <div class="tracker-hint">
         выбери БАД сверху и нажимай на даты в календаре,
-        чтобы отметить или снять прием.
-        Отметки сохраняются только на этом устройстве.
+        чтобы отметить или снять прием
+        Отметки сохраняются только на этом устройстве
       </div>
     `
   );
@@ -4900,6 +4563,8 @@ function renderSupplementTracker() {
     });
 }
 
+/*- открыть сохраннный трекер воды -*/
+
 function renderWaterTracker() {
   const water = getTodayWater();
   const goal = getWaterGoal();
@@ -4931,21 +4596,45 @@ function renderWaterTracker() {
       </div>
 
       <div class="water-buttons">
-        <button type="button" data-water-add="150">
+        <button type="button" data-water-add="100">
+          +100 мл
+        </button>
+
+       <button type="button" data-water-add="150">
           +150 мл
+        </button>
+
+        <button type="button" data-water-add="200">
+          +200 мл
         </button>
 
         <button type="button" data-water-add="250">
           +250 мл
+        </button>        
+
+        <button type="button" data-water-add="300">
+          +300 мл
         </button>
 
-        <button type="button" data-water-add="500">
-          +500 мл
+        <button type="button" data-water-add="-100">
+          −100 мл
+        </button>
+
+        <button type="button" data-water-add="-150">
+          −150 мл
+        </button>
+        
+        <button type="button" data-water-add="-200">
+          −200 мл
         </button>
 
         <button type="button" data-water-add="-250">
           −250 мл
-        </button>
+        </button>      
+
+        <button type="button" data-water-add="-300">
+          −300 мл
+        </button>        
       </div>
 
       <div class="water-goal-row">
@@ -4957,7 +4646,7 @@ function renderWaterTracker() {
           <input
             id="waterGoalInput"
             type="number"
-            min="250"
+            min="100"
             max="10000"
             step="50"
             value="${goal}"
@@ -4967,7 +4656,7 @@ function renderWaterTracker() {
       </div>
 
       <div class="tracker-hint">
-        количество воды можно корректировать в течение дня.
+        количество воды можно корректировать в течение дня ♡₊⋆ 
       </div>
     `
   );
@@ -4993,7 +4682,7 @@ function renderWaterTracker() {
       const value = Math.min(
         10000,
         Math.max(
-          250,
+          100,
           Number(event.target.value) || 2000
         )
       );
@@ -5003,10 +4692,67 @@ function renderWaterTracker() {
     });
 }
 
+/*- сменить тему приложения по кругу -*/
 
+function openThemePicker() {
+  const themes = [
+    {
+      id: "dark",
+      name: "темная",
+      description: "спокойная темная тема"
+    },
+    {
+      id: "pink",
+      name: "розовая",
+      description: "мягкая розовая тема"
+    },
+    {
+      id: "angel",
+      name: "angel",
+      description: "светлая воздушная тема"
+    },
+    {
+      id: "minimal",
+      name: "минимализм",
+      description: "чистая минималистичная тема"
+    }
+  ];
 
+  const currentTheme =
+    localStorage.getItem("molecule-space-theme") ||
+    "dark";
+   
+  const overlay = openTrackerOverlay(
+    "themePickerOverlay",
+    "тема приложения",
+    `
+      <div class="theme-picker-list">
+        ${themes
+          .map(
+            theme => `
+          <button
+            type="button"
+            class="theme-picker-option ${
+              currentTheme === theme.id ? "is-active" : ""
+            }"
+            data-theme="${theme.id}"
+          >
+            <span class="theme-picker-check">
+              ${currentTheme === theme.id ? "✓" : ""}
+            </span>
 
-
+            <span>
+              <strong>${theme.name}</strong>
+              <small>${theme.description}</small>
+            </span>
+          </button>
+        `
+          )
+          .join("")}
+      </div>
+    `
+  );
+   
   overlay
     .querySelectorAll("[data-theme]")
     .forEach(button => {
@@ -5062,9 +4808,9 @@ function ensureTrackerCards() {
       <span class="tracker-icon">💊</span>
 
       <span class="tracker-card-content">
-        <strong>трекер БАДов</strong>
+        <strong>трекер приема</strong>
         <small id="supplementsTrackerSummary">
-          добавь свои БАДы и отмечай прием
+          отметь прием в каледаре,<br>чтобы не пропустить серию
         </small>
       </span>
 
@@ -5084,7 +4830,7 @@ function ensureTrackerCards() {
       <span class="tracker-icon">💧</span>
 
       <span class="tracker-card-content">
-        <strong>вода</strong>
+        <strong>выпито воды</strong>
         <small id="waterTrackerSummary">
           0 мл из 2000 мл
         </small>
@@ -5094,34 +4840,27 @@ function ensureTrackerCards() {
         <span id="waterMiniProgress"></span>
       </span>
     </button>
-
-    
-
-      <span class="tracker-card-arrow">›</span>
-    </button>
   `;
 
-  diary.insertAdjacentElement("afterend", wrap);
-}
-
-ensureTrackerCards();
+ensureTrackerCards()
 
 const supplementsTrackerButton =
   document.getElementById(
     "supplementsTrackerButton"
   );
 
-const waterTrackerButton =
-  document.getElementById("waterTrackerButton");
+supplementsTrackerButton?.addEventListener(
+  "click",
+  render (SupplementTracker)
+);
 
+const waterTrackerButton =
+  document.getElementById(
+     "waterTrackerButton"
+  );
 
 waterTrackerButton?.addEventListener(
   "click",
-  renderWaterTracker
+  render (WaterTracker)
 );
-
-
-refreshHomeTrackers();
-checkReminders();
-
-setInterval(checkReminders, 30000);
+}
