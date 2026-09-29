@@ -1938,8 +1938,8 @@ function applyTheme(theme) {
 
 /* ==================================================
    имт и дефицит
-================================================== */
-# 
+*/
+
 function renderTools() {
   contentContainer.innerHTML = `
     <div class="screen-inner fade-in">
