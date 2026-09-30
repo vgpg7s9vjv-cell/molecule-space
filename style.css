@@ -165,7 +165,7 @@ button {
 
 
 /* ==================================================
-   БЛОК ПОДДЕРЖКИ
+   мотивация
 ================================================== */
 
 .support-block {
@@ -209,17 +209,6 @@ button {
   border: 1px solid var(--line);
 
   border-radius: var(--radius-large);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(20, 48, 78, 0.92),
-      rgba(10, 28, 48, 0.82)
-    );
-
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 
   overflow: hidden;
 }
@@ -1729,7 +1718,6 @@ body.theme-dark .tracker-card,
 body.theme-dark .tool-card,
 
 body.theme-pink .card,
-body.theme-pink .quote-card,
 body.theme-pink .tracker-card,
 body.theme-pink .tool-card,
 
@@ -1841,7 +1829,6 @@ body.theme-minimalism .tool-button {
 ================================================== */
 
 body.theme-dark .quote-card,
-body.theme-pink .quote-card,
 body.theme-angel .quote-card,
 body.theme-minimalism .quote-card {
   background: var(--card) !important;
@@ -2145,7 +2132,7 @@ body.theme-pink .modal-content {
       rgba(255,247,251,0.94)
     ) !important;
 
-  color: #493844 !important;
+  color: var(--text) !important;
   border-color: #ecd6e1 !important;
 
   box-shadow:
