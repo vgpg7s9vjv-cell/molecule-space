@@ -3,22 +3,6 @@
 }
 
 :root {
-  --bg: #071426;
-  --bg-deep: #050f1d;
-
-  --card: rgba(13, 33, 56, 0.82);
-  --card-light: rgba(18, 42, 68, 0.9);
-
-  --text: #f2f7ff;
-  --muted: #91a6bd;
-  --muted-light: #b5c5d7;
-
-  --blue: #79c9ff;
-  --purple: #a89cff;
-  --pink: #ff9fd2;
-
-  --line: rgba(255, 255, 255, 0.08);
-  --line-light: rgba(255, 255, 255, 0.12);
 
   --radius-large: 28px;
   --radius-medium: 20px;
@@ -55,7 +39,6 @@ button {
 }
 
 button {
-  border: none;
   outline: none;
 }
 
@@ -222,7 +205,7 @@ button {
   margin-top: 22px;
 
   padding: 27px 22px 20px;
-
+                                                                
   border: 1px solid var(--line);
 
   border-radius: var(--radius-large);
@@ -1661,26 +1644,6 @@ body.theme-dark {
 ================================================== */
 
 body.theme-pink {
-  --bg: #fff5f9;
-  --bg-deep: #ffedf4;
-
-  --card: #ffffff;
-  --card-soft: #fff9fb;
-
-  --text: #563b48;
-  --muted: #9d7888;
-
-  --accent: #e7a8c2;
-  --accent-soft: #f8dce8;
-  --accent-strong: #d98eaf;
-
-  --line: #f1d8e3;
-  --line-soft: #f8e8ef;
-
-  --button: #f4cadb;
-  --button-text: #563b48;
-
-  --input: #fffafd;
   --shadow: 0 14px 40px rgba(205, 130, 160, .12);
 }
 
@@ -1839,7 +1802,6 @@ body.theme-minimalism .section-button.active {
 ================================================== */
 
 body.theme-dark button,
-body.theme-pink button,
 body.theme-angel button,
 body.theme-minimalism button {
   border-color: var(--line);
@@ -2167,7 +2129,6 @@ body.theme-pink {
     ) !important;
 
   background-attachment: fixed !important;
-  color: #493844 !important;
 }
 
 /* 🍓 мягкие карточки */
@@ -2219,30 +2180,6 @@ body.theme-pink .article-body strong {
   color: #6d4b60 !important;
 }
 
-/* 🎀 кнопки */
-body.theme-pink button,
-body.theme-pink .article-nav-button {
-  background:
-    linear-gradient(
-      135deg,
-      #efd5e2,
-      #f8e0e9
-    ) !important;
-
-  background-image:
-    linear-gradient(
-      135deg,
-      #efd5e2,
-      #f8e0e9
-    ) !important;
-
-  color: #493844 !important;
-  border-color: #e4c4d4 !important;
-
-  box-shadow:
-    0 4px 12px rgba(201, 159, 184, 0.14) !important;
-}
-
 body.theme-pink button:hover,
 body.theme-pink .article-nav-button:hover {
   background:
@@ -2258,6 +2195,20 @@ body.theme-pink .article-nav-button:hover {
       #f4dce7,
       #fff0cf
     ) !important;
+}
+
+body.theme-pink .theme-toggle {
+flex: 0 0 auto;
+width: 42px;
+height: 42px;
+display: grid;
+place-items: center;
+border: 1px solid var(--line-light);
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.045);
+color: var(--accent);
+cursor: pointer;
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 /* 🍌 маленькие золотистые акценты */
