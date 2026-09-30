@@ -5003,7 +5003,7 @@ function renderWaterTracker() {
       const value = Math.min(
         10000,
         Math.max(
-          250,
+          100,
           Number(event.target.value) || 2000
         )
       );
@@ -5187,3 +5187,7 @@ waterTrackerButton?.addEventListener(
   renderWaterTracker
 );
 
+refreshHomeTrackers();
+checkReminders();
+
+setInterval(checkReminders, 30000);
