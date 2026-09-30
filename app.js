@@ -4208,6 +4208,14 @@ if (quickDiaryButton) {
 initTheme();
 
 
+document
+  .getElementById("supplementsTrackerButton")
+  ?.addEventListener("click", renderSupplementTracker);
+
+document
+  .getElementById("waterTrackerButton")
+  ?.addEventListener("click", renderWaterTracker);
+
 if (quoteElement) {
   quoteElement.style.transition =
     "opacity 0.12s ease";
@@ -4249,7 +4257,7 @@ function saveSupplements(items) {
 
 function getWaterGoal() {
   const value = Number(readLocal(waterGoalStorageKey, 2000));
-  return Number.isFinite(value) && value >= 250 ? value : 2000;
+  return Number.isFinite(value) && value >= 150 ? value : 2000;
 }
 
 function getWaterData() {
@@ -4342,7 +4350,7 @@ function refreshHomeTrackers() {
 
   const water = getTodayWater();
   const goal = getWaterGoal();
-  const percent = Math.min(100, Math.round((water / goal) * 100));
+  const percent = Math.min(150, Math.round((water / goal) * 100));
 
   if (waterSummary) {
     waterSummary.textContent = `${water} мл из ${goal} мл`;
@@ -4881,67 +4889,56 @@ function renderWaterTracker() {
         <button type="button" data-water-add="+150">
           +150 мл
         </button>
-      </div>
+
       
         <button type="button" data-water-add="+200">
           +200 мл
         </button>
-      </div>
+
       
         <button type="button" data-water-add="+250">
           +250 мл
         </button>
-      </div>
 
         <button type="button" data-water-add="-300">
           +300 мл
         </button>
-      </div>
  
         <button type="button" data-water-add="+350">
           +350 мл
         </button>
-      </div>
 
         <button type="button" data-water-add="+400">
           +400 мл
         </button>
-      </div>
   
         <button type="button" data-water-add="+450">
           +450 мл
         </button>
-      </div>
       
         <button type="button" data-water-add="+500">
           +500 мл
         </button>
-      </div>
 
         <button type="button" data-water-add="-150">
           −150 мл
         </button>
-      </div>
       
         <button type="button" data-water-add="-200">
           −200 мл
         </button>
-      </div>
       
         <button type="button" data-water-add="-250">
           −250 мл
         </button>
-      </div>
 
         <button type="button" data-water-add="-300">
           −300 мл
         </button>
-      </div>
  
         <button type="button" data-water-add="-350">
           −350 мл
         </button>
-      </div>
 
         <button type="button" data-water-add="-400">
           −400 мл
@@ -4951,7 +4948,6 @@ function renderWaterTracker() {
         <button type="button" data-water-add="-450">
           −450 мл
         </button>
-      </div>
       
         <button type="button" data-water-add="-500">
           −500 мл
@@ -4977,7 +4973,7 @@ function renderWaterTracker() {
       </div>
 
       <div class="tracker-hint">
-        количество воды можно корректировать в течение дня
+        количество воды можно корректировать в течение дня ♡₊⋆ 
       </div>
     `
   );
@@ -5040,7 +5036,7 @@ function openThemePicker() {
 
   const currentTheme =
     localStorage.getItem("molecule-space-theme") ||
-    "dark";
+    "pink";
 
   const overlay = openTrackerOverlay(
     "themePickerOverlay",
