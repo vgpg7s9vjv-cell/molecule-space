@@ -2598,37 +2598,6 @@ body.theme-minimalism .back-button:active {
    💧 ВОДА
    ─────────────────────────────────────── */
 
-.water-tracker {
-  width: 100%;
-  max-width: 430px;
-
-  margin: 0 auto;
-  padding: 24px 20px 22px;
-
-  border-radius: 30px;
-
-  background: var(--card) !important;
-  border: 1px solid var(--line) !important;
-
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.06);
-
-  text-align: center;
-}
-
-
-/* заголовок */
-
-.water-title {
-  margin: 0 0 4px;
-
-  font-size: 20px;
-  font-weight: 700;
-
-  color: var(--text);
-}
-
-.water-subtitle {
   margin: 0;
 
   font-size: 12px;
@@ -2676,7 +2645,7 @@ body.theme-minimalism .back-button:active {
 
   stroke: var(--accent-soft);
 
-  stroke-width: 10;
+  stroke-width: 40;
 }
 
 
@@ -2731,7 +2700,7 @@ body.theme-minimalism .back-button:active {
 .water-unit {
   margin-top: 5px;
 
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
 
   color: var(--muted);
@@ -2740,11 +2709,10 @@ body.theme-minimalism .back-button:active {
 .water-goal {
   margin-top: 3px;
 
-  font-size: 11px;
+  font-size: 15px;
 
   color: var(--muted);
 }
-
 
 /* процент под кольцом */
 
@@ -2818,7 +2786,7 @@ body.theme-minimalism .back-button:active {
 .water-amount {
   min-width: 90px;
 
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 700;
 
   color: var(--text);
@@ -2866,6 +2834,7 @@ body.theme-minimalism .back-button:active {
 
   transform: translateY(-1px);
 }
+
 
 
 /* ───────────────────────────────────────
