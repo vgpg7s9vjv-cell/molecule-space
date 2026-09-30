@@ -99,10 +99,10 @@ body.theme-minimalism .home-screen { background:var(--bg); }
 .supplement-day.is-done { background:linear-gradient(145deg,rgba(255,159,207,.25),rgba(168,156,255,.16)); }
 .supplement-day.is-today { border-color:var(--pink); }
 .tracker-add-row { display:grid; grid-template-columns:1fr auto; gap:7px; }
-.tracker-add-row input,.reminder-form input,.reminder-form select,.water-goal-row input {
+.tracker-add-row input,.water-goal-row input {
   width:100%; min-width:0; padding:11px 12px; border:1px solid var(--line); border-radius:13px; outline:none; background:rgba(127,127,127,.07); color:var(--text); font:inherit; font-size:12px;
 }
-.tracker-add-row button,.water-buttons button,.reminder-item-actions button { border-radius:12px; background:rgba(127,127,127,.09); color:var(--text); padding:10px 11px; font-size:11px; cursor:pointer; }
+.tracker-add-row button,.water-buttons button { border-radius:12px; background:rgba(127,127,127,.09); color:var(--text); padding:10px 11px; font-size:11px; cursor:pointer; }
 .tracker-hint { color:var(--muted); font-size:10px; line-height:1.55; }
 .empty-tracker-state { padding:30px 18px; border:1px dashed var(--line); border-radius:20px; text-align:center; background:var(--card); }
 .empty-tracker-state span { display:block; font-size:28px; margin-bottom:8px; }
@@ -124,18 +124,6 @@ body.theme-minimalism .home-screen { background:var(--bg); }
 .water-goal-row div { display:flex; align-items:center; gap:7px; }
 .water-goal-row input { width:105px; }
 
-.reminder-form { padding:15px; border:1px solid var(--line); border-radius:20px; background:var(--card); }
-.reminder-form-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
-.reminder-form label { display:grid; gap:5px; color:var(--muted); font-size:10px; }
-.primary-tracker-button { width:100%; margin-top:10px; padding:12px 14px; border-radius:14px; background:linear-gradient(135deg,var(--purple),var(--pink)); color:#fff; font-weight:750; font-size:12px; cursor:pointer; }
-.reminder-list { display:flex; flex-direction:column; gap:8px; }
-.reminder-item { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:13px; border:1px solid var(--line); border-radius:17px; background:var(--card); }
-.reminder-item > div:first-child { min-width:0; display:flex; flex-direction:column; gap:3px; }
-.reminder-item strong { font-size:12px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.reminder-item small { color:var(--muted); font-size:9px; }
-.reminder-item-actions { display:flex; gap:5px; flex:0 0 auto; }
-.reminder-item-actions button:last-child { width:31px; padding:6px; color:#c8788b; }
-
 .theme-grid { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
 .theme-option { min-height:105px; padding:13px; border:1px solid var(--line); border-radius:19px; display:grid; grid-template-columns:35px 1fr; grid-template-rows:1fr 1fr; align-items:center; text-align:left; color:var(--text); cursor:pointer; }
 .theme-option span { grid-row:1/3; font-size:24px; text-align:center; }
@@ -154,7 +142,7 @@ body.theme-minimalism .home-screen { background:var(--bg); }
 .tracker-toast small { color:var(--muted); font-size:10px; }
 @keyframes trackerToastIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
 
-@media (min-width:650px) { .home-trackers { grid-template-columns:1fr 1fr; } .reminder-tracker-card { grid-column:1/-1; } }
+@media (min-width:650px) { .home-trackers { grid-template-columns:1fr 1fr; } }
 @media (max-width:380px) { .water-big-card { gap:12px; } .water-orb { width:94px; height:94px; flex-basis:94px; } .water-big-card strong { font-size:22px; } }
 
   </style>
@@ -245,15 +233,6 @@ body.theme-minimalism .home-screen { background:var(--bg); }
           <small id="waterTrackerSummary">0 мл из 2000 мл</small>
         </span>
         <span class="water-mini-bar"><span id="waterMiniProgress"></span></span>
-      </button>
-
-      <button class="tracker-card reminder-tracker-card" id="remindersButton" type="button">
-        <span class="tracker-icon">⏰</span>
-        <span class="tracker-card-content">
-          <strong>напоминания</strong>
-          <small id="remindersSummary">настроить прием таблеток</small>
-        </span>
-        <span class="tracker-card-arrow">›</span>
       </button>
     </div>
 
