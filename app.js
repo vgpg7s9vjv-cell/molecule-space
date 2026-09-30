@@ -1,6 +1,4 @@
 /* ==================================================
-
-
    TELEGRAM
 ================================================== */
 
@@ -4224,6 +4222,7 @@ if (quoteElement) {
 const supplementStorageKey = "molecule-space-supplements";
 const waterStorageKey = "molecule-space-water";
 const waterGoalStorageKey = "molecule-space-water-goal";
+const reminderStorageKey = "molecule-space-reminders";
 
 function trackerDate(date = new Date()) {
   const y = date.getFullYear();
@@ -4358,7 +4357,7 @@ function refreshHomeTrackers() {
 
   if (waterProgress) {
     waterProgress.style.width = `${percent}%`;
-  }
+  };
 
 }
 
@@ -4860,7 +4859,7 @@ function renderWaterTracker() {
   const water = getTodayWater();
   const goal = getWaterGoal();
   const percent = Math.min(
-    100,
+    150,
     Math.round((water / goal) * 100)
   );
 
@@ -4886,74 +4885,54 @@ function renderWaterTracker() {
         <span style="width:${percent}%"></span>
       </div>
 
-        <button type="button" data-water-add="+150">
+      <div class="water-buttons">
+       <button type="button" data-water-add="150">
           +150 мл
         </button>
 
-      
-        <button type="button" data-water-add="+200">
+        <button type="button" data-water-add="200">
           +200 мл
         </button>
 
-      
-        <button type="button" data-water-add="+250">
+        <button type="button" data-water-add="250">
           +250 мл
-        </button>
+        </button>        
 
-        <button type="button" data-water-add="-300">
+        <button type="button" data-water-add="300">
           +300 мл
         </button>
- 
-        <button type="button" data-water-add="+350">
+        
+        <button type="button" data-water-add="350">
           +350 мл
-        </button>
+        </button>        
+      </div>
 
-        <button type="button" data-water-add="+400">
-          +400 мл
-        </button>
-  
-        <button type="button" data-water-add="+450">
-          +450 мл
-        </button>
-      
-        <button type="button" data-water-add="+500">
-          +500 мл
+      <div class="water-buttons">
+        <button type="button" data-water-add="-100">
+          −100 мл
         </button>
 
         <button type="button" data-water-add="-150">
           −150 мл
         </button>
-      
+
         <button type="button" data-water-add="-200">
           −200 мл
         </button>
-      
+
         <button type="button" data-water-add="-250">
           −250 мл
-        </button>
+        </button>      
 
         <button type="button" data-water-add="-300">
           −300 мл
-        </button>
- 
+        </button> 
+
         <button type="button" data-water-add="-350">
           −350 мл
-        </button>
+        </button>          
+      </div>
 
-        <button type="button" data-water-add="-400">
-          −400 мл
-        </button>
-      </div>
-  
-        <button type="button" data-water-add="-450">
-          −450 мл
-        </button>
-      
-        <button type="button" data-water-add="-500">
-          −500 мл
-        </button>
-      </div>
-      
       <div class="water-goal-row">
         <label for="waterGoalInput">
           дневная цель
