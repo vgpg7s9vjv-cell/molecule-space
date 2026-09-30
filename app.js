@@ -5187,8 +5187,3 @@ waterTrackerButton?.addEventListener(
   renderWaterTracker
 );
 
-
-
-refreshHomeTrackers();
-
-setInterval(checkReminders, 30000);
