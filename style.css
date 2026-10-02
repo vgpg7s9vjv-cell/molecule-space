@@ -997,8 +997,7 @@ body,
 
 .theme-toggle {
   flex: 0 0 auto;
-  width: 42px;
-  height: 42px;
+  padding: 10px 15px !important;
   display: grid;
   place-items: center;
   border: 1px solid var(--line-light);
