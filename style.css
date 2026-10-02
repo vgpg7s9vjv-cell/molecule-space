@@ -33,12 +33,29 @@ body {
   overflow-x: hidden;
 }
 
-button {
-  font: inherit;
-}
 
 button {
+  font: inherit;
+  
   outline: none;
+  /* Убираем стандартную или грубую рамку */
+  border: none; 
+  
+  /* Делаем углы более круглыми и мягкими */
+  border-radius: 12px; 
+
+  
+  /* Размеры (настройте под себя) */
+  padding: 12px 24px;
+  font-size: 14px;
+  cursor: pointer;
+  
+  /* Плавный переход для всех изменений */
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: translateY(-1px);
 }
 
 .app {
