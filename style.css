@@ -843,7 +843,7 @@ button {
 ================================================== */
 
 .fade-in {
-  animation: fadeIn 0.25s ease both;
+  animation: fadeIn 0.1s ease both;
 }
 
 @keyframes fadeIn {
