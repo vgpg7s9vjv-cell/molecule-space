@@ -843,8 +843,13 @@ button {
 ================================================== */
 
 .fade-in {
-  animation: fadeIn 0.1s ease both;
+  animation: fadeIn 0.4s ease both;
 }
+
+.fade-out {
+  animation: fadeOut 0.4s ease both;
+}
+
 
 @keyframes fadeIn {
   from {
@@ -858,6 +863,16 @@ button {
   }
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
 
 /* ==================================================
    АДАПТАЦИЯ ДЛЯ МАЛЕНЬКИХ ЭКРАНОВ
