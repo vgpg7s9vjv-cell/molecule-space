@@ -289,9 +289,7 @@ button:hover {
 .quote-button {
   position: relative;
   z-index: 2;
-  
- align: center;
- wrap: balance;
+  left: 230px;
 
   padding: 10px 14px;
 
@@ -314,6 +312,10 @@ button:hover {
 }
 
 .quote-button:active {
+    
+   align: center;
+   wrap: balance;
+
   transform: scale(0.97);
 
   background: rgba(255, 255, 255, 0.08);
