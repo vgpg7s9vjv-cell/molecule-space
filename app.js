@@ -5140,7 +5140,6 @@ function ensureTrackerCards() {
           style="--water-progress:${percent}%"
         >
           <span>${percent}%</span>
-        </div>
     </button>
 
   `;
