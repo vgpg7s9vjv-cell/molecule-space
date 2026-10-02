@@ -1163,11 +1163,11 @@ body.light-theme .mood-entry {
 .diary-date { margin: 0 0 13px; color: var(--muted); font-size: 11px; }
 .mood-picker { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 13px; }
 .mood-choice {
-  width: 39px; height: 39px; display: grid; place-items: center;
-  border: 1px solid var(--line); border-radius: 12px;
+  display: inline-flex; place-items: center;
+  border: 1px solid var(--line); border-radius: 100px;
   background: var(--input-bg); cursor: pointer; font-size: 18px;
 }
-.mood-choice.selected { border-color: rgba(168,156,255,0.55); background: rgba(168,156,255,0.13); transform: translateY(-1px); }
+.mood-choice.selected { border-color: rgba(168,156,255,0.55); transform: translateY(-1px); }
 .diary-textarea {
   width: 100%; min-height: 125px; resize: vertical;
   padding: 13px; border: 1px solid var(--line); border-radius: 14px;
