@@ -290,8 +290,8 @@ button:hover {
   position: relative;
   z-index: 2;
   
-  text-align: center;
-  text-wrap: balance;
+ align: center;
+ wrap: balance;
 
   padding: 10px 14px;
 
