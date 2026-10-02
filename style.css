@@ -2374,7 +2374,7 @@ body.theme-minimalism .back-button:active {
 
   border: none !important;
 
-  background: transparent !important;
+  background: var(--button) !important;
   background-image: none !important;
 
   color: var(--text);
@@ -2400,7 +2400,7 @@ body.theme-minimalism .back-button:active {
 /* день вне текущего месяца */
 
 .calendar-day.other-month {
-  color: var(--muted);
+  color: transparent;
 
   opacity: 0.28;
 
@@ -2412,7 +2412,7 @@ body.theme-minimalism .back-button:active {
 
 .calendar-day.today {
   box-shadow:
-    inset 0 0 0 1.5px var(--accent);
+    inset 0 0 0 1.5px;
 
   color: var(--pink);
 }
