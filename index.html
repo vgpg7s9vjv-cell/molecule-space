@@ -238,10 +238,15 @@ background: radial-gradient(circle,var(--card) 61%,transparent 62%),conic-gradie
           <strong>трекер выпитой воды</strong>
           <small id="waterTrackerSummary">0 мл из 2000 мл</small>
         </span>
-        <span class="water-mini-bar"><span id="waterMiniProgress"></span></span>
+              <div
+          class="water-orb"
+          style="--water-progress:${percent}%"
+        >
+          <span>${percent}%</span>
+    </div>
       </button>
     </div>
-
+    
   </div>
 
   <div class="sections-area">
