@@ -5135,13 +5135,15 @@ function ensureTrackerCards() {
         </small>
       </span>
 
-      
-      <span class="water-mini-bar">
+
+<div class="water-big-card">
         <div
           class="water-orb"
           style="--water-progress:${percent}%"
         >
           <span>${percent}%</span>
+        </div>
+
       </span>
     </button>
 
