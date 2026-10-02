@@ -2933,7 +2933,7 @@ body.theme-angel .water-tracker {
   border: 0;
   border-radius: 14px;
 
-  background: transparent;
+  background: var(--button);
   color: inherit;
 
   font: inherit;
