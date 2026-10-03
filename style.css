@@ -288,8 +288,8 @@ button:hover {
   cursor: pointer;
 
   transition:
-    background 0.2s ease,
-    transform 0.2s ease;
+    background 0.1s ease,
+    transform 0.1s ease;
 }
 
 .quote-button:active {
@@ -906,11 +906,7 @@ width: 99%;
   }
 
   .quote-text {
-    min-height: 65px;
-
     margin-bottom: 17px;
-
-    font-size: 15px;
   }
 
   .sections-area {
