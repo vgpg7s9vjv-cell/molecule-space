@@ -300,8 +300,7 @@ button:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
-.quote-card::after {
-  
+.quote-card::before {
 content: "";
 position: absolute;
 width: 140px;
@@ -311,8 +310,6 @@ top: -70px;
 border-radius: 50%;
 filter: blur(86px);
 background: var(--accent);
-animation: forwards, 0.1s;
-  
 }
 /* ==================================================
    РАЗДЕЛЫ НА ГЛАВНОЙ
