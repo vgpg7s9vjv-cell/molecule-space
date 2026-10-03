@@ -129,7 +129,58 @@ const sections = {
       {
         id: "supplements-voice",
         title: "сложности выбора и как его сделать",
-        description: "подробный чек-лист популярных БАДов"           
+        description: "подробный чек-лист популярных БАДов",
+        subtopics: [
+           {
+           id: "supplement-mlk-plus",
+           title: "Molecule Plus"
+           },
+           
+           {
+           id: "supplement-mlk-prem",
+           title: "Molecule Premium"   
+           },
+           
+           {
+            id: "supplement-mlk-ultra",
+           title: "Molecule Ultra"
+           },
+           
+           {
+           id: "supplement-mlk-zb",
+           title: "Molecule ЖБ"
+           },
+
+           {
+           id: "supplement-supressa",
+           title: "Supressa"
+           },
+
+           {
+           id: "supplement-mineral",
+           title: "Mineral"
+           },
+
+           {
+           id: "supplement-heedly",
+           title: "Heedly"
+           },
+
+           {
+           id: "supplement-reducsin",
+           title: "Редуксин"
+           },
+
+           {
+           id: "supplement-swapx-neo-pro",
+           title: "Swap-x Neo/Pro"
+           },   
+
+           {
+           id: "supplement-ozempic",
+           title: "Turbo Ozempic"
+           }
+        ]
       },
 
       {
@@ -1018,7 +1069,6 @@ const articles = {
   },
 
 
-
   "medical-vitamins": {
 
     section: "medical",
@@ -1266,23 +1316,18 @@ const articles = {
   },
 
 
-
   /* =========================
      БАДЫ
   ========================== */
+"supplement-mlk-plus": {
 
-  "supplements-voice": {
-
-    section: "supplements",
-
-    title: "сложности выбора и как его сделать",
-
-    category: "похудеть хочу, но выбрать не могу",
-
-    pages: [
-
+   section: "supplements",
+   topic: "supplements-voice",
+   title: "сложности выбора и как его сделать",
+   category: "чек-лист",
+   pages: [   
       {
-        heading: "❶ Molecule Plus 40 капсул",
+        heading: "Molecule Plus 40 капсул",
 
         content: `
            <p>
@@ -1347,11 +1392,19 @@ const articles = {
             <li>plus → pro — <b>14 дней</b></li> 
           </ul>           
         `
-      },
+      }
+         ]
+    },
 
-
+      
+   "supplement-mlk-prem": {
+   section: "supplements",
+   topic: "supplements-voice",
+   title: "сложности выбора и как его сделать",
+   category: "чек-лист",
+   pages: [
       {
-        heading: "❷ Molecule Premium 46 капсул",
+        heading: "Molecule Premium 46 капсул",
 
         content: `
           <p>
@@ -1418,11 +1471,19 @@ const articles = {
             <li>premium → pro — <b>14 дней</b></li> 
           </ul>               
         `
+      }
+           ]
       },
 
-
+   
+   "supplement-mlk-ultra": {
+   section: "supplements",
+   topic: "supplements-voice",
+   title: "сложности выбора и как его сделать",
+   category: "чек-лист",
+   pages: [        
              {
-        heading: "❸ Molecule Ultra 30 капсул",
+        heading: "Molecule Ultra 30 капсул",
 
         content: `
           <p>
@@ -1486,11 +1547,19 @@ const articles = {
             <li>ultra → pro — <b>14 дней</b></li> 
           </ul>                   
         `
-      },
+      }
+    ]
+   },
 
-
+   
+   "supplement-mlk-zb": {
+   section: "supplements",
+   topic: "supplements-voice",
+   title: "сложности выбора и как его сделать",
+   category: "чек-лист",
+   pages: [
        {
-        heading: "❹ Molecule Plus/Premium ЖБ 30 капсул",
+        heading: "Molecule Plus/Premium ЖБ 30 капсул",
 
         content: `
           <p> 
@@ -1570,11 +1639,18 @@ const articles = {
             <li>жб → pro — <b>30 дней</b></li> 
           </ul>            
         `
-      },
+      }
+         ]
+   },
 
-
+    "supplement-supressa": {
+    section: "supplements",
+    topic: "supplements-voice",
+    title: "сложности выбора и как его сделать",
+    category: "чек-лист",
+    pages: [
              {
-        heading: "❺ Supressa 36 капсул",
+        heading: "Supressa 36 капсул",
 
         content: `
           <p> 
@@ -1638,11 +1714,18 @@ const articles = {
             <li>supressa → pro — <b>14 дней</b></li>   
           </ul>                      
         `
-      },
-
-
+             }
+             ]
+             },
+      
+   "supplement-mineral": {
+   section: "supplements",
+   topic: "supplements-voice",
+   title: "сложности выбора и как его сделать",
+   category: "чек-лист",
+   pages: [
              {
-        heading: "❻ Mineral 30 капсул",
+        heading: "Mineral 30 капсул",
 
         content: `
           <p> 
@@ -1710,11 +1793,18 @@ const articles = {
             <li>mineral → pro — <b>14 дней</b></li> 
           </ul>           
         `
-      },
-
-
+             }
+                ]
+             },
+      
+   "supplement-heedly": {
+   section: "supplements",
+   topic: "supplements-voice",
+   title: "сложности выбора и как его сделать",
+   category: "чек-лист",
+   pages: [ 
              {
-        heading: "❼ Heedly Slim-Complex 60 капсул",
+        heading: "Heedly Slim-Complex 60 капсул",
 
         content: `
           <p> 
@@ -1771,11 +1861,19 @@ const articles = {
             <li>heedly → pro — <b>14 дней</b></li> 
           </ul>          
         `
-      },
+             }
+                ]
+             },
 
-
+      
+   "supplement-reducsin": {
+   section: "supplements",
+   topic: "supplements-voice",
+   title: "сложности выбора и как его сделать",
+   category: "чек-лист",
+   pages: [ 
       {
-        heading: "❽ Редуксин 30/90 капсул",
+        heading: "Редуксин 30/90 капсул",
 
         content: `
           <p> 
@@ -1825,11 +1923,18 @@ const articles = {
         <li><b>на протяжении всего курса</b>: по 1 капсуле до или во время первого приема пищи</li>         
           </ul>           
         `
+      }
+         ]
       },       
-
-       
+      
+   "supplement-swapx-neo-pro": {
+   section: "supplements",
+   topic: "supplements-voice",
+   title: "сложности выбора и как его сделать",
+   category: "чек-лист",
+   pages: [       
       {
-        heading: "❾ Swapx Neo/Pro 30 капсул",
+        heading: "Swapx Neo/Pro 30 капсул",
 
         content: `
       <div class="info-box">
@@ -1959,12 +2064,19 @@ const articles = {
             <li>pro → heedly slimcomplex — <b>10 дней</b></li>
             <li>pro → ozempic — <b>10 дней</b></li>
           </ul>    
-        `
+      `
+      }
+      ]
       },
-
-
+      
+   "supplement-ozempic": {
+   section: "supplements",
+   topic: "supplements-voice",
+   title: "сложности выбора и как его сделать",
+   category: "чек-лист",
+   pages: [
       {
-        heading: "❿ Turbo-Ozempic 60 капсул",
+        heading: "Turbo-Ozempic 60 капсул",
 
         content: `
       <div class="info-box">
@@ -2029,10 +2141,9 @@ const articles = {
             <li>ozempic → pro — <b>14 дней</b></li> 
           </ul>                       
         `
-      }         
+      }   
     ]
-  },
-
+   },
 
   "supplements-rules": {
 
@@ -2262,10 +2373,8 @@ const articles = {
           </ul> 
         `
       }
-
     ]
   },
-
 
   "supplements-myths": {
 
@@ -2292,8 +2401,7 @@ const articles = {
             и другие процессы.
           </p>
         `
-      },
-
+  },     
 
       {
         heading: "миф 2. как связаны Германия, сибутрамин и 2010ый год?",
@@ -2334,10 +2442,9 @@ const articles = {
           </p>
         `
       }
-    ]
-  },
-
-   
+   ]
+},
+ 
   "delicate-period": {
 
     section: "delicate",
@@ -2392,9 +2499,8 @@ const articles = {
         `
       }
     ]
-  }
-}
-
+  },
+   
 /* ==================================================
    СОСТОЯНИЕ ПРИЛОЖЕНИЯ
 ================================================== */
