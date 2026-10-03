@@ -214,18 +214,6 @@ button:hover {
   text-wrap: balance;
 }
 
-.glow-three {
-content: "";
-position: absolute;
-width: 140px;
-height: 130px;
-right: -65px;
-top: -70px;
-border-radius: 50%;
-filter: blur(86px);
-background: var(--accent);
-animation: forwards, 0.1s;
-}
 /* ==================================================
    КАРТОЧКА ЦИТАТЫ
 ================================================== */
@@ -312,7 +300,20 @@ animation: forwards, 0.1s;
   background: rgba(255, 255, 255, 0.08);
 }
 
-
+.quote-card-glow {
+  
+content: "";
+position: absolute;
+width: 140px;
+height: 130px;
+right: -65px;
+top: -70px;
+border-radius: 50%;
+filter: blur(86px);
+background: var(--accent);
+animation: forwards, 0.1s;
+  
+}
 /* ==================================================
    РАЗДЕЛЫ НА ГЛАВНОЙ
 ================================================== */
