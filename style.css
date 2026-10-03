@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  scrollbar-width: none;
 }
 
 :root {
@@ -51,7 +52,7 @@ button {
   cursor: pointer;
   
   /* Плавный переход для всех изменений */
-  transition: all 0.2s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 button:hover {
@@ -199,6 +200,7 @@ button:hover {
   font-weight: 800;
 
   letter-spacing: -0.04em;
+
 }
 
 .support-subtitle {
@@ -208,8 +210,9 @@ button:hover {
 
   font-size: 15px;
   font-weight: 500;
+  text-align: center;
+  text-wrap: balance;
 }
-
 
 /* ==================================================
    КАРТОЧКА ЦИТАТЫ
@@ -227,24 +230,6 @@ button:hover {
   overflow: hidden;
 }
 
-.quote-card::after {
-  content: "";
-
-  position: absolute;
-
-  width: 130px;
-  height: 130px;
-
-  right: -65px;
-  top: -70px;
-
-  border-radius: 50%;
-
-  background: rgba(121, 201, 255, 0.09);
-
-  filter: blur(10px);
-}
-
 .quote-symbol {
   position: relative;
   z-index: 1;
@@ -255,6 +240,8 @@ button:hover {
   line-height: 0.7;
 
   font-family: Georgia, serif;
+  text-align: center;
+  text-wrap: balance;
 
   opacity: 0.85;
 }
@@ -283,6 +270,8 @@ button:hover {
 .quote-button {
   position: relative;
   z-index: 2;
+  display: block; 
+  margin: 0 auto; 
 
   padding: 10px 14px;
 
@@ -305,12 +294,26 @@ button:hover {
 }
 
 .quote-button:active {
+
   transform: scale(0.97);
 
   background: rgba(255, 255, 255, 0.08);
 }
 
-
+.quote-card::after {
+  
+content: "";
+position: absolute;
+width: 140px;
+height: 130px;
+right: -65px;
+top: -70px;
+border-radius: 50%;
+filter: blur(86px);
+background: var(--accent);
+animation: forwards, 0.1s;
+  
+}
 /* ==================================================
    РАЗДЕЛЫ НА ГЛАВНОЙ
 ================================================== */
@@ -364,8 +367,8 @@ button:hover {
   display: flex;
   gap: 9px;
 
-  width: calc(100% + 18px);
-
+width: 99%;
+  
   padding:
     2px
     18px
@@ -447,7 +450,7 @@ button:hover {
   position: relative;
   z-index: 1;
 
-  margin-top: 13px;
+  margin-top: 15px;
 
   color: rgba(145, 166, 189, 0.55);
 
@@ -593,7 +596,7 @@ button:hover {
 
   border-radius: var(--radius-medium);
 
-  background: var(--card);
+  background: var(--button);
 
   color: var(--text);
 
@@ -601,10 +604,6 @@ button:hover {
 
   cursor: pointer;
 
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    border-color 0.2s ease;
 }
 
 .topic-card:active {
@@ -953,7 +952,6 @@ button:hover {
   }
 
   .section-tabs {
-    width: 100%;
     padding-left: 0;
     padding-right: 0;
   }
@@ -1956,7 +1954,6 @@ body.theme-angel .modal-content {
 
 
 
-
 /* небесные кнопки */
 body.theme-angel button,
 body.theme-angel .article-nav-button {
@@ -2110,6 +2107,8 @@ body.theme-pink .article-title {
     0 1px 8px rgba(201, 159, 184, 0.18);
 }
 
+
+
 /* ← аккуратная кнопка выхода из статьи / раздела */
 
 body.theme-dark .back-button,
@@ -2163,7 +2162,6 @@ body.theme-minimalism .back-button:active {
 
   transform: translateX(-2px);
 }
-
 
 
 
@@ -2298,7 +2296,7 @@ body.theme-minimalism .back-button:active {
 
   border: none !important;
 
-  background: transparent !important;
+  background: var(--button) !important;
   background-image: none !important;
 
   color: var(--text);
@@ -2324,7 +2322,7 @@ body.theme-minimalism .back-button:active {
 /* день вне текущего месяца */
 
 .calendar-day.other-month {
-  color: var(--muted);
+  color: transparent;
 
   opacity: 0.28;
 
@@ -2338,7 +2336,7 @@ body.theme-minimalism .back-button:active {
   box-shadow:
     inset 0 0 0 1.5px;
 
-  color: var(--accent-strong);
+  color: var(--pink);
 }
 
 
@@ -2857,7 +2855,7 @@ body.theme-angel .water-tracker {
   border: 0;
   border-radius: 14px;
 
-  background: transparent;
+  background: var(--button);
   color: inherit;
 
   font: inherit;
@@ -2892,14 +2890,31 @@ body.theme-angel .water-tracker {
 /* ---------- EMPTY ---------- */
 
 .supplement-calendar-day.is-empty {
-  pointer-events: none;
+position: relative;
+width: 100%;
+aspect-ratio: 1 / 1;
+min-width: 0;
+padding: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 0;
+border-radius: 14px;
+background: var(--line);
+color: inherit;
+font: inherit;
+cursor: pointer;
+transition: background .16s ease,
+transform .16s ease,
+box-shadow .16s ease;
+pointer-events: none;
 }
 
 
 /* ---------- TODAY ---------- */
 
 .supplement-calendar-day.is-today {
-  background: rgba(255, 255, 255, .085);
+  background: var(--bg--deep);
 
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, .18);
@@ -2936,7 +2951,7 @@ body.theme-angel .water-tracker {
 /* ---------- TAKEN ---------- */
 
 .supplement-calendar-day.is-done {
-  background: rgba(255, 255, 255, .115);
+  background: var(--blue);
 
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, .055);
