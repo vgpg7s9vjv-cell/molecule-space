@@ -965,23 +965,23 @@ width: 99%;
 ================================================== */
 
 .home-topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
 }
 
 .theme-toggle {
   flex: 0 0 auto;
   padding: 10px 15px !important;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--line-light);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.045);
-  color: var(--silver);
-  cursor: pointer;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  display: grid !important;
+  place-items: center !important;
+  border: 1px solid var(--line-light) !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.045) !important;
+  color: var(--silver) !important;
+  cursor: pointer !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
 }
 
 .theme-toggle:active { transform: scale(0.94); }
@@ -1543,7 +1543,7 @@ body.light-theme .section-tab:active {
 
   color: #c46b8a;
 
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 800;
 }
 
@@ -1552,7 +1552,7 @@ body.light-theme .section-tab:active {
 
   color: var(--muted);
 
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1.5;
 }
 
@@ -1795,6 +1795,7 @@ body.theme-minimalism .tool-button {
 
 body.theme-dark .quote-card,
 body.theme-angel .quote-card,
+body.theme-pink .quote-card,
 body.theme-minimalism .quote-card {
   background: var(--card) !important;
   color: var(--text) !important;
