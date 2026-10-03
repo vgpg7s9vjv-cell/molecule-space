@@ -373,8 +373,8 @@ button:hover {
   display: flex;
   gap: 9px;
 
-  width: calc(100% + 18px);
-
+width: 99%;
+  
   padding:
     2px
     18px
