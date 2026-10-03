@@ -199,8 +199,7 @@ button:hover {
   font-weight: 800;
 
   letter-spacing: -0.04em;
-  text-align: center;
-  text-wrap: balance;
+
 }
 
 .support-subtitle {
@@ -210,8 +209,6 @@ button:hover {
 
   font-size: 15px;
   font-weight: 500;
-  text-align: center;
-  text-wrap: balance;
 }
 
 
@@ -289,7 +286,9 @@ button:hover {
 .quote-button {
   position: relative;
   z-index: 2;
-  left: 230px;
+  display: block; 
+  margin: 0 auto; 
+
 
   padding: 10px 14px;
 
@@ -312,9 +311,6 @@ button:hover {
 }
 
 .quote-button:active {
-    
-   align: center;
-   wrap: balance;
 
   transform: scale(0.97);
 
@@ -960,7 +956,6 @@ button:hover {
   }
 
   .section-tabs {
-    width: 100%;
     padding-left: 0;
     padding-right: 0;
   }
