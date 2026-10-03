@@ -962,8 +962,8 @@ width: 99%;
 }
 
 .theme-toggle {
-  flex: 0 0 auto;
-  padding: 10px 15px !important;
+  flex: 0 0 auto !important;
+  padding: 10px 10px !important;
   display: grid !important;
   place-items: center !important;
   border: 1px solid var(--line-light) !important;
@@ -2051,19 +2051,7 @@ body.theme-pink .article-nav-button:hover {
     ) !important;
 }
 
-body.theme-pink .theme-toggle {
-flex: 0 0 auto;
-width: 42px;
-height: 42px;
-display: grid;
-place-items: center;
-border: 1px solid var(--line-light);
-border-radius: 50%;
-background: rgba(255, 255, 255, 0.045);
-color: var(--accent);
-cursor: pointer;
-box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-}
+
 
 /* 🍌 маленькие золотистые акценты */
 body.theme-pink .section-title,
