@@ -214,7 +214,7 @@ button:hover {
   text-wrap: balance;
 }
 
-.home-glow::after {
+.glow-three {
 content: "";
 position: absolute;
 width: 140px;
