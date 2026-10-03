@@ -227,7 +227,6 @@ button:hover {
                                                                 
   border-radius: var(--radius-large);
 
-  overflow: hidden;
 }
 
 .quote-symbol {
@@ -1702,7 +1701,6 @@ body.theme-minimalism {
 /* карточки */
 
 body.theme-dark .card,
-body.theme-dark .quote-card,
 body.theme-dark .tracker-card,
 body.theme-dark .tool-card,
 
@@ -1711,12 +1709,10 @@ body.theme-pink .tracker-card,
 body.theme-pink .tool-card,
 
 body.theme-angel .card,
-body.theme-angel .quote-card,
 body.theme-angel .tracker-card,
 body.theme-angel .tool-card,
 
 body.theme-minimalism .card,
-body.theme-minimalism .quote-card,
 body.theme-minimalism .tracker-card,
 body.theme-minimalism .tool-card {
   background: var(--card);
@@ -1820,9 +1816,7 @@ body.theme-minimalism .tool-button {
 body.theme-dark .quote-card,
 body.theme-angel .quote-card,
 body.theme-minimalism .quote-card {
-  background: var(--card) !important;
   color: var(--text) !important;
-  border-color: var(--line) !important;
 }
 
 
@@ -1940,7 +1934,6 @@ body.theme-minimalism .article-nav-button.disabled {
 body.theme-angel .home-screen,
 body.theme-angel .section-card,
 body.theme-angel .tracker-card,
-body.theme-angel .quote-card,
 body.theme-angel .article-card,
 body.theme-angel .modal-content {
   background: rgba(255, 255, 255, 0.9) !important;
@@ -2028,7 +2021,6 @@ body.theme-pink {
 body.theme-pink .home-screen,
 body.theme-pink .section-card,
 body.theme-pink .tracker-card,
-body.theme-pink .quote-card,
 body.theme-pink .article-card,
 body.theme-pink .modal-content {
 
