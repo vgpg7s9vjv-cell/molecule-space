@@ -214,7 +214,7 @@ button:hover {
   text-wrap: balance;
 }
 
-.quote-card::after {
+.home-glow::after {
 content: "";
 position: absolute;
 width: 140px;
