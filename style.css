@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  scrollbar-width: none;
 }
 
 :root {
@@ -290,7 +291,6 @@ button:hover {
   z-index: 2;
   display: block; 
   margin: 0 auto; 
-
 
   padding: 10px 14px;
 
