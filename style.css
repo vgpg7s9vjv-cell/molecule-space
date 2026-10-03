@@ -168,7 +168,7 @@ button:hover {
 
   margin: 3px 2px 0;
 
-  color: var(--muted-light);
+  color: var(--muted);
 
   font-size: 12px;
   font-weight: 700;
@@ -281,9 +281,9 @@ button:hover {
 
   border-radius: 12px;
 
-  background: rgba(255, 255, 255, 0.035);
+  background: var(--button);
 
-  color: var(--muted-light);
+  color: var(--button-text);
 
   font-size: 12px;
   font-weight: 600;
@@ -302,17 +302,7 @@ button:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
-.quote-card::after {
-  
-content: "";
-position: absolute;
-width: 140px;
-height: 130px;
-right: -65px;
-top: -70px;
-border-radius: 50%;
-filter: blur(86px);  
-}
+
 /* ==================================================
    РАЗДЕЛЫ НА ГЛАВНОЙ
 ================================================== */
