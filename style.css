@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  scrollbar-width: none;
+  scrollbar-width: hidden;
 }
 
 :root {
@@ -379,13 +379,13 @@ width: 99%;
 
   overscroll-behavior-x: contain;
 
-  scrollbar-width: none;
+  scrollbar-width: hidden;
 
   scroll-snap-type: x proximity;
 }
 
 .section-tabs::-webkit-scrollbar {
-  display: none;
+  display: hidden;
 }
 
 .section-tab {
@@ -3011,7 +3011,7 @@ pointer-events: none;
 
   padding: 1px 1px 7px;
 
-  scrollbar-width: none;
+  scrollbar-width: hidden;
 }
 
 .supplement-selector-list::-webkit-scrollbar {
