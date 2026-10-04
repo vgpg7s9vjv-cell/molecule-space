@@ -2891,130 +2891,6 @@ function showHome() {
 
 }
 
-
-/* ==================================================
-   ОТКРЫТЬ РАЗДЕЛ
-================================================== */
-
-function openSection(sectionId) {
-
-  const section = sections[sectionId];
-
-  if (!section) {
-    return;
-  }
-
-  /* ==================================================
-     БИБЛИОТЕКА БАДОВ
-  ================================================== */
-
-  if (sectionId === "supplements") {
-
-    currentSectionId = "supplements";
-    currentArticleId = null;
-    currentPage = 0;
-
-    const overlay = document.createElement("div");
-
-    overlay.id = "sectionOverlay";
-    overlay.className = "section-overlay";
-
-    overlay.innerHTML = `
-      <div class="section-overlay-inner">
-
-        <button
-          class="back-button"
-          id="supplementsBackButton"
-        >
-          ← вернуться на главную
-        </button>
-
-        <header class="section-header">
-
-          <p class="section-kicker">
-            ${section.kicker}
-          </p>
-
-          <h1>
-            ${section.title}
-          </h1>
-
-          <p>
-            ${section.description}
-          </p>
-
-        </header>
-
-        <div class="topic-list">
-
-          ${section.topics.map(topic => `
-
-            <button
-              class="topic-card"
-              data-supplement-section="${topic.id}"
-            >
-
-              <div class="topic-card-content">
-
-                <p class="topic-card-title">
-                  ${topic.title}
-                </p>
-
-                <p class="topic-card-description">
-                  ${topic.description}
-                </p>
-
-              </div>
-
-              <span class="topic-arrow">
-                ›
-              </span>
-
-            </button>
-
-          `).join("")}
-
-        </div>
-
-      </div>
-    `;
-
-    document.body.appendChild(overlay);
-
-    document.body.style.overflow = "hidden";
-
-    overlay
-  .querySelectorAll("[data-supplement-section]")
-  .forEach(button => {
-
-    button.addEventListener(
-      "click",
-      event => {
-
-        event.stopPropagation();
-
-        const subsectionId =
-          button.dataset.supplementSection;
-
-        if (
-          subsectionId ===
-          "supplements-voice"
-        ) {
-
-          openSupplementList();
-
-          return;
-
-        }
-
-        openArticle(
-          subsectionId
-        );
-
-      }
-    );
-
-  });
      
 /* ==================================================
      ОТКРЫТЬ ДНЕВНИК НАСТРОЕНИЯ
@@ -3151,7 +3027,209 @@ function openSection(sectionId) {
 
 
   /* особые разделы */
+  /* ==================================================
+     БИБЛИОТЕКА БАДОВ
+  ================================================== */
 
+  if (sectionId === "supplements") {
+
+    currentSectionId = "supplements";
+    currentArticleId = null;
+    currentPage = 0;
+
+    const overlay =
+      document.createElement("div");
+
+    overlay.id =
+      "sectionOverlay";
+
+    overlay.className =
+      "section-overlay";
+
+    overlay.innerHTML = `
+
+      <div class="section-overlay-inner">
+
+        <button
+          class="back-button"
+          id="supplementsBackButton"
+          type="button"
+        >
+          ← вернуться в меню
+        </button>
+
+
+        <header class="section-header">
+
+          <p class="section-kicker">
+            ${section.kicker}
+          </p>
+
+          <h1>
+            ${section.title}
+          </h1>
+
+          <p>
+            ${section.description}
+          </p>
+
+        </header>
+
+
+        <div class="topic-list">
+
+          <button
+            class="topic-card"
+            type="button"
+            data-supplement-menu="list"
+          >
+
+            <div class="topic-card-content">
+
+              <p class="topic-card-title">
+                список БАДов
+              </p>
+
+              <p class="topic-card-description">
+                каждый БАД отдельно
+              </p>
+
+            </div>
+
+            <span class="topic-arrow">
+              ›
+            </span>
+
+          </button>
+
+
+          <button
+            class="topic-card"
+            type="button"
+            data-supplement-menu="rules"
+          >
+
+            <div class="topic-card-content">
+
+              <p class="topic-card-title">
+                3 правила
+              </p>
+
+              <p class="topic-card-description">
+                перерывы, побочные эффекты, что можно и нельзя
+              </p>
+
+            </div>
+
+            <span class="topic-arrow">
+              ›
+            </span>
+
+          </button>
+
+
+          <button
+            class="topic-card"
+            type="button"
+            data-supplement-menu="myths"
+          >
+
+            <div class="topic-card-content">
+
+              <p class="topic-card-title">
+                мифы о бадах
+              </p>
+
+              <p class="topic-card-description">
+                разбиваем популярные мифы
+              </p>
+
+            </div>
+
+            <span class="topic-arrow">
+              ›
+            </span>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+
+    document.body.appendChild(
+      overlay
+    );
+
+    document.body.style.overflow =
+      "hidden";
+
+
+    overlay
+      .querySelector(
+        "#supplementsBackButton"
+      )
+      .addEventListener(
+        "click",
+        showHome
+      );
+
+
+    overlay
+      .querySelectorAll(
+        "[data-supplement-menu]"
+      )
+      .forEach(button => {
+
+        button.addEventListener(
+          "click",
+          event => {
+
+            event.stopPropagation();
+
+            const menu =
+              button.dataset.supplementMenu;
+
+
+            if (menu === "list") {
+
+              openSupplementList();
+
+              return;
+
+            }
+
+
+            if (menu === "rules") {
+
+              openArticle(
+                "supplements-rules"
+              );
+
+              return;
+
+            }
+
+
+            if (menu === "myths") {
+
+              openArticle(
+                "supplements-myths"
+              );
+
+            }
+
+          }
+        );
+
+      });
+
+    return;
+  }
+   
+  /* дневник настроения*/
 if (sectionId === "mood") {
 
   currentSectionId = "mood";
@@ -3973,15 +4051,13 @@ if (sectionId === "mood") {
 
 function openSupplementList() {
 
-  const sourceArticle =
+  const article =
     articles["supplements-voice"];
 
-  const supplementPages =
-    sourceArticle?.subsections?.["supplements-list"]?.pages;
-
   if (
-    !Array.isArray(supplementPages) ||
-    supplementPages.length === 0
+    !article ||
+    !Array.isArray(article.pages) ||
+    article.pages.length === 0
   ) {
     console.warn(
       "не найден список БАДов"
@@ -3989,21 +4065,16 @@ function openSupplementList() {
     return;
   }
 
-  const overlay =
-    document.getElementById("sectionOverlay");
 
-  if (overlay) {
-    overlay.remove();
+  const oldOverlay =
+    document.getElementById(
+      "sectionOverlay"
+    );
+
+  if (oldOverlay) {
+    oldOverlay.remove();
   }
 
-  const newOverlay =
-    document.createElement("div");
-
-  newOverlay.id =
-    "sectionOverlay";
-
-  newOverlay.className =
-    "section-overlay";
 
   const supplementNames = [
     "Molecule Plus",
@@ -4018,7 +4089,18 @@ function openSupplementList() {
     "Turbo-Ozempic"
   ];
 
-  newOverlay.innerHTML = `
+
+  const overlay =
+    document.createElement("div");
+
+  overlay.id =
+    "sectionOverlay";
+
+  overlay.className =
+    "section-overlay";
+
+
+  overlay.innerHTML = `
 
     <div class="section-overlay-inner">
 
@@ -4050,36 +4132,38 @@ function openSupplementList() {
 
       <div class="topic-list">
 
-        ${supplementPages.map((page, index) => `
+        ${article.pages.map(
+          (page, index) => `
 
-          <button
-            class="topic-card"
-            type="button"
-            data-supplement-page="${index}"
-          >
+            <button
+              class="topic-card"
+              type="button"
+              data-supplement-page="${index}"
+            >
 
-            <div class="topic-card-content">
+              <div class="topic-card-content">
 
-              <p class="topic-card-title">
-                ${
-                  supplementNames[index] ||
-                  page.heading
-                }
-              </p>
+                <p class="topic-card-title">
+                  ${
+                    supplementNames[index] ||
+                    page.heading
+                  }
+                </p>
 
-              <p class="topic-card-description">
-                открыть описание
-              </p>
+                <p class="topic-card-description">
+                  открыть описание
+                </p>
 
-            </div>
+              </div>
 
-            <span class="topic-arrow">
-              ›
-            </span>
+              <span class="topic-arrow">
+                ›
+              </span>
 
-          </button>
+            </button>
 
-        `).join("")}
+          `
+        ).join("")}
 
       </div>
 
@@ -4089,16 +4173,14 @@ function openSupplementList() {
 
 
   document.body.appendChild(
-    newOverlay
+    overlay
   );
 
   document.body.style.overflow =
     "hidden";
 
 
-  /* назад */
-
-  newOverlay
+  overlay
     .querySelector(
       "#supplementListBackButton"
     )
@@ -4106,7 +4188,7 @@ function openSupplementList() {
       "click",
       () => {
 
-        newOverlay.remove();
+        overlay.remove();
 
         openSection(
           "supplements"
@@ -4116,9 +4198,7 @@ function openSupplementList() {
     );
 
 
-  /* открытие конкретного БАД */
-
-  newOverlay
+  overlay
     .querySelectorAll(
       "[data-supplement-page]"
     )
@@ -4135,10 +4215,10 @@ function openSupplementList() {
               button.dataset.supplementPage
             );
 
-          const page =
-            supplementPages[pageIndex];
 
-          if (!page) {
+          if (
+            !article.pages[pageIndex]
+          ) {
             console.warn(
               "не найдена страница БАД:",
               pageIndex
@@ -4147,38 +4227,17 @@ function openSupplementList() {
           }
 
 
-          /*
-            создаем временный объект статьи,
-            но сам текст статьи не дублируем.
-            берем существующую страницу
-            из supplements-list.
-          */
+          currentSectionId =
+            "supplements";
 
-          const articleId =
-            `supplement-single-${pageIndex}`;
+          currentArticleId =
+            "supplements-voice";
 
-          articles[articleId] = {
-
-            section:
-              "supplements",
-
-            title:
-              supplementNames[pageIndex] ||
-              page.heading,
-
-            category:
-              "библиотека бадов",
-
-            pages: [
-              page
-            ]
-
-          };
+          currentPage =
+            pageIndex;
 
 
-          openArticle(
-            articleId
-          );
+          renderArticle();
 
         }
       );
