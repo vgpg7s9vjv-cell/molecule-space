@@ -3976,12 +3976,15 @@ function openSupplementList() {
   const sourceArticle =
     articles["supplements-voice"];
 
+  const supplementPages =
+    sourceArticle?.subsections?.["supplements-list"]?.pages;
+
   if (
-    !sourceArticle ||
-    !Array.isArray(sourceArticle.pages)
+    !Array.isArray(supplementPages) ||
+    supplementPages.length === 0
   ) {
     console.warn(
-      "не найден supplements-voice"
+      "не найден список БАДов"
     );
     return;
   }
@@ -4001,6 +4004,19 @@ function openSupplementList() {
 
   newOverlay.className =
     "section-overlay";
+
+  const supplementNames = [
+    "Molecule Plus",
+    "Molecule Premium",
+    "Molecule Ultra",
+    "Molecule Plus/Premium ЖБ",
+    "Supressa",
+    "Mineral",
+    "Heedly Slim-Complex",
+    "Редуксин",
+    "Swapx Neo/Pro",
+    "Turbo-Ozempic"
+  ];
 
   newOverlay.innerHTML = `
 
@@ -4034,230 +4050,43 @@ function openSupplementList() {
 
       <div class="topic-list">
 
-        <button
-          class="topic-card"
-          type="button"
-          data-supplement-article="supplements-voice"
-          data-page="0"
-        >
-          <div class="topic-card-content">
-            <p class="topic-card-title">
-              Molecule Plus
-            </p>
+        ${supplementPages.map((page, index) => `
 
-            <p class="topic-card-description">
-              описание и состав
-            </p>
-          </div>
+          <button
+            class="topic-card"
+            type="button"
+            data-supplement-page="${index}"
+          >
 
-          <span class="topic-arrow">
-            ›
-          </span>
-        </button>
+            <div class="topic-card-content">
 
+              <p class="topic-card-title">
+                ${
+                  supplementNames[index] ||
+                  page.heading
+                }
+              </p>
 
-        <button
-          class="topic-card"
-          type="button"
-          data-supplement-article="supplements-voice"
-          data-page="1"
-        >
-          <div class="topic-card-content">
-            <p class="topic-card-title">
-              Molecule Premium
-            </p>
+              <p class="topic-card-description">
+                открыть описание
+              </p>
 
-            <p class="topic-card-description">
-              описание и состав
-            </p>
-          </div>
+            </div>
 
-          <span class="topic-arrow">
-            ›
-          </span>
-        </button>
+            <span class="topic-arrow">
+              ›
+            </span>
 
+          </button>
 
-        <button
-          class="topic-card"
-          type="button"
-          data-supplement-article="supplements-voice"
-          data-page="2"
-        >
-          <div class="topic-card-content">
-            <p class="topic-card-title">
-              Molecule Ultra
-            </p>
-
-            <p class="topic-card-description">
-              описание и состав
-            </p>
-          </div>
-
-          <span class="topic-arrow">
-            ›
-          </span>
-        </button>
-
-
-        <button
-          class="topic-card"
-          type="button"
-          data-supplement-article="supplements-voice"
-          data-page="3"
-        >
-          <div class="topic-card-content">
-            <p class="topic-card-title">
-              Molecule Plus/Premium ЖБ
-            </p>
-
-            <p class="topic-card-description">
-              описание и состав
-            </p>
-          </div>
-
-          <span class="topic-arrow">
-            ›
-          </span>
-        </button>
-
-
-        <button
-          class="topic-card"
-          type="button"
-          data-supplement-article="supplements-voice"
-          data-page="4"
-        >
-          <div class="topic-card-content">
-            <p class="topic-card-title">
-              Supressa
-            </p>
-
-            <p class="topic-card-description">
-              описание и состав
-            </p>
-          </div>
-
-          <span class="topic-arrow">
-            ›
-          </span>
-        </button>
-
-
-        <button
-          class="topic-card"
-          type="button"
-          data-supplement-article="supplements-voice"
-          data-page="5"
-        >
-          <div class="topic-card-content">
-            <p class="topic-card-title">
-              Mineral
-            </p>
-
-            <p class="topic-card-description">
-              описание и состав
-            </p>
-          </div>
-
-          <span class="topic-arrow">
-            ›
-          </span>
-        </button>
-
-
-        <button
-          class="topic-card"
-          type="button"
-          data-supplement-article="supplements-voice"
-          data-page="6"
-        >
-          <div class="topic-card-content">
-            <p class="topic-card-title">
-              Heedly Slim-Complex
-            </p>
-
-            <p class="topic-card-description">
-              описание и состав
-            </p>
-          </div>
-
-          <span class="topic-arrow">
-            ›
-          </span>
-        </button>
-
-
-        <button
-          class="topic-card"
-          type="button"
-          data-supplement-article="supplements-voice"
-          data-page="7"
-        >
-          <div class="topic-card-content">
-            <p class="topic-card-title">
-              Редуксин
-            </p>
-
-            <p class="topic-card-description">
-              описание и состав
-            </p>
-          </div>
-
-          <span class="topic-arrow">
-            ›
-          </span>
-        </button>
-
-
-        <button
-          class="topic-card"
-          type="button"
-          data-supplement-article="supplements-voice"
-          data-page="8"
-        >
-          <div class="topic-card-content">
-            <p class="topic-card-title">
-              Swapx Neo/Pro
-            </p>
-
-            <p class="topic-card-description">
-              описание и состав
-            </p>
-          </div>
-
-          <span class="topic-arrow">
-            ›
-          </span>
-        </button>
-
-
-        <button
-          class="topic-card"
-          type="button"
-          data-supplement-article="supplements-voice"
-          data-page="9"
-        >
-          <div class="topic-card-content">
-            <p class="topic-card-title">
-              Turbo-Ozempic
-            </p>
-
-            <p class="topic-card-description">
-              описание и состав
-            </p>
-          </div>
-
-          <span class="topic-arrow">
-            ›
-          </span>
-        </button>
+        `).join("")}
 
       </div>
 
     </div>
 
   `;
+
 
   document.body.appendChild(
     newOverlay
@@ -4266,6 +4095,8 @@ function openSupplementList() {
   document.body.style.overflow =
     "hidden";
 
+
+  /* назад */
 
   newOverlay
     .querySelector(
@@ -4285,9 +4116,11 @@ function openSupplementList() {
     );
 
 
+  /* открытие конкретного БАД */
+
   newOverlay
     .querySelectorAll(
-      "[data-supplement-article]"
+      "[data-supplement-page]"
     )
     .forEach(button => {
 
@@ -4297,37 +4130,55 @@ function openSupplementList() {
 
           event.stopPropagation();
 
-          const articleId =
-            button.dataset.supplementArticle;
-
           const pageIndex =
             Number(
-              button.dataset.page
+              button.dataset.supplementPage
             );
 
-          const article =
-            articles[articleId];
+          const page =
+            supplementPages[pageIndex];
 
-          if (
-            !article ||
-            !Array.isArray(article.pages) ||
-            !article.pages[pageIndex]
-          ) {
+          if (!page) {
             console.warn(
               "не найдена страница БАД:",
-              articleId,
               pageIndex
             );
             return;
           }
 
-          currentArticleId =
-            articleId;
 
-          currentPage =
-            pageIndex;
+          /*
+            создаем временный объект статьи,
+            но сам текст статьи не дублируем.
+            берем существующую страницу
+            из supplements-list.
+          */
 
-          renderArticle();
+          const articleId =
+            `supplement-single-${pageIndex}`;
+
+          articles[articleId] = {
+
+            section:
+              "supplements",
+
+            title:
+              supplementNames[pageIndex] ||
+              page.heading,
+
+            category:
+              "библиотека бадов",
+
+            pages: [
+              page
+            ]
+
+          };
+
+
+          openArticle(
+            articleId
+          );
 
         }
       );
@@ -4335,6 +4186,7 @@ function openSupplementList() {
     });
 
 }
+
 /* ==================================================
    ОТКРЫТИЕ СТАТЬИ
 ================================================== */
