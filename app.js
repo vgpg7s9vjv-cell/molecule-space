@@ -2889,6 +2889,12 @@ function openSection(sectionId) {
   currentArticleId = null;
   currentPage = 0;
 
+const section = sections[sectionId];
+
+  if (!section) {
+    return;
+  }
+   
   const overlay =
     document.createElement("div");
 
@@ -2977,22 +2983,12 @@ function openSection(sectionId) {
       showHome
     );
    
-  const section = sections[sectionId];
-
-  if (!section) {
-    return;
-  }
-
-
-  /* удаляем старый экран раздела */
-
-  const oldOverlay =
+      const oldOverlay =
     document.getElementById("sectionOverlay");
 
   if (oldOverlay) {
     oldOverlay.remove();
   }
-
 
   /* особые разделы */
    
