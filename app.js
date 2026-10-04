@@ -2885,6 +2885,98 @@ function showHome() {
 
 function openSection(sectionId) {
 
+  currentSectionId = sectionId;
+  currentArticleId = null;
+  currentPage = 0;
+
+  const overlay =
+    document.createElement("div");
+
+  overlay.id = "sectionOverlay";
+
+  overlay.className =
+    "section-overlay";
+
+
+  overlay.innerHTML = `
+
+    <div class="section-overlay-inner">
+
+      <button
+        class="back-button"
+        id="sectionBackButton"
+      >
+        ← вернуться в меню
+      </button>
+
+
+      <header class="section-header">
+
+        <p class="section-kicker">
+          ${section.kicker}
+        </p>
+
+        <h1>
+          ${section.title}
+        </h1>
+
+        <p>
+          ${section.description}
+        </p>
+
+      </header>
+
+
+      <div class="topic-list">
+
+        ${section.topics.map(topic => `
+
+          <button
+            class="topic-card"
+            data-article="${topic.id}"
+          >
+
+            <div class="topic-card-content">
+
+              <p class="topic-card-title">
+                ${topic.title}
+              </p>
+
+              <p class="topic-card-description">
+                ${topic.description}
+              </p>
+
+            </div>
+
+            <span class="topic-arrow">
+              ›
+            </span>
+
+          </button>
+
+        `).join("")}
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  document.body.appendChild(overlay);
+
+
+  document.body.style.overflow =
+    "hidden";
+
+
+  document
+    .getElementById("sectionBackButton")
+    .addEventListener(
+      "click",
+      showHome
+    );
+   
   const section = sections[sectionId];
 
   if (!section) {
@@ -3823,103 +3915,6 @@ if (sectionId === "mood") {
     return;
   }
 }
-
-  /* ================================================
-     ОБЫЧНЫЕ РАЗДЕЛЫ
-  ================================================ */
-
-  currentSectionId = sectionId;
-  currentArticleId = null;
-  currentPage = 0;
-
-
-  const overlay =
-    document.createElement("div");
-
-  overlay.id = "sectionOverlay";
-
-  overlay.className =
-    "section-overlay";
-
-
-  overlay.innerHTML = `
-
-    <div class="section-overlay-inner">
-
-      <button
-        class="back-button"
-        id="sectionBackButton"
-      >
-        ← вернуться в меню
-      </button>
-
-
-      <header class="section-header">
-
-        <p class="section-kicker">
-          ${section.kicker}
-        </p>
-
-        <h1>
-          ${section.title}
-        </h1>
-
-        <p>
-          ${section.description}
-        </p>
-
-      </header>
-
-
-      <div class="topic-list">
-
-        ${section.topics.map(topic => `
-
-          <button
-            class="topic-card"
-            data-article="${topic.id}"
-          >
-
-            <div class="topic-card-content">
-
-              <p class="topic-card-title">
-                ${topic.title}
-              </p>
-
-              <p class="topic-card-description">
-                ${topic.description}
-              </p>
-
-            </div>
-
-            <span class="topic-arrow">
-              ›
-            </span>
-
-          </button>
-
-        `).join("")}
-
-      </div>
-
-    </div>
-
-  `;
-
-
-  document.body.appendChild(overlay);
-
-
-  document.body.style.overflow =
-    "hidden";
-
-
-  document
-    .getElementById("sectionBackButton")
-    .addEventListener(
-      "click",
-      showHome
-    );
 
 /* ==================================================
    СПИСОК БАДОВ
