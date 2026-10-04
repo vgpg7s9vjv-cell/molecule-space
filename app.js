@@ -130,58 +130,7 @@ const sections = {
         id: "supplements-voice",
         title: "сложности выбора и как его сделать",
         description: "подробный чек-лист популярных БАДов",
-        subtopics: [
-           {
-           id: "supplement-mlk-plus",
-           title: "Molecule Plus"
-           },
-           
-           {
-           id: "supplement-mlk-prem",
-           title: "Molecule Premium"   
-           },
-           
-           {
-            id: "supplement-mlk-ultra",
-           title: "Molecule Ultra"
-           },
-           
-           {
-           id: "supplement-mlk-zb",
-           title: "Molecule ЖБ"
-           },
-
-           {
-           id: "supplement-supressa",
-           title: "Supressa"
-           },
-
-           {
-           id: "supplement-mineral",
-           title: "Mineral"
-           },
-
-           {
-           id: "supplement-heedly",
-           title: "Heedly"
-           },
-
-           {
-           id: "supplement-reducsin",
-           title: "Редуксин"
-           },
-
-           {
-           id: "supplement-swapx-neo-pro",
-           title: "Swap-x Neo/Pro"
-           },   
-
-           {
-           id: "supplement-ozempic",
-           title: "Turbo Ozempic"
-           }
-        ]
-      },
+       },
 
       {
         id: "supplements-rules",
@@ -383,6 +332,68 @@ links: {
     ]
   }
 };
+
+const subsection = {
+   
+"supplements-voice": {
+   
+title: "сложности выбора и как его сделать",
+kicker: "чек-лист",
+description: "подробный чек-лист популярных БАДов",  
+   
+topics: [   
+           {
+           id: "supplement-mlk-plus",
+           title: "Molecule Plus"
+           },
+           
+           {
+           id: "supplement-mlk-prem",
+           title: "Molecule Premium"   
+           },
+           
+           {
+            id: "supplement-mlk-ultra",
+           title: "Molecule Ultra"
+           },
+           
+           {
+           id: "supplement-mlk-zb",
+           title: "Molecule ЖБ"
+           },
+
+           {
+           id: "supplement-supressa",
+           title: "Supressa"
+           },
+
+           {
+           id: "supplement-mineral",
+           title: "Mineral"
+           },
+
+           {
+           id: "supplement-heedly",
+           title: "Heedly"
+           },
+
+           {
+           id: "supplement-reducsin",
+           title: "Редуксин"
+           },
+
+           {
+           id: "supplement-swapx-neo-pro",
+           title: "Swap-x Neo/Pro"
+           },   
+
+           {
+           id: "supplement-ozempic",
+           title: "Turbo Ozempic"
+           }
+        ]
+      }
+     },
 
 /* ==================================================
    СТАТЬИ
