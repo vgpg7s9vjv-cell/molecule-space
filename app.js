@@ -1270,11 +1270,12 @@ const articles = {
   ========================== */
 "supplements-voice": {
    
+section: "supplements",
 title: "сложности выбора и как его сделать",
-kicker: "чек-лист",
-description: "подробный чек-лист популярных БАДов",  
+category: "подробный чек-лист популярных БАДов",  
    
-topics: [   
+subsections: {
+topic: [
            {
            id: "supplement-mlk-plus",
            title: "Molecule Plus"
@@ -1325,7 +1326,8 @@ topics: [
            title: "Turbo Ozempic"
            }
         ]
-      },  
+      }
+    },
 
   "supplements-rules": {
 
