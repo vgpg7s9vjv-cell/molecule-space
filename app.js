@@ -1321,8 +1321,7 @@ const articles = {
   ========================== */
 "supplement-mlk-plus": {
 
-   section: "supplements",
-   topic: "supplements-voice",
+   section: "supplements-voice",
    title: "сложности выбора и как его сделать",
    category: "чек-лист",
    pages: [   
@@ -1398,8 +1397,7 @@ const articles = {
 
       
    "supplement-mlk-prem": {
-   section: "supplements",
-   topic: "supplements-voice",
+   section: "supplements-voice",
    title: "сложности выбора и как его сделать",
    category: "чек-лист",
    pages: [
@@ -1477,8 +1475,7 @@ const articles = {
 
    
    "supplement-mlk-ultra": {
-   section: "supplements",
-   topic: "supplements-voice",
+   section: "supplements-voice",
    title: "сложности выбора и как его сделать",
    category: "чек-лист",
    pages: [        
@@ -1553,8 +1550,7 @@ const articles = {
 
    
    "supplement-mlk-zb": {
-   section: "supplements",
-   topic: "supplements-voice",
+   section: "supplements-voice",
    title: "сложности выбора и как его сделать",
    category: "чек-лист",
    pages: [
@@ -1644,8 +1640,7 @@ const articles = {
    },
 
     "supplement-supressa": {
-    section: "supplements",
-    topic: "supplements-voice",
+    section: "supplements-voice",
     title: "сложности выбора и как его сделать",
     category: "чек-лист",
     pages: [
@@ -1719,8 +1714,7 @@ const articles = {
              },
       
    "supplement-mineral": {
-   section: "supplements",
-   topic: "supplements-voice",
+   section: "supplements-voice",
    title: "сложности выбора и как его сделать",
    category: "чек-лист",
    pages: [
@@ -1798,8 +1792,7 @@ const articles = {
              },
       
    "supplement-heedly": {
-   section: "supplements",
-   topic: "supplements-voice",
+   section: "supplements-voice",
    title: "сложности выбора и как его сделать",
    category: "чек-лист",
    pages: [ 
@@ -1867,8 +1860,7 @@ const articles = {
 
       
    "supplement-reducsin": {
-   section: "supplements",
-   topic: "supplements-voice",
+   section: "supplements-voice",
    title: "сложности выбора и как его сделать",
    category: "чек-лист",
    pages: [ 
@@ -1928,8 +1920,7 @@ const articles = {
       },       
       
    "supplement-swapx-neo-pro": {
-   section: "supplements",
-   topic: "supplements-voice",
+   section: "supplements-voice",
    title: "сложности выбора и как его сделать",
    category: "чек-лист",
    pages: [       
@@ -2070,8 +2061,7 @@ const articles = {
       },
       
    "supplement-ozempic": {
-   section: "supplements",
-   topic: "supplements-voice",
+   section: "supplements-voice",
    title: "сложности выбора и как его сделать",
    category: "чек-лист",
    pages: [
