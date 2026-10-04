@@ -2011,7 +2011,6 @@ content:`
         `
    }      
         ]
-   }
         },
 
   "supplements-rules": {
