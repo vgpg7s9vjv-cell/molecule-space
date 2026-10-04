@@ -2984,40 +2984,38 @@ function openSection(sectionId) {
     document.body.style.overflow = "hidden";
 
     overlay
-      .querySelector("#supplementsBackButton")
-      .addEventListener(
-        "click",
-        showHome
-      );
+  .querySelectorAll("[data-supplement-section]")
+  .forEach(button => {
 
-    overlay
-      .querySelectorAll("[data-supplement-section]")
-      .forEach(button => {
+    button.addEventListener(
+      "click",
+      event => {
 
-        button.addEventListener(
-          "click",
-          () => {
+        event.stopPropagation();
 
-            const subsectionId =
-              button.dataset.supplementSection;
+        const subsectionId =
+          button.dataset.supplementSection;
 
-            if (subsectionId === "supplements-voice") {
+        if (
+          subsectionId ===
+          "supplements-voice"
+        ) {
 
-              openSupplementList();
+          openSupplementList();
 
-              return;
-            }
+          return;
 
-            openArticle(subsectionId);
+        }
 
-          }
+        openArticle(
+          subsectionId
         );
 
-      });
+      }
+    );
 
-    return;
-  }
-
+  });
+     
 /* ==================================================
      ОТКРЫТЬ ДНЕВНИК НАСТРОЕНИЯ
 ================================================== */
@@ -3967,90 +3965,52 @@ if (sectionId === "mood") {
 
 }
 
-/* ==================================================
-   ОТКРЫТИЕ СТАТЬИ
-================================================== */
 
 /* ==================================================
-   СПИСОК КОНКРЕТНЫХ БАДОВ
+   СПИСОК БАДОВ
 ================================================== */
 
 function openSupplementList() {
 
-  const sourceArticle = articles["supplements-voice"];
+  const sourceArticle =
+    articles["supplements-voice"];
 
-  if (!sourceArticle || !Array.isArray(sourceArticle.pages)) {
+  if (
+    !sourceArticle ||
+    !Array.isArray(sourceArticle.pages)
+  ) {
+    console.warn(
+      "не найден supplements-voice"
+    );
     return;
   }
 
-  currentSectionId = "supplements";
-  currentArticleId = null;
-  currentPage = 0;
-
-  const supplementNames = [
-    "Molecule Plus",
-    "Molecule Premium",
-    "Molecule Ultra",
-    "Molecule Plus/Premium ЖБ",
-    "Supressa",
-    "Mineral",
-    "Heedly Slim-Complex",
-    "Редуксин",
-    "Swapx Neo/Pro",
-    "Turbo-Ozempic"
-  ];
-
-  /*
-    создаем отдельную статью для каждого пункта
-    на основе уже существующих страниц supplements-voice
-  */
-
-  sourceArticle.pages.forEach((page, index) => {
-
-    const articleId =
-      `supplement-bad-${index}`;
-
-    articles[articleId] = {
-
-      section: "supplements",
-
-      title:
-        supplementNames[index] ||
-        page.heading.replace(/^1 0?|^2 0?|^3 0?|^4 0?|^5 0?|^6 0?|^7 0?|^8 0?|^9 0?|^10 0?\s*/u, ""),
-
-      category:
-        "библиотека бадов",
-
-      pages: [
-
-        {
-          heading: page.heading,
-          content: page.content
-        }
-
-      ]
-
-    };
-
-  });
-
   const overlay =
+    document.getElementById("sectionOverlay");
+
+  if (overlay) {
+    overlay.remove();
+  }
+
+  const newOverlay =
     document.createElement("div");
 
-  overlay.id = "sectionOverlay";
+  newOverlay.id =
+    "sectionOverlay";
 
-  overlay.className =
+  newOverlay.className =
     "section-overlay";
 
-  overlay.innerHTML = `
+  newOverlay.innerHTML = `
 
     <div class="section-overlay-inner">
 
       <button
         class="back-button"
         id="supplementListBackButton"
+        type="button"
       >
-        ← вернуться к выбору
+        ← библиотека бадов
       </button>
 
 
@@ -4061,11 +4021,11 @@ function openSupplementList() {
         </p>
 
         <h1>
-         Полный чек-лист популярных БАДов
+          список БАДов
         </h1>
 
         <p>
-          выбери конкретный препарат, чтобы открыть его описание
+          выбери конкретный БАД
         </p>
 
       </header>
@@ -4073,43 +4033,224 @@ function openSupplementList() {
 
       <div class="topic-list">
 
-        ${sourceArticle.pages.map((page, index) => {
+        <button
+          class="topic-card"
+          type="button"
+          data-supplement-article="supplements-voice"
+          data-page="0"
+        >
+          <div class="topic-card-content">
+            <p class="topic-card-title">
+              Molecule Plus
+            </p>
 
-          const articleId =
-            `supplement-bad-${index}`;
+            <p class="topic-card-description">
+              описание и состав
+            </p>
+          </div>
 
-          const title =
-            supplementNames[index] ||
-            page.heading;
+          <span class="topic-arrow">
+            ›
+          </span>
+        </button>
 
-          return `
 
-            <button
-              class="topic-card"
-              data-supplement-article="${articleId}"
-            >
+        <button
+          class="topic-card"
+          type="button"
+          data-supplement-article="supplements-voice"
+          data-page="1"
+        >
+          <div class="topic-card-content">
+            <p class="topic-card-title">
+              Molecule Premium
+            </p>
 
-              <div class="topic-card-content">
+            <p class="topic-card-description">
+              описание и состав
+            </p>
+          </div>
 
-                <p class="topic-card-title">
-                  ${title}
-                </p>
+          <span class="topic-arrow">
+            ›
+          </span>
+        </button>
 
-                <p class="topic-card-description">
-                  открыть описание
-                </p>
 
-              </div>
+        <button
+          class="topic-card"
+          type="button"
+          data-supplement-article="supplements-voice"
+          data-page="2"
+        >
+          <div class="topic-card-content">
+            <p class="topic-card-title">
+              Molecule Ultra
+            </p>
 
-              <span class="topic-arrow">
-                ›
-              </span>
+            <p class="topic-card-description">
+              описание и состав
+            </p>
+          </div>
 
-            </button>
+          <span class="topic-arrow">
+            ›
+          </span>
+        </button>
 
-          `;
 
-        }).join("")}
+        <button
+          class="topic-card"
+          type="button"
+          data-supplement-article="supplements-voice"
+          data-page="3"
+        >
+          <div class="topic-card-content">
+            <p class="topic-card-title">
+              Molecule Plus/Premium ЖБ
+            </p>
+
+            <p class="topic-card-description">
+              описание и состав
+            </p>
+          </div>
+
+          <span class="topic-arrow">
+            ›
+          </span>
+        </button>
+
+
+        <button
+          class="topic-card"
+          type="button"
+          data-supplement-article="supplements-voice"
+          data-page="4"
+        >
+          <div class="topic-card-content">
+            <p class="topic-card-title">
+              Supressa
+            </p>
+
+            <p class="topic-card-description">
+              описание и состав
+            </p>
+          </div>
+
+          <span class="topic-arrow">
+            ›
+          </span>
+        </button>
+
+
+        <button
+          class="topic-card"
+          type="button"
+          data-supplement-article="supplements-voice"
+          data-page="5"
+        >
+          <div class="topic-card-content">
+            <p class="topic-card-title">
+              Mineral
+            </p>
+
+            <p class="topic-card-description">
+              описание и состав
+            </p>
+          </div>
+
+          <span class="topic-arrow">
+            ›
+          </span>
+        </button>
+
+
+        <button
+          class="topic-card"
+          type="button"
+          data-supplement-article="supplements-voice"
+          data-page="6"
+        >
+          <div class="topic-card-content">
+            <p class="topic-card-title">
+              Heedly Slim-Complex
+            </p>
+
+            <p class="topic-card-description">
+              описание и состав
+            </p>
+          </div>
+
+          <span class="topic-arrow">
+            ›
+          </span>
+        </button>
+
+
+        <button
+          class="topic-card"
+          type="button"
+          data-supplement-article="supplements-voice"
+          data-page="7"
+        >
+          <div class="topic-card-content">
+            <p class="topic-card-title">
+              Редуксин
+            </p>
+
+            <p class="topic-card-description">
+              описание и состав
+            </p>
+          </div>
+
+          <span class="topic-arrow">
+            ›
+          </span>
+        </button>
+
+
+        <button
+          class="topic-card"
+          type="button"
+          data-supplement-article="supplements-voice"
+          data-page="8"
+        >
+          <div class="topic-card-content">
+            <p class="topic-card-title">
+              Swapx Neo/Pro
+            </p>
+
+            <p class="topic-card-description">
+              описание и состав
+            </p>
+          </div>
+
+          <span class="topic-arrow">
+            ›
+          </span>
+        </button>
+
+
+        <button
+          class="topic-card"
+          type="button"
+          data-supplement-article="supplements-voice"
+          data-page="9"
+        >
+          <div class="topic-card-content">
+            <p class="topic-card-title">
+              Turbo-Ozempic
+            </p>
+
+            <p class="topic-card-description">
+              описание и состав
+            </p>
+          </div>
+
+          <span class="topic-arrow">
+            ›
+          </span>
+        </button>
 
       </div>
 
@@ -4117,39 +4258,75 @@ function openSupplementList() {
 
   `;
 
-
-  document.body.appendChild(overlay);
+  document.body.appendChild(
+    newOverlay
+  );
 
   document.body.style.overflow =
     "hidden";
 
 
-  overlay
-    .querySelector("#supplementListBackButton")
+  newOverlay
+    .querySelector(
+      "#supplementListBackButton"
+    )
     .addEventListener(
       "click",
       () => {
 
-        overlay.remove();
+        newOverlay.remove();
 
-        openSection("supplements");
+        openSection(
+          "supplements"
+        );
 
       }
     );
 
 
-  overlay
-    .querySelectorAll("[data-supplement-article]")
+  newOverlay
+    .querySelectorAll(
+      "[data-supplement-article]"
+    )
     .forEach(button => {
 
       button.addEventListener(
         "click",
-        () => {
+        event => {
+
+          event.stopPropagation();
 
           const articleId =
             button.dataset.supplementArticle;
 
-          openArticle(articleId);
+          const pageIndex =
+            Number(
+              button.dataset.page
+            );
+
+          const article =
+            articles[articleId];
+
+          if (
+            !article ||
+            !Array.isArray(article.pages) ||
+            !article.pages[pageIndex]
+          ) {
+            console.warn(
+              "не найдена страница БАД:",
+              articleId,
+              pageIndex
+            );
+            return;
+          }
+
+          currentArticleId =
+            articleId;
+
+          currentPage =
+            pageIndex;
+
+          renderArticle();
 
         }
       );
@@ -4157,10 +4334,20 @@ function openSupplementList() {
     });
 
 }
+/* ==================================================
+   ОТКРЫТИЕ СТАТЬИ
+================================================== */
 
 function openArticle(articleId) {
 
-  if (!articles[articleId]) {
+  const article = articles[articleId];
+
+  if (
+    !article ||
+    !Array.isArray(article.pages) ||
+    article.pages.length === 0
+  ) {
+    console.warn("не удалось открыть статью:", articleId);
     return;
   }
 
