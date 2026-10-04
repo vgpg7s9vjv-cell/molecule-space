@@ -1279,54 +1279,66 @@ subsections: {
 title: "подробный чек-лист популярных БАДов",
 description: "здесь мы собрали одни из самых популярных таблеток для похудения<br>в каждом разделе есть: описание, правила приема, состав и подходящий ИМТ",   
 pages: [
-           {
-           id: "supplement-mlk-plus",
-           title: "Molecule Plus"
-           },
-           
-           {
-           id: "supplement-mlk-prem",
-           title: "Molecule Premium"   
-           },
-           
-           {
-            id: "supplement-mlk-ultra",
-           title: "Molecule Ultra"
-           },
-           
-           {
-           id: "supplement-mlk-zb",
-           title: "Molecule ЖБ"
-           },
+       { heading: "Molecule Plus 40 капсул",
 
-           {
-           id: "supplement-supressa",
-           title: "Supressa"
-           },
+        content: `
+           <p>
+          <b>что из себя представляет</b>: базовая база<br>
+          <b>курс на 1 упаковку</b>: 27 дней<br>
+          <b>количество упаковок на 30дневный курс</b>: 2 упаковки (всего потребуется 45 капсул)<br>
+          <b>стоимость</b>: ± 850₽ в нашем тгк<br>
+          </p>
+         
+          <p>
+         <b>подходит</b>: тем, кто желает избавиться от лишних килограммов за достаточно быстрое время<br>
+         Плюс также способствует нормализации работы желудка, но имеет <b>довольно выраженные</b> побочки
+          </p>
+          
+          <h3>состав</h3>
+          <ul>
+            <li>семена фенхеля</li>
+            <li>гарциния камбоджийская</li>
+            <li>семена черного тмина</li>
+            <li>черный чай</li>
+            <li>спирея</li>
+            <li>плоды кактуса</li>
+            <li>экстракт зеленого кофе</li>
+            <li>корень одуванчика</li>
+            <li>листья ясеня</li>
+            <li>цветы гибискуса</li>             
+          </ul>  
 
-           {
-           id: "supplement-mineral",
-           title: "Mineral"
-           },
+          <img src="./images/plusbears.jpg"
+          alt="plusbears" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
 
-           {
-           id: "supplement-heedly",
-           title: "Heedly"
-           },
+           <h3>если твой ИМТ:</h3>
+          <ul>
+            <li><b>ниже</b> нормы: 3-6 кг</li>
+            <li><b>в пределах</b> нормы: 5-10 кг</li>
+            <li><b>выше</b> нормы: 8-16 кг</li>
+          </ul> 
+       
+          <h3>правила приема</h3>
+          <ul>
+     <li><b>первые 15 дней</b>: 1 капсула за 40 минут до первого приема пищи</li>
+     <li><b>начиная с 16го дня</b>: добавить прием 2ой капсулы за 40 минут до приема пищи, не позднее, чем за 7-8 часов о сна</li>
+          </ul> 
 
-           {
-           id: "supplement-reducsin",
-           title: "Редуксин"
-           },
-
-           {
-           id: "supplement-swapx-neo-pro",
-           title: "Swap-x Neo/Pro"
-           },   
-
-           {
-           id: "supplement-ozempic",
-           title: "Turbo Ozempic"
+         <h2>перерывы после курса Molecule Plus</h2>
+          <ul>
+            <li>plus → plus — <b>30 дней</b></li>
+            <li>plus → жб — <b>31 день</b></li> 
+            <li>plus → ultra — <b>21 день</b></li>
+            <li>plus → premium — <b>14 дней</b></li>
+            <li>plus → supressa — <b>14 дней</b></li>
+            <li>plus → mineral — <b>5-7 дней</b></li>
+            <li>plus → heedly slimcomplex — <b>5-7 дней</b></li>         
+            <li>plus → ozempic — <b>7 дней</b></li>
+            <li>plus → neo — <b>14 дней</b></li>      
+            <li>plus → pro — <b>14 дней</b></li> 
+          </ul>           
+        ` 
            }
           ]
          }
