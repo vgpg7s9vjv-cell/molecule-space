@@ -4199,10 +4199,7 @@ function openArticle(articleId) {
     !article ||
     !Array.isArray(article.pages) ||
     article.pages.length === 0
-  ) {
-    console.warn("не удалось открыть статью:", articleId);
-    return;
-  }
+  )
 
   currentArticleId = articleId;
   currentPage = 0;
