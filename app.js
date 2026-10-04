@@ -1276,13 +1276,11 @@ category: "подробный чек-лист популярных БАДов",
    
 subsections: {
 "supplements-list": {
-title: "подробный чек-лист популярных БАДов",
-description: "здесь мы собрали одни из самых популярных таблеток для похудения<br>в каждом разделе есть: описание, правила приема, состав и подходящий ИМТ",   
-pages: [
-       { heading: "Molecule Plus 40 капсул",
-
-        content: `
-           <p>
+title: "Molecule Plus",
+pages:  [
+        {
+content:`
+          <p>
           <b>что из себя представляет</b>: базовая база<br>
           <b>курс на 1 упаковку</b>: 27 дней<br>
           <b>количество упаковок на 30дневный курс</b>: 2 упаковки (всего потребуется 45 капсул)<br>
@@ -1290,12 +1288,12 @@ pages: [
           </p>
          
           <p>
-         <b>подходит</b>: тем, кто желает избавиться от лишних килограммов за достаточно быстрое время<br>
-         Плюс также способствует нормализации работы желудка, но имеет <b>довольно выраженные</b> побочки
+          <b>подходит</b>: тем, кто желает избавиться от лишних килограммов за достаточно быстрое время<br>
+          Плюс также способствует нормализации работы желудка, но имеет <b>довольно выраженные</b> побочки
           </p>
           
-          <h3>состав</h3>
-          <ul>
+<h3>состав</h3>
+           <ul>
             <li>семена фенхеля</li>
             <li>гарциния камбоджийская</li>
             <li>семена черного тмина</li>
@@ -1306,27 +1304,27 @@ pages: [
             <li>корень одуванчика</li>
             <li>листья ясеня</li>
             <li>цветы гибискуса</li>             
-          </ul>  
+           </ul>  
 
           <img src="./images/plusbears.jpg"
           alt="plusbears" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
 
-           <h3>если твой ИМТ:</h3>
-          <ul>
+<h3>если твой ИМТ:</h3>
+           <ul>
             <li><b>ниже</b> нормы: 3-6 кг</li>
             <li><b>в пределах</b> нормы: 5-10 кг</li>
             <li><b>выше</b> нормы: 8-16 кг</li>
-          </ul> 
+           </ul> 
        
-          <h3>правила приема</h3>
-          <ul>
-     <li><b>первые 15 дней</b>: 1 капсула за 40 минут до первого приема пищи</li>
-     <li><b>начиная с 16го дня</b>: добавить прием 2ой капсулы за 40 минут до приема пищи, не позднее, чем за 7-8 часов о сна</li>
-          </ul> 
+<h3>правила приема</h3>
+           <ul>
+            <li><b>первые 15 дней</b>: 1 капсула за 40 минут до первого приема пищи</li>
+            <li><b>начиная с 16го дня</b>: добавить прием 2ой капсулы за 40 минут до приема пищи, не позднее, чем за 7-8 часов о сна</li>
+           </ul> 
 
-         <h2>перерывы после курса Molecule Plus</h2>
-          <ul>
+<h2>перерывы после курса Molecule Plus</h2>
+           <ul>
             <li>plus → plus — <b>30 дней</b></li>
             <li>plus → жб — <b>31 день</b></li> 
             <li>plus → ultra — <b>21 день</b></li>
@@ -1337,13 +1335,13 @@ pages: [
             <li>plus → ozempic — <b>7 дней</b></li>
             <li>plus → neo — <b>14 дней</b></li>      
             <li>plus → pro — <b>14 дней</b></li> 
-          </ul>           
+           </ul>           
         ` 
-           }
-          ]
-         }
         }
-       },
+        ]
+        }
+        }
+        },
 
   "supplements-rules": {
 
@@ -2223,6 +2221,124 @@ function openSection(sectionId) {
   if (!section) {
     return;
   }
+
+  /* ==================================================
+     БИБЛИОТЕКА БАДОВ
+  ================================================== */
+
+  if (sectionId === "supplements") {
+
+    currentSectionId = "supplements";
+    currentArticleId = null;
+    currentPage = 0;
+
+    const overlay = document.createElement("div");
+
+    overlay.id = "sectionOverlay";
+    overlay.className = "section-overlay";
+
+    overlay.innerHTML = `
+      <div class="section-overlay-inner">
+
+        <button
+          class="back-button"
+          id="supplementsBackButton"
+        >
+          ← вернуться на главную
+        </button>
+
+        <header class="section-header">
+
+          <p class="section-kicker">
+            ${section.kicker}
+          </p>
+
+          <h1>
+            ${section.title}
+          </h1>
+
+          <p>
+            ${section.description}
+          </p>
+
+        </header>
+
+        <div class="topic-list">
+
+          ${section.topics.map(topic => `
+
+            <button
+              class="topic-card"
+              data-supplement-section="${topic.id}"
+            >
+
+              <div class="topic-card-content">
+
+                <p class="topic-card-title">
+                  ${topic.title}
+                </p>
+
+                <p class="topic-card-description">
+                  ${topic.description}
+                </p>
+
+              </div>
+
+              <span class="topic-arrow">
+                ›
+              </span>
+
+            </button>
+
+          `).join("")}
+
+        </div>
+
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    document.body.style.overflow = "hidden";
+
+    overlay
+      .querySelector("#supplementsBackButton")
+      .addEventListener(
+        "click",
+        showHome
+      );
+
+    overlay
+      .querySelectorAll("[data-supplement-section]")
+      .forEach(button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            const subsectionId =
+              button.dataset.supplementSection;
+
+            if (subsectionId === "supplements-voice") {
+
+              openSupplementList();
+
+              return;
+            }
+
+            openArticle(subsectionId);
+
+          }
+        );
+
+      });
+
+    return;
+  }
+
+/* ==================================================
+     ОТКРЫТЬ ДНЕВНИК НАСТРОЕНИЯ
+================================================== */
 
   if (sectionId === "mood") {
     currentSectionId = "mood";
