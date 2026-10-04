@@ -3289,6 +3289,193 @@ if (sectionId === "mood") {
    ОТКРЫТИЕ СТАТЬИ
 ================================================== */
 
+/* ==================================================
+   СПИСОК КОНКРЕТНЫХ БАДОВ
+================================================== */
+
+function openSupplementList() {
+
+  const sourceArticle = articles["supplements-voice"];
+
+  if (!sourceArticle || !Array.isArray(sourceArticle.pages)) {
+    return;
+  }
+
+  currentSectionId = "supplements";
+  currentArticleId = null;
+  currentPage = 0;
+
+  const supplementNames = [
+    "Molecule Plus",
+    "Molecule Premium",
+    "Molecule Ultra",
+    "Molecule Plus/Premium ЖБ",
+    "Supressa",
+    "Mineral",
+    "Heedly Slim-Complex",
+    "Редуксин",
+    "Swapx Neo/Pro",
+    "Turbo-Ozempic"
+  ];
+
+  /*
+    создаем отдельную статью для каждого пункта
+    на основе уже существующих страниц supplements-voice
+  */
+
+  sourceArticle.pages.forEach((page, index) => {
+
+    const articleId =
+      `supplement-bad-${index}`;
+
+    articles[articleId] = {
+
+      section: "supplements",
+
+      title:
+        supplementNames[index] ||
+        page.heading.replace(/^❶0?|^❷0?|^❸0?|^❹0?|^❺0?|^❻0?|^❼0?|^❽0?|^❾0?|^❿0?\s*/u, ""),
+
+      category:
+        "библиотека бадов",
+
+      pages: [
+
+        {
+          heading: page.heading,
+          content: page.content
+        }
+
+      ]
+
+    };
+
+  });
+
+  const overlay =
+    document.createElement("div");
+
+  overlay.id = "sectionOverlay";
+
+  overlay.className =
+    "section-overlay";
+
+  overlay.innerHTML = `
+
+    <div class="section-overlay-inner">
+
+      <button
+        class="back-button"
+        id="supplementListBackButton"
+      >
+        ← вернуться к выбору
+      </button>
+
+
+      <header class="section-header">
+
+        <p class="section-kicker">
+          supplements library
+        </p>
+
+        <h1>
+         Полный чек-лист БАДов
+        </h1>
+
+        <p>
+          выбери конкретный препарат, чтобы открыть его описание
+        </p>
+
+      </header>
+
+
+      <div class="topic-list">
+
+        ${sourceArticle.pages.map((page, index) => {
+
+          const articleId =
+            `supplement-bad-${index}`;
+
+          const title =
+            supplementNames[index] ||
+            page.heading;
+
+          return `
+
+            <button
+              class="topic-card"
+              data-supplement-article="${articleId}"
+            >
+
+              <div class="topic-card-content">
+
+                <p class="topic-card-title">
+                  ${title}
+                </p>
+
+                <p class="topic-card-description">
+                  открыть описание
+                </p>
+
+              </div>
+
+              <span class="topic-arrow">
+                ›
+              </span>
+
+            </button>
+
+          `;
+
+        }).join("")}
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  document.body.appendChild(overlay);
+
+  document.body.style.overflow =
+    "hidden";
+
+
+  overlay
+    .querySelector("#supplementListBackButton")
+    .addEventListener(
+      "click",
+      () => {
+
+        overlay.remove();
+
+        openSection("supplements");
+
+      }
+    );
+
+
+  overlay
+    .querySelectorAll("[data-supplement-article]")
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const articleId =
+            button.dataset.supplementArticle;
+
+          openArticle(articleId);
+
+        }
+      );
+
+    });
+
+}
+
 function openArticle(articleId) {
 
   if (!articles[articleId]) {
