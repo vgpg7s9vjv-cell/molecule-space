@@ -1272,14 +1272,10 @@ const articles = {
    
 section: "supplements",
 title: "сложности выбора и как его сделать",
-category: "библиотека бадов",  
-   
-subsections: {
-"supplements-list": {
-title: "Полный чек-лист популярных БАДов",
+category: "библиотека бадов", 
 pages:  [
         {
-heading: "1 Moleule Plus",
+heading: "Moleule Plus",
 content:`
 
           <p>
@@ -1697,15 +1693,9 @@ content:`
             <li>mineral → pro — <b>14 дней</b></li> 
           </ul>           
         `
-             }
-                ]
              },
-      
-   "supplement-heedly": {
-   section: "supplements-voice",
-   title: "сложности выбора и как его сделать",
-   category: "чек-лист",
-   pages: [ 
+
+   
              {
         heading: "Heedly Slim-Complex 60 капсул",
 
@@ -1764,7 +1754,7 @@ content:`
             <li>heedly → pro — <b>14 дней</b></li> 
           </ul>          
         `
-             },   
+    },  
 
  {
         heading: "Редуксин 30/90 капсул",
@@ -2021,8 +2011,7 @@ content:`
         `
    }      
         ]
-        }
-        }
+   }
         },
 
   "supplements-rules": {
