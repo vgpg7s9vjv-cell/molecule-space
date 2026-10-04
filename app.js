@@ -2770,7 +2770,7 @@ document.createElement("div");
 
           <div class="topic-list">
 
-          ${section.topics.map(topic => `
+          ${section.topic(topic => `
 
           <button
           class="topic-card"
