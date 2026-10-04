@@ -1275,7 +1275,10 @@ title: "сложности выбора и как его сделать",
 category: "подробный чек-лист популярных БАДов",  
    
 subsections: {
-topic: [
+"supplements-list": {
+title: "подробный чек-лист популярных БАДов",
+description: "здесь мы собрали одни из самых популярных таблеток для похудения<br>в каждом разделе есть: описание, правила приема, состав и подходящий ИМТ",   
+pages: [
            {
            id: "supplement-mlk-plus",
            title: "Molecule Plus"
@@ -1325,9 +1328,10 @@ topic: [
            id: "supplement-ozempic",
            title: "Turbo Ozempic"
            }
-        ]
-      }
-    },
+          ]
+         }
+        }
+       },
 
   "supplements-rules": {
 
@@ -1557,7 +1561,7 @@ topic: [
           </ul> 
         `
       }
-    ]
+    
   },
 
   "supplements-myths": {
