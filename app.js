@@ -2845,32 +2845,50 @@ window.scrollTo(0, 0);
 }
 
 /* ==================================================
-                  ОТКРЫТЬ РАЗДЕЛ
+   ОТКРЫТЬ РАЗДЕЛ
 ================================================== */
 
 function openSection(sectionId) {
-
-currentSectionId = sectionId;
-currentArticleId = null;
-currentPage = 0;
-
 const section = sections[sectionId];
 
 if (!section) {
-return;
-              }
+    return;
+  }
+
+if (sectionId === "mood") {
+    currentSectionId = "mood";
+    currentArticleId = null;
+    currentPage = 0;
+    contentScreen.classList.remove("hidden");
+    homeScreen.classList.add("hidden");
+    renderMoodJournal();
+    return;
+  }
+
+if (sectionId === "tools") {
+    currentSectionId = "tools";
+    currentArticleId = null;
+    currentPage = 0;
+    contentScreen.classList.remove("hidden");
+    homeScreen.classList.add("hidden");
+    renderTools();
+    return;
+  }
    
-const overlay =
-document.createElement("div");
+currentSectionId = sectionId;
 
-  overlay.id = "sectionOverlay";
+currentArticleId = null;
 
-  overlay.className =
-    "section-overlay";
+currentPage = 0;
 
-  overlay.innerHTML = `
+contentScreen.classList.remove("hidden");
 
-          <div class="section-overlay-inner">
+homeScreen.classList.add("hidden");
+
+
+contentContainer.innerHTML = `
+
+          <div class="screen-inner fade-in">
 
           <button
           class="back-button"
@@ -2886,9 +2904,9 @@ document.createElement("div");
           ${section.kicker}
           </p>
 
-          <h1>
-          ${section.title}
-          </h1>
+<h1>
+${section.title}
+</h1>
 
           <p>
           ${section.description}
@@ -2899,7 +2917,7 @@ document.createElement("div");
 
           <div class="topic-list">
 
-          ${section.topic(topic => `
+          ${section.topics.map(topic => `
 
           <button
           class="topic-card"
@@ -2924,33 +2942,22 @@ document.createElement("div");
 
           </button>
 
-          `).join("")}
+          `).join("")
+        
+          }
 
           </div>
 
           </div>
 
-          `;
-
-
-  document.body.appendChild(overlay);
-
-  document.body.style.overflow =
-    "hidden";
-
-  document
+            `;
+   document
     .getElementById("sectionBackButton")
-    .addEventListener(
-      "click",
-      showHome
-                     );
-   
-const oldOverlay =
-document.getElementById("sectionOverlay");
+    .addEventListener("click", showHome);
 
-if (oldOverlay) {
-oldOverlay.remove();
-                }
+
+  window.scrollTo(0, 0);
+
 
 /*--------------- особые разделы -----------------*/   
    
@@ -2991,9 +2998,9 @@ const entries = getMoodEntries();
           mood journal
           </p>
 
-          <h1>
-          дневник настроения
-          </h1>
+<h1>
+дневник настроения
+</h1>
 
           <p>
           место для коротких заметок о своем состоянии и событиях дня ♡ 
@@ -3654,7 +3661,98 @@ sectionContent.innerHTML = `
       );
     return;
       }
-      }
+
+/* ================================================
+                ОБЫЧНЫЕ РАЗДЕЛЫ
+  ================================================ */
+
+currentSectionId = sectionId;
+currentArticleId = null;
+currentPage = 0;
+
+const overlay =
+    document.createElement("div");
+
+overlay.id = "sectionOverlay";
+
+overlay.className =
+    "section-overlay";
+
+
+overlay.innerHTML = `
+
+          <div class="section-overlay-inner">
+
+          <button
+          class="back-button"
+          id="sectionBackButton"
+          >
+          ← вернуться в меню
+          </button>
+
+          <header class="section-header">
+
+          <p class="section-kicker">
+          ${section.kicker}
+          </p>
+
+<h1>
+${section.title}
+</h1>
+
+          <p>
+          ${section.description}
+          </p>
+
+          </header>
+
+          <div class="topic-list">
+
+          ${section.topics.map(topic => `
+
+          <button
+          class="topic-card"
+          data-article="${topic.id}"
+          >
+
+          <div class="topic-card-content">
+
+          <p class="topic-card-title">
+          ${topic.title}
+          </p>
+
+          <p class="topic-card-description">
+          ${topic.description}
+          </p>
+
+          </div>
+
+          <span class="topic-arrow">
+          ›
+          </span>
+
+          </button>
+
+          `).join("")}
+
+          </div>
+
+          </div>
+
+          `;
+
+document.body.appendChild(overlay);
+
+document.body.style.overflow =
+    "hidden";
+
+document
+    .getElementById("sectionBackButton")
+    .addEventListener(
+      "click",
+      showHome
+          );
+          }
 
 /* ==================================================
    ОТКРЫТИЕ СТАТЬИ
