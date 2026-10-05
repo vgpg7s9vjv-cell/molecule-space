@@ -917,7 +917,7 @@ body.light-theme .mood-entry {
                   КАЛЬКУЛЯТОРЫ
 ================================================== */
 
-.calculator-list { display: flex; flex-direction: column; gap: 12px; }
+.calculator-list { display: flex; gap: 12px; }
 .calculator-card {
   padding: 19px;
   border: 1px solid var(--line);
@@ -926,8 +926,8 @@ body.light-theme .mood-entry {
 }
 .calculator-card h3 { margin: 0 0 6px; font-size: 16px; }
 .calculator-card p { margin: 0 0 15px; color: var(--muted); font-size: 11px; line-height: 1.5; }
-.calculator-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.calculator-field { display: flex; flex-direction: column; gap: 6px; }
+.calculator-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; min-height: 70px; }
+.calculator-field { display: flex; flex-direction: column; gap: 6px; min-height: 50px; }
 .calculator-field.full { grid-column: 1 / -1; }
 .calculator-field label { color: var(--muted); font-size: 10px; font-weight: 700; }
 .calculator-input {
@@ -957,7 +957,7 @@ body.light-theme .mood-entry {
   border-radius: 13px;
   background: rgba(121, 201, 255, 0.055);
   border: 1px solid rgba(121, 201, 255, 0.12);
-  color: var(--muted-light);
+  color: var(--muted);
   font-size: 12px;
   line-height: 1.55;
 }
@@ -1132,8 +1132,6 @@ body.light-theme .mood-entry {
 
   background: var(--bg) !important;
   color: var(--text);
-
-  -webkit-overflow-scrolling: touch;
 }
 
 
