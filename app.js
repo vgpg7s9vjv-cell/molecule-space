@@ -3135,7 +3135,7 @@ const entries = getMoodEntries();
 
           /* назад */
 
-  overlay
+overlay
     .querySelector("#diaryBackButton")
     .addEventListener(
       "click",
@@ -3144,16 +3144,16 @@ const entries = getMoodEntries();
 
           /* выбор настроения */
 
-  overlay
+overlay
     .querySelectorAll("[data-mood]")
     .forEach(button => {
 
-      button.addEventListener(
-        "click",
-        () => {
+button.addEventListener(
+"click",
+() => {
 
-      selectedMood =
-      button.dataset.mood;
+selectedMood =
+button.dataset.mood;
 
 openSection("mood");
                     }
@@ -3401,9 +3401,9 @@ document.body.style.overflow = "hidden";
 return;
           }
 
-/* ================================================
+/*================================================
                   калькуляторы
-================================================ */
+================================================*/
 
 if (sectionId === "tools") {
 
@@ -3793,116 +3793,99 @@ renderArticle();
 
 function renderArticle() {
 
-  const article =
+const article =
     articles[currentArticleId];
 
-  if (!article) {
-    return;
-  }
+if (!article) {
+return;
+}
 
-  const page =
-    article.pages[currentPage];
+const page =
+article.pages[currentPage];
 
-  const totalPages =
-    article.pages.length;
+const totalPages =
+article.pages.length;
 
-  const isFirstPage =
-    currentPage === 0;
+const isFirstPage =
+currentPage === 0;
 
-  const isLastPage =
-    currentPage === totalPages - 1;
+const isLastPage =
+currentPage === totalPages - 1;
 
+/* создаем настоящее отдельное окно */
 
-  /* удаляем старое окно статьи */
-
-  const oldOverlay =
-    document.getElementById("articleOverlay");
-
-  if (oldOverlay) {
-    oldOverlay.remove();
-  }
-
-
-  /* создаем настоящее отдельное окно */
-
-  const overlay =
+const overlay =
     document.createElement("div");
 
-  overlay.id = "articleOverlay";
+overlay.id = "articleOverlay";
 
-  overlay.className =
+overlay.className =
     "article-overlay";
 
 
-  overlay.innerHTML = `
+overlay.innerHTML = `
 
-    <div class="article-overlay-inner">
+          <div class="article-overlay-inner">
 
-      <button
-        class="back-button"
-        id="articleBackButton"
-      >
-        ← вернуться к разделам
-      </button>
+          <button
+          class="back-button"
+          id="articleBackButton"
+          >
+          ← вернуться к разделам
+          </button>
 
+          <header class="article-header">
 
-      <header class="article-header">
-
-        <p class="article-category">
+          <p class="article-category">
           ${article.category}
-        </p>
+          </p>
 
-        <h1 class="article-title">
-          ${article.title}
-        </h1>
+<h1 class="article-title">
+${article.title}
+</h1>
 
-      </header>
+          </header>
 
+          <article class="article-content">
 
-      <article class="article-content">
+<h2>
+${page.heading}
+</h2>
 
-        <h2>
-          ${page.heading}
-        </h2>
+          ${page.content}
+          </article>
 
-        ${page.content}
+          <div class="article-navigation">
 
-      </article>
-
-
-      <div class="article-navigation">
-
-        <button
+          <button
           class="article-nav-button ${isFirstPage ? "disabled" : ""}"
           id="previousButton"
-        >
+          >
           ← назад
-        </button>
+          </button>
 
-
-        <button
+          <button
           class="article-nav-button next ${isLastPage ? "disabled" : ""}"
           id="nextButton"
-        >
+          >
           дальше →
-        </button>
+          </button>
 
-      </div>
+          </div>
 
+          <p class="page-counter">
+          ${currentPage + 1} / ${totalPages}
+          </p>
 
-      <p class="page-counter">
-        ${currentPage + 1} / ${totalPages}
-      </p>
+          </div>
 
-    </div>
+          `;
 
-  `;
-
-
-  /* добавляем НЕ в contentContainer,
+/* добавляем НЕ в contentContainer,
      а прямо в body */
 
-  document.body.appendChild(overlay);
+document.body.appendChild(overlay);
+   
 overlay.style.position = "fixed";
 overlay.style.top = "0";
 overlay.style.left = "0";
@@ -3912,203 +3895,183 @@ overlay.style.width = "100vw";
 overlay.style.height = "100dvh";
 overlay.style.zIndex = "2147483647";
 
-  /* блокируем прокрутку страницы под статьей */
+/* блокируем прокрутку страницы под статьей */
 
-  document.body.style.overflow = "hidden";
+document.body.style.overflow = "hidden";
 
 
-  /* кнопка назад */
+/* кнопка назад */
 
-  document
+document
     .getElementById("articleBackButton")
     .addEventListener(
       "click",
-      goBackFromArticle
+goBackFromArticle
     );
 
+/* предыдущая страница */
 
-  /* предыдущая страница */
-
-  document
+document
     .getElementById("previousButton")
     .addEventListener(
       "click",
-      previousPage
+previousPage
     );
 
+/* следующая страница */
 
-  /* следующая страница */
-
-  document
+document
     .getElementById("nextButton")
     .addEventListener(
       "click",
-      nextPage
+nextPage
     );
 
+/* прокручиваем именно окно статьи */
 
-  /* прокручиваем именно окно статьи */
-
-  overlay.scrollTop = 0;
+overlay.scrollTop = 0;
 
 } 
 
 /* ==================================================
-   НАЗАД ИЗ СТАТЬИ
+                  НАЗАД ИЗ СТАТЬИ
 ================================================== */
 
 function goBackFromArticle() {
 
-  const overlay =
+const overlay =
     document.getElementById("articleOverlay");
 
-  if (overlay) {
-    overlay.remove();
-  }
+if (overlay) {
+overlay.remove();
+}
 
-  document.body.style.overflow = "hidden";
-
-  currentArticleId = null;
-  currentPage = 0;
-
+document.body.style.overflow = "hidden";
+currentArticleId = null;
+currentPage = 0;
 }
 
 /* ==================================================
-   СЛЕДУЮЩАЯ СТРАНИЦА
+               СЛЕДУЮЩАЯ СТРАНИЦА
 ================================================== */
 
 function nextPage() {
 
-  const article =
+const article =
     articles[currentArticleId];
 
-  if (!article) {
-    return;
-  }
-
-  if (
-    currentPage <
-    article.pages.length - 1
-  ) {
-
-    currentPage++;
-
-    renderArticle();
-
-  }
+if (!article) {
+return;
 }
 
+if (
+currentPage <
+article.pages.length - 1
+) {
+
+currentPage++;
+
+renderArticle();
+
+}
+}
 
 /* ==================================================
-   ПРЕДЫДУЩАЯ СТРАНИЦА
+                ПРЕДЫДУЩАЯ СТРАНИЦА
 ================================================== */
 
 function previousPage() {
 
-  if (currentPage > 0) {
+if (currentPage > 0) {
+currentPage--;
 
-    currentPage--;
+renderArticle();
 
-    renderArticle();
-
-  }
+}
 }
 
-
 /* ==================================================
-   СОБЫТИЯ ГЛАВНОЙ
+                   СОБЫТИЯ ГЛАВНОЙ
 ================================================== */
 
 document.addEventListener("click", (event) => {
 
-  const sectionButton = event.target.closest("[data-section]");
+const sectionButton = event.target.closest("[data-section]");
 
-  if (sectionButton) {
-    const sectionId = sectionButton.dataset.section;
+if (sectionButton) {
+const sectionId = sectionButton.dataset.section;
 
-    if (sectionId === "settings") {
-      return;
-    }
+if (sectionId === "settings") {
+return;
+}
 
-    openSection(sectionId);
-    return;
-  }
+openSection(sectionId);
+return;
+}
 
-  const articleButton = event.target.closest("[data-article]");
+const articleButton = event.target.closest("[data-article]");
 
-  if (articleButton) {
-    const articleId = articleButton.dataset.article;
+if (articleButton) {
+const articleId = articleButton.dataset.article;
 
-    openArticle(articleId);
-    return;
-  }
-
+openArticle(articleId);
+return;
+}
 });
 
 
 if (newQuoteButton) {
-  newQuoteButton.addEventListener(
+newQuoteButton.addEventListener(
     "click",
-    showNextQuote
-  );
+showNextQuote
+);
 }
-
 
 if (themeToggle) {
-
-  themeToggle.addEventListener(
+themeToggle.addEventListener(
     "click",
-    () => {
+() => {
 
-      const themes = [
-        "dark",
-        "pink",
-        "angel",
-        "minimalism"
-      ];
+const themes = [
+"dark",
+"pink",
+"angel",
+"minimalism"
+               ];
 
+let currentTheme =
+localStorage.getItem(
+themeStorageKey
+) || "dark";
 
-      let currentTheme =
-        localStorage.getItem(
-          themeStorageKey
-        ) || "dark";
+let currentIndex =
+themes.indexOf(
+currentTheme
+);
 
-
-      let currentIndex =
-        themes.indexOf(
-          currentTheme
-        );
-
-
-      if (currentIndex === -1) {
-        currentIndex = 0;
-      }
-
-
-      const nextIndex =
-        (currentIndex + 1) %
-        themes.length;
-
-
-      applyTheme(
-        themes[nextIndex]
-      );
-
-    }
-  );
-
+if (currentIndex === -1) {
+currentIndex = 0;
 }
+
+const nextIndex =
+(currentIndex + 1) %
+themes.length;
+
+applyTheme(
+themes[nextIndex]
+          );
+          }
+          );
+          }
 
 if (quickDiaryButton) {
-  quickDiaryButton.addEventListener(
+quickDiaryButton.addEventListener(
     "click",
-    () => openSection("mood")
-  );
-}
-
+() => openSection("mood")
+                                 );
+                                 }
 
 initTheme();
-
 
 document
   .getElementById("supplementsTrackerButton")
@@ -4119,8 +4082,8 @@ document
   ?.addEventListener("click", renderWaterTracker);
 
 if (quoteElement) {
-  quoteElement.style.transition =
-    "opacity 0.12s ease";
+quoteElement.style.transition =
+"opacity 0.12s ease";
 }
 
 const supplementStorageKey = "molecule-space-supplements";
@@ -4129,33 +4092,34 @@ const waterGoalStorageKey = "molecule-space-water-goal";
 const reminderStorageKey = "molecule-space-reminders";
 
 function trackerDate(date = new Date()) {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, "0");
-  const d = String(date.getDate()).padStart(2, "0");
-  return `${y}-${m}-${d}`;
+   
+const y = date.getFullYear();
+const m = String(date.getMonth() + 1).padStart(2, "0");
+const d = String(date.getDate()).padStart(2, "0");
+return `${y}-${m}-${d}`;
 }
 
 function readLocal(key, fallback) {
-  try {
+try {
     const value = localStorage.getItem(key);
     return value ? JSON.parse(value) : fallback;
-  } catch (error) {
+    } catch (error) {
     return fallback;
-  }
-}
+                    }
+                    }
 
 function writeLocal(key, value) {
-  try {
+try {
     localStorage.setItem(key, JSON.stringify(value));
-  } catch (error) {}
-}
+    } catch (error) {}
+                                }
 
 function getSupplements() {
-  return readLocal(supplementStorageKey, []);
+return readLocal(supplementStorageKey, []);
 }
 
 function saveSupplements(items) {
-  writeLocal(supplementStorageKey, items);
+writeLocal(supplementStorageKey, items);
 }
 
 function getWaterGoal() {
@@ -4180,40 +4144,39 @@ function setTodayWater(amount) {
 
 
 function getSupplementTaken(supplement, date = trackerDate()) {
-  return Array.isArray(supplement.taken) && supplement.taken.includes(date);
+return Array.isArray(supplement.taken) && supplement.taken.includes(date);
 }
 
 function setSupplementTaken(id, date, value) {
-  const items = getSupplements();
-  const item = items.find(s => s.id === id);
+   
+const items = getSupplements();
+const item = items.find(s => s.id === id);
 
-  if (!item) return;
-
-  item.taken = Array.isArray(item.taken) ? item.taken : [];
-
-  item.taken = value
+if (!item) return;
+item.taken = Array.isArray(item.taken) ? item.taken : [];
+item.taken = value
     ? [...new Set([...item.taken, date])]
     : item.taken.filter(d => d !== date);
 
-  saveSupplements(items);
+saveSupplements(items);
 }
 
 function calculateSupplementStreak() {
-  const items = getSupplements();
+   
+const items = getSupplements();
 
-  if (!items.length) return 0;
+if (!items.length) return 0;
 
-  let streak = 0;
-  const date = new Date();
+let streak = 0;
 
-  while (true) {
-    const key = trackerDate(date);
-    const complete = items.every(item => getSupplementTaken(item, key));
-
-    if (!complete) break;
-
-    streak++;
-    date.setDate(date.getDate() - 1);
+const date = new Date();
+while (true) {
+   
+const key = trackerDate(date);
+const complete = items.every(item => getSupplementTaken(item, key));
+if (!complete) break;
+streak++;
+date.setDate(date.getDate() - 1);
   }
 
   return streak;
@@ -4318,587 +4281,597 @@ function openTrackerOverlay(id, title, content) {
 }
 
 function renderSupplementTracker() {
-  const supplements = getSupplements();
+   
+const supplements = getSupplements();
+const today = new Date();
+const todayKey = trackerDate(today);
+const stateKey = "molecule-space-supplement-calendar";
+const savedState = readLocal(stateKey, {});
 
-  const today = new Date();
-  const todayKey = trackerDate(today);
+let selectedSupplementId =
+savedState.selectedSupplementId ||
+(supplements[0]?.id || "");
 
-  const stateKey = "molecule-space-supplement-calendar";
-  const savedState = readLocal(stateKey, {});
+let calendarDate = new Date();
 
-  let selectedSupplementId =
-    savedState.selectedSupplementId ||
-    (supplements[0]?.id || "");
+if (savedState.month) {
+const savedDate = new Date(savedState.month);
+   
+if (!Number.isNaN(savedDate.getTime())) {
+calendarDate = savedDate;
+}
+}
 
-  let calendarDate = new Date();
+calendarDate.setDate(1);
 
-  if (savedState.month) {
-    const savedDate = new Date(savedState.month);
-    if (!Number.isNaN(savedDate.getTime())) {
-      calendarDate = savedDate;
-    }
-  }
+const monthNames = [
+          "январь",
+          "февраль",
+          "март",
+          "апрель",
+          "май",
+          "июнь",
+          "июль",
+          "август",
+          "сентябрь",
+          "октябрь",
+          "ноябрь",
+          "декабрь"
+          ];
 
-  calendarDate.setDate(1);
+const weekDays = [
+          "пн",
+          "вт",
+          "ср",
+          "чт",
+          "пт",
+          "сб",
+          "вс"
+          ];
 
-  const monthNames = [
-    "январь",
-    "февраль",
-    "март",
-    "апрель",
-    "май",
-    "июнь",
-    "июль",
-    "август",
-    "сентябрь",
-    "октябрь",
-    "ноябрь",
-    "декабрь"
-  ];
+const saveCalendarState = () => {
+writeLocal(stateKey, {
+selectedSupplementId,
+month: calendarDate.toISOString()
+});
+ };
 
-  const weekDays = [
-    "пн",
-    "вт",
-    "ср",
-    "чт",
-    "пт",
-    "сб",
-    "вс"
-  ];
+const getMonthCalendar = () => {
+   
+const year = calendarDate.getFullYear();
+const month = calendarDate.getMonth();
+const firstDay = new Date(year, month, 1);
 
-  const saveCalendarState = () => {
-    writeLocal(stateKey, {
-      selectedSupplementId,
-      month: calendarDate.toISOString()
-    });
-  };
+let startDay = firstDay.getDay();
 
-  const getMonthCalendar = () => {
-    const year = calendarDate.getFullYear();
-    const month = calendarDate.getMonth();
+// JS считает воскресенье первым днем недели.
+// Нам нужен понедельник.
+startDay = startDay === 0 ? 6 : startDay - 1;
 
-    const firstDay = new Date(year, month, 1);
+const daysInMonth =
+new Date(year, month + 1, 0).getDate();
 
-    let startDay = firstDay.getDay();
+const cells = [];
 
-    // JS считает воскресенье первым днем недели.
-    // Нам нужен понедельник.
-    startDay = startDay === 0 ? 6 : startDay - 1;
+// Пустые ячейки перед первым днем месяца.
+for (let i = 0; i < startDay; i++) {
+cells.push(`
+<div class="supplement-calendar-day is-empty"></div>
+`);
+}
 
-    const daysInMonth =
-      new Date(year, month + 1, 0).getDate();
+for (let day = 1; day <= daysInMonth; day++) {
 
-    const cells = [];
-
-    // Пустые ячейки перед первым днем месяца.
-    for (let i = 0; i < startDay; i++) {
-      cells.push(`
-        <div class="supplement-calendar-day is-empty"></div>
-      `);
-    }
-
-    for (let day = 1; day <= daysInMonth; day++) {
-      const date = new Date(year, month, day);
-      const key = trackerDate(date);
-
-      const selectedSupplement =
+const date = new Date(year, month, day);
+const key = trackerDate(date);
+const selectedSupplement =
         supplements.find(
-          item => item.id === selectedSupplementId
-        );
+        item => item.id === selectedSupplementId
+                        );
 
-      const checked =
+const checked =
         selectedSupplement &&
         getSupplementTaken(selectedSupplement, key);
 
-      const isToday = key === todayKey;
+const isToday = key === todayKey;
 
-      cells.push(`
-        <button
+cells.push(`
+          <button
           class="supplement-calendar-day
-            ${checked ? "is-done" : ""}
-            ${isToday ? "is-today" : ""}"
+          ${checked ? "is-done" : ""}
+          ${isToday ? "is-today" : ""}"
           type="button"
           data-calendar-date="${key}"
           aria-label="${day} ${monthNames[month]}"
-        >
+          >
           <span>${day}</span>
           ${checked ? '<i>☆</i>' : ""}
-        </button>
-      `);
-    }
+          </button>
+          `);
+          }
 
-    return cells.join("");
+return cells.join("");
   };
 
-  const getSelectedSupplement = () =>
-    supplements.find(
+const getSelectedSupplement = () =>
+      supplements.find(
       item => item.id === selectedSupplementId
-    );
+                      );
 
-  const selectedSupplement =
+const selectedSupplement =
     getSelectedSupplement();
 
-  const calendar = getMonthCalendar();
+const calendar = getMonthCalendar();
 
-  const supplementOptions = supplements.length
-    ? supplements
-        .map(
-          item => `
-            <button
-              type="button"
-              class="supplement-selector ${
-                item.id === selectedSupplementId
-                  ? "is-active"
-                  : ""
-              }"
-              data-select-supplement="${item.id}"
-            >
-              <span class="supplement-selector-icon">💊</span>
+const supplementOptions = supplements.length
+? supplements
+.map(
+item => `
+          <button
+          type="button"
+          class="supplement-selector ${
+          item.id === selectedSupplementId
+          ? "is-active"
+          : ""
+          }"
+          data-select-supplement="${item.id}"
+          >
+          <span class="supplement-selector-icon">💊</span>
 
-              <span class="supplement-selector-name">
-                ${escapeHtml(item.name)}
-              </span>
+          <span class="supplement-selector-name">
+          ${escapeHtml(item.name)}
+          </span>
 
-              ${
-                item.id === selectedSupplementId
-                  ? '<span class="supplement-selector-check">☆</span>'
-                  : ""
-              }
-            </button>
+          ${
+          item.id === selectedSupplementId
+          ? '<span class="supplement-selector-check">☆</span>'
+          : ""
+          }
+          </button>
           `
-        )
-        .join("")
-    : `
-      <div class="empty-tracker-state">
-        <span>💊</span>
-        <strong>пока здесь пусто</strong>
-        <p>
+          )
+          .join("")
+          : `
+          
+          <div class="empty-tracker-state">
+          <span>💊</span>
+          <strong>пока здесь пусто</strong>
+          <p>
           добавь БАД или препарат, который хочешь
           отслеживать ♡ 
-        </p>
-      </div>
-    `;
+          </p>
+          </div>
+          `;
 
-  const overlay = openTrackerOverlay(
-    "supplementTrackerOverlay",
-    "календарь",
-    `
-      <div class="streak-banner">
-        <div>
+const overlay = openTrackerOverlay(
+"supplementTrackerOverlay",
+          "календарь",
+          `
+          <div class="streak-banner">
+          <div>
           <span>текущая серия</span>
           <strong>
-            ${calculateSupplementStreak()} дней 🔥
+          ${calculateSupplementStreak()} дней 🔥
           </strong>
-        </div>
+          </div>
 
-        <small>
+          <small>
           серия считается, когда все добавленные
           позиции отмечены за день
-        </small>
-      </div>
+          </small>
+          </div>
 
-      ${
-        supplements.length
+          ${
+          supplements.length
           ? `
-            <div class="tracker-section-heading">
-              <span>что отслеживается</span>
-              <small>${supplements.length} поз.</small>
-            </div>
+          
+          <div class="tracker-section-heading">
+          <span>что отслеживается</span>
+          <small>${supplements.length} поз.</small>
+          </div>
 
-            <div class="supplement-selector-list">
-              ${supplementOptions}
-            </div>
+          <div class="supplement-selector-list">
+          ${supplementOptions}
+          </div>
 
-            <div class="supplement-calendar-header">
-              <button
-                type="button"
-                class="calendar-nav-button"
-                id="supplementCalendarPrev"
-                aria-label="предыдущий месяц"
-              >
-                ‹
-              </button>
+          <div class="supplement-calendar-header">
+          <button
+          type="button"
+          class="calendar-nav-button"
+          id="supplementCalendarPrev"
+          aria-label="предыдущий месяц"
+          >
+          ‹
+          </button>
 
-              <div class="supplement-calendar-month">
-                <strong>
-                  ${monthNames[calendarDate.getMonth()]}
-                </strong>
+          <div class="supplement-calendar-month">
+          <strong>
+          ${monthNames[calendarDate.getMonth()]}
+          </strong>
 
-                <span>
-                  ${calendarDate.getFullYear()}
-                </span>
-              </div>
+          <span>
+          ${calendarDate.getFullYear()}
+          </span>
+          </div>
 
-              <button
-                type="button"
-                class="calendar-nav-button"
-                id="supplementCalendarNext"
-                aria-label="следующий месяц"
-              >
-                ›
-              </button>
-            </div>
+          <button
+          type="button"
+          class="calendar-nav-button"
+          id="supplementCalendarNext"
+          aria-label="следующий месяц"
+          >
+          ›
+          </button>
+          </div>
 
-            <div class="supplement-calendar">
-              <div class="supplement-calendar-weekdays">
-                ${weekDays
-                  .map(
-                    day => `
-                      <span>${day}</span>
-                    `
-                  )
-                  .join("")}
-              </div>
+          <div class="supplement-calendar">
+          <div class="supplement-calendar-weekdays">
+          ${weekDays
+          .map(
+          day => `
+          <span>${day}</span>
+          `
+          )
+          .join("")}
+          </div>
 
-              <div class="supplement-calendar-grid">
-                ${calendar}
-              </div>
-            </div>
+          <div class="supplement-calendar-grid">
+          ${calendar}
+          </div>
+          </div>
 
-            <div class="calendar-selected-info">
-              ${
-                selectedSupplement
-                  ? `
-                    <span>сейчас отмечаешь</span>
-                    <strong>
-                      ${escapeHtml(
-                        selectedSupplement.name
-                      )}
-                    </strong>
-                  `
-                  : ""
-              }
-            </div>
+          <div class="calendar-selected-info">
+          ${
+          selectedSupplement
+          ? `
+          <span>сейчас отмечаешь</span>
+          <strong>
+          ${escapeHtml(
+          selectedSupplement.name
+          )}
+          </strong>
           `
           : ""
-      }
+          }
+          </div>
+          `
+          : ""
+          }
 
-      <div class="tracker-add-row">
-        <input
+          <div class="tracker-add-row">
+          <input
           id="newSupplementName"
           type="text"
           maxlength="40"
           placeholder="тут будут твои таблетки"
           autocomplete="off"
-        >
+          >
 
-        <button
+          <button
           id="addSupplementButton"
           type="button"
-        >
+          >
           + добавить
-        </button>
-      </div>
+          </button>
+          </div>
 
-      ${
-        supplements.length
+          ${
+          supplements.length
           ? `
-            <div class="tracker-manage-list">
-              ${supplements
-                .map(
-                  item => `
-                    <div class="tracker-manage-row">
-                      <span>
-                        ${escapeHtml(item.name)}
-                      </span>
+          <div class="tracker-manage-list">
+          ${supplements
+          .map(
+          item => `
+          <div class="tracker-manage-row">
+          <span>
+          ${escapeHtml(item.name)}
+          </span>
 
-                      <button
-                        class="mini-delete"
-                        type="button"
-                        data-delete-supplement="${item.id}"
-                      >
-                        удалить
-                      </button>
-                    </div>
-                  `
-                )
-                .join("")}
-            </div>
+          <button
+          class="mini-delete"
+          type="button"
+          data-delete-supplement="${item.id}"
+          >
+          удалить
+          </button>
+          </div>
+          `
+          )
+          .join("")}
+          </div>
           `
           : ""
-      }
+          }
 
-      <div class="tracker-hint">
-        выбери БАД сверху и нажимай на даты в календаре,
-        чтобы отметить или снять прием
-        Отметки сохраняются только на этом устройстве!!
-      </div>
-    `
-  );
+          <div class="tracker-hint">
+          выбери БАД сверху и нажимай на даты в календаре,
+          чтобы отметить или снять прием
+          Отметки сохраняются только на этом устройстве!!
+          </div>
+          `
+          );
 
-  // Переключение между БАДами.
-  overlay
+// Переключение между БАДами
+   
+overlay
     .querySelectorAll("[data-select-supplement]")
     .forEach(button => {
-      button.addEventListener("click", () => {
-        selectedSupplementId =
-          button.dataset.selectSupplement;
+button.addEventListener("click", () => {
+selectedSupplementId =
+button.dataset.selectSupplement;
 
         saveCalendarState();
         renderSupplementTracker();
-      });
-    });
+});
+});
 
-  // Предыдущий месяц.
-  overlay
+// Предыдущий месяц
+   
+overlay
     .querySelector("#supplementCalendarPrev")
     ?.addEventListener("click", () => {
       calendarDate.setMonth(
-        calendarDate.getMonth() - 1
-      );
+      calendarDate.getMonth() - 1
+                           );
 
       saveCalendarState();
       renderSupplementTracker();
-    });
+});
 
-  // Следующий месяц.
-  overlay
+// Следующий месяц
+   
+overlay
     .querySelector("#supplementCalendarNext")
     ?.addEventListener("click", () => {
       calendarDate.setMonth(
-        calendarDate.getMonth() + 1
-      );
+      calendarDate.getMonth() + 1
+                           );
 
       saveCalendarState();
       renderSupplementTracker();
-    });
+});
 
-  // Отметка даты.
-  overlay
+// Отметка даты
+   
+overlay
     .querySelectorAll("[data-calendar-date]")
     .forEach(button => {
       button.addEventListener("click", () => {
-        const date =
-          button.dataset.calendarDate;
+const date =
+      button.dataset.calendarDate;
 
-        const item = getSupplements().find(
-          supplement =>
-            supplement.id === selectedSupplementId
-        );
+const item = getSupplements().find(
+supplement =>
+supplement.id === selectedSupplementId
+                                  );
 
-        if (!item) return;
+if (!item) return;
 
         setSupplementTaken(
           item.id,
           date,
           !getSupplementTaken(item, date)
-        );
+                          );
 
         saveCalendarState();
         renderSupplementTracker();
-      });
-    });
+});
+});
 
-  // Удаление БАДа.
-  overlay
+// Удаление БАДа
+   
+overlay
     .querySelectorAll("[data-delete-supplement]")
     .forEach(button => {
       button.addEventListener("click", () => {
-        const id =
-          button.dataset.deleteSupplement;
+const id =
+      button.dataset.deleteSupplement;
 
         saveSupplements(
-          getSupplements().filter(
+        getSupplements().filter(
             item => item.id !== id
-          )
-        );
+                               )
+                               );
 
-        const remaining = getSupplements();
+const remaining = getSupplements();
 
-        if (selectedSupplementId === id) {
-          selectedSupplementId =
-            remaining[0]?.id || "";
-        }
+if (selectedSupplementId === id) {
+selectedSupplementId =
+remaining[0]?.id || "";
+                                 }
 
         saveCalendarState();
         renderSupplementTracker();
-      });
-    });
+});
+});
 
-  // Добавление нового БАДа.
-  const add = () => {
-    const input =
-      overlay.querySelector(
-        "#newSupplementName"
-      );
+// Добавление нового БАДа
+   
+const add = () => {
+const input =
 
-    const name = input?.value.trim();
+overlay.querySelector(
+"#newSupplementName"
+);
 
-    if (!name) return;
+const name = input?.value.trim();
+if (!name) return;
 
-    const items = getSupplements();
+const items = getSupplements();
 
-    const newItem = {
-      id: `${Date.now()}-${Math.random()
-        .toString(16)
-        .slice(2)}`,
-      name,
-      taken: []
-    };
+const newItem = {
+          id: `${Date.now()}-${Math.random()
+          .toString(16)
+          .slice(2)}`,
+          name,
+          taken: []
+          };
 
-    items.push(newItem);
+items.push(newItem);
 
     saveSupplements(items);
 
-    selectedSupplementId = newItem.id;
+selectedSupplementId = newItem.id;
 
     saveCalendarState();
     renderSupplementTracker();
-  };
+};
 
-  overlay
+overlay
     .querySelector("#addSupplementButton")
     ?.addEventListener("click", add);
 
-  overlay
+overlay
     .querySelector("#newSupplementName")
     ?.addEventListener("keydown", event => {
-      if (event.key === "Enter") {
-        add();
-      }
-    });
-}
+       
+if (event.key === "Enter") {
+add();
+                           }
+                           });
+                           }
 
 function renderWaterTracker() {
-  const water = getTodayWater();
-  const goal = getWaterGoal();
-  const percent = Math.min(
-    150,
-    Math.round((water / goal) * 100)
-  );
 
-  const overlay = openTrackerOverlay(
-    "waterTrackerOverlay",
-    "трекер воды",
-    `
-      <div class="water-big-card">
-        <div
+const water = getTodayWater();
+const goal = getWaterGoal();
+const percent = Math.min( 150,
+Math.round((water / goal) * 100)
+);
+
+const overlay = openTrackerOverlay(
+"waterTrackerOverlay",
+          "трекер воды",
+          `
+          <div class="water-big-card">
+          <div
           class="water-orb"
           style="--water-progress:${percent}%"
-        >
+          >
           <span>${percent}%</span>
-        </div>
+          </div>
 
-        <div>
+          <div>
           <strong id="waterBigValue">${water} мл</strong>
           <small>из ${goal} мл сегодня</small>
-        </div>
-      </div>
+          </div>
+          </div>
 
-      <div class="water-progress-track">
-        <span style="width:${percent}%"></span>
-      </div>
+          <div class="water-progress-track">
+          <span style="width:${percent}%"></span>
+          </div>
 
-      <div class="water-buttons">
-      <button type="button" data-water-add="100">
+          <div class="water-buttons">
+          <button type="button" data-water-add="100">
           +100 мл
-        </button>
+          </button>
 
-       <button type="button" data-water-add="150">
+          <button type="button" data-water-add="150">
           +150 мл
-        </button>
-
-        <button type="button" data-water-add="200">
+          </button>
+          
+          <button type="button" data-water-add="200">
           +200 мл
-        </button>
+          </button>
 
-        <button type="button" data-water-add="250">
+          <button type="button" data-water-add="250">
           +250 мл
-        </button>        
+          </button>        
 
-        <button type="button" data-water-add="300">
+          <button type="button" data-water-add="300">
           +300 мл
-        </button>
+          </button>
         
-        <button type="button" data-water-add="350">
+          <button type="button" data-water-add="350">
           +350 мл
-        </button>        
-      </div>
+          </button>        
+          </div>
 
-      <div class="water-buttons">
-        <button type="button" data-water-add="-100">
+          <div class="water-buttons">
+          <button type="button" data-water-add="-100">
           −100 мл
-        </button>
+          </button>
 
-        <button type="button" data-water-add="-150">
+          <button type="button" data-water-add="-150">
           −150 мл
-        </button>
+          </button>
 
-        <button type="button" data-water-add="-200">
+          <button type="button" data-water-add="-200">
           −200 мл
-        </button>
+          </button>
 
-        <button type="button" data-water-add="-250">
+          <button type="button" data-water-add="-250">
           −250 мл
-        </button>      
+          </button>      
 
-        <button type="button" data-water-add="-300">
+          <button type="button" data-water-add="-300">
           −300 мл
-        </button> 
+          </button> 
 
-        <button type="button" data-water-add="-350">
+          <button type="button" data-water-add="-350">
           −350 мл
-        </button>          
-      </div>
+          </button>          
+          </div>
 
-      <div class="water-goal-row">
-        <label for="waterGoalInput">
+          <div class="water-goal-row">
+          <label for="waterGoalInput">
           дневная цель
-        </label>
+          </label>
 
-        <div>
+          <div>
           <input
-            id="waterGoalInput"
-            type="number"
-            min="150"
-            max="10000"
-            step="50"
-            value="${goal}"
+          id="waterGoalInput"
+          type="number"
+          min="150"
+          max="10000"
+          step="50"
+          value="${goal}"
           >
           <span>мл</span>
-        </div>
-      </div>
+          </div>
+          </div>
 
-      <div class="tracker-hint">
-        количество воды можно корректировать в течение дня ♡₊⋆ 
-      </div>
-    `
-  );
+          <div class="tracker-hint">
+          количество воды можно корректировать в течение дня ♡₊⋆ 
+          </div>
+          `
+          );
 
-  const rerender = () => renderWaterTracker();
+const rerender = () => renderWaterTracker();
 
-  overlay
+overlay
     .querySelectorAll("[data-water-add]")
     .forEach(button => {
-      button.addEventListener("click", () => {
+button.addEventListener("click", () => {
         setTodayWater(
-          getTodayWater() +
-            Number(button.dataset.waterAdd)
-        );
-
+        getTodayWater() +
+        Number(button.dataset.waterAdd)
+);
         rerender();
-      });
-    });
+});
+});
 
-  overlay
+overlay
     .querySelector("#waterGoalInput")
     ?.addEventListener("change", event => {
-      const value = Math.min(
-        10000,
-        Math.max(
-          100,
-          Number(event.target.value) || 2000
+       
+const value = Math.min(
+10000,
+Math.max(
+100,
+         Number(event.target.value) || 2000
         )
-      );
+        );
 
-      writeLocal(waterGoalStorageKey, value);
-      rerender();
-    });
+         writeLocal(waterGoalStorageKey, value);
+         rerender();
+});
 }
 
 
 function openThemePicker() {
-  const themes = [
+   
+const themes = [
     {
       id: "dark",
       name: "темная",
@@ -4919,65 +4892,66 @@ function openThemePicker() {
       name: "минимализм",
       description: "чистая минималистичная тема"
     }
-  ];
+    ];
 
-  const currentTheme =
-    localStorage.getItem("molecule-space-theme") ||
-    "pink";
+const currentTheme =
+localStorage.getItem("molecule-space-theme") || "pink";
 
-  const overlay = openTrackerOverlay(
-    "themePickerOverlay",
-    "тема приложения",
-    `
-      <div class="theme-picker-list">
-        ${themes
+const overlay = openTrackerOverlay(
+"themePickerOverlay",
+          "тема приложения",
+          `
+          <div class="theme-picker-list">
+          ${themes
           .map(
-            theme => `
+          theme => `
           <button
-            type="button"
-            class="theme-picker-option ${
-              currentTheme === theme.id ? "is-active" : ""
-            }"
-            data-theme="${theme.id}"
+          type="button"
+          class="theme-picker-option ${
+          currentTheme === theme.id ? "is-active" : ""
+          }"
+          data-theme="${theme.id}"
           >
-            <span class="theme-picker-check">
-              ${currentTheme === theme.id ? "☆" : ""}
-            </span>
+          <span class="theme-picker-check">
+          ${currentTheme === theme.id ? "☆" : ""}
+          </span>
 
-            <span>
-              <strong>${theme.name}</strong>
-              <small>${theme.description}</small>
-            </span>
+          <span>
+          <strong>${theme.name}</strong>
+          <small>${theme.description}</small>
+          </span>
           </button>
-        `
+          `
           )
           .join("")}
-      </div>
-    `
-  );
+          </div>
+          `
+          );
 
-  overlay
+overlay
     .querySelectorAll("[data-theme]")
     .forEach(button => {
-      button.addEventListener("click", () => {
-        const theme = button.dataset.theme;
+button.addEventListener("click", () => {
+   
+const theme = button.dataset.theme;
 
-        localStorage.setItem(
-          "molecule-space-theme",
-          theme
-        );
+localStorage.setItem(
+"molecule-space-theme",
+theme
+);
 
-        document.body.dataset.theme = theme;
+document.body.dataset.theme = theme;
 
-        renderThemeButtons?.();
-        overlay.remove();
-        document.body.style.overflow = "";
-      });
-    });
+renderThemeButtons?.();
+overlay.remove();
+document.body.style.overflow = "";
+});
+});
 }
 
 function escapeHtml(value) {
-  return String(value ?? "")
+   
+return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
@@ -4986,88 +4960,83 @@ function escapeHtml(value) {
 }
 
 function ensureTrackerCards() {
-  const diary =
-    document.getElementById("quickDiaryButton");
+   
+const diary =
+document.getElementById("quickDiaryButton");
 
-  if (
-    !diary ||
-    document.getElementById(
-      "supplementsTrackerButton"
-    )
-  ) {
-    return;
-  }
-
-  const wrap = document.createElement("div");
-
-  wrap.className = "home-trackers";
-
-  wrap.innerHTML = `
-    <button
-      class="tracker-card supplements-tracker-card"
-      id="supplementsTrackerButton"
-      type="button"
-    >
-      <span class="tracker-icon">💊</span>
-
-      <span class="tracker-card-content">
-        <strong>трекер БАДов</strong>
-        <small id="supplementsTrackerSummary">
-          добавь свои БАДы и отмечай прием
-        </small>
-      </span>
-
-      <span
-        class="tracker-card-value"
-        id="supplementsStreak"
-      >
-        0 🔥
-      </span>
-    </button>
-
-    <button
-      class="tracker-card water-tracker-card"
-      id="waterTrackerButton"
-      type="button"
-    >
-      <span class="tracker-icon">💧</span>
-
-      <span class="tracker-card-content">
-        <strong>вода</strong>
-        <small id="waterTrackerSummary">
-          0 мл из 2000 мл
-        </small>
-      </span>
-
-      <span class="water-mini-bar">
-        <span id="waterMiniProgress"></span>
-      </span>
-    </button>
-
-  `;
-
-  diary.insertAdjacentElement("afterend", wrap);
+if (!diary ||
+document.getElementById(
+"supplementsTrackerButton"
+                       )
+                       ) {
+return;
 }
+
+const wrap = document.createElement("div");
+wrap.className = "home-trackers";
+wrap.innerHTML = `
+          <button
+          class="tracker-card supplements-tracker-card"
+          id="supplementsTrackerButton"
+          type="button"
+          >
+          <span class="tracker-icon">💊</span>
+
+          <span class="tracker-card-content">
+          <strong>трекер БАДов</strong>
+          <small id="supplementsTrackerSummary">
+          добавь свои БАДы и отмечай прием
+          </small>
+          </span>
+
+          <span
+          class="tracker-card-value"
+          id="supplementsStreak"
+          >
+          0 🔥
+          </span>
+          </button>
+
+          <button
+          class="tracker-card water-tracker-card"
+          id="waterTrackerButton"
+          type="button"
+          >
+          <span class="tracker-icon">💧</span>
+
+          <span class="tracker-card-content">
+          <strong>вода</strong>
+          <small id="waterTrackerSummary">
+          0 мл из 2000 мл
+          </small>
+          </span>
+
+          <span class="water-mini-bar">
+          <span id="waterMiniProgress"></span>
+          </span>
+          </button>
+          `;
+diary.insertAdjacentElement("afterend", wrap);
+          }
 
 ensureTrackerCards();
 
 const supplementsTrackerButton =
-  document.getElementById(
-    "supplementsTrackerButton"
-  );
+document.getElementById(
+"supplementsTrackerButton"
+);
 
 const waterTrackerButton =
-  document.getElementById("waterTrackerButton");
-
+document.getElementById("waterTrackerButton");
 
 supplementsTrackerButton?.addEventListener(
-  "click",
-  renderSupplementTracker
+"click",
+renderSupplementTracker
 );
 
 waterTrackerButton?.addEventListener(
-  "click",
-  renderWaterTracker
+"click",
+renderWaterTracker
 );
 
 refreshHomeTrackers();
