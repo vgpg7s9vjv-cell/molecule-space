@@ -2957,10 +2957,26 @@ ${section.title}
 
 
   window.scrollTo(0, 0);
-
+}
 
 /*--------------- особые разделы -----------------*/   
-   
+
+function openSection(sectionId) {
+const section = sections[sectionId];
+
+if (!section) {
+return;
+  }
+
+/* удаляем старый экран раздела */
+
+const oldOverlay =
+document.getElementById("sectionOverlay");
+
+if (oldOverlay) {
+oldOverlay.remove();
+  }  
+
 /* ==================================================
                 дневник настроения
 ================================================== */
@@ -3384,7 +3400,7 @@ overlay
 document.body.style.overflow = "hidden";
 return;
           }
-   
+
 /* ================================================
                   калькуляторы
 ================================================ */
@@ -3752,7 +3768,7 @@ document
       "click",
       showHome
           );
-          }
+}
 
 /* ==================================================
    ОТКРЫТИЕ СТАТЬИ
@@ -3760,18 +3776,14 @@ document
 
 function openArticle(articleId) {
 
-  const article = articles[articleId];
+if (!articles[articleId]) {
+return;
+  }
 
-  if (
-    !article ||
-    !Array.isArray(article.pages) ||
-    article.pages.length === 0
-  )
+currentArticleId = articleId;
+currentPage = 0;
 
-  currentArticleId = articleId;
-  currentPage = 0;
-
-  renderArticle();
+renderArticle();
 
 }
 
@@ -3939,7 +3951,7 @@ overlay.style.zIndex = "2147483647";
 
   overlay.scrollTop = 0;
 
-}
+} 
 
 /* ==================================================
    НАЗАД ИЗ СТАТЬИ
