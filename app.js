@@ -2794,7 +2794,7 @@ content:`
         }
         ]
         }
-        } 
+        }
 
 /* ==================================================
               СОСТОЯНИЕ ПРИЛОЖЕНИЯ
@@ -4190,9 +4190,7 @@ document
 
 function openArticle(articleId) {
 
-if (!articles[articleId]) {
-return;
-  }
+if (!articles[articleId]) {return;}
 
 currentArticleId = articleId;
 currentPage = 0;
@@ -4210,9 +4208,7 @@ function renderArticle() {
 const article =
     articles[currentArticleId];
 
-if (!article) {
-return;
-}
+if (!article) {return;}
 
 const page =
 article.pages[currentPage];
@@ -4315,26 +4311,19 @@ document.body.style.overflow = "hidden";
 
 document
     .getElementById("articleBackButton")
-    .addEventListener(
-      "click",
-goBackFromArticle
-    );
+    .addEventListener("click", goBackFromArticle);
 
 /* предыдущая страница */
 
 document
     .getElementById("previousButton")
-    .addEventListener(
-      "click",
-previousPage);
+    .addEventListener("click", previousPage);
 
 /* следующая страница */
 
 document
     .getElementById("nextButton")
-    .addEventListener(
-      "click",
-nextPage);
+    .addEventListener("click", nextPage);
 
 /* прокручиваем именно окно статьи */
 
@@ -4352,8 +4341,7 @@ const overlay =
     document.getElementById("articleOverlay");
 
 if (overlay) {
-overlay.remove();
-}
+overlay.remove();}
 
 document.body.style.overflow = "hidden";
 currentArticleId = null;
@@ -4369,30 +4357,20 @@ function nextPage() {
 const article =
     articles[currentArticleId];
 
-if (!article) {
-return;
-}
+if (!article) {return;}
 
 if (
 currentPage <
-article.pages.length - 1
-) { currentPage++;
-
-renderArticle();
-
+article.pages.length - 1) 
+{currentPage++; renderArticle();}
 }
-}
-
 /* ==================================================
                 ПРЕДЫДУЩАЯ СТРАНИЦА
 ================================================== */
 
 function previousPage() {
 
-if (currentPage > 0) { currentPage--;
-
-renderArticle();
-}
+if (currentPage > 0) {currentPage--; renderArticle();}
 }
 
 /* ==================================================
@@ -5427,21 +5405,13 @@ diary.insertAdjacentElement("afterend", wrap);
 ensureTrackerCards();
 
 const supplementsTrackerButton =
-document.getElementById(
-"supplementsTrackerButton"
-);
+document.getElementById("supplementsTrackerButton");
 
 const waterTrackerButton =
 document.getElementById("waterTrackerButton");
 
-supplementsTrackerButton?.addEventListener(
-"click",
-renderSupplementTracker
-);
+supplementsTrackerButton?.addEventListener("click", renderSupplementTracker);
 
-waterTrackerButton?.addEventListener(
-"click",
-renderWaterTracker
-);
+waterTrackerButton?.addEventListener("click", renderWaterTracker);
 
 refreshHomeTrackers();
