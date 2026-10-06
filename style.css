@@ -1108,6 +1108,9 @@ body.light-theme .mood-entry {
   min-height: 100%;
   margin: 0 auto;
   box-sizing: border-box;
+  
+  -webkit-overflow-scrolling: touch;
+
 }
 
 /* ==================================================
