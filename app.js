@@ -4141,7 +4141,17 @@ function renderArticle() {
     oldOverlay.remove();
   }
 
-   
+
+  /* создаем настоящее отдельное окно */
+
+  const overlay =
+    document.createElement("div");
+
+  overlay.id = "articleOverlay";
+
+  overlay.className =
+    "article-overlay";
+
 
   overlay.innerHTML = `
 
@@ -4218,10 +4228,8 @@ overlay.style.left = "0";
 overlay.style.right = "0";
 overlay.style.bottom = "0";
 overlay.style.width = "100vw";
-overlay.style.height = "100dvh";
-overlay.style.zIndex = "2147483647";
 
-  /* блокируем прокрутку страницы под статьей */
+     /* блокируем прокрутку страницы под статьей */
 
   document.body.style.overflow = "hidden";
 
