@@ -1000,7 +1000,6 @@ body.light-theme .mood-entry {
 .diary-empty { padding: 22px 8px; text-align: center; color: var(--muted); font-size: 12px; line-height: 1.6; }
 
 @media (max-width: 430px) {
-  .calculator-grid { grid-template-columns: 1fr; }
   .calculator-field.full { grid-column: auto; }
 }
 
@@ -1134,7 +1133,6 @@ body.light-theme .mood-entry {
     calc(28px + env(safe-area-inset-bottom)) !important;
 
   background: var(--bg) !important;
-  color: var(--text);
 }
 
 
