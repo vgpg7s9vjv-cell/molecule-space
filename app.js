@@ -2,12 +2,13 @@
    TELEGRAM
 ================================================== */
 const tg = window.Telegram?.WebApp;
-if (tg) { tg.ready();
-          tg.expand();
+if (tg) {
+   tg.ready();
+   tg.expand();
 
-if (tg.setHeaderColor) { tg.setHeaderColor("#CCCCFF"); }
+if (tg.setHeaderColor) {tg.setHeaderColor("#CCCCFF");}
 
-if (tg.setBackgroundColor) { tg.setBackgroundColor("#CCCCFF"); }
+if (tg.setBackgroundColor) {tg.setBackgroundColor("#CCCCFF");}
 }
 
 /* ==================================================
@@ -3224,37 +3225,43 @@ const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
 const tdee = (bmr * activity) - 400;
 result.innerHTML = `<strong>твой средний обмен веществ за сутки ${Math.round(bmr)} ккал/сутки</strong><br>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки`; }
 
+
 /* ==================================================
                  ПОКАЗАТЬ ГЛАВНУЮ
 ================================================== */
 
 function showHome() {
 
-currentSectionId = null;
-currentArticleId = null;
-currentPage = 0;
+  currentSectionId = null;
+  currentArticleId = null;
+  currentPage = 0;
 
-const articleOverlay =
-document.getElementById("articleOverlay");
 
-if (articleOverlay) {
+  const articleOverlay =
+    document.getElementById("articleOverlay");
+
+  if (articleOverlay) {
     articleOverlay.remove();
-                    }
+  }
 
-const sectionOverlay =
-document.getElementById("sectionOverlay");
 
-if (sectionOverlay) {
+  const sectionOverlay =
+    document.getElementById("sectionOverlay");
+
+  if (sectionOverlay) {
     sectionOverlay.remove();
-                    }
+  }
 
-document.body.style.overflow = "";
 
-contentScreen.classList.add("hidden");
+  document.body.style.overflow = "";
 
-homeScreen.classList.remove("hidden");
 
-window.scrollTo(0, 0);
+  contentScreen.classList.add("hidden");
+
+  homeScreen.classList.remove("hidden");
+
+
+  window.scrollTo(0, 0);
 
 }
 
@@ -3263,13 +3270,14 @@ window.scrollTo(0, 0);
 ================================================== */
 
 function openSection(sectionId) {
-const section = sections[sectionId];
 
-if (!section) {
+  const section = sections[sectionId];
+
+  if (!section) {
     return;
   }
 
-if (sectionId === "mood") {
+  if (sectionId === "mood") {
     currentSectionId = "mood";
     currentArticleId = null;
     currentPage = 0;
@@ -3279,7 +3287,7 @@ if (sectionId === "mood") {
     return;
   }
 
-if (sectionId === "tools") {
+  if (sectionId === "tools") {
     currentSectionId = "tools";
     currentArticleId = null;
     currentPage = 0;
@@ -3289,83 +3297,85 @@ if (sectionId === "tools") {
     return;
   }
    
-currentSectionId = sectionId;
+  currentSectionId = sectionId;
 
-currentArticleId = null;
+  currentArticleId = null;
 
-currentPage = 0;
+  currentPage = 0;
 
-contentScreen.classList.remove("hidden");
+  contentScreen.classList.remove("hidden");
 
-homeScreen.classList.add("hidden");
-
-
-contentContainer.innerHTML = `
-
-          <div class="screen-inner fade-in">
-
-          <button
-          class="back-button"
-          id="sectionBackButton"
-          >
-          ← вернуться в меню
-          </button>
+  homeScreen.classList.add("hidden");
 
 
-          <header class="section-header">
+  contentContainer.innerHTML = `
 
-          <p class="section-kicker">
+    <div class="screen-inner fade-in">
+
+      <button
+        class="back-button"
+        id="sectionBackButton"
+      >
+        ← вернуться в меню
+      </button>
+
+
+      <header class="section-header">
+
+        <p class="section-kicker">
           ${section.kicker}
-          </p>
+        </p>
 
-<h1>
-${section.title}
-</h1>
+        <h1>
+          ${section.title}
+        </h1>
 
-          <p>
+        <p>
           ${section.description}
-          </p>
+        </p>
 
-          </header>
+      </header>
 
 
-          <div class="topic-list">
+      <div class="topic-list">
 
-          ${section.topics.map(topic => `
+        ${section.topics.map(topic => `
 
           <button
-          class="topic-card"
-          data-article="${topic.id}"
+            class="topic-card"
+            data-article="${topic.id}"
           >
 
-          <div class="topic-card-content">
+            <div class="topic-card-content">
 
-          <p class="topic-card-title">
-          ${topic.title}
-          </p>
+              <p class="topic-card-title">
+                ${topic.title}
+              </p>
 
-          <p class="topic-card-description">
-          ${topic.description}
-          </p>
+              <p class="topic-card-description">
+                ${topic.description}
+              </p>
 
-          </div>
+            </div>
 
-          <span class="topic-arrow">
-          ›
-          </span>
+            <span class="topic-arrow">
+              ›
+            </span>
 
           </button>
 
-          `).join("")
+        `).join("")
         
-          }
+        }
 
-          </div>
+      </div>
 
-          </div>
+    </div>
 
-            `;
-   document
+  `;
+
+
+  document
     .getElementById("sectionBackButton")
     .addEventListener("click", showHome);
 
@@ -3373,23 +3383,25 @@ ${section.title}
   window.scrollTo(0, 0);
 }
 
-/*--------------- особые разделы -----------------*/   
-
 function openSection(sectionId) {
-const section = sections[sectionId];
 
-if (!section) {
-return;
+  const section = sections[sectionId];
+
+  if (!section) {
+    return;
   }
 
-/* удаляем старый экран раздела */
 
-const oldOverlay =
-document.getElementById("sectionOverlay");
+  /* удаляем старый экран раздела */
 
-if (oldOverlay) {
-oldOverlay.remove();
-  }  
+  const oldOverlay =
+    document.getElementById("sectionOverlay");
+
+  if (oldOverlay) {
+    oldOverlay.remove();
+  }
+
+/*--------------- особые разделы -----------------*/   
 
 /* ==================================================
                 дневник настроения
@@ -4093,109 +4105,101 @@ sectionContent.innerHTML = `
       }
 
 /* ================================================
-                ОБЫЧНЫЕ РАЗДЕЛЫ
+                 ОБЫЧНЫЕ РАЗДЕЛЫ
   ================================================ */
 
-currentSectionId = sectionId;
-currentArticleId = null;
-currentPage = 0;
+  currentSectionId = sectionId;
+  currentArticleId = null;
+  currentPage = 0;
 
-const overlay =
+
+  const overlay =
     document.createElement("div");
 
-overlay.id = "sectionOverlay";
+  overlay.id = "sectionOverlay";
 
-overlay.className =
+  overlay.className =
     "section-overlay";
 
 
-overlay.innerHTML = `
+  overlay.innerHTML = `
 
-          <div class="section-overlay-inner">
+    <div class="section-overlay-inner">
 
-          <button
-          class="back-button"
-          id="sectionBackButton"
-          >
-          ← вернуться в меню
-          </button>
+      <button
+        class="back-button"
+        id="sectionBackButton"
+      >
+        ← вернуться в меню
+      </button>
 
-          <header class="section-header">
 
-          <p class="section-kicker">
+      <header class="section-header">
+
+        <p class="section-kicker">
           ${section.kicker}
-          </p>
+        </p>
 
-<h1>
-${section.title}
-</h1>
+        <h1>
+          ${section.title}
+        </h1>
 
-          <p>
+        <p>
           ${section.description}
-          </p>
+        </p>
 
-          </header>
+      </header>
 
-          <div class="topic-list">
 
-          ${section.topics.map(topic => `
+      <div class="topic-list">
+
+        ${section.topics.map(topic => `
 
           <button
-          class="topic-card"
-          data-article="${topic.id}"
+            class="topic-card"
+            data-article="${topic.id}"
           >
 
-          <div class="topic-card-content">
+            <div class="topic-card-content">
 
-          <p class="topic-card-title">
-          ${topic.title}
-          </p>
+              <p class="topic-card-title">
+                ${topic.title}
+              </p>
 
-          <p class="topic-card-description">
-          ${topic.description}
-          </p>
+              <p class="topic-card-description">
+                ${topic.description}
+              </p>
 
-          </div>
+            </div>
 
-          <span class="topic-arrow">
-          ›
-          </span>
+            <span class="topic-arrow">
+              ›
+            </span>
 
           </button>
 
-          `).join("")}
+        `).join("")}
 
-          </div>
+      </div>
 
-          </div>
+    </div>
 
-          `;
+  `;
 
-document.body.appendChild(overlay);
 
-document.body.style.overflow =
+  document.body.appendChild(overlay);
+
+
+  document.body.style.overflow =
     "hidden";
 
-document
+
+  document
     .getElementById("sectionBackButton")
     .addEventListener(
       "click",
       showHome
-          );
-}
-
-/* ==================================================
-   ОТКРЫТИЕ СТАТЬИ
-================================================== */
-
-function openArticle(articleId) {
-
-if (!articles[articleId]) {return;}
-
-currentArticleId = articleId;
-currentPage = 0;
-
-renderArticle();
+    );
 
 }
 
@@ -4205,94 +4209,106 @@ renderArticle();
 
 function renderArticle() {
 
-const article =
+  const article =
     articles[currentArticleId];
 
-if (!article) {return;}
+  if (!article) {
+    return;
+  }
 
-const page =
-article.pages[currentPage];
+  const page =
+    article.pages[currentPage];
 
-const totalPages =
-article.pages.length;
+  const totalPages =
+    article.pages.length;
 
-const isFirstPage =
-currentPage === 0;
+  const isFirstPage =
+    currentPage === 0;
 
-const isLastPage =
-currentPage === totalPages - 1;
-
-/* создаем настоящее отдельное окно */
-
-const overlay =
-    document.createElement("div");
-
-overlay.id = "articleOverlay";
-
-overlay.className =
-    "article-overlay";
+  const isLastPage =
+    currentPage === totalPages - 1;
 
 
-overlay.innerHTML = `
+  /* удаляем старое окно статьи */
 
-          <div class="article-overlay-inner">
+  const oldOverlay =
+    document.getElementById("articleOverlay");
 
-          <button
-          class="back-button"
-          id="articleBackButton"
-          >
-          ← вернуться к разделам
-          </button>
+  if (oldOverlay) {
+    oldOverlay.remove();
+  }
 
-          <header class="article-header">
+   
 
-          <p class="article-category">
+  overlay.innerHTML = `
+
+    <div class="article-overlay-inner">
+
+      <button
+        class="back-button"
+        id="articleBackButton"
+      >
+        ← вернуться к разделам
+      </button>
+
+
+      <header class="article-header">
+
+        <p class="article-category">
           ${article.category}
-          </p>
+        </p>
 
-<h1 class="article-title">
-${article.title}
-</h1>
+        <h1 class="article-title">
+          ${article.title}
+        </h1>
 
-          </header>
+      </header>
 
-          <article class="article-content">
 
-<h2>
-${page.heading}
-</h2>
+      <article class="article-content">
 
-          ${page.content}
-          </article>
+        <h2>
+          ${page.heading}
+        </h2>
 
-          <div class="article-navigation">
+        ${page.content}
 
-          <button
+      </article>
+
+
+      <div class="article-navigation">
+
+        <button
           class="article-nav-button ${isFirstPage ? "disabled" : ""}"
           id="previousButton"
-          >
+        >
           ← назад
-          </button>
+        </button>
 
-          <button
+
+        <button
           class="article-nav-button next ${isLastPage ? "disabled" : ""}"
           id="nextButton"
-          >
+        >
           дальше →
-          </button>
-          </div>
+        </button>
 
-          <p class="page-counter">
-          ${currentPage + 1} / ${totalPages}
-          </p>
-          </div>
-          `;
+      </div>
 
-/* добавляем НЕ в contentContainer,
+
+      <p class="page-counter">
+        ${currentPage + 1} / ${totalPages}
+      </p>
+
+    </div>
+
+  `;
+
+
+  /* добавляем НЕ в contentContainer,
      а прямо в body */
 
-document.body.appendChild(overlay);
-   
+  document.body.appendChild(overlay);
 overlay.style.position = "fixed";
 overlay.style.top = "0";
 overlay.style.left = "0";
@@ -4302,34 +4318,47 @@ overlay.style.width = "100vw";
 overlay.style.height = "100dvh";
 overlay.style.zIndex = "2147483647";
 
-/* блокируем прокрутку страницы под статьей */
+  /* блокируем прокрутку страницы под статьей */
 
-document.body.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
 
 
-/* кнопка назад */
+  /* кнопка назад */
 
-document
+  document
     .getElementById("articleBackButton")
-    .addEventListener("click", goBackFromArticle);
+    .addEventListener(
+      "click",
+      goBackFromArticle
+    );
 
-/* предыдущая страница */
 
-document
+  /* предыдущая страница */
+
+  document
     .getElementById("previousButton")
-    .addEventListener("click", previousPage);
+    .addEventListener(
+      "click",
+      previousPage
+    );
 
-/* следующая страница */
 
-document
+  /* следующая страница */
+
+  document
     .getElementById("nextButton")
-    .addEventListener("click", nextPage);
+    .addEventListener(
+      "click",
+      nextPage
+    );
 
-/* прокручиваем именно окно статьи */
 
-overlay.scrollTop = 0;
+  /* прокручиваем именно окно статьи */
 
-} 
+  overlay.scrollTop = 0;
+
+}
+
 
 /* ==================================================
                   НАЗАД ИЗ СТАТЬИ
@@ -4337,41 +4366,60 @@ overlay.scrollTop = 0;
 
 function goBackFromArticle() {
 
-const overlay =
+  const overlay =
     document.getElementById("articleOverlay");
 
-if (overlay) {
-overlay.remove();}
+  if (overlay) {
+    overlay.remove();
+  }
 
-document.body.style.overflow = "hidden";
-currentArticleId = null;
-currentPage = 0;
+  document.body.style.overflow = "hidden";
+
+  currentArticleId = null;
+  currentPage = 0;
+
 }
 
 /* ==================================================
-               СЛЕДУЮЩАЯ СТРАНИЦА
+                 СЛЕДУЮЩАЯ СТРАНИЦА
 ================================================== */
 
 function nextPage() {
 
-const article =
+  const article =
     articles[currentArticleId];
 
-if (!article) {return;}
+  if (!article) {
+    return;
+  }
 
-if (
-currentPage <
-article.pages.length - 1) 
-{currentPage++; renderArticle();}
+  if (
+    currentPage <
+    article.pages.length - 1
+  ) {
+
+    currentPage++;
+
+    renderArticle();
+
+  }
 }
+
 /* ==================================================
                 ПРЕДЫДУЩАЯ СТРАНИЦА
 ================================================== */
 
 function previousPage() {
 
-if (currentPage > 0) {currentPage--; renderArticle();}
+  if (currentPage > 0) {
+
+    currentPage--;
+
+    renderArticle();
+
+  }
 }
+
 
 /* ==================================================
                    СОБЫТИЯ ГЛАВНОЙ
@@ -5399,19 +5447,29 @@ wrap.innerHTML = `
           </span>
           </button>
           `;
-diary.insertAdjacentElement("afterend", wrap);
-          }
+   
+  diary.insertAdjacentElement("afterend", wrap);
+}
 
 ensureTrackerCards();
 
 const supplementsTrackerButton =
-document.getElementById("supplementsTrackerButton");
+  document.getElementById(
+    "supplementsTrackerButton"
+  );
 
 const waterTrackerButton =
-document.getElementById("waterTrackerButton");
+  document.getElementById("waterTrackerButton");
 
-supplementsTrackerButton?.addEventListener("click", renderSupplementTracker);
 
-waterTrackerButton?.addEventListener("click", renderWaterTracker);
+supplementsTrackerButton?.addEventListener(
+  "click",
+  renderSupplementTracker
+);
+
+waterTrackerButton?.addEventListener(
+  "click",
+  renderWaterTracker
+);
 
 refreshHomeTrackers();
