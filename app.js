@@ -3382,7 +3382,7 @@ function openSection(sectionId) {
 
   window.scrollTo(0, 0);
 
-
+}
 
   /* удаляем старый экран раздела */
 
@@ -4194,7 +4194,6 @@ sectionContent.innerHTML = `
       showHome
     );
 
-}
 
 /* ==================================================
    ОТКРЫТИЕ СТАТЬИ
