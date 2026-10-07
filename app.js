@@ -3036,7 +3036,7 @@ contentContainer.innerHTML = `
           ${
           entries.length
           ? entries.map((entry, index) => `
-          <article class="mood-entry">
+          < class="mood-entry">
 
           <div class="mood-entry-head">
           <span class="mood-entry-emoji">
@@ -3060,7 +3060,7 @@ contentContainer.innerHTML = `
           удалить
           </button>
 
-          </article>
+          </>
           `).join("")
           : `
           
@@ -3233,15 +3233,15 @@ result.innerHTML = `<strong>твой средний обмен веществ з
 function showHome() {
 
   currentSectionId = null;
-  currentArticleId = null;
+  currentId = null;
   currentPage = 0;
 
 
-  const articleOverlay =
-    document.getElementById("articleOverlay");
+  const Overlay =
+    document.getElementById("Overlay");
 
-  if (articleOverlay) {
-    articleOverlay.remove();
+  if (Overlay) {
+    Overlay.remove();
   }
 
 
@@ -3279,7 +3279,7 @@ function openSection(sectionId) {
 
   if (sectionId === "mood") {
     currentSectionId = "mood";
-    currentArticleId = null;
+    currentId = null;
     currentPage = 0;
     contentScreen.classList.remove("hidden");
     homeScreen.classList.add("hidden");
@@ -3289,7 +3289,7 @@ function openSection(sectionId) {
 
   if (sectionId === "tools") {
     currentSectionId = "tools";
-    currentArticleId = null;
+    currentId = null;
     currentPage = 0;
     contentScreen.classList.remove("hidden");
     homeScreen.classList.add("hidden");
@@ -3299,7 +3299,7 @@ function openSection(sectionId) {
    
   currentSectionId = sectionId;
 
-  currentArticleId = null;
+  currentId = null;
 
   currentPage = 0;
 
@@ -3343,7 +3343,7 @@ function openSection(sectionId) {
 
           <button
             class="topic-card"
-            data-article="${topic.id}"
+            data-="${topic.id}"
           >
 
             <div class="topic-card-content">
@@ -3381,7 +3381,7 @@ function openSection(sectionId) {
 
 
   window.scrollTo(0, 0);
-}
+
 
 function openSection(sectionId) {
 
@@ -3400,7 +3400,7 @@ function openSection(sectionId) {
   if (oldOverlay) {
     oldOverlay.remove();
   }
-
+}
 /*--------------- особые разделы -----------------*/   
 
 /* ==================================================
@@ -3410,7 +3410,7 @@ function openSection(sectionId) {
 if (sectionId === "mood") {
 
 currentSectionId = "mood";
-currentArticleId = null;
+currentId = null;
 currentPage = 0;
 
 const overlay =
@@ -4104,10 +4104,11 @@ sectionContent.innerHTML = `
     return;
       }
 
+
 /* ================================================
                  ОБЫЧНЫЕ РАЗДЕЛЫ
   ================================================ */
-
+   
   currentSectionId = sectionId;
   currentArticleId = null;
   currentPage = 0;
@@ -4200,6 +4201,23 @@ sectionContent.innerHTML = `
       "click",
       showHome
     );
+
+}
+
+/* ==================================================
+   ОТКРЫТИЕ СТАТЬИ
+================================================== */
+
+function openArticle(articleId) {
+
+  if (!articles[articleId]) {
+    return;
+  }
+
+  currentArticleId = articleId;
+  currentPage = 0;
+
+  renderArticle();
 
 }
 
