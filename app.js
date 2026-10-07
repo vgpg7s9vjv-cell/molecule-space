@@ -3382,7 +3382,7 @@ function openSection(sectionId) {
 
   window.scrollTo(0, 0);
 
-}
+
 
   /* удаляем старый экран раздела */
 
@@ -3391,7 +3391,7 @@ function openSection(sectionId) {
 
   if (oldOverlay) {
     oldOverlay.remove();
-  }
+  
 
 /*--------------- особые разделы -----------------*/   
 
@@ -4193,7 +4193,7 @@ sectionContent.innerHTML = `
       "click",
       showHome
     );
-
+}
 
 /* ==================================================
    ОТКРЫТИЕ СТАТЬИ
@@ -4210,6 +4210,7 @@ function openArticle(articleId) {
 
   renderArticle();
 
+}
 }
 
 /* ==================================================
@@ -5482,3 +5483,4 @@ waterTrackerButton?.addEventListener(
 );
 
 refreshHomeTrackers();
+
