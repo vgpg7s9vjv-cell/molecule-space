@@ -3644,7 +3644,7 @@ openSection("mood");
 
 document.body.style.overflow = "hidden";
 return;
-}
+
 
 /* ================================================
                ОФИЦИАЛЬНЫЕ ССЫЛКИ
