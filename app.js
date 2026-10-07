@@ -3383,14 +3383,6 @@ function openSection(sectionId) {
   window.scrollTo(0, 0);
 
 
-function openSection(sectionId) {
-
-  const section = sections[sectionId];
-
-  if (!section) {
-    return;
-  }
-
 
   /* удаляем старый экран раздела */
 
@@ -3400,7 +3392,7 @@ function openSection(sectionId) {
   if (oldOverlay) {
     oldOverlay.remove();
   }
-}
+
 /*--------------- особые разделы -----------------*/   
 
 /* ==================================================
