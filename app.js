@@ -3277,112 +3277,6 @@ function openSection(sectionId) {
     return;
   }
 
-  if (sectionId === "mood") {
-    currentSectionId = "mood";
-    currentId = null;
-    currentPage = 0;
-    contentScreen.classList.remove("hidden");
-    homeScreen.classList.add("hidden");
-    renderMoodJournal();
-    return;
-  }
-
-  if (sectionId === "tools") {
-    currentSectionId = "tools";
-    currentId = null;
-    currentPage = 0;
-    contentScreen.classList.remove("hidden");
-    homeScreen.classList.add("hidden");
-    renderTools();
-    return;
-  }
-   
-  currentSectionId = sectionId;
-
-  currentId = null;
-
-  currentPage = 0;
-
-  contentScreen.classList.remove("hidden");
-
-  homeScreen.classList.add("hidden");
-
-
-  contentContainer.innerHTML = `
-
-    <div class="screen-inner fade-in">
-
-      <button
-        class="back-button"
-        id="sectionBackButton"
-      >
-        ← вернуться в меню
-      </button>
-
-
-      <header class="section-header">
-
-        <p class="section-kicker">
-          ${section.kicker}
-        </p>
-
-        <h1>
-          ${section.title}
-        </h1>
-
-        <p>
-          ${section.description}
-        </p>
-
-      </header>
-
-
-      <div class="topic-list">
-
-        ${section.topics.map(topic => `
-
-          <button
-            class="topic-card"
-            data-="${topic.id}"
-          >
-
-            <div class="topic-card-content">
-
-              <p class="topic-card-title">
-                ${topic.title}
-              </p>
-
-              <p class="topic-card-description">
-                ${topic.description}
-              </p>
-
-            </div>
-
-            <span class="topic-arrow">
-              ›
-            </span>
-
-          </button>
-
-        `).join("")
-        
-        }
-
-      </div>
-
-    </div>
-
-  `;
-
-
-  document
-    .getElementById("sectionBackButton")
-    .addEventListener("click", showHome);
-
-
-  window.scrollTo(0, 0);
-}
-
 
   /* удаляем старый экран раздела */
 
@@ -3391,7 +3285,7 @@ function openSection(sectionId) {
 
   if (oldOverlay) {
     oldOverlay.remove();
-  
+  } 
 
 /*--------------- особые разделы -----------------*/   
 
@@ -3644,7 +3538,7 @@ openSection("mood");
 
 document.body.style.overflow = "hidden";
 return;
-
+}
 
 /* ================================================
                ОФИЦИАЛЬНЫЕ ССЫЛКИ
