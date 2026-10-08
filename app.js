@@ -2781,6 +2781,23 @@ theme === "pink"
     ? "♡"
     : "✦", "☾", "?"; }
 
+if (themeToggleIcon) {
+themeToggleIcon.textContent =
+theme === "dark"
+    ? "☾"
+    : "✦", "♡", "?"; }
+
+if (themeToggleIcon) {
+themeToggleIcon.textContent =
+theme === "angel"
+    ? "✦"
+    : "☾", "♡", "?"; }   
+
+if (themeToggleIcon) {
+themeToggleIcon.textContent =
+theme === "minimalism"
+    ? "?"
+    : "☾", "♡", "✦"; }    
 
 if (themeToggle) {
 themeToggle.setAttribute(
@@ -2819,7 +2836,7 @@ tg.setBackgroundColor(
 
 function initTheme() {
 
-let saved = "dark";
+let saved = "pink";
 try {
 saved =
 localStorage.getItem(
@@ -3104,7 +3121,7 @@ const result = document.getElementById("bmiResult");
    
 if (!weight || !heightCm || weight <= 0 || heightCm <= 0) { result.textContent = "пожалуйста, введи массу и рост"; return; }
 const bmi = weight / Math.pow(heightCm / 100, 2);
-result.innerHTML = `<strong>ИМТ: ${bmi.toFixed(1)}</strong>`; }
+result.innerHTML = `<strong>твой ИМТ: ${bmi.toFixed(1)}</strong>`; }
 
 function calculateEnergy() {
 const age = Number(document.getElementById("calAge").value);
@@ -3116,8 +3133,8 @@ const result = document.getElementById("energyResult");
    
 if (!age || age < 13 || !weight || !height) { result.textContent = "УПС! твой возраст ниже 13, твой организм еще растет и тебе не нужен дефицит"; return; }
 const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
-const tdee = (bmr * activity) - 300;
-result.innerHTML = `<strong>твой средний обмен веществ за сутки ${Math.round(bmr)} ккал/сутки</strong><br>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки`; }
+const tdee = (bmr * activity) - 400;
+result.innerHTML = `<strong>твой средний обмен веществ за сутки без учета активности: ${Math.round(bmr)} ккал/сутки</strong><br>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки`; }
 
 
 /* ==================================================
