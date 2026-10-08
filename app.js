@@ -2787,11 +2787,6 @@ theme === "angel"
     : "☾", "?", "♡";
 
 themeToggleIcon.textContent =
-theme === "dark"
-    ? "☾"
-    : "?", "♡", "✦";  
-
-themeToggleIcon.textContent =
 theme === "minimalism"
     ? "?"
     : "♡", "✦", "☾";}
