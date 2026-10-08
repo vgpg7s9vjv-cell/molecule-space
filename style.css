@@ -1358,21 +1358,21 @@ body.theme-pink { --shadow: 0 14px 40px rgba(205, 130, 160, .12); }
 ================================================== */
 
 body.theme-angel {
-  --bg: #eef8ff;
-  --bg-deep: #e4f3ff;
+  --bg: #f0f7fb;
+  --bg-deep: rgba(202, 224, 242, 0.93);
 
-  --card: rgba(255, 255, 255, .88);
-  --card-soft: rgba(255, 255, 255, .72);
+  --card: rgba(255, 255, 255, 1);
+  --card-soft: rgba(199, 214, 250, 0.72);
 
-  --text: #40566d;
+  --text: #1b1c25;
   --muted: #7d98b2;
 
-  --accent: #9bc9e8;
-  --accent-soft: #d9effc;
-  --accent-strong: #80b8dc;
+  --accent: #a1c9ff;
+  --accent-soft: #bce2f9;
+  --accent-strong: #80b0dd;
 
-  --line: #d5e9f6;
-  --line-soft: #e7f3fa;
+  --line: rgba(185, 224, 249, 0.49);
+  --line-soft: rgba(183, 224, 249, 0.63);
 
   --button: #cce8f7;
   --button-text: #40566d;
@@ -1415,7 +1415,6 @@ body.theme-minimalism {
 ================================================== */
 
 body.theme-dark,
-body.theme-angel,
 body.theme-minimalism {
   background: var(--bg);
   color: var(--text);
