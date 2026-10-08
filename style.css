@@ -2333,7 +2333,7 @@ body.theme-angel .water-tracker {
 }
 
 .supplement-calendar-month span {
-  font-size: 12px;
+  font-size: 15px;
   opacity: .45;
   font-weight: 500;
 }
@@ -2467,7 +2467,7 @@ align-items: center;
 justify-content: center;
 border: 0;
 border-radius: 14px;
-background: var(--line);
+background: var(--line-soft);
 color: inherit;
 font: inherit;
 cursor: pointer;
@@ -2480,7 +2480,7 @@ pointer-events: none;
 /* ---------- TODAY ---------- */
 
 .supplement-calendar-day.is-today {
-  background: var(--bg--deep);
+  background: var(--accent);
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, .18);
 }
@@ -2509,7 +2509,7 @@ pointer-events: none;
 /* ---------- TAKEN ---------- */
 
 .supplement-calendar-day.is-done {
-  background: var(--blue);
+  background: var(--button);
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, .055);
 }
@@ -2608,7 +2608,7 @@ pointer-events: none;
 }
 
 .supplement-selector-check {
-  font-size: 11px;
+  font-size: 14px;
   opacity: .7;
 }
 
@@ -2620,7 +2620,7 @@ pointer-events: none;
   justify-content: center;
   gap: 5px;
   margin-top: 9px;
-  font-size: 10px;
+  font-size: 13px;
 
   opacity: .42;
 }
