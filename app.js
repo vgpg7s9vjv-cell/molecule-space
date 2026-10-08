@@ -2757,7 +2757,7 @@ const validThemes = [
                     ];
 
 if (!validThemes.includes(theme)) {
-                  theme = "dark"; }
+                  theme = "pink"; }
 
   /* убираем старые классы тем */
 
@@ -2777,9 +2777,9 @@ document.body.classList.add(
 
 if (themeToggleIcon) {
 themeToggleIcon.textContent =
-theme === "dark"
-    ? "☾"
-    : "✦", "♡", "?"; }
+theme === "pink"
+    ? "♡"
+    : "✦", "☾", "?"; }
 
 
 if (themeToggle) {
@@ -2800,9 +2800,9 @@ if (tg) {
 
 const colors = {
 dark: "#071426",
-pink: "#24131f",
-angel: "#f7f3ff",
-minimalism: "#f3f3ef"
+pink: "#c297b9",
+angel: "#97acc2",
+minimalism: "#c6cacf"
                };
 
 if (tg.setHeaderColor) {
@@ -2823,7 +2823,7 @@ let saved = "dark";
 try {
 saved =
 localStorage.getItem(
-    themeStorageKey ) || "dark";
+    themeStorageKey ) || "pink";
     } catch (error) {}
 
 applyTheme(saved);
@@ -3116,7 +3116,7 @@ const result = document.getElementById("energyResult");
    
 if (!age || age < 13 || !weight || !height) { result.textContent = "УПС! твой возраст ниже 13, твой организм еще растет и тебе не нужен дефицит"; return; }
 const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
-const tdee = (bmr * activity) - 400;
+const tdee = (bmr * activity) - 300;
 result.innerHTML = `<strong>твой средний обмен веществ за сутки ${Math.round(bmr)} ккал/сутки</strong><br>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки`; }
 
 
@@ -4278,7 +4278,7 @@ const themes = [
 let currentTheme =
 localStorage.getItem(
 themeStorageKey
-) || "dark";
+) || "pink";
 
 let currentIndex =
 themes.indexOf(
@@ -4681,7 +4681,7 @@ item => `
 
 const overlay = openTrackerOverlay(
 "supplementTrackerOverlay",
-          "календарь",
+          "календарь приема",
           `
           <div class="streak-banner">
           <div>
@@ -4779,7 +4779,7 @@ const overlay = openTrackerOverlay(
           id="newSupplementName"
           type="text"
           maxlength="40"
-          placeholder="тут будут твои таблетки"
+          placeholder="введи название"
           autocomplete="off"
           >
 
@@ -4822,6 +4822,7 @@ const overlay = openTrackerOverlay(
           <div class="tracker-hint">
           выбери БАД сверху и нажимай на даты в календаре,
           чтобы отметить или снять прием
+          <br>
           Отметки сохраняются только на этом устройстве!!
           </div>
           `
@@ -5219,9 +5220,9 @@ wrap.innerHTML = `
           <span class="tracker-icon">💊</span>
 
           <span class="tracker-card-content">
-          <strong>трекер БАДов</strong>
+          <strong>календарь приема</strong>
           <small id="supplementsTrackerSummary">
-          добавь свои БАДы и отмечай прием
+          отмечай прием и не потеряй огонек
           </small>
           </span>
 
