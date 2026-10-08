@@ -2750,9 +2750,9 @@ quoteElement.style.opacity = "1";
 function applyTheme(theme) {
 
 const validThemes = [
-"dark",
 "pink",
 "angel",
+"dark",
 "minimalism"
                     ];
 
@@ -2779,25 +2779,24 @@ if (themeToggleIcon) {
 themeToggleIcon.textContent =
 theme === "pink"
     ? "♡"
-    : "☾", "✦", "?"; }
+    : "✦", "☾", "?"; 
 
-if (themeToggleIcon) {
-themeToggleIcon.textContent =
-theme === "dark"
-    ? "☾"
-    : "✦", "?", "♡"; }
-
-if (themeToggleIcon) {
 themeToggleIcon.textContent =
 theme === "angel"
     ? "✦"
-    : "?", "♡", "☾"; }   
+    : "☾", "?", "♡";
 
-if (themeToggleIcon) {
+themeToggleIcon.textContent =
+theme === "dark"
+    ? "☾"
+    : "?", "♡", "✦";  
+
 themeToggleIcon.textContent =
 theme === "minimalism"
     ? "?"
-   : "♡", "☾", "✦"; }    
+    : "♡", "✦", "☾";}
+
+   
 
 if (themeToggle) {
 themeToggle.setAttribute(
