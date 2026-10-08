@@ -983,7 +983,7 @@ body.light-theme .mood-entry {
   border: 1px solid var(--line); border-radius: 100px;
   background: var(--input-bg); cursor: pointer; font-size: 18px;
 }
-.mood-choice.selected { border-color: rgba(168,156,255,0.55); transform: translateY(-1px); }
+.mood-choice.selected { border-color: var(--accent); background: var(--button); transform: translateY(-1px); }
 .diary-textarea {
   width: 100%; min-height: 125px; resize: vertical;
   padding: 13px; border: 1px solid var(--line); border-radius: 14px;
@@ -1658,21 +1658,6 @@ body.theme-angel .modal-content {
   box-shadow: 0 8px 28px rgba(120, 180, 218, 0.12) !important;
 }
 
-/* небесные кнопки */
-
-body.theme-angel button,
-body.theme-angel .article-nav-button {
-  background: #d3ecfa !important;
-  background-image: none !important;
-  color: #40566d !important;
-  border-color: #c5e3f3 !important;
-  box-shadow: 0 3px 10px rgba(120, 180, 218, 0.1) !important;
-}
-
-body.theme-angel button:hover,
-body.theme-angel .article-nav-button:hover {
-  background: #dff2ff !important;
-}
 
 /* ✨ легкое свечение у заголовков */
 
