@@ -2778,18 +2778,11 @@ document.body.classList.add(
 if (themeToggleIcon) {
 themeToggleIcon.textContent =
 theme === "pink"
-    ? "♡"
-    : "✦", "☾", "?"; 
+    ? "♡"    : "✦", "☾"; 
 
 themeToggleIcon.textContent =
 theme === "angel"
-    ? "✦"
-    : "☾", "?", "♡";
-
-themeToggleIcon.textContent =
-theme === "minimalism"
-    ? "?"
-    : "♡", "✦", "☾";}
+    ? "✦"    : "☾", "♡"; }
 
    
 
