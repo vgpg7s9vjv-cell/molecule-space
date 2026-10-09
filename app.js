@@ -510,11 +510,11 @@ content:`
           <br>
           замедляется обмен веществ и метаболизм, так
           как организм испытывает стресс и включает режим "энергосбережения"
-          <br>
+          </p>
           <div class="info-box">
           Калораж менее 1000кк в день чреват дальнейшими срывами и перееданиями
           </div>
-          <br>
+          <p>
           <b> ・ Если дефицит слишком низкий:</b>
           <br>
           организм воспринимает низкий дефицит(менее 10% от bmi) как обычный дневной обмен веществ,
@@ -691,7 +691,11 @@ content:`
 <h2>📋 Пренебрежение противопоказаниями</h2>
           <p>
           Полная отмена БАДа и наблюдение специалиста
-          </p>          
+          </p> 
+
+          <img src="./images/arttmolecule2.jpg"
+          alt="krolik" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
         }
         ]
@@ -907,7 +911,7 @@ content:`
           <p>
           Редуксил, Орлистат, Ксеникал, Алмейзд
           <br>
-          Все это есть; все, кроме Молекулы...
+          Все это есть; <b>все, кроме Молекулы...</b>
           <br>
           ❌ Ни до 2010 года, ни после ни одна аптека не продавала товара с таким названием в виде таблеток
           для похудения и больше того, препаратов с другим действием с таким названием тоже нет вовсе
@@ -942,7 +946,10 @@ content:`
           <b>Ведь на каждого врунишку-маркетолога найдется свой любопытный и умеющий пользоваться
           интернетом покупатель</b>
           </div>
-          <br>
+          
+          <img src="./images/arttmolecule3.jpg"
+          alt="logomolecule" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
         },
 
@@ -979,9 +986,9 @@ pages:  [
 heading: "Molecule Plus",
 content:`
 
-          < src=".images/mlk-blue2.jpg"
-          alt="plusblue2" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          <img src="./images/mlk-blue2.jpg"
+          alt="plus1" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
 <h3>Что из себя представляет:</h3>
           <p>
@@ -1069,9 +1076,9 @@ content:`
           ♡ белый, глянцевый с серебряными надписями «molecule plus» по диагонали
           </p>
 
-         <img src=".images/mlk-tabletki.jpg"
+          <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
 <h2>💊 Капсула:</h2>
           <p>
@@ -1080,15 +1087,15 @@ content:`
           ♡ внутри желто-коричневый порошок, пахнущий травами
           </p>
 
-          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus tabletki" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          <img src="./images/mlk-tabletki.jpg"
+          alt="plus" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
                                                    
 <h2>Даты сроков годности и описание коробок оригинальных упаковок:</h2>
 
 <h3>Вариант с радужными деталями и кьюар-кодом</h3>
 
-          <img src=".images/plus-golofraphy.jpg"
+          <img src="./images/plus-golofraphy.jpg"
           alt="orig plusrainbow" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
@@ -1130,7 +1137,7 @@ content:`
           
 <h3>Вариант с серебряными деталями и без кьюар-кода</h3>
 
-          <img src=".images/plus-silver.jpg"
+          <img src="./images/plus-silver.jpg"
           alt="origplussilver" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
@@ -1166,7 +1173,7 @@ pages:  [
 heading: "Molecule Premium",
 content:`
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -1261,7 +1268,7 @@ content:`
           ♡ матовый, с белыми надписями «molecule plus premium» по диагонали
           </p>
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -1272,7 +1279,7 @@ content:`
           ♡ внутри желто-коричневый порошок, пахнущий травами
           </p>
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -1328,7 +1335,7 @@ pages:  [
 heading: "Molecule Ultra",
 content:`
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -1422,7 +1429,7 @@ pages:  [
 heading: "Molecule Plus/Premium ЖБ",
 content: `
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -1528,7 +1535,7 @@ pages:  [
 heading: "Supressa",
 content:`
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -1620,7 +1627,7 @@ pages:  [
 heading: "Mineral Balance",
 content: `
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -1716,7 +1723,7 @@ pages:  [
 heading: "Heedly Slim-Complex",
 content:`
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -1876,7 +1883,7 @@ pages:  [
 heading: "Swapx Neo",
 content: `
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -1959,7 +1966,7 @@ content: `
 heading: "Swapx Pro",
 content:`       
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -2054,7 +2061,7 @@ content:`
           похудения среди взрослой аудитории наших покупателей, но о нем мало говорят
           </div>  
           
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -2656,7 +2663,7 @@ content:`
           время кровотечения и, соответственно, ухудшать свертываемость крови
           </div>
           
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -2766,7 +2773,7 @@ content:`
           свой контрольный вес
           </div>
           
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -2812,7 +2819,7 @@ pages:  [
         {
 heading: "Запоры",
 content:`
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -2861,7 +2868,7 @@ content:`
           на таком же уровне, как и фраза сломанной электронике: «просто не зависай и работай»
           </p>
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -2963,7 +2970,7 @@ content:`
           Он живет в зале и одержим ростом мышц
           </p>
           
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
         `
@@ -3000,7 +3007,7 @@ content:`
           с вечно болезненными пролежнями на копчике из-за недостатка жировой массы и отсутствия сил двигаться
           </p>
           
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3048,7 +3055,7 @@ content:`
           конкретный вкус или даже конкретный способ приготовления
           </p>
           
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3065,7 +3072,7 @@ content:`
           что приводит к <b>постоянным навязчивым мыслям об этих продуктах</b>
           </div>
           
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3236,7 +3243,7 @@ pages:  [
 heading: "Реально ли сохранить зубы на курсе и обязательно ли нужен кальций",
 content:`
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3269,7 +3276,7 @@ pages:  [
 heading: "Как сохранить качество кожи и почему нельзя пить системные ретиноиды",
 content:`
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3309,7 +3316,7 @@ content:`
           Очень часто причина находится не в шампуне и даже не в коже головы, а в том, что происходит с организмом изнутри
           </div>
           
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">        
           
@@ -3401,7 +3408,7 @@ content:`
           
 <h4>１Никотиновая кислота</h4>
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3431,7 +3438,7 @@ content:`
 
 <h4>𝟚 Кислотный пилинг для кожи головы</h4>
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3460,7 +3467,7 @@ content:`
 
 <h4>𝟛 Масло розмарина</h4>
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3497,7 +3504,7 @@ content:`
 
 <h4>𝟜 Эсвицин</h4>
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3524,7 +3531,7 @@ content:`
 
 <h4>𝟝 Маска для корней волос</h4>
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3551,7 +3558,7 @@ content:`
 
 <h4>𝟞 Аппликатор для нанесения средств на кожу головы</h4>
 
-         <img src=".images/mlk-tabletki.jpg"
+         <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3623,7 +3630,7 @@ content:`
           потому что волосы у разных людей растут в исключительно разной скорости
           </p>
 
-          <img src=".images/mlk-tabletki.jpg"
+          <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3642,7 +3649,7 @@ content:`
           который организм воспринимает как стресс
           </div>
           
-          <img src=".images/mlk-tabletki.jpg"
+          <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
         `
