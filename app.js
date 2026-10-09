@@ -962,7 +962,7 @@ content: `
           </p>
         `
         }
-        ]
+        ] 
         },
 
 /*--------------------------
@@ -979,6 +979,10 @@ pages:  [
 heading: "Molecule Plus",
 content:`
 
+          <img src=".images/mlk-blue2.jpg"
+          alt="plusblue2" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h3>Что из себя представляет:</h3>
           <p>
           Базовая база, 40 капсул
@@ -1020,8 +1024,8 @@ content:`
             <li>Цветы гибискуса</li>             
            </ul>  
 
-          <img src="./images/plusbears.jpg"
-          alt="plusbears" 
+          <img src=".images/mlk-blue1.jpg"
+          alt="plusblue1" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
 
 <h3>Если твой ИМТ:</h3>
@@ -1050,7 +1054,100 @@ content:`
             <li>plus → neo — <b>14 дней</b></li>      
             <li>plus → pro — <b>14 дней</b></li> 
            </ul>   
-        ` 
+        `
+        },
+
+        {
+heading: "Как выглядит оригинал?",
+content:`
+          <div class="info-box">          
+          Во всех партиях единый внешний вид пакетика и самих капсул
+          </div>
+          
+<h2>🔖 Пакетик:</h2>           
+          <p>
+          ♡ белый, глянцевый с серебряными надписями «molecule plus» по диагонали
+          </p>
+
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ДРУГОЕ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
+<h2>💊 Капсула:</h2>
+          <p>
+          ♡ белая, без надписей
+          <br>
+          ♡ внутри желто-коричневый порошок, пахнущий травами
+          </p>
+
+          <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus tabletki" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+                                                   
+<h2>Даты сроков годности и описание коробок оригинальных упаковок:</h2>
+
+<h3>Вариант с радужными деталями и кьюар-кодом</h3>
+
+          <img src=".images/plus-golofraphy.jpg"
+          alt="orig plus rainbow" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          
+<h3>February 2025 - June 2028</h3>
+          <p>
+          ✧ кьюар-код: <b>зеленый</b>
+          <br>
+          ✧ упаковка: <b>радужная</b>
+          </p>
+
+<h3>February 2026 - June 2029</h3>
+          <p>
+          ✧ кьюар-код: <b>зеленый</b>
+          <br>
+          ✧ упаковка: <b>радужная</b>
+          </p>
+
+<h3>April 2026 - April 2029</h3>
+          <p>
+          ✧ кьюар-код: <b>черный</b>
+          <br>
+          ✧ упаковка: <b>радужная</b>
+          </p>
+
+
+<h3>May 2026 - September 2029</h3>
+          <p>
+          ✧ кьюар-код: <b>зеленый</b>
+          <br>
+          ✧ упаковка: <b>радужная</b>
+          </p>
+
+<h3>June 2026 - October 2029</h3>
+          <p>
+          ✧ кьюар-код: <b>зеленый</b>
+          <br>
+          ✧ упаковка: <b>радужная</b>
+          </p>
+          
+<h3>Вариант с серебряными деталями и без кьюар-кода</h3>
+
+          <img src=".images/plus-silver.jpg"
+          alt="orig plus silver" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          
+<h3>February 2025 - June 2028</h3>
+          <p>
+          ✧ кьюар-код: <b>отсутствует</b>
+          <br>
+          ✧ упаковка: <b>серебряная</b>
+          </p>
+          
+<h3>February 2026 - June 2029</h3>
+          <p>
+          ✧ кьюар-код: <b>отсутствует</b>
+          <br>
+          ✧ упаковка: <b>серебряная</b>
+          </p>
+        `
         }
         ]
         },
@@ -1066,9 +1163,13 @@ title: "Cложности выбора и как его сделать",
 category: "библиотека бадов", 
 pages:  [      
         {
-heading: "Molecule Premium 46 капсул",
+heading: "Molecule Premium",
 content:`
 
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ДРУГОЕ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h3>Что из себя представляет</h3>
           <p>
           Младший бро Плюса, 46 капсул
@@ -1112,7 +1213,7 @@ content:`
           </ul>  
 
           <img src="./images/premiumbears.jpg"
-          alt="premiumbears" 
+          alt="premiumbears ЗАМЕНИТЬ ФОТО" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
 
@@ -1144,6 +1245,71 @@ content:`
             <li>premium → pro — <b>14 дней</b></li> 
           </ul>    
         `
+        },
+
+        {
+heading: "Как выглядит оригинал?",
+content:`
+          <div class="info-box">          
+          Капсулы и пакетик выполнены в едином стиле во всех партиях
+          </div>
+          
+<h2>🔖 Пакетик:</h2>           
+          <p>
+          ♡ темно-синий, ближе к черному
+          <br>
+          ♡ матовый, с белыми надписями «molecule plus premium» по диагонали
+          </p>
+
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
+<h2>💊 Капсула:</h2>
+          <p>
+          ♡ бело-голубые, без надписей
+          <br>
+          ♡ внутри желто-коричневый порошок, пахнущий травами
+          </p>
+
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
+<h2>Даты сроков годности и описание коробок оригинальных упаковок:</h2>
+
+          <img src="./images/prem-orig.jpg"
+          alt="orig prem" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          
+<h3>January 2025 - December 2028</h3>
+          <p>
+          ✧ кьюар-код: <b>черный</b>
+          <br>
+          ✧ упаковка: <b>радужная</b>
+          </p>
+ 
+<h3>October 2025 - September 2029</h3>
+          <p>
+          ✧ кьюар-код: <b>зеленый</b>
+          <br>
+          ✧ упаковка: <b>радужная</b>
+          </p>
+
+<h3>May 2026 - April 2030</h3>
+          <p>
+          ✧ кьюар-код: <b>черный</b>
+          <br>
+          ✧ упаковка: <b>радужная</b>
+          </p>
+
+<h3>June 2026 - May 2030</h3>
+          <p>
+          ✧ кьюар-код: <b>черный</b>
+          <br>
+          ✧ упаковка: <b>радужная</b>
+          </p>
+        `
         }
         ]
         },
@@ -1159,9 +1325,13 @@ title: "Сложности выбора и как его сделать",
 category: "библиотека бадов", 
 pages:  [      
         {
-heading: "Molecule Ultra 30 капсул",
+heading: "Molecule Ultra",
 content:`
 
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h3>Что из себя представляет</h3>
           <p>
           Считается сильнее Плюса и Премиума, 30 капсул
@@ -1252,6 +1422,10 @@ pages:  [
 heading: "Molecule Plus/Premium ЖБ",
 content: `
 
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h3>Что из себя представляет</h3>
           <p> 
           Считается одним из самых сильных БАДов на рынке жиросжигателей, 30 капсул
@@ -1351,9 +1525,13 @@ title: "сложности выбора и как его сделать",
 category: "библиотека бадов", 
 pages:  [      
         {
-heading: "Supressa 36 капсул",
+heading: "Supressa",
 content:`
 
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h3>что из себя представляет</h3>
           ныне запрещенный БАД, который считается по градации сильнее,
           чем Плюс и Прем, но слабее, чем ЖБ и Ультра, 36 капсул
@@ -1394,7 +1572,7 @@ content:`
           </ul> 
 
           <img src="./images/supressabears.jpg"
-          alt="supressabears" 
+          alt="supressabears ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
 <h3>Если твой ИМТ:</h3>
@@ -1442,6 +1620,10 @@ pages:  [
 heading: "Mineral Balance",
 content: `
 
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h3>Что из себя представляет</h3>
           <p> 
           Довольно легкий БАД, при передозе которого побочки могут быть хуже,
@@ -1482,7 +1664,7 @@ content: `
           </ul> 
 
           <img src="./images/mineralbears.jpg"
-          alt="mineralbears" 
+          alt="mineralbears ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
 <h3>Если твой ИМТ:</h3>
@@ -1534,6 +1716,10 @@ pages:  [
 heading: "Heedly Slim-Complex",
 content:`
 
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h3>Что из себя представляет<</h3>
           <p> 
           Один из самых деликатных БАДов, 60 капсул
@@ -1690,6 +1876,10 @@ pages:  [
 heading: "Swapx Neo",
 content: `
 
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
           <div class="info-box">
           Новинка среди БАДов для похудения, которая позиционруется как совокупность Молекулы с Супрессой
           </div>  
@@ -1767,8 +1957,12 @@ content: `
    
         {
 heading: "Swapx Pro",
-content:`           
+content:`       
 
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h3>что из себя представляет</h3>
           <p> 
           усиленная вдвойне по компонентам версия, 30 капсул
@@ -1859,6 +2053,10 @@ content:`
           Завершает наш список БАДов именно он, так как: казалось бы, самый популярный БАД для
           похудения среди взрослой аудитории наших покупателей, но о нем мало говорят
           </div>  
+          
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Что из себя представляет</h3>
           <p> 
@@ -1994,7 +2192,7 @@ content:`
           </div>
           
           <img src="./images/himiya2.jpg"
-          alt="himiya2"
+          alt="himiya2 ЗАМЕНИТЬ"
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         `
         },
@@ -2210,7 +2408,7 @@ content:`
           </div>
 
           <img src="./images/ano5.jpg"
-          alt="ano5"
+          alt="ano5 ЗАМЕНИТЬ"
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         `
         }       
@@ -2269,7 +2467,7 @@ content:`
           </ul> 
 
           <img src="./images/tabletki2.jpg"
-          alt="tabletki"
+          alt="tabletki ЗАМЕНИТЬ"
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
         },
@@ -2457,7 +2655,11 @@ content:`
           Напомним, что практически все БАДы для похудения имеют свойство разжижать кровь, что усиливает
           время кровотечения и, соответственно, ухудшать свертываемость крови
           </div>
-
+          
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
           <p>
           Как такового запрета принимать БАДы и прерывать курс во время критических дней нет
           <br>
@@ -2502,7 +2704,7 @@ content:`
 
 <h3>Фаза менструации</h3>
           <p>
-          Физическая боль не самая главная проблема на этом этапе
+          <b>Физическая боль не самая главная проблема на этом этапе</b>
           <br>
           В это время у тебя могут также:
           <br>
@@ -2522,7 +2724,7 @@ content:`
 
 <h3>Фаза фолликулогенеза</h3>
           <p>
-          Или фолликулярная фаза
+          <b>Или фолликулярная фаза</b>
           <br>
           Это промежуток сразу после окончания менструальной фазы
           <br>
@@ -2544,7 +2746,7 @@ content:`
           
 <h3>Фаза овуляции</h3>
           <p>
-          Фаза самого чистого и объективного веса
+          <b>Фаза самого чистого и объективного веса</b>
           <br>
           В овуляцию ты можешь наблюдать:
           <br>
@@ -2563,10 +2765,14 @@ content:`
           Эта фаза отлично подойдет для того, чтобы заняться спортом и замерить
           свой контрольный вес
           </div>
-
+          
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h3>Лютеиновая фаза</h3>
           <p>
-          Или фаза спячки/запасения
+          <b>Или фаза спячки/запасения</b>
           <br>
           В такую пору ты можешь ощущать:
           <br>
@@ -2606,6 +2812,9 @@ pages:  [
         {
 heading: "Запоры",
 content:`
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <p>
           <b>⟣расстройство пищевого поведения⟢</b> — это не просто желание похудеть
@@ -2652,9 +2861,9 @@ content:`
           на таком же уровне, как и фраза сломанной электронике: «просто не зависай и работай»
           </p>
 
-          <img src="./images/control.jpg"
-          alt="control"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <p>            
           Когда человек просто недоволен весом, он садится на обычную диету, но РПП — это совсем другое
@@ -2753,6 +2962,10 @@ content:`
           <br> 
           Он живет в зале и одержим ростом мышц
           </p>
+          
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
         `
         },
 
@@ -2786,7 +2999,11 @@ content:`
           а измученные своей болезнью люди с очаговыми залысинами на голове из-за недостатка витаминов,
           с вечно болезненными пролежнями на копчике из-за недостатка жировой массы и отсутствия сил двигаться
           </p>
-
+          
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
           <div class="info-box">
           Главное заблуждение о расстройствах пищевого поведения — думать, что человек с рпп 
           обязательно должен выглядеть как скелет, но это не так
@@ -2831,6 +3048,10 @@ content:`
           конкретный вкус или даже конкретный способ приготовления
           </p>
           
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h3>А что такое «грязная» и «плохая» еда?</h3>
           <p>
           <b><i>fear-food</i></b> — это продукты, которые вызывают непропорционально сильную тревогу, 
@@ -2843,7 +3064,11 @@ content:`
           Например, любимый шоколад, паста, круассаны, любимое мороженое и тд, 
           что приводит к <b>постоянным навязчивым мыслям об этих продуктах</b>
           </div>
-
+          
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h3>Обычно у «чистых» продуктов есть свои признаки</h3>
           <ul>
             <li>🥣 Низкая калорийность</li>
@@ -3010,6 +3235,10 @@ pages:  [
         {
 heading: "Реально ли сохранить зубы на курсе и обязательно ли нужен кальций",
 content:`
+
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <p>
           растительное происхождение вещества не делает его
@@ -3039,6 +3268,10 @@ pages:  [
         {
 heading: "Как сохранить качество кожи и почему нельзя пить системные ретиноиды",
 content:`
+
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <p>
           растительное происхождение вещества не делает его
@@ -3076,7 +3309,9 @@ content:`
           Очень часто причина находится не в шампуне и даже не в коже головы, а в том, что происходит с организмом изнутри
           </div>
           
-
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">        
           
 <h3>❔ Какие могут быть причины?</h3>
           <p>
@@ -3135,34 +3370,6 @@ content:`
           лекарств и других факторов
           </p>
           
-<h3>❌ Чего лучше не делать:</h3>
-          <p>
-          ✘ Не увеличивать дозу витаминов самостоятельно
-          <br>
-          ✘ Не пить витамины "на всякий случай"
-          <br>
-          ✘ Не покупать десяток БАДов одновременно
-          <br>
-          ✘ Не пытаться еще сильнее ограничивать питание
-          <br>
-          ✘ Не винить себя за выпадение волос
-          </p>
-
-          <p>
-          ❗️ И особенно не стоит думать:
-          </p>
-
-          <div class="info-box">
-          <i>– Но ведь я хорошо худею, значит надо просто перетерпеть</i>
-          </div>
-
-          <p>
-          Если организм уже реагирует на дефицит выпадением волос – это не достижение
-          и не показатель эффективности похудения
-          <br>
-          <b>Это симптом того, что организму может не хватать ресурсов</b>
-          </p>
-          
 <h3>🚑 В каких случаях стоит обращаться к специалисту?</h3>
           <p>
           Если выпадение очень сильное и появились:
@@ -3179,7 +3386,13 @@ content:`
           <div class="info-box">
           ➡ То настоятельно рекомендуем записаться к дерматологу/трихологу, а не пытаться лечить это самостоятельно
           </div>
-          
+        `
+        },  
+   
+        {
+heading: "Какие анализы сдавать в лабораториях и бюджетные средства для волос",
+content:`          
+
 <h3>🛠️ Если нужен косметический ремонт</h3>
 
           <div class="info-box">
@@ -3187,6 +3400,11 @@ content:`
           </div>
           
 <h4>１Никотиновая кислота</h4>
+
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h4>Что делает:</h4>
           <p>
           ・ Стимулирует микроциркуляцию и обмен веществ в волосяном мешочке,
@@ -3212,6 +3430,11 @@ content:`
           </p>
 
 <h4>𝟚 Кислотный пилинг для кожи головы</h4>
+
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h4>Что делает:</h4>
           <p>
           ・ Эффективно удаляет загрязнения, избыток себума, ороговевшие
@@ -3236,6 +3459,11 @@ content:`
           </p>
 
 <h4>𝟛 Масло розмарина</h4>
+
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h4>что делает:</h4> 
           <p>
           Улучшает кровообращение в области корней волос, что способствует увеличению
@@ -3268,6 +3496,11 @@ content:`
           </div>
 
 <h4>𝟜 Эсвицин</h4>
+
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h4>Что делает:</h4> 
           <p>
           Останавливает выпадение волос, активизирует рост новых волос
@@ -3290,6 +3523,11 @@ content:`
           </p>
 
 <h4>𝟝 Маска для корней волос</h4>
+
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h4>Что делает:</h4>
           <p>
           Обеспечивает улучшение кровообращения и лечебное действие, а цинк,
@@ -3312,6 +3550,11 @@ content:`
           </p>
 
 <h4>𝟞 Аппликатор для нанесения средств на кожу головы</h4>
+
+         <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h4>Для чего:</h4> 
           <p>
           ・ Равномерно распределяет масла или сыворотки по всей коже головы,
@@ -3332,6 +3575,40 @@ content:`
           <br>
           ・ Массажными движениями распредели средство по всей коже головы
           </p>
+        `
+        },
+   
+        {
+heading: "Какие анализы сдавать в лабораториях и бюджетные средства для волос",
+content:`  
+
+<h3>❌ Чего лучше не делать:</h3>
+          <p>
+          ✘ Не увеличивать дозу витаминов самостоятельно
+          <br>
+          ✘ Не пить витамины "на всякий случай"
+          <br>
+          ✘ Не покупать десяток БАДов одновременно
+          <br>
+          ✘ Не пытаться еще сильнее ограничивать питание
+          <br>
+          ✘ Не винить себя за выпадение волос
+          </p>
+
+          <p>
+          ❗️ И особенно не стоит думать:
+          </p>
+
+          <div class="info-box">
+          <i>– Но ведь я хорошо худею, значит надо просто перетерпеть</i>
+          </div>
+
+          <p>
+          Если организм уже реагирует на дефицит выпадением волос – это не достижение
+          и не показатель эффективности похудения
+          <br>
+          <b>Это симптом того, что организму может не хватать ресурсов</b>
+          </p>
           
 <h3>⤴️ Когда же начнется рост?</h3>
           <p>
@@ -3346,6 +3623,10 @@ content:`
           потому что волосы у разных людей растут в исключительно разной скорости
           </p>
 
+          <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h3> 🖇 Самое важное</h3>
           <p>
             ⃠ Волосы не являются отдельным организмом, который можно "починить" только маской
@@ -3360,6 +3641,10 @@ content:`
           а достаточное питание, лечение выявленного дефицита и прекращение того фактора,
           который организм воспринимает как стресс
           </div>
+          
+          <img src=".images/mlk-tabletki.jpg"
+          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
         `
         }
         ]
