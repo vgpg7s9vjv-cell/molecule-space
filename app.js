@@ -979,7 +979,7 @@ pages:  [
 heading: "Molecule Plus",
 content:`
 
-          <img src=".images/mlk-blue2.jpg"
+          < src=".images/mlk-blue2.jpg"
           alt="plusblue2" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -1024,9 +1024,9 @@ content:`
             <li>Цветы гибискуса</li>             
            </ul>  
 
-          <img src=".images/mlk-blue1.jpg"
-          alt="plusblue1" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          <img src="./images/mlk-blue1.jpg"
+          alt="blue" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
 <h3>Если твой ИМТ:</h3>
            <ul>
@@ -1070,7 +1070,7 @@ content:`
           </p>
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ДРУГОЕ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h2>💊 Капсула:</h2>
@@ -1089,7 +1089,7 @@ content:`
 <h3>Вариант с радужными деталями и кьюар-кодом</h3>
 
           <img src=".images/plus-golofraphy.jpg"
-          alt="orig plus rainbow" 
+          alt="orig plusrainbow" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
 <h3>February 2025 - June 2028</h3>
@@ -1131,7 +1131,7 @@ content:`
 <h3>Вариант с серебряными деталями и без кьюар-кода</h3>
 
           <img src=".images/plus-silver.jpg"
-          alt="orig plus silver" 
+          alt="origplussilver" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
 <h3>February 2025 - June 2028</h3>
@@ -1167,7 +1167,7 @@ heading: "Molecule Premium",
 content:`
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ДРУГОЕ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Что из себя представляет</h3>
@@ -1213,7 +1213,7 @@ content:`
           </ul>  
 
           <img src="./images/premiumbears.jpg"
-          alt="premiumbears ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
 
@@ -1262,7 +1262,7 @@ content:`
           </p>
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h2>💊 Капсула:</h2>
@@ -1273,7 +1273,7 @@ content:`
           </p>
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h2>Даты сроков годности и описание коробок оригинальных упаковок:</h2>
@@ -1329,7 +1329,7 @@ heading: "Molecule Ultra",
 content:`
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Что из себя представляет</h3>
@@ -1423,7 +1423,7 @@ heading: "Molecule Plus/Premium ЖБ",
 content: `
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Что из себя представляет</h3>
@@ -1529,7 +1529,7 @@ heading: "Supressa",
 content:`
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>что из себя представляет</h3>
@@ -1572,7 +1572,7 @@ content:`
           </ul> 
 
           <img src="./images/supressabears.jpg"
-          alt="supressabears ЗАМЕНИТЬ" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
 <h3>Если твой ИМТ:</h3>
@@ -1621,7 +1621,7 @@ heading: "Mineral Balance",
 content: `
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Что из себя представляет</h3>
@@ -1664,7 +1664,7 @@ content: `
           </ul> 
 
           <img src="./images/mineralbears.jpg"
-          alt="mineralbears ЗАМЕНИТЬ" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
 <h3>Если твой ИМТ:</h3>
@@ -1717,7 +1717,7 @@ heading: "Heedly Slim-Complex",
 content:`
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Что из себя представляет<</h3>
@@ -1877,7 +1877,7 @@ heading: "Swapx Neo",
 content: `
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <div class="info-box">
@@ -1960,7 +1960,7 @@ heading: "Swapx Pro",
 content:`       
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>что из себя представляет</h3>
@@ -2055,7 +2055,7 @@ content:`
           </div>  
           
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Что из себя представляет</h3>
@@ -2192,7 +2192,7 @@ content:`
           </div>
           
           <img src="./images/himiya2.jpg"
-          alt="himiya2 ЗАМЕНИТЬ"
+          alt="ЗАМЕНИТЬ"
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         `
         },
@@ -2408,7 +2408,7 @@ content:`
           </div>
 
           <img src="./images/ano5.jpg"
-          alt="ano5 ЗАМЕНИТЬ"
+          alt="ЗАМЕНИТЬ"
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         `
         }       
@@ -2467,7 +2467,7 @@ content:`
           </ul> 
 
           <img src="./images/tabletki2.jpg"
-          alt="tabletki ЗАМЕНИТЬ"
+          alt="ЗАМЕНИТЬ"
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
         },
@@ -2657,7 +2657,7 @@ content:`
           </div>
           
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <p>
@@ -2767,7 +2767,7 @@ content:`
           </div>
           
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Лютеиновая фаза</h3>
@@ -2813,7 +2813,7 @@ pages:  [
 heading: "Запоры",
 content:`
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <p>
@@ -2862,7 +2862,7 @@ content:`
           </p>
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <p>            
@@ -2964,7 +2964,7 @@ content:`
           </p>
           
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
         `
         },
@@ -3001,7 +3001,7 @@ content:`
           </p>
           
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <div class="info-box">
@@ -3049,7 +3049,7 @@ content:`
           </p>
           
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>А что такое «грязная» и «плохая» еда?</h3>
@@ -3066,7 +3066,7 @@ content:`
           </div>
           
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Обычно у «чистых» продуктов есть свои признаки</h3>
@@ -3237,7 +3237,7 @@ heading: "Реально ли сохранить зубы на курсе и о�
 content:`
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <p>
@@ -3270,7 +3270,7 @@ heading: "Как сохранить качество кожи и почему н
 content:`
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <p>
@@ -3310,7 +3310,7 @@ content:`
           </div>
           
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">        
           
 <h3>❔ Какие могут быть причины?</h3>
@@ -3402,7 +3402,7 @@ content:`
 <h4>１Никотиновая кислота</h4>
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h4>Что делает:</h4>
@@ -3432,7 +3432,7 @@ content:`
 <h4>𝟚 Кислотный пилинг для кожи головы</h4>
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h4>Что делает:</h4>
@@ -3461,7 +3461,7 @@ content:`
 <h4>𝟛 Масло розмарина</h4>
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h4>что делает:</h4> 
@@ -3498,7 +3498,7 @@ content:`
 <h4>𝟜 Эсвицин</h4>
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h4>Что делает:</h4> 
@@ -3525,7 +3525,7 @@ content:`
 <h4>𝟝 Маска для корней волос</h4>
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h4>Что делает:</h4>
@@ -3552,7 +3552,7 @@ content:`
 <h4>𝟞 Аппликатор для нанесения средств на кожу головы</h4>
 
          <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h4>Для чего:</h4> 
@@ -3624,7 +3624,7 @@ content:`
           </p>
 
           <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3> 🖇 Самое важное</h3>
@@ -3643,7 +3643,7 @@ content:`
           </div>
           
           <img src=".images/mlk-tabletki.jpg"
-          alt="orig plus packet ЗАМЕНИТЬ ФОТО" 
+          alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
         `
         }
