@@ -1185,6 +1185,17 @@ content:`
           <br>
           ✧ упаковка: <b>серебряная</b>
           </p>
+
+<h2>Сравнение двух разных партий</h2>
+
+          <img src="./images/sravnenije.jpg"
+          alt="kapsulki" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">  
+          
+          <p>
+          ♡ Обе капсулы являются оригинальными, но цвет может варьироваться от партии к партии, в зависимости от
+          разной концентрации и дозировки действующих веществ
+          </p>
         `
         }
         ]
@@ -3134,7 +3145,7 @@ content:`
           </div>
           
          <img src="./images/dirtyfood.jpg"
-          alt="dirtyfood" 
+          alt="fearfood" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Обычно у «чистых» продуктов есть свои признаки</h3>
@@ -3160,6 +3171,10 @@ content:`
             <li>Делить еду на «заслуженную» и «незаслуженную»</li>
             <li>Мысленно рассчитывать, сколько придется пройти шагов после определенного блюда</li>
           </ul>
+          
+          <img src="./images/bulochka.jpg"
+          alt="fearfood"
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
         },
 
@@ -3714,8 +3729,8 @@ content:`
           который организм воспринимает как стресс
           </div>
           
-          <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/longhair.JPG"
+          alt="hair" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
         `
         }
