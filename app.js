@@ -325,6 +325,10 @@ content:`
           <p>
           Кофеин/экстракт кофе в составе большинства БАДов вытягивает воду из всего организма
           </p>
+          
+          <img src="./images/waterbottles.JPG"
+          alt="upackovki" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
 
 <h3>⟣Бессонница⟢</h3>
           <p>
@@ -375,6 +379,9 @@ content:`
 heading: "Общие противопоказания",
 content:`          
 <h2>➀ Нарушения сердечно-сосудистой системы</h2>
+          <img src="./images/mlk-blue4.jpg"
+          alt="upackovki" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 <h3>✧ Гипертония</h3>
           <p>
           Высокое содержание кофеина в БАДах стимулирует выброс норадреналина,
@@ -401,6 +408,9 @@ content:`
           <br>
 
 <h2>➁ Нарушения эндокринной системы</h2>
+          <img src="./images/upackovki.jpg"
+          alt="upackovki" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 <h3>✧ Болезни щитовидной железы (гипер- и гипотиреоз)</h3>
           <p>
           При гипертиреозе препарат усугубит опасную нагрузку на сердце (тахикардию)
@@ -421,6 +431,9 @@ content:`
           <br>
 
 <h2>➂ Нарушение работы печени и почек</h2>
+          <img src="./images/upackovki.jpg"
+          alt="upackovki" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 <h3>✧ Гепатит</h3>
           <p>
           Воспаленная печень не справляется с метаболизмом кофеина в составе,
@@ -441,6 +454,9 @@ content:`
           <br>
 
 <h2>➃ Общие нарушения организма</h2>
+          <img src="./images/upackovki.jpg"
+          alt="upackovki" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 <h3>✧ Глаукома</h3>
           <p>
           Кофеин вызывает расширение зрачков (мидриаз), что нарушает отток внутриглазной жидкости
@@ -501,7 +517,10 @@ content:`
           <br>
           А чтобы сдвинуться с мертвой точки, нужно изменить привычную нагрузку, рацион или режим отдыха
           </p>
-          <br>
+          
+          <img src="./images/upackovki.jpg"
+          alt="upackovki" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
 <h2>Какие могут быть причины остановки веса?</h2>
 <h2>➀ Неправильно рассчитанный дефицит калорий</h2>
@@ -726,8 +745,11 @@ content:`
           <br>
           Позже права перешли к «Abbott Laboratories», которая выпустила его под торговым названием «Meridia»
           (США) и «Reductil» (Европа)
-          <br>
           </p>
+          
+          <img src="./images/medical.jpg"
+          alt="upackovki" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">         
           
 <h2>🔬 Как работает сибутрамин?</h2>
           <p>
@@ -797,6 +819,10 @@ content:`
           практически всей группы торговых марок и всех стран, <b>включая СНГ</b>
           </p>
           
+          <img src="./images/memsiba.jpg"
+          alt="upackovki" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
+          
 <h3>⛔ Какие препараты попали «под раздачу»?</h3>
           <b>・ Meridia</b>
           <p>
@@ -843,6 +869,9 @@ heading: "Миф 1. Как связаны Германия, сибутрамин
 content:`
 
 <h2>🧪 Теперь перейдем к Молекуле</h2>
+          <img src="./images/mlk-blue2.jpg"
+          alt="upackovki" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 <h3>– Есть ли все-таки в Молекулах сибутрамин?</h3>
           <p>
           Никто не может утверждать, что в ней есть сибутрамин, ровно так же как и утверждать, что в ней его нет
@@ -986,7 +1015,7 @@ pages:  [
 heading: "Molecule Plus",
 content:`
 
-          <img src="./images/mlk-blue2.jpg"
+          <img src="./images/mlk-blue3.jpg"
           alt="plus1" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
@@ -1076,20 +1105,22 @@ content:`
           ♡ белый, глянцевый с серебряными надписями «molecule plus» по диагонали
           </p>
 
-          <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/plusupack.jpg"
+          alt="pack" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
 <h2>💊 Капсула:</h2>
           <p>
           ♡ белая, без надписей
+          <img src="./images/mlk-tabletki.jpg"
+          alt="kapsulki" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
           <br>
           ♡ внутри желто-коричневый порошок, пахнущий травами
-          </p>
-
-          <img src="./images/mlk-tabletki.jpg"
-          alt="plus" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          <img src="./images/plussostav.jpg"
+          alt="sostav" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
+          </p> 
                                                    
 <h2>Даты сроков годности и описание коробок оригинальных упаковок:</h2>
 
@@ -1173,8 +1204,8 @@ pages:  [
 heading: "Molecule Premium",
 content:`
 
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+         <img src="./images/premupack2.jpg"
+          alt="pack" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Что из себя представляет</h3>
@@ -1219,8 +1250,8 @@ content:`
             <li>Цветы гибискуса</li>             
           </ul>  
 
-          <img src="./images/premiumbears.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/premupack.jpg"
+          alt="pack" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
 
@@ -1264,13 +1295,15 @@ content:`
 <h2>🔖 Пакетик:</h2>           
           <p>
           ♡ темно-синий, ближе к черному
+          <img src="./images/premupack3.jpg"
+          alt="kapsulki" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
           <br>
           ♡ матовый, с белыми надписями «molecule plus premium» по диагонали
+          <img src="./images/premsostav.jpg"
+          alt="sostav" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
           </p>
-
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h2>💊 Капсула:</h2>
           <p>
@@ -1278,10 +1311,6 @@ content:`
           <br>
           ♡ внутри желто-коричневый порошок, пахнущий травами
           </p>
-
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h2>Даты сроков годности и описание коробок оригинальных упаковок:</h2>
 
@@ -1335,8 +1364,8 @@ pages:  [
 heading: "Molecule Ultra",
 content:`
 
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+         <img src="./images/ultraupack.jpg"
+          alt="pack" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Что из себя представляет</h3>
@@ -1410,6 +1439,17 @@ content:`
             <li>ultra → neo — <b>14 дней</b></li>  
             <li>ultra → pro — <b>14 дней</b></li> 
           </ul>  
+          
+<h3>Внешний вид</h3>
+<h4>Пакетик и капсулы:</h4>
+          <img src="./images/ultratabletki.jpg"
+          alt="kapsulki" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">  
+          
+<h4>Что внутри</h4>
+          <img src="./images/ultrasostav.jpg"
+          alt="sostav" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
         `
         }
         ]
@@ -1429,8 +1469,8 @@ pages:  [
 heading: "Molecule Plus/Premium ЖБ",
 content: `
 
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+         <img src="./images/zbupack.jpg"
+          alt="pack" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Что из себя представляет</h3>
@@ -1535,8 +1575,8 @@ pages:  [
 heading: "Supressa",
 content:`
 
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+         <img src="./images/supressabanka.jpg"
+          alt="pack" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>что из себя представляет</h3>
@@ -1578,8 +1618,9 @@ content:`
             <li>Экстракт зеленого чая</li>            
           </ul> 
 
-          <img src="./images/supressabears.jpg"
-          alt="ЗАМЕНИТЬ" 
+<h3>Что внутри</h3>
+          <img src="./images/supressasostav.jpg"
+          alt="sostav" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
 <h3>Если твой ИМТ:</h3>
@@ -1627,8 +1668,8 @@ pages:  [
 heading: "Mineral Balance",
 content: `
 
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+         <img src="./images/mineralupack.jpg"
+          alt="pack" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Что из себя представляет</h3>
@@ -1704,6 +1745,21 @@ content: `
             <li>mineral → neo — <b>14 дней</b></li> 
             <li>mineral → pro — <b>14 дней</b></li> 
           </ul>  
+
+<h3>Внешний вид</h3>
+<h4>Пакетик и капсулы:</h4>
+          <img src="./images/mineralupack2.jpg"
+          alt="pack" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
+          <img src="./images/mineraltabletki.jpg"
+          alt="kapsulki" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
+<h4>Что внутри:</h4>
+          <img src="./images/mineralsostav.jpg"
+          alt="sostav" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
         `
         }
         ]
@@ -1723,8 +1779,8 @@ pages:  [
 heading: "Heedly Slim-Complex",
 content:`
 
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+         <img src="./images/heedlyupack.jpg"
+          alt="pack" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Что из себя представляет<</h3>
@@ -1864,6 +1920,11 @@ content: `
           <ul>
             <li><b>На протяжении всего курса</b>: по 1 капсуле до или во время первого приема пищи</li>         
           </ul>   
+
+<h3>Внешний вид</h3>
+          <img src="./images/reducsostav.jpg"
+          alt="sostav" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
         `
         }
         ]
@@ -2099,10 +2160,6 @@ content:`
             <li>Альфа-липоевая кислота</li>
           </ul>  
 
-          <img src="./images/reduksin.jpg"
-          alt="Фото12" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-
 <h3>Если твой ИМТ:</h3>
           <ul>
             <li><b>Ниже</b> нормы: 1-3 кг</li>
@@ -2154,7 +2211,8 @@ content:`
           Если говорить коротко: обычные лабораторные анализы крови
           не покажут ни Молекулу, ни Супрессу, ни даже Редуксин
           </div>
-
+          
+          
 <h3>Что входит в состав ОАК, в том числе с СОЭ и лейкоцитарной формулой</h3>
           <ul>
             <li>Гемоглобин</li>
@@ -2198,8 +2256,8 @@ content:`
           <b>Все верно!</b>
           </div>
           
-          <img src="./images/himiya2.jpg"
-          alt="ЗАМЕНИТЬ"
+          <img src="./images/blood.jpg"
+          alt="blood"
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         `
         },
@@ -2473,8 +2531,8 @@ content:`
             <li>Фексофенадин (Аллегра)</li>
           </ul> 
 
-          <img src="./images/tabletki2.jpg"
-          alt="ЗАМЕНИТЬ"
+          <img src="./images/pills2.jpg"
+          alt="pills"
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
         },
@@ -2633,7 +2691,7 @@ content:`
             усугубиться проблемы с ЖКТ</li>
           </ul>    
      
-          <img src="./images/pills.jpg"
+          <img src="./images/pinkpills.jpg"
           alt="pills" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">     
         `
@@ -2663,8 +2721,8 @@ content:`
           время кровотечения и, соответственно, ухудшать свертываемость крови
           </div>
           
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+         <img src="./images/period.jpg"
+          alt="period" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <p>
@@ -2724,6 +2782,10 @@ content:`
           ✧ Задерживаться вода в теле
           </p>
           
+          <img src="./images/periodcare.jpg"
+          alt="period" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">  
+          
           <div class="info-box">
           Необходимо снизить дефицит калорий на курсе, чтобы твой организм мог иметь силы на обновление
           репродуктивной системы и восстановление после небольшой кровопотери
@@ -2773,7 +2835,7 @@ content:`
           свой контрольный вес
           </div>
           
-         <img src="./images/delicate.jpg"
+          <img src="./images/delicate.jpg"
           alt="delicate" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -2868,8 +2930,8 @@ content:`
           на таком же уровне, как и фраза сломанной электронике: «просто не зависай и работай»
           </p>
 
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/ano8.jpg"
+          alt="ano" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <p>            
@@ -2970,8 +3032,8 @@ content:`
           Он живет в зале и одержим ростом мышц
           </p>
           
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/holodilnik.jpg"
+          alt="holodilnik" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
         `
         },
@@ -3007,8 +3069,8 @@ content:`
           с вечно болезненными пролежнями на копчике из-за недостатка жировой массы и отсутствия сил двигаться
           </p>
           
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/cleanfood2.jpg"
+          alt="cleanfood" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <div class="info-box">
@@ -3055,8 +3117,8 @@ content:`
           конкретный вкус или даже конкретный способ приготовления
           </p>
           
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/cleanfood.jpg"
+          alt="cleanfood" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>А что такое «грязная» и «плохая» еда?</h3>
@@ -3072,8 +3134,8 @@ content:`
           что приводит к <b>постоянным навязчивым мыслям об этих продуктах</b>
           </div>
           
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+         <img src="./images/dirtyfood.jpg"
+          alt="dirtyfood" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Обычно у «чистых» продуктов есть свои признаки</h3>
@@ -3086,8 +3148,8 @@ content:`
             <li>🍞 Репутация «полезного» продукта</li>
           </ul>
           
-          <img src="./images/safefood.jpg"
-          alt="safe"
+          <img src="./images/cleanfood3.jpg"
+          alt="cleanfood"
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
 <h3>А как же проявляется привычка искать fear-food?</h3>
@@ -3099,10 +3161,6 @@ content:`
             <li>Делить еду на «заслуженную» и «незаслуженную»</li>
             <li>Мысленно рассчитывать, сколько придется пройти шагов после определенного блюда</li>
           </ul>
-
-          <img src="./images/fearfood.jpg"
-          alt="fear"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         `
         },
 
@@ -3243,8 +3301,8 @@ pages:  [
 heading: "Реально ли сохранить зубы на курсе и обязательно ли нужен кальций",
 content:`
 
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/dentist.jpg"
+          alt="teeth" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <p>
@@ -3252,6 +3310,10 @@ content:`
           автоматически безопасным.
           </p>
 
+          <img src="./images/teethinside.jpg"
+          alt="teeth" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
           <p>
           активные вещества могут взаимодействовать с лекарствами,
           влиять на сердечно-сосудистую систему, сон, пищеварение
@@ -3276,8 +3338,8 @@ pages:  [
 heading: "Как сохранить качество кожи и почему нельзя пить системные ретиноиды",
 content:`
 
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/skincare1.jpg"
+          alt="skin" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <p>
@@ -3285,6 +3347,10 @@ content:`
           автоматически безопасным.
           </p>
 
+          <img src="./images/skincare2.jpg"
+          alt="skin" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
           <p>
           активные вещества могут взаимодействовать с лекарствами,
           влиять на сердечно-сосудистую систему, сон, пищеварение
