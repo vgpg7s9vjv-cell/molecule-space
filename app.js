@@ -2061,8 +2061,8 @@ content:`
           похудения среди взрослой аудитории наших покупателей, но о нем мало говорят
           </div>  
           
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+         <img src="./images/ozempic.jpg"
+          alt="ozepmic" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Что из себя представляет</h3>
@@ -2414,8 +2414,8 @@ content:`
           ❌ Крайне не рекомендуем начинать курс без консультации специалиста
           </div>
 
-          <img src="./images/ano5.jpg"
-          alt="ЗАМЕНИТЬ"
+          <img src="./images/ano6.jpg"
+          alt="ano6"
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         `
         }       
@@ -2773,8 +2773,8 @@ content:`
           свой контрольный вес
           </div>
           
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+         <img src="./images/delicate.jpg"
+          alt="delicate" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>Лютеиновая фаза</h3>
@@ -2819,8 +2819,8 @@ pages:  [
         {
 heading: "Запоры",
 content:`
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+         <img src="./images/poop.jpg"
+          alt="poop" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <p>
