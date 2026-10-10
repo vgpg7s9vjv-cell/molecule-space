@@ -3116,7 +3116,7 @@ content:`
           конкретный вкус или даже конкретный способ приготовления
           </p>
           
-          <img src="./images/cleanfood.jpg"
+          <img src="./images/cleanfood1.jpg"
           alt="cleanfood" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3695,7 +3695,7 @@ content:`
           потому что волосы у разных людей растут в исключительно разной скорости
           </p>
 
-          <img src="./images/haircut.jpg"
+          <img src="./images/haircut.JPG"
           alt="hair" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
