@@ -747,7 +747,7 @@ content:`
           (США) и «Reductil» (Европа)
           </p>
           
-          <img src="./images/medical.jpg"
+          <img src="./images/medical.JPG"
           alt="upackovki" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">         
           
@@ -1299,10 +1299,7 @@ content:`
           alt="kapsulki" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
           <br>
-          ♡ матовый, с белыми надписями «molecule plus premium» по диагонали
-          <img src="./images/premsostav.jpg"
-          alt="sostav" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
+          ♡ матовый, с белыми надписями «molecule plus premium» по диагонали         
           </p>
           
 <h2>💊 Капсула:</h2>
@@ -1310,6 +1307,9 @@ content:`
           ♡ бело-голубые, без надписей
           <br>
           ♡ внутри желто-коричневый порошок, пахнущий травами
+          <img src="./images/premsostav.jpg"
+          alt="sostav" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
           </p>
           
 <h2>Даты сроков годности и описание коробок оригинальных упаковок:</h2>
@@ -1442,7 +1442,7 @@ content:`
           
 <h3>Внешний вид</h3>
 <h4>Пакетик и капсулы:</h4>
-          <img src="./images/ultratabletki.jpg"
+          <img src="./images/ultratabletki.JPG"
           alt="kapsulki" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">  
           
@@ -1668,7 +1668,7 @@ pages:  [
 heading: "Mineral Balance",
 content: `
 
-         <img src="./images/mineralupack.jpg"
+         <img src="./images/mineralupack.JPG"
           alt="pack" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -1778,8 +1778,7 @@ pages:  [
         {
 heading: "Heedly Slim-Complex",
 content:`
-
-         <img src="./images/heedlyupack.jpg"
+          <img src="./images/heedlyupack.JPG"
           alt="pack" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -2256,7 +2255,7 @@ content:`
           <b>Все верно!</b>
           </div>
           
-          <img src="./images/blood.jpg"
+          <img src="./images/blood.JPG"
           alt="blood"
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         `
@@ -2531,7 +2530,7 @@ content:`
             <li>Фексофенадин (Аллегра)</li>
           </ul> 
 
-          <img src="./images/pills2.jpg"
+          <img src="./images/pills2.JPG"
           alt="pills"
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
         `
@@ -2721,7 +2720,7 @@ content:`
           время кровотечения и, соответственно, ухудшать свертываемость крови
           </div>
           
-         <img src="./images/period.jpg"
+          <img src="./images/period.JPG"
           alt="period" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -2782,7 +2781,7 @@ content:`
           ✧ Задерживаться вода в теле
           </p>
           
-          <img src="./images/periodcare.jpg"
+          <img src="./images/periodcare.JPG"
           alt="period" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">  
           
@@ -2881,7 +2880,7 @@ pages:  [
         {
 heading: "Запоры",
 content:`
-         <img src="./images/poop.jpg"
+          <img src="./images/poop.jpg"
           alt="poop" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -2930,7 +2929,7 @@ content:`
           на таком же уровне, как и фраза сломанной электронике: «просто не зависай и работай»
           </p>
 
-          <img src="./images/ano8.jpg"
+          <img src="./images/ano8.JPG"
           alt="ano" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3032,7 +3031,7 @@ content:`
           Он живет в зале и одержим ростом мышц
           </p>
           
-          <img src="./images/holodilnik.jpg"
+          <img src="./images/holodilnik.JPG"
           alt="holodilnik" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
         `
@@ -3069,7 +3068,7 @@ content:`
           с вечно болезненными пролежнями на копчике из-за недостатка жировой массы и отсутствия сил двигаться
           </p>
           
-          <img src="./images/cleanfood2.jpg"
+          <img src="./images/cleanfood2.JPG"
           alt="cleanfood" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3310,7 +3309,7 @@ content:`
           автоматически безопасным.
           </p>
 
-          <img src="./images/teethinside.jpg"
+          <img src="./images/teethinside.JPG"
           alt="teeth" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3338,7 +3337,7 @@ pages:  [
 heading: "Как сохранить качество кожи и почему нельзя пить системные ретиноиды",
 content:`
 
-          <img src="./images/skincare1.jpg"
+          <img src="./images/skincare1.JPG"
           alt="skin" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3347,7 +3346,7 @@ content:`
           автоматически безопасным.
           </p>
 
-          <img src="./images/skincare2.jpg"
+          <img src="./images/skincare2.JPG"
           alt="skin" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3382,8 +3381,8 @@ content:`
           Очень часто причина находится не в шампуне и даже не в коже головы, а в том, что происходит с организмом изнутри
           </div>
           
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+         <img src="./images/hairbrush.jpg"
+          alt="hair" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">        
           
 <h3>❔ Какие могут быть причины?</h3>
@@ -3474,7 +3473,7 @@ content:`
           
 <h4>１Никотиновая кислота</h4>
 
-         <img src="./images/mlk-tabletki.jpg"
+          <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3504,7 +3503,7 @@ content:`
 
 <h4>𝟚 Кислотный пилинг для кожи головы</h4>
 
-         <img src="./images/mlk-tabletki.jpg"
+          <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3533,7 +3532,7 @@ content:`
 
 <h4>𝟛 Масло розмарина</h4>
 
-         <img src="./images/mlk-tabletki.jpg"
+          <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3570,7 +3569,7 @@ content:`
 
 <h4>𝟜 Эсвицин</h4>
 
-         <img src="./images/mlk-tabletki.jpg"
+          <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3597,7 +3596,7 @@ content:`
 
 <h4>𝟝 Маска для корней волос</h4>
 
-         <img src="./images/mlk-tabletki.jpg"
+          <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3624,7 +3623,7 @@ content:`
 
 <h4>𝟞 Аппликатор для нанесения средств на кожу головы</h4>
 
-         <img src="./images/mlk-tabletki.jpg"
+          <img src="./images/mlk-tabletki.jpg"
           alt="ЗАМЕНИТЬ" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
@@ -3696,8 +3695,8 @@ content:`
           потому что волосы у разных людей растут в исключительно разной скорости
           </p>
 
-          <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/haircut.jpg"
+          alt="hair" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3> 🖇 Самое важное</h3>
