@@ -3068,7 +3068,7 @@ content:`
           с вечно болезненными пролежнями на копчике из-за недостатка жировой массы и отсутствия сил двигаться
           </p>
           
-          <img src="./images/cleanfood2.JPG"
+          <img src="./images/cleanfood2.jpg"
           alt="cleanfood" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
