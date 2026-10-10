@@ -142,6 +142,10 @@ content: `
             </p>
           </div>
           </div>
+
+          <img src="./images/logoarttmolecule2.JPG"
+          alt="logo" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">            
        `
        }
        ]
