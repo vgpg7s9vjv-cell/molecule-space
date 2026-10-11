@@ -6877,12 +6877,9 @@ wrap.innerHTML = `
           </small>
           </span>
 
-          <span class="water-mini-bar">
-          <span
-          id="waterMiniProgress"
+          <span class="water-mini-bar"
           style="--water-progress:${percent}%"
           >
-          <span>${percent}%</span>
           </span>
           </button>
           `;
