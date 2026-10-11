@@ -6088,7 +6088,7 @@ function refreshHomeTrackers() {
   }
 
   if (waterProgress) {
-    waterProgress.style.width = `${percent}%`;
+    waterProgress.style.orb = `${percent}%`;
   };
 
 }
