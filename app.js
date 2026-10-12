@@ -1934,17 +1934,23 @@ title: "Сложности выбора и как его сделать",
 category: "библиотека БАДов", 
 pages:  [      
         {
-heading: "Swapx Neo",
+heading: "Swapx Neo/Pro",
 content: `
 
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/IMG_6219.JPG"
+          alt="packsneopro" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
           <div class="info-box">
           Новинка среди БАДов для похудения, которая позиционруется как совокупность Молекулы с Супрессой
           </div>  
+          
+<h2>Swapx Neo</h2>
 
+          <img src="./images/IMG_6220.JPG"
+          alt="packsneopro" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          
 <h3>Что из себя представляет</h3> 
           <p>
           более деликатная версия, 30 капсул
@@ -2013,6 +2019,16 @@ content: `
             <li>neo → heedly slimcomplex — <b>10 дней</b></li>
             <li>neo → ozempic — <b>10 дней</b></li>
           </ul>
+
+<h2>Как выглядят капсулы</h2>
+          <img src="./images/IMG_6223.jpg"
+          alt="swapxprokaps" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">    
+
+<h2>Что внутри</h2>
+          <img src="./images/IMG_6225.jpg"
+          alt="swapxneokaps" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         ` 
         },
    
@@ -2020,8 +2036,8 @@ content: `
 heading: "Swapx Pro",
 content:`       
 
-         <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/IMG_6221.JPG"
+          alt="packpro" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h3>что из себя представляет</h3>
@@ -2091,6 +2107,16 @@ content:`
             <li>pro → heedly slimcomplex — <b>10 дней</b></li>
             <li>pro → ozempic — <b>10 дней</b></li>
           </ul>  
+          
+<h2>Как выглядят капсулы</h2>
+          <img src="./images/IMG_6222.jpg"
+          alt="swapxprokaps" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">        
+
+<h2>Что внутри</h2>
+          <img src="./images/IMG_6226.jpg"
+          alt="swapxprokaps" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
        `
        }
        ]
