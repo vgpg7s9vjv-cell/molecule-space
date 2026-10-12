@@ -2009,57 +2009,44 @@ body.theme-minimalism .back-button:active {
   color: var(--text);
 }
 
-/* Базовое состояние плашки страйка (если у тебя это отдельный блок) */
-.streak-container {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  background: rgba(var(--text-rgb, 128, 128, 128), 0.05);
-  border: 1px solid transparent;
-  border-radius: 20px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+/* Когда все витамины на сегодня приняты, кнопка плавно меняет фон */
+.supplements-tracker-card.active {
+  background: rgba(255, 69, 0, 0.08) !important; /* Мягкий оранжевый оттенок */
+  border-color: rgba(255, 69, 0, 0.2) !important;
 }
 
-/* Когда ВСЕ витамины на сегодня приняты — плашка оживает */
-.streak-container.active {
-  background: rgba(255, 69, 0, 0.09); /* Нежно-оранжевый отлив */
-  border-color: rgba(255, 69, 0, 0.25);
-  box-shadow: 0 0 15px rgba(255, 69, 0, 0.08);
-}
-
-/* Сам эмодзи огонька по умолчанию (потухший/серый) */
+/* Настройки для самого эмодзи огонька */
 .streak-fire-emoji {
   display: inline-block;
-  font-size: 18px;
-  filter: grayscale(100%) opacity(0.4); /* Делаем его серым и блеклым */
-  transition: filter 0.4s ease, transform 0.4s ease;
+  margin-left: 4px;
+  filter: grayscale(100%) opacity(0.35); /* По умолчанию он серый и блеклый */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center bottom;
 }
 
-/* Огонек ЗАГОРАЕТСЯ, когда план выполнен */
-.streak-container.active .streak-fire-emoji {
-  filter: grayscale(0%) opacity(1); /* Возвращаем сочный цвет */
-  animation: fire-breathing 1.8s infinite alternate ease-in-out; /* Включаем пульсацию */
+/* А вот тут магия: если карточка активна, огонек оживает и пульсирует! */
+.supplements-tracker-card.active .streak-fire-emoji {
+  filter: grayscale(0%) opacity(1); /* Становится цветным и ярким */
+  animation: fire-breathing 1.6s infinite alternate ease-in-out; /* Пульсация */
 }
 
-/* Цифра дней рядом с огоньком */
+/* На всякий случай сделаем небольшой отступ между цифрой и огоньком */
 .streak-num {
-  font-weight: 800;
-  font-size: 14px;
+  font-weight: 750;
 }
 
-/* Красивая плавная анимация «живого» огня */
+/* Красивая анимация колыхания огня */
 @keyframes fire-breathing {
   0% {
     transform: scale(1);
-    filter: drop-shadow(0 0 2px rgba(255, 69, 0, 0));
+    filter: drop-shadow(0 0 0px rgba(255, 69, 0, 0));
   }
   100% {
-    transform: scale(1.2) rotate(3deg); /* Огонек чуть увеличивается и колышется */
-    filter: drop-shadow(0 2px 8px rgba(255, 69, 0, 0.5)); /* Появляется неоновое свечение */
+    transform: scale(1.25) rotate(4deg); /* Огонек увеличивается и наклоняется */
+    filter: drop-shadow(0 2px 6px rgba(255, 69, 0, 0.6)); /* Неоновое свечение */
   }
 }
+
 
 /* ───────────────────────────────────────
                💕 СЕРИЯ
