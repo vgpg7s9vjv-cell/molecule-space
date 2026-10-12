@@ -1077,6 +1077,41 @@ body.light-theme .mood-entry {
   padding-bottom: 20px;
 }
 
+/* Класс анимации, который мы повесим на внутренний контейнер дневника */
+.diary-fade-in {
+  animation: diaryContentShow 0.28s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+  opacity: 0;
+}
+
+@keyframes diaryContentShow {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99); /* Мягкое появление чуть снизу */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Делаем так, чтобы кнопки выбора настроения (смайлики) упруго сжимались при клике */
+[data-mood] {
+  transition: transform 0.1s ease, background-color 0.2s ease;
+  cursor: pointer;
+}
+
+[data-mood]:active {
+  transform: scale(0.88); /* Смайлик слегка уменьшается под пальцем */
+}
+
+/* Плавное удаление записей */
+[data-delete-entry] {
+  transition: transform 0.1s ease, opacity 0.2s ease;
+}
+[data-delete-entry]:active {
+  transform: scale(0.9);
+}
+
 /* ==================================================
      ARTICLE OVERLAY — ПОВЕРХ ВСЕГО ПРИЛОЖЕНИЯ
 ================================================== */
