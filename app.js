@@ -6381,22 +6381,25 @@ function refreshHomeTrackers() {
   }
 
   if (streakElement) {
-    // Высчитываем, всё ли принято конкретно ЗА СЕГОДНЯ
     const todayKey = trackerDate();
+    // Проверяем, приняты ли ВСЕ добавленные таблетки на сегодня
     const isTodayComplete = supplements.length > 0 && supplements.every(item => getSupplementTaken(item, todayKey));
 
-    // Оборачиваем сам эмодзи в тег span с классом, чтобы его стилизовать
-    streakElement.innerHTML = `<span class="streak-fire-emoji">${streak > 0 && isTodayComplete ? '🔥' : '🔥'}</span> <span class="streak-num">${streak}</span>`;
+    // Разделяем цифру и эмодзи, чтобы анимировать только огонек
+    streakElement.innerHTML = `<span class="streak-num">${streak}</span><span class="streak-fire-emoji">🔥</span>`;
 
-    // Находим родительский контейнер нашего страйка (например, плашку, где он лежит)
-    const streakCard = streakElement.closest('.streak-container') || streakElement;
+    // Находим твою кнопку-карточку
+    const trackerCard = document.getElementById("supplementsTrackerButton");
 
-    if (isTodayComplete) {
-      streakCard.classList.add('active');
-    } else {
-      streakCard.classList.remove('active');
+    if (trackerCard) {
+      if (isTodayComplete) {
+        trackerCard.classList.add('active'); // Зажигаем, если всё выпито
+      } else {
+        trackerCard.classList.remove('active'); // Гасим, если еще не всё приняли
+      }
     }
   }
+
 
 
   const water = getTodayWater();
