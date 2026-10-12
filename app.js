@@ -1538,15 +1538,13 @@ content:`
             <li>ultra → neo — <b>14 дней</b></li>  
             <li>ultra → pro — <b>14 дней</b></li> 
           </ul>  
-          
-<h3>Внешний вид</h3>
 
-<h4>Пакетик и капсулы:</h4>
+<h2>Пакетик и капсулы:</h2>
           <img src="./images/ultratabletki.JPG"
           alt="kapsulki" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">  
           
-<h4>Что внутри</h4>
+<h2>Что внутри:</h2>
           <img src="./images/ultrasostav.jpg"
           alt="sostav" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
@@ -1672,7 +1670,7 @@ content: `
   "supplements-supressa": {
    
 section: "supplements",
-title: "сложности выбора и как его сделать",
+title: "Сложности выбора и как его сделать",
 category: "библиотека БАДов", 
 pages:  [      
         {
@@ -1725,7 +1723,7 @@ content:`
             <li>Экстракт зеленого чая</li>            
           </ul> 
 
-<h2>Что внутри</h2>
+<h2>Что внутри:</h2>
           <img src="./images/supressasostav.jpg"
           alt="sostav" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
@@ -1856,8 +1854,7 @@ content: `
             <li>mineral → pro — <b>14 дней</b></li> 
           </ul>  
 
-<h3>Внешний вид</h3>
-<h4>Пакетик и капсулы:</h4>
+<h2>Пакетик и капсулы:</h2>
 
           <img src="./images/mineralupack2.jpg"
           alt="pack" 
@@ -1867,7 +1864,7 @@ content: `
           alt="kapsulki" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
-<h4>Что внутри:</h4>
+<h2>Что внутри:</h2>
 
           <img src="./images/mineralsostav.jpg"
           alt="sostav" 
@@ -2032,7 +2029,7 @@ content: `
             <li><b>На протяжении всего курса</b>: по 1 капсуле до или во время первого приема пищи</li>         
           </ul>   
 
-<h2>Внешний вид</h2>
+<h2>Что внутри:</h2>
 
           <img src="./images/reducsostav.jpg"
           alt="sostav" 
@@ -2139,13 +2136,13 @@ content: `
             <li>neo → ozempic — <b>10 дней</b></li>
           </ul>
 
-<h2>Как выглядят капсулы</h2>
+<h2>Как выглядят капсулы:</h2>
 
           <img src="./images/IMG_6223.jpg"
           alt="swapxprokaps" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">    
 
-<h2>Что внутри</h2>
+<h2>Что внутри:</h2>
 
           <img src="./images/IMG_6225.jpg"
           alt="swapxneokaps" 
@@ -2229,13 +2226,13 @@ content:`
             <li>pro → ozempic — <b>10 дней</b></li>
           </ul>  
           
-<h2>Как выглядят капсулы</h2>
+<h2>Как выглядят капсулы:</h2>
 
           <img src="./images/IMG_6222.jpg"
           alt="swapxprokaps" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">        
 
-<h2>Что внутри</h2>
+<h2>Что внутри:</h2>
 
           <img src="./images/IMG_6226.jpg"
           alt="swapxprokaps" 
