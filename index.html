@@ -154,6 +154,24 @@ body.theme-minimalism .home-screen {
 .tracker-card-arrow {
   color:var(--muted); 
   font-size:23px; }
+  
+.water-mini-bar {
+  width:56px; 
+  height:7px; 
+  flex:0 0 56px;
+  border-radius:99px;
+  background:rgba(127,127,127,.11); 
+  overflow:hidden; }
+  
+.water-mini-bar span {
+  display:block;
+  height:100%; 
+  width:0;
+  border-radius:inherit; 
+  background:linear-gradient(
+    90deg,
+    var(--blue),var(--purple),var(--pink)); 
+  transition:width .3s ease; }
 
 .tracker-overlay {
   position:fixed;
