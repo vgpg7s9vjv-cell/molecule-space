@@ -338,18 +338,27 @@ content:`
           Именно поэтому мы рекомендуем пить БАДы для похудения не позднее, чем за 7-8 часов
           до сна
           </p>
+          <img src="./images/IMG_6237.jpg"
+          alt="бессонница" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
 <h3>⟣Увеличение потоотделения⟢</h3>
           <p>
           Кофеин вызывает повышение норадреналина в крови, который запускает симпатичесую систему "бей или беги"
           и повышает "стрессовое" потоотделение, которое еще называют "холодный пот"
           </p>
+          <img src="./images/IMG_6238.JPG"
+          alt="пот" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
 <h3>⟣Тахикардия и увеличение ЧСС⟢</h3>
           <p>
           По той же причине кофеин выбрасывает в кровь норадреналин и кортизол, которые запускают
           симпатическую систему "выживания", а она в свою очередь увеличивает частоту сердечных сокращений
           </p>
+          <img src="./images/IMG_6240.JPG"
+          alt="сердешко" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
 <h3>⟣Потемнение в глазах и обмороки⟢</h3>
           <p>
@@ -358,6 +367,9 @@ content:`
           <br>
           В тяжелых случаях может вызывать тремор и судороги конечностей, кратковременное онемение языка
           </p>
+          <img src="./images/IMG_6241.JPG"
+          alt="обморок" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
 <h3>⟣Запоры⟢</h3>
           <p>
@@ -366,12 +378,18 @@ content:`
           <br>
           Обезвоживание приводит к замедлению работы перистальтики и застою содержимого кишечного тракта
           </p>
+          <img src="./images/IMG_6243.jpg"
+          alt="запор" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
 <h3>⟣Провалы в памяти/отсутствие концентрации⟢</h3>
           <p>
           Могут быть вызваны некоторыми вышеперечисленными факторами, например, бессонницей
           или слишком высоким дефицитом калорий/голодания
           </p>
+          <img src="./images/IMG_6242.jpg"
+          alt="память" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         `
         },               
 
@@ -379,8 +397,8 @@ content:`
 heading: "Общие противопоказания",
 content:`          
 <h2>➀ Нарушения сердечно-сосудистой системы</h2>
-          <img src="./images/mlk-blue4.jpg"
-          alt="upackovki" 
+          <img src="./images/IMG_6246.jpg"
+          alt="сердечко" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 <h3>✧ Гипертония</h3>
           <p>
@@ -408,8 +426,8 @@ content:`
           <br>
 
 <h2>➁ Нарушения эндокринной системы</h2>
-          <img src="./images/upackovki.jpg"
-          alt="upackovki" 
+          <img src="./images/IMG_6247.jpg"
+          alt="скальпель" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 <h3>✧ Болезни щитовидной железы (гипер- и гипотиреоз)</h3>
           <p>
@@ -431,8 +449,8 @@ content:`
           <br>
 
 <h2>➂ Нарушение работы печени и почек</h2>
-          <img src="./images/upackovki.jpg"
-          alt="upackovki" 
+          <img src="./images/IMG_6248.jpg"
+          alt="руки" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 <h3>✧ Гепатит</h3>
           <p>
@@ -454,8 +472,8 @@ content:`
           <br>
 
 <h2>➃ Общие нарушения организма</h2>
-          <img src="./images/upackovki.jpg"
-          alt="upackovki" 
+          <img src="./images/IMG_6249.JPG"
+          alt="лаборатория" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 <h3>✧ Глаукома</h3>
           <p>
@@ -518,8 +536,8 @@ content:`
           А чтобы сдвинуться с мертвой точки, нужно изменить привычную нагрузку, рацион или режим отдыха
           </p>
           
-          <img src="./images/upackovki.jpg"
-          alt="upackovki" 
+          <img src="./images/IMG_6250.jpg"
+          alt="пробирки" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
           
 <h2>Какие могут быть причины остановки веса?</h2>
@@ -872,7 +890,8 @@ content:`
           <img src="./images/mlk-blue2.jpg"
           alt="upackovki" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-<h3>– Есть ли все-таки в Молекулах сибутрамин?</h3>
+          
+<h3>– Есть ли все-таки там сибутрамин?</h3>
           <p>
           Никто не может утверждать, что в ней есть сибутрамин, ровно так же как и утверждать, что в ней его нет
           </p>
@@ -971,14 +990,14 @@ content:`
           ⋆ Затем, чтобы быть перед нашими покупателями честными
           </p2>
           
+          <img src="./images/arttmolecule3.jpg"
+          alt="logomolecule" 
+          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">        
+          
           <div class="info-box">          
           <b>Ведь на каждого врунишку-маркетолога найдется свой любопытный и умеющий пользоваться
           интернетом покупатель</b>
-          </div>
-          
-          <img src="./images/arttmolecule3.jpg"
-          alt="logomolecule" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
+          </div>           
         `
         }
         ] 
