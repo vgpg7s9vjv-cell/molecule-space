@@ -1706,7 +1706,7 @@ content: `
           </ul> 
 
           <img src="./images/mineralbears.jpg"
-          alt="ЗАМЕНИТЬ" 
+          alt="минерал" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
 
 <h3>Если твой ИМТ:</h3>
@@ -4095,8 +4095,8 @@ content:`
           
 <h4>１Никотиновая кислота</h4>
 
-          <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/IMG_6227.jpg"
+          alt="nikotinka" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h4>Что делает:</h4>
@@ -4125,8 +4125,8 @@ content:`
 
 <h4>𝟚 Кислотный пилинг для кожи головы</h4>
 
-          <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/IMG_6228.jpg"
+          alt="piling" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h4>Что делает:</h4>
@@ -4154,8 +4154,8 @@ content:`
 
 <h4>𝟛 Масло розмарина</h4>
 
-          <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/IMG_6229.jpg"
+          alt="maslo" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h4>что делает:</h4> 
@@ -4191,8 +4191,8 @@ content:`
 
 <h4>𝟜 Эсвицин</h4>
 
-          <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/IMG_6230.jpg"
+          alt="esvicin" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h4>Что делает:</h4> 
@@ -4218,8 +4218,8 @@ content:`
 
 <h4>𝟝 Маска для корней волос</h4>
 
-          <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/IMG_6231.JPG"
+          alt="maska" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h4>Что делает:</h4>
@@ -4245,8 +4245,8 @@ content:`
 
 <h4>𝟞 Аппликатор для нанесения средств на кожу головы</h4>
 
-          <img src="./images/mlk-tabletki.jpg"
-          alt="ЗАМЕНИТЬ" 
+          <img src="./images/IMG_6232.jpg"
+          alt="applikator" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
           
 <h4>Для чего:</h4> 
