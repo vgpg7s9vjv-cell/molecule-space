@@ -6381,8 +6381,23 @@ function refreshHomeTrackers() {
   }
 
   if (streakElement) {
-    streakElement.textContent = `${streak} 🔥`;
+    // Высчитываем, всё ли принято конкретно ЗА СЕГОДНЯ
+    const todayKey = trackerDate();
+    const isTodayComplete = supplements.length > 0 && supplements.every(item => getSupplementTaken(item, todayKey));
+
+    // Оборачиваем сам эмодзи в тег span с классом, чтобы его стилизовать
+    streakElement.innerHTML = `<span class="streak-fire-emoji">${streak > 0 && isTodayComplete ? '🔥' : '🔥'}</span> <span class="streak-num">${streak}</span>`;
+
+    // Находим родительский контейнер нашего страйка (например, плашку, где он лежит)
+    const streakCard = streakElement.closest('.streak-container') || streakElement;
+
+    if (isTodayComplete) {
+      streakCard.classList.add('active');
+    } else {
+      streakCard.classList.remove('active');
+    }
   }
+
 
   const water = getTodayWater();
   const goal = getWaterGoal();
