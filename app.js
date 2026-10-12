@@ -4793,189 +4793,128 @@ localStorage.setItem(moodStorageKey, JSON.stringify(entries.slice(0, 100)));
                                    }
 
 function renderMoodJournal() {
-const entries = getMoodEntries();
-const moods = ["😊", "🥳", "🥰", "😕", "😣", "😭", "😡", "🫩", "🤒"];
+  const entries = getMoodEntries();
+  const moods = ["😊", "🥳", "🥰", "😕", "😣", "😭", "😡", "🫩", "🤒"];
 
-contentContainer.innerHTML = `
-          <div class="screen-inner diary-page fade-in">
+  // Добавляем класс 'diary-fade-in' прямо в главный контейнер для плавного появления всей страницы
+  contentContainer.innerHTML = `
+    <div class="screen-inner diary-page diary-fade-in">
 
-          <button
-          class="back-button"
-          id="diaryBackButton"
-          >
-          ← вернуться в меню
-          </button>
+      <button class="back-button" id="diaryBackButton">
+        ← вернуться в меню
+      </button>
 
-          <header class="section-header">
-          <p class="section-kicker">mood journal</p>
+      <header class="section-header">
+        <p class="section-kicker">mood journal</p>
+        <h1>дневник настроения</h1>
+        <p>место для коротких заметок о своем состоянии и событиях дня ♡</p>
+      </header>
 
-<h1>
-дневник настроения
-</h1>
+      <section class="diary-compose">
+        <p class="diary-date">
+          сегодня · ${new Date().toLocaleDateString("ru-RU", { day: "numeric", month: "long" })}
+        </p>
 
-          <p>
-          место для коротких заметок о своем состоянии и событиях дня ♡
-          </p>
-          </header>
-
-          <section class="diary-compose">
-
-          <p class="diary-date">
-          сегодня · ${new Date().toLocaleDateString("ru-RU", {
-            day: "numeric",
-            month: "long"
-                    })}
-          </p>
-
-          <div
-          class="mood-picker"
-          aria-label="какое у тебя настроение?"
-          >
+        <div class="mood-picker" aria-label="какое у тебя настроение?">
           ${moods.map(mood => `
-          <button
-          type="button"
-          class="mood-choice ${selectedMood === mood ? "selected" : ""}"
-          data-mood="${mood}"
-          >
-          ${mood}
-          </button>
-          `).join("")
-          }
-          </div>
+            <button type="button" class="mood-choice selectedMood === mood ? "selected" : """ data-mood="{mood}">
+              \${mood}
+            </button>
+          `).join("")}
+        </div>
 
-          <textarea
-          class="diary-textarea"
-          id="diaryText"
-          placeholder="что хочется записать?"
-          ></textarea>
+        <textarea class="diary-textarea" id="diaryText" placeholder="что хочется записать?"></textarea>
 
-          <button
-          type="button"
-          class="calculator-button diary-save"
-          id="saveDiaryButton"
-          >
+        <button type="button" class="calculator-button diary-save" id="saveDiaryButton">
           записать
-          </button>
+        </button>
+      </section>
 
-          </section>
-
-          <div class="diary-list">
-
-          ${
-          entries.length
-          ? entries.map((entry, index) => `
-          < class="mood-entry">
-
-          <div class="mood-entry-head">
-          <span class="mood-entry-emoji">
-          ${entry.mood}
-          </span>
-
-          <span class="mood-entry-date">
-          ${entry.date}
-          </span>
-          </div>
-
-          <p class="mood-entry-text">
-          ${escapeHtml(entry.text)}
-          </p>
-
-          <button
-          type="button"
-          class="diary-delete-button"
-          data-delete-entry="${index}"
-          >
-          удалить
-          </button>
-
-          </>
-          `).join("")
-          : `
-          
+      <div class="diary-list">
+        ${entries.length ? entries.map((entry, index) => `
+          /* ИСПРАВЛЕНО: Добавили правильный тег article вместо сломанного скопированного */
+          <article class="mood-entry">
+            <div class="mood-entry-head">
+              <span class="mood-entry-emoji">\${entry.mood}</span>
+              <span class="mood-entry-date">\${entry.date}</span>
+            </div>
+            <p class="mood-entry-text">\${escapeHtml(entry.text)}</p>
+            <button type="button" class="diary-delete-button" data-delete-entry="\${index}">
+              удалить
+            </button>
+          </article>
+        `).join("") : `
           <div class="diary-empty">
-          здесь появятся твои записи<br>
-          они бережно хранятся только в этом приложении
+            здесь появятся твои записи<br>
+            они бережно хранятся только в этом приложении
           </div>
-          `
-        }
+        `}
+      </div>
+    </div>
+  `;
 
-          </div>
+  // --- ОБРАБОТЧИКИ КЛИКОВ С ПЛАВНОЙ ЛОГИКОЙ ---
 
-          </div>
-        `;
+  document.getElementById("diaryBackButton").addEventListener("click", showHome);
 
-document
-    .getElementById("diaryBackButton")
-    .addEventListener("click", showHome);
-
-
-document
-    .querySelectorAll("[data-mood]")
-    .forEach(button => {
-
-button.addEventListener("click", () => {
-
-selectedMood = button.dataset.mood;
-
-renderMoodJournal();
-                              });
-                });
-
-document
-    .getElementById("saveDiaryButton")
-    .addEventListener("click", () => {
-
-const textarea =
-document.getElementById("diaryText");
-
-const text =
-textarea.value.trim();
-
-if (!text) {
-textarea.focus();
-return;
-           }
-
-saveMoodEntry(
-text,
-selectedMood
-             );
-
-selectedMood = "😊";
-
-renderMoodJournal();
+  // Выбор смайлика
+  document.querySelectorAll("[data-mood]").forEach(button => {
+    button.addEventListener("click", () => {
+      selectedMood = button.dataset.mood;
+      // Даем 80мс на то, чтобы пользователь увидел CSS-анимацию нажатия на смайлик
+      setTimeout(() => {
+        renderMoodJournal();
+      }, 80);
+    });
   });
 
-document
-    .querySelectorAll("[data-delete-entry]")
-    .forEach(button => {
+  // Сохранить запись
+  document.getElementById("saveDiaryButton").addEventListener("click", () => {
+    const textarea = document.getElementById("diaryText");
+    const text = textarea.value.trim();
 
-button.addEventListener("click", () => {
+    if (!text) {
+      textarea.focus();
+      return;
+    }
 
-const index =
-Number(button.dataset.deleteEntry);
+    saveMoodEntry(text, selectedMood);
+    selectedMood = "😊";
+    renderMoodJournal();
+  });
 
-const entries =
-getMoodEntries();
+  // Удалить запись (самое лагающее место в старой версии)
+  document.querySelectorAll("[data-delete-entry]").forEach(button => {
+    button.addEventListener("click", (event) => {
+      const index = Number(button.dataset.deleteEntry);
+      const entries = getMoodEntries();
 
-entries.splice(index, 1);
+      // Находим карточку article, которую удаляем
+      const entryCard = event.target.closest('.mood-entry');
+      
+      if (entryCard) {
+        // Запускаем CSS-эффект растворения и уменьшения карточки
+        entryCard.style.opacity = '0';
+        entryCard.style.transform = 'scale(0.9) translateY(-10px)';
+        entryCard.style.transition = 'all 0.22s cubic-bezier(0.4, 0, 0.2, 1)';
+      }
 
-try {
-localStorage.setItem(
-moodStorageKey,
-JSON.stringify(
-entries.slice(0, 100)
-              )
-                    );
-    } catch (error) {}
+      entries.splice(index, 1);
 
-renderMoodJournal();
-                     });
+      try {
+        localStorage.setItem(moodStorageKey, JSON.stringify(entries.slice(0, 100)));
+      } catch (error) {}
 
-                     });
+      // Ждем ровно 220мс, пока карточка красиво растворится, и только потом перерисовываем список
+      setTimeout(() => {
+        renderMoodJournal();
+      }, 220);
+    });
+  });
 
   window.scrollTo(0, 0);
-                      }
+}
+
 
 function escapeHtml(value) {
 return String(value)
