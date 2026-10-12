@@ -3759,7 +3759,7 @@ content:`
       "care-skin": {
 
 section: "care",
-title: "Почему лицо -- отражение ЖКТ",
+title: "Почему лицо – отражение ЖКТ",
 category: "забота о себе",
 pages:  [
         {
