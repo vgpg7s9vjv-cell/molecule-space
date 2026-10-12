@@ -5255,7 +5255,7 @@ const entries = getMoodEntries();
           удалить
           </button>
 
-          </article>
+           </article>
           `).join("")
           : `
           <div class="diary-empty">
@@ -5272,101 +5272,81 @@ const entries = getMoodEntries();
           </div>
           `;
 
+// Находим самый главный внутренний блок дневника и вешаем на него класс плавной анимации
+const diaryWrapper = overlay.querySelector('.diary-animate-wrapper') || overlay.firstElementChild;
+if (diaryWrapper) {
+  diaryWrapper.classList.add('diary-fade-in');
+}
 
-          /* назад */
 
+/* назад */
 overlay
     .querySelector("#diaryBackButton")
-    .addEventListener(
-      "click",
-      showHome
-                     );
+    .addEventListener("click", showHome);
 
-          /* выбор настроения */
-
+/* выбор настроения */
 overlay
     .querySelectorAll("[data-mood]")
     .forEach(button => {
+      button.addEventListener("click", () => {
+        selectedMood = button.dataset.mood;
+        
+        // Добавляем микро-задержку в 60мс, чтобы пользователь успел увидеть анимацию клика по смайлику
+        setTimeout(() => openSection("mood"), 60);
+      });
+    });
 
-button.addEventListener(
-"click",
-() => {
-
-selectedMood =
-button.dataset.mood;
-
-openSection("mood");
-                    }
-                    );
-                   });
-
-  /* сохранить запись */
-
-  overlay
+/* сохранить запись */
+overlay
     .querySelector("#saveDiaryButton")
-    .addEventListener(
-      "click",
-      () => {
+    .addEventListener("click", () => {
+      const textarea = overlay.querySelector("#diaryText");
+      const text = textarea.value.trim();
 
-const textarea =
-          overlay.querySelector("#diaryText");
+      if (!text) {
+        textarea.focus();
+        return;
+      }
 
-const text =
-          textarea.value.trim();
+      saveMoodEntry(text, selectedMood);
+      selectedMood = "😊";
+      
+      openSection("mood");
+    });
 
-if (!text) {
-textarea.focus();
-return;
-           }
-
-saveMoodEntry(
-text,
-selectedMood
-            );
-
-selectedMood = "😊";
-
-openSection("mood");
-            }
-            );
-
-  /* удалить запись */
-
-  overlay
+/* удалить запись */
+overlay
     .querySelectorAll("[data-delete-entry]")
     .forEach(button => {
+      button.addEventListener("click", (event) => {
+        const index = Number(button.dataset.deleteEntry);
+        const entries = getMoodEntries();
+        
+        // Красивое визуальное скрытие карточки перед полным удалением из базы
+        const entryCard = event.target.closest('article') || button.parentElement;
+        if (entryCard) {
+          entryCard.style.opacity = '0';
+          entryCard.style.transform = 'scale(0.9) translateY(-10px)';
+          entryCard.style.transition = 'all 0.2s ease';
+        }
 
-      button.addEventListener(
-        "click",
-        () => {
+        entries.splice(index, 1);
 
-const index =
-            Number(
-              button.dataset.deleteEntry
-            );
+        try {
+          localStorage.setItem(moodStorageKey, JSON.stringify(entries.slice(0, 100)));
+        } catch (error) {}
 
-const entries =
-            getMoodEntries();
-
-          entries.splice(index, 1);
-
-try {
-localStorage.setItem(
-moodStorageKey,
-JSON.stringify(
-entries.slice(0, 100)
-              )
-                    );
-    } catch (error) {}
-
-openSection("mood");
-                    }
-                    );
-                   });
+        // Ждем завершения анимации исчезновения карточки (200мс) и обновляем экран
+        setTimeout(() => {
+          openSection("mood");
+        }, 200);
+      });
+    });
 
 document.body.style.overflow = "hidden";
 return;
 }
+
 
 /* ================================================
                ОФИЦИАЛЬНЫЕ ССЫЛКИ
