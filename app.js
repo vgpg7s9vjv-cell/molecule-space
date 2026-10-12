@@ -3054,8 +3054,8 @@ content:`
   "delicate-constipation": {
 
 section: "delicate",
-title: "delicate",
-category: "запоры на курсе",
+title: "Запоры на курсе",
+category: "delicate",
 pages:  [   
         {
 heading: "На курсе появился запор. Что делать?",
