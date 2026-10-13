@@ -2828,3 +2828,16 @@ pointer-events: none;
   display: inline-block;
   transition: transform 0.15s ease;
 }
+
+/* Базовое состояние цитаты — она плавно меняет прозрачность */
+#quoteElement, 
+.quote-text-class { /* замени на свой класс цитаты, если нужно */
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s ease;
+  will-change: opacity, transform;
+}
+
+/* Класс, который мы будем временно вешать через JS для исчезновения */
+.quote-hidden {
+  opacity: 0;
+  transform: translateY(-4px); /* Цитата слегка уплывает вверх при исчезновении */
+}
