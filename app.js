@@ -6360,7 +6360,7 @@ function openTrackerOverlay(id, title, content) {
 
   overlay.innerHTML = `
     <div class="tracker-modal fade-in">
-      <button class="tracker-close" type="button" aria-label="вернуться в меню">×</button>
+      <button class="tracker-close" type="button" aria-label="вернуться в меню">← вернуться в меню</button>
       <div class="tracker-modal-kicker">molecule tracker</div>
       <h2>${title}</h2>
       <div class="tracker-modal-content">${content}</div>
