@@ -2841,17 +2841,3 @@ pointer-events: none;
   opacity: 0;
   transform: translateY(-4px); /* Цитата слегка уплывает вверх при исчезновении */
 }
-
-/* Навесим упругий клик на кнопку мотивации и быструю запись дневника */
-.motivation-btn, 
-[data-section="mood"],
-#newQuoteButton { 
-  transition: transform 0.1s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s ease;
-}
-
-/* Эффект легкого сжатия при тапе */
-.motivation-btn:active, 
-[data-section="mood"]:active,
-#newQuoteButton:active {
-  transform: scale(0.96);
-}
