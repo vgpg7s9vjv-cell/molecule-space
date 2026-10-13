@@ -2796,3 +2796,37 @@ pointer-events: none;
 [data-calendar-date] {
   transition: background 0.25s ease, color 0.25s ease, transform 0.1s ease;
 }
+
+/* Мягкое появление окна воды */
+.water-fade-in {
+  animation: waterWindowShow 0.28s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  opacity: 0;
+}
+
+@keyframes waterWindowShow {
+  0% { opacity: 0; transform: translateY(10px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ПЛАВНОСТЬ ДЛЯ СФЕРЫ И ПОЛОСКИ ПРОГРЕССА (Самая магия тут!) */
+.water-orb, 
+.water-progress-track span {
+  /* Плавный переход для всех изменений высоты, ширины и переменных за 0.4 секунды */
+  transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+/* Упругий резиновый клик для кнопок миллилитров */
+.water-buttons button {
+  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s;
+  cursor: pointer;
+}
+
+.water-buttons button:active {
+  transform: scale(0.92); /* Кнопочки сжимаются под пальцем */
+}
+
+/* Сделаем так, чтобы текст с мл слегка "подпрыгивал" при обновлении */
+#waterBigValue {
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
