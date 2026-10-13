@@ -819,12 +819,12 @@ button:hover {
   padding: 10px 10px !important;
   display: grid !important;
   place-items: center !important;
-  border: 1px solid var(--line-light) !important;
-  border-radius: 50% !important;
+  border-radius: 100px !important;
   background: rgba(255, 255, 255, 0.045) !important;
   color: var(--silver) !important;
   cursor: pointer !important;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+  font: status-bar;
 }
 
 .theme-toggle:active { transform: scale(0.94); }
