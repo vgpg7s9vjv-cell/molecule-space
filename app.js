@@ -6835,10 +6835,8 @@ function renderWaterTracker() {
     "waterTrackerOverlay",
     "трекер воды",
     `
-    /* Добавили класс анимированного контейнера-обертки */
     <div class="water-tracker-animate-wrapper">
       <div class="water-big-card">
-        <!-- Добавили id="waterOrb", чтобы менять его стили без рендера -->
         <div class="water-orb" id="waterOrb" style="--water-progress:${percent}%">
           <span id="waterPercentValue">${percent}%</span>
         </div>
@@ -6849,7 +6847,6 @@ function renderWaterTracker() {
         </div>
       </div>
 
-      <!-- Добавили id для полоски прогресса -->
       <div class="water-progress-track">
         <span id="waterProgressBar" style="width:${percent}%"></span>
       </div>
