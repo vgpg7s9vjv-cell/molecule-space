@@ -6699,282 +6699,242 @@ const overlay = openTrackerOverlay(
           `
           );
 
-// Переключение между БАДами
-   
-overlay
-    .querySelectorAll("[data-select-supplement]")
-    .forEach(button => {
-button.addEventListener("click", () => {
-selectedSupplementId =
-button.dataset.selectSupplement;
+// 1. Сразу при вызове функции вешаем класс плавной анимации на внутреннее содержимое оверлея
+if (overlay) {
+  // Находим контейнер внутри оверлея и даем ему класс проявления
+  const container = overlay.querySelector('.streak-banner')?.parentElement || overlay;
+  container.classList.add('calendar-fade-in');
+}
 
-        saveCalendarState();
-        renderSupplementTracker();
-});
-});
+// Переключение между БАДами
+overlay
+  .querySelectorAll("[data-select-supplement]")
+  .forEach(button => {
+    button.addEventListener("click", () => {
+      selectedSupplementId = button.dataset.selectSupplement;
+      saveCalendarState();
+      // Задержка 70мс, чтобы кнопка успела упруго нажаться
+      setTimeout(renderSupplementTracker, 70);
+    });
+  });
 
 // Предыдущий месяц
-   
 overlay
-    .querySelector("#supplementCalendarPrev")
-    ?.addEventListener("click", () => {
-      calendarDate.setMonth(
-      calendarDate.getMonth() - 1
-                           );
-
-      saveCalendarState();
-      renderSupplementTracker();
-});
+  .querySelector("#supplementCalendarPrev")
+  ?.addEventListener("click", () => {
+    calendarDate.setMonth(calendarDate.getMonth() - 1);
+    saveCalendarState();
+    setTimeout(renderSupplementTracker, 70);
+  });
 
 // Следующий месяц
-   
 overlay
-    .querySelector("#supplementCalendarNext")
-    ?.addEventListener("click", () => {
-      calendarDate.setMonth(
-      calendarDate.getMonth() + 1
-                           );
+  .querySelector("#supplementCalendarNext")
+  ?.addEventListener("click", () => {
+    calendarDate.setMonth(calendarDate.getMonth() + 1);
+    saveCalendarState();
+    setTimeout(renderSupplementTracker, 70);
+  });
 
+// Отметка даты (самое важное место!)
+overlay
+  .querySelectorAll("[data-calendar-date]")
+  .forEach(button => {
+    button.addEventListener("click", () => {
+      const date = button.dataset.calendarDate;
+      const item = getSupplements().find(supplement => supplement.id === selectedSupplementId);
+
+      if (!item) return;
+
+      // Визуально переключаем состояние кнопки прямо в момент клика, не дожидаясь рендера!
+      // Это убирает ощущение задержки ("тупняка") интерфейса
+      const isTaken = getSupplementTaken(item, date);
+      button.classList.toggle('is-taken', !isTaken); 
+
+      setSupplementTaken(item.id, date, !isTaken);
       saveCalendarState();
-      renderSupplementTracker();
-});
-
-// Отметка даты
-   
-overlay
-    .querySelectorAll("[data-calendar-date]")
-    .forEach(button => {
-      button.addEventListener("click", () => {
-const date =
-      button.dataset.calendarDate;
-
-const item = getSupplements().find(
-supplement =>
-supplement.id === selectedSupplementId
-                                  );
-
-if (!item) return;
-
-        setSupplementTaken(
-          item.id,
-          date,
-          !getSupplementTaken(item, date)
-                          );
-
-        saveCalendarState();
-        renderSupplementTracker();
-});
-});
+      
+      // Рендерим заново через 80мс, чтобы плавно обновить весь календарь и счетчик серии
+      setTimeout(renderSupplementTracker, 80);
+    });
+  });
 
 // Удаление БАДа
-   
 overlay
-    .querySelectorAll("[data-delete-supplement]")
-    .forEach(button => {
-      button.addEventListener("click", () => {
-const id =
-      button.dataset.deleteSupplement;
+  .querySelectorAll("[data-delete-supplement]")
+  .forEach(button => {
+    button.addEventListener("click", (event) => {
+      const id = button.dataset.deleteSupplement;
 
-        saveSupplements(
-        getSupplements().filter(
-            item => item.id !== id
-                               )
-                               );
+      // Красиво растворяем строчку удаляемого БАДа перед рендером
+      const row = event.target.closest('.tracker-manage-row');
+      if (row) {
+        row.style.opacity = '0';
+        row.style.transform = 'translateX(-15px)'; // Сдвигается влево при удалении
+        row.style.transition = 'all 0.2s ease-out';
+      }
 
-const remaining = getSupplements();
+      saveSupplements(getSupplements().filter(item => item.id !== id));
+      const remaining = getSupplements();
 
-if (selectedSupplementId === id) {
-selectedSupplementId =
-remaining[0]?.id || "";
-                                 }
+      if (selectedSupplementId === id) {
+        selectedSupplementId = remaining[0]?.id || "";
+      }
 
-        saveCalendarState();
-        renderSupplementTracker();
-});
-});
+      saveCalendarState();
+      
+      // Ждем 200мс завершения анимации исчезновения строчки
+      setTimeout(renderSupplementTracker, 200);
+    });
+  });
 
 // Добавление нового БАДа
-   
 const add = () => {
-const input =
+  const input = overlay.querySelector("#newSupplementName");
+  const name = input?.value.trim();
+  if (!name) return;
 
-overlay.querySelector(
-"#newSupplementName"
-);
+  const items = getSupplements();
+  const newItem = {
+    id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+    name,
+    taken: []
+  };
 
-const name = input?.value.trim();
-if (!name) return;
-
-const items = getSupplements();
-
-const newItem = {
-          id: `${Date.now()}-${Math.random()
-          .toString(16)
-          .slice(2)}`,
-          name,
-          taken: []
-          };
-
-items.push(newItem);
-
-    saveSupplements(items);
-
-selectedSupplementId = newItem.id;
-
-    saveCalendarState();
-    renderSupplementTracker();
+  items.push(newItem);
+  saveSupplements(items);
+  selectedSupplementId = newItem.id;
+  saveCalendarState();
+  
+  // Мягко рендерим
+  renderSupplementTracker();
 };
 
 overlay
-    .querySelector("#addSupplementButton")
-    ?.addEventListener("click", add);
+  .querySelector("#addSupplementButton")
+  ?.addEventListener("click", () => {
+    setTimeout(add, 60);
+  });
 
 overlay
-    .querySelector("#newSupplementName")
-    ?.addEventListener("keydown", event => {
-       
-if (event.key === "Enter") {
-add();
-                           }
-                           });
-                           }
+  .querySelector("#newSupplementName")
+  ?.addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+      add();
+    }
+  });
+}
+
 
 function renderWaterTracker() {
+  const water = getTodayWater();
+  const goal = getWaterGoal();
+  const percent = Math.min(150, Math.round((water / goal) * 100));
 
-const water = getTodayWater();
-const goal = getWaterGoal();
-const percent = Math.min( 150,
-Math.round((water / goal) * 100)
-);
+  const overlay = openTrackerOverlay(
+    "waterTrackerOverlay",
+    "трекер воды",
+    `
+    /* Добавили класс анимированного контейнера-обертки */
+    <div class="water-tracker-animate-wrapper">
+      <div class="water-big-card">
+        <!-- Добавили id="waterOrb", чтобы менять его стили без рендера -->
+        <div class="water-orb" id="waterOrb" style="--water-progress:${percent}%">
+          <span id="waterPercentValue">${percent}%</span>
+        </div>
 
-const overlay = openTrackerOverlay(
-"waterTrackerOverlay",
-          "трекер воды",
-          `
-          <div class="water-big-card">
-          <div
-          class="water-orb"
-          style="--water-progress:${percent}%"
-          >
-          <span>${percent}%</span>
-          </div>
-
-          <div>
+        <div>
           <strong id="waterBigValue">${water} мл</strong>
           <small>из ${goal} мл сегодня</small>
-          </div>
-          </div>
+        </div>
+      </div>
 
-          <div class="water-progress-track">
-          <span style="width:${percent}%"></span>
-          </div>
+      <!-- Добавили id для полоски прогресса -->
+      <div class="water-progress-track">
+        <span id="waterProgressBar" style="width:${percent}%"></span>
+      </div>
 
-          <div class="water-buttons">
-          <button type="button" data-water-add="100">
-          +100 мл
-          </button>
+      <div class="water-buttons">
+        <button type="button" data-water-add="100">+100 мл</button>
+        <button type="button" data-water-add="150">+150 мл</button>
+        <button type="button" data-water-add="200">+200 мл</button>
+        <button type="button" data-water-add="250">+250 мл</button>        
+        <button type="button" data-water-add="300">+300 мл</button>
+        <button type="button" data-water-add="350">+350 мл</button>        
+      </div>
 
-          <button type="button" data-water-add="150">
-          +150 мл
-          </button>
-          
-          <button type="button" data-water-add="200">
-          +200 мл
-          </button>
+      <div class="water-buttons">
+        <button type="button" data-water-add="-100">−100 мл</button>
+        <button type="button" data-water-add="-150">−150 мл</button>
+        <button type="button" data-water-add="-200">−200 мл</button>
+        <button type="button" data-water-add="-250">−250 мл</button>      
+        <button type="button" data-water-add="-300">−300 мл</button> 
+        <button type="button" data-water-add="-350">−350 мл</button>          
+      </div>
 
-          <button type="button" data-water-add="250">
-          +250 мл
-          </button>        
-
-          <button type="button" data-water-add="300">
-          +300 мл
-          </button>
-        
-          <button type="button" data-water-add="350">
-          +350 мл
-          </button>        
-          </div>
-
-          <div class="water-buttons">
-          <button type="button" data-water-add="-100">
-          −100 мл
-          </button>
-
-          <button type="button" data-water-add="-150">
-          −150 мл
-          </button>
-
-          <button type="button" data-water-add="-200">
-          −200 мл
-          </button>
-
-          <button type="button" data-water-add="-250">
-          −250 мл
-          </button>      
-
-          <button type="button" data-water-add="-300">
-          −300 мл
-          </button> 
-
-          <button type="button" data-water-add="-350">
-          −350 мл
-          </button>          
-          </div>
-
-          <div class="water-goal-row">
-          <label for="waterGoalInput">
-          дневная цель
-          </label>
-
-          <div>
-          <input
-          id="waterGoalInput"
-          type="number"
-          min="150"
-          max="10000"
-          step="50"
-          value="${goal}"
-          >
+      <div class="water-goal-row">
+        <label for="waterGoalInput">дневная цель</label>
+        <div>
+          <input id="waterGoalInput" type="number" min="150" max="10000" step="50" value="${goal}">
           <span>мл</span>
-          </div>
-          </div>
+        </div>
+      </div>
 
-          <div class="tracker-hint">
-          количество воды можно корректировать в течение дня ♡₊⋆ 
-          </div>
-          `
-          );
+      <div class="tracker-hint">
+        количество воды можно корректировать в течение дня ♡₊⋆ 
+      </div>
+    </div>
+    `
+  );
 
-const rerender = () => renderWaterTracker();
+  // Класс плавного появления при первом открытии окна
+  const wrapper = overlay.querySelector('.water-tracker-animate-wrapper');
+  if (wrapper) wrapper.classList.add('water-fade-in');
 
-overlay
-    .querySelectorAll("[data-water-add]")
-    .forEach(button => {
-button.addEventListener("click", () => {
-        setTodayWater(
-        getTodayWater() +
-        Number(button.dataset.waterAdd)
-);
-        rerender();
-});
-});
+  // --- УМНАЯ ОБНОВЛЯЛКА БЕЗ СТИРАНИЯ ЭКРАНА ---
+  const updateWaterUI = () => {
+    const currentWater = getTodayWater();
+    const currentGoal = getWaterGoal();
+    const currentPercent = Math.min(150, Math.round((currentWater / currentGoal) * 100));
 
-overlay
-    .querySelector("#waterGoalInput")
-    ?.addEventListener("change", event => {
-       
-const value = Math.min(
-10000,
-Math.max(
-100,
-         Number(event.target.value) || 2000
-        )
-        );
+    // Находим элементы на странице
+    const orb = overlay.querySelector("#waterOrb");
+    const percentText = overlay.querySelector("#waterPercentValue");
+    const bigValueText = overlay.querySelector("#waterBigValue");
+    const progressBar = overlay.querySelector("#waterProgressBar");
 
-         writeLocal(waterGoalStorageKey, value);
-         rerender();
-});
+    // Плавно меняем их свойства напрямую!
+    if (orb) orb.style.setProperty('--water-progress', `${currentPercent}%`);
+    if (percentText) percentText.textContent = `${currentPercent}%`;
+    if (bigValueText) bigValueText.textContent = `${currentWater} мл`;
+    if (progressBar) progressBar.style.width = `${currentPercent}%`;
+
+    // Также обновляем маленькие счетчики на главном экране (если они есть)
+    if (typeof refreshHomeTrackers === "function") {
+      refreshHomeTrackers();
+    }
+  };
+
+  // Клик по кнопкам добавления/уменьшения воды
+  overlay.querySelectorAll("[data-water-add]").forEach(button => {
+    button.addEventListener("click", () => {
+      setTodayWater(getTodayWater() + Number(button.dataset.waterAdd));
+      
+      // Вместо полного тяжелого рендера просто вызываем быструю и плавную обновлялку
+      updateWaterUI();
+    });
+  });
+
+  // Изменение цели воды
+  overlay.querySelector("#waterGoalInput")?.addEventListener("change", event => {
+    const value = Math.min(10000, Math.max(100, Number(event.target.value) || 2000));
+    writeLocal(waterGoalStorageKey, value);
+    
+    // После изменения цели тоже обновляем интерфейс точечно
+    updateWaterUI();
+  });
 }
+
 
 
 function openThemePicker() {
