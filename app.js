@@ -6167,11 +6167,20 @@ themes[nextIndex]
           }
 
 if (quickDiaryButton) {
-quickDiaryButton.addEventListener(
-    "click",
-() => openSection("mood")
-                                 );
-                                 }
+  quickDiaryButton.addEventListener("click", () => {
+    // Открываем раздел дневника
+    openSection("mood");
+
+    // Ждем окончания анимации открытия экрана (около 150-200мс)
+    setTimeout(() => {
+      const textarea = document.getElementById("diaryText");
+      if (textarea) {
+        textarea.focus(); // Принудительно ставим курсор, чтобы открылась клавиатура
+      }
+    }, 200);
+  });
+}
+
 
 initTheme();
 
