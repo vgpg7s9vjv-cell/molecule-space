@@ -196,7 +196,7 @@ button:hover {
 
 .quote-card {
   position: relative;
-  margin-top: 22px;
+  margin-top: 15px;
   padding: 27px 22px 20px;                                                               
   border-radius: var(--radius-large);
   overflow: hidden;
