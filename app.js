@@ -4666,15 +4666,28 @@ function showNextQuote() {
 
 currentQuote++;
 
-if (currentQuote >= quotes.length) {
-                 currentQuote = 0; }
-quoteElement.style.opacity = "0";
+if (newQuoteButton) {
+  newQuoteButton.addEventListener("click", () => {
+    // 1. Находим элемент с текстом цитаты (у тебя это скорее всего quoteElement)
+    if (quoteElement) {
+      // 2. Прячем старый текст
+      quoteElement.classList.add("quote-hidden");
 
-setTimeout(() => {
-quoteElement.textContent = quotes[currentQuote];
-quoteElement.style.opacity = "1";
-                 }, 120);
-                          }
+      // 3. Ждем 200мс (пока отработает анимация исчезновения)
+      setTimeout(() => {
+        // Вызываем твою готовую функцию смены текста
+        showNextQuote(); 
+
+        // 4. Проявляем уже новый текст назад
+        quoteElement.classList.remove("quote-hidden");
+      }, 200);
+    } else {
+      // Запасной вариант, если элемент не найден
+      showNextQuote();
+    }
+  });
+}
+
 
 /* ==================================================
                         ТЕМА
