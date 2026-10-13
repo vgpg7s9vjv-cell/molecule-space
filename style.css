@@ -2841,3 +2841,34 @@ pointer-events: none;
   opacity: 0;
   transform: translateY(-4px); /* Цитата слегка уплывает вверх при исчезновении */
 }
+
+.home-page-container { /* Замени на свой класс главного экрана */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Распределяет элементы по высоте */
+  height: 100lvh; /* Жестко фиксируем по высоте экрана */
+  box-sizing: border-box;
+  padding: 16px 16px 24px 16px; /* Нижний паддинг чуть больше для безопасной зоны */
+  overflow: hidden; /* Запрещаем случайный системный скролл */
+}
+.motivation-card-class { /* Замени на свой класс карточки мотивации */
+  padding: 2vh 16px; /* Вместо px используем vh (высота экрана). Она будет сама сжиматься на мелких телефонах */
+  margin-bottom: 12px;
+}
+
+.motivation-card-class h2, 
+.motivation-card-class p {
+  margin-top: 0;
+  margin-bottom: 1.5vh; /* Мягкие отступы у текста */
+}
+/* Для карточек трекеров */
+.tracker-card {
+  padding: 12px 14px !important; /* Делаем их чуть компактнее по высоте */
+  margin-bottom: 8px !important; /* Уменьшаем расстояние между ними */
+}
+
+/* Для заголовка "разделы" */
+.sections-heading-class { /* Класс для текста "разделы —>" */
+  margin-top: auto; /* Принудительно толкает блок к самому низу */
+  margin-bottom: 8px;
+}
