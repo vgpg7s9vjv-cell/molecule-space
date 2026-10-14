@@ -325,9 +325,10 @@ topics: []
 
 section: "base",
 title: "Побочные эффекты",
-category: "base",
+category: "base side",
 pages:  [
         {
+heading: "Их описание и причины",
 content:`
           <div class="info-box">
           БАДы могут отличаться составом, действующим веществом и дозировкой, <b>но большинство побочных
@@ -418,8 +419,8 @@ content:`
 "base-protiv": {
 
 section: "base",
-title: "Общие противопоказания",
-category: "base",
+title: "Противопоказания",
+category: "base contraindications",
 pages:  [
         {
 heading: "➀ Нарушения сердечно-сосудистой системы",
@@ -571,18 +572,20 @@ content:`
 
 section: "base",
 title: "Плато и как его избежать",
-category: "base",
+category: "base plateau",
 pages:  [
         {
 heading: "Что это и почему появляется?",
 content:`
 
-<h2>Что следует помнить:</h2>
+<h3>Что следует помнить:</h3>
           <div class="info-box">
+          <p>
           Самой частой причиной отсутствия отвесов на курсе является слишком маленький срок приема БАДа
           </div>
           <div class="info-box">
           Любой БАД для похудения не даст тебе -10 килограммов за один-три дня курса, это физически <b>невозможно</b>
+          </p>
           </div>
 
 <h2>Что это такое?</h2>
@@ -1121,7 +1124,7 @@ content:`
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "библиотека БАДов", 
+category: "supplements voice", 
 pages:  [
         {
 heading: "Molecule Plus",
@@ -1330,7 +1333,7 @@ content:`
    
 section: "supplements",
 title: "Cложности выбора и как его сделать",
-category: "библиотека БАДов", 
+category: "supplements voice", 
 pages:  [      
         {
 heading: "Molecule Premium",
@@ -1494,7 +1497,7 @@ content:`
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "библиотека БАДов", 
+category: "supplements voice", 
 pages:  [      
         {
 heading: "Molecule Ultra",
@@ -1605,7 +1608,7 @@ content:`
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "библиотека БАДов", 
+category: "supplements voice", 
 pages:  [      
         {
 heading: "Molecule Plus/Premium ЖБ",
@@ -1715,7 +1718,7 @@ content: `
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "библиотека БАДов", 
+category: "supplements voice", 
 pages:  [      
         {
 heading: "Supressa",
@@ -1811,7 +1814,7 @@ content:`
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "библиотека БАДов", 
+category: "supplements voice", 
 pages:  [      
         {
 heading: "Mineral Balance",
@@ -1926,7 +1929,7 @@ content: `
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "библиотека БАДов", 
+category: "supplements voice", 
 pages:  [      
         {
 heading: "Heedly Slim-Complex",
@@ -2010,7 +2013,7 @@ content:`
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "библиотека БАДов", 
+category: "supplements voice", 
 pages:  [      
         {
 heading: "Редуксин",
@@ -2091,7 +2094,7 @@ content: `
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "библиотека БАДов", 
+category: "supplements voice", 
 pages:  [      
         {
 heading: "Swapx Neo/Pro",
@@ -2294,7 +2297,7 @@ content:`
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "библиотека БАДов", 
+category: "supplements voice", 
 pages:  [      
         {
 heading: "Turbo-Ozempic",
@@ -2384,7 +2387,7 @@ content:`
 
 section: "medical",
 title: "Общие анализы, медкомиссия и тесты на вещ-ва",
-category: "видно ли БАДы для похудения в анализах",
+category: "medical",
 pages:  [
         {
 heading: "ОАК или общий анализ крови",
