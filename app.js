@@ -147,20 +147,38 @@ content: `
        ]
        }, 
    
+/*что нужно знать*/
+base: {
+title: "Что нужно знать",
+kicker: "basic information",
+description: "базовые знания перед покупкой БАДов и мифы о них",
+topics: [
+        { id: "base-basic",
+          title: "Побочные эффекты",
+          description: "основные побочки и их причины",
+        },  
+        { id: "base-protiv",
+          title: "Противопоказания",
+          description: "противопоказания и их последствия",
+        },
+        { id: "base-plato",
+          title: "Плато и как с ним бороться",
+          description: "что такое плато и как этого избежать",
+        },
+        { id: "base-scam",
+          title: "Мифы из интернета",
+          description: "легенда про сибутрамин и Германию",
+        }   
+        ]
+        },
+         
 /*бибилиотека бадов*/
 supplements: {
 title: "БАДовый минимум знаний",
-kicker: "basic information",
+kicker: "list of supplements",
 description: "..и роскошный максимум информации",
 topics: [
-        { id: "supplements-basic",
-          title: "База всех БАДов",
-          description: "побочки, противопоказания, плато",
-        },  
-        { id: "supplements-scam",
-          title: "Мифы из интернета",
-          description: "легенда про сибутрамин и Германию",
-        },    
+
         { id: "supplements-plus",
           title: "Molecule Plus",
           description: "",
@@ -303,14 +321,13 @@ topics: []
     Общие правила БАДов
 --------------------------*/
       
-  "supplements-basic": {
+"base-basic": {
 
-section: "supplements",
-title: "Побочки, противопоказания, плато",
-category: "База всех БАДов",
+section: "base",
+title: "Побочные эффекты",
+category: "base",
 pages:  [
         {
-heading: "Побочные эффекты большинства БАДов",
 content:`
           <div class="info-box">
           БАДы могут отличаться составом, действующим веществом и дозировкой, <b>но большинство побочных
@@ -394,10 +411,17 @@ content:`
           alt="память" 
           style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
         `
-        },               
+        }
+        ]
+        },
 
+"base-protiv": {
+
+section: "base",
+title: "Общие противопоказания",
+category: "base",
+pages:  [
         {
-heading: "Общие противопоказания",
 content:`          
 <h2>➀ Нарушения сердечно-сосудистой системы</h2>
           <img src="./images/IMG_6246.jpg"
@@ -523,10 +547,17 @@ content:`
           от острой кожной сыпи до отека Квинке и анафилактического шока
           </p>
         `
-        }, 
-   
+        }
+        ]
+        },
+
+"base-plato": {
+
+section: "base",
+title: "Плато и как его избежать",
+category: "base",
+pages:  [
         {
-heading: "Плато",
 content:`
 
 <h2>Что следует помнить:</h2>
@@ -773,9 +804,9 @@ content:`
         мифы о БАДах
 --------------------------*/
       
-  "supplements-scam": {
+  "base-scam": {
 
-section: "supplements",
+section: "base",
 title: "Разбиваем мифы о БАДах в щепки",
 category: "«какую таблетку выберешь, Нео?»",
 pages:  [
