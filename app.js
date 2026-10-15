@@ -6791,7 +6791,12 @@ overlay
     button.addEventListener("click", () => {
       selectedSupplementId = button.dataset.selectSupplement;
       saveCalendarState();
-      // Задержка 70мс, чтобы кнопка успела упруго нажаться
+
+      // 🔴 ДОБАВЛЯЕМ ВИБРАЦИЮ: Легкий щелчок при смене таба сверху
+      if (window.Telegram?.WebApp?.HapticFeedback) {
+        window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+      }
+
       setTimeout(renderSupplementTracker, 70);
     });
   });
@@ -6802,6 +6807,11 @@ overlay
   ?.addEventListener("click", () => {
     calendarDate.setMonth(calendarDate.getMonth() - 1);
     saveCalendarState();
+    // 🔴 ДОБАВЛЯЕМ ВИБРАЦИЮ: Микро-отклик при листании календаря
+    if (window.Telegram?.WebApp?.HapticFeedback) {
+      window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+    }
+
     setTimeout(renderSupplementTracker, 70);
   });
 
@@ -6811,6 +6821,12 @@ overlay
   ?.addEventListener("click", () => {
     calendarDate.setMonth(calendarDate.getMonth() + 1);
     saveCalendarState();
+
+    // 🔴 ДОБАВЛЯЕМ ВИБРАЦИЮ: Микро-отклик при листании календаря
+    if (window.Telegram?.WebApp?.HapticFeedback) {
+      window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+    }
+
     setTimeout(renderSupplementTracker, 70);
   });
 
@@ -6824,15 +6840,18 @@ overlay
 
       if (!item) return;
 
-      // Визуально переключаем состояние кнопки прямо в момент клика, не дожидаясь рендера!
-      // Это убирает ощущение задержки ("тупняка") интерфейса
+      // Визуально переключаем состояние кнопки прямо в момент клика
       const isTaken = getSupplementTaken(item, date);
       button.classList.toggle('is-taken', !isTaken); 
+
+      // 🔴 ДОБАВЛЯЕМ ВИБРАЦИЮ: Ощутимый нативный клик при установке галочки/даты
+      if (window.Telegram?.WebApp?.HapticFeedback) {
+        window.Telegram.WebApp.HapticFeedback.impactOccurred('medium');
+      }
 
       setSupplementTaken(item.id, date, !isTaken);
       saveCalendarState();
       
-      // Рендерим заново через 80мс, чтобы плавно обновить весь календарь и счетчик серии
       setTimeout(renderSupplementTracker, 80);
     });
   });
@@ -6844,11 +6863,15 @@ overlay
     button.addEventListener("click", (event) => {
       const id = button.dataset.deleteSupplement;
 
-      // Красиво растворяем строчку удаляемого БАДа перед рендером
+      // 🔴 ДОБАВЛЯЕМ ВИБРАЦИЮ: Мягкое предупреждение/отклик при удалении
+      if (window.Telegram?.WebApp?.HapticFeedback) {
+        window.Telegram.WebApp.HapticFeedback.notificationOccurred('warning');
+      }
+
       const row = event.target.closest('.tracker-manage-row');
       if (row) {
         row.style.opacity = '0';
-        row.style.transform = 'translateX(-15px)'; // Сдвигается влево при удалении
+        row.style.transform = 'translateX(-15px)';
         row.style.transition = 'all 0.2s ease-out';
       }
 
@@ -6861,7 +6884,6 @@ overlay
 
       saveCalendarState();
       
-      // Ждем 200мс завершения анимации исчезновения строчки
       setTimeout(renderSupplementTracker, 200);
     });
   });
@@ -6884,7 +6906,11 @@ const add = () => {
   selectedSupplementId = newItem.id;
   saveCalendarState();
   
-  // Мягко рендерим
+  // 🔴 ДОБАВЛЯЕМ ВИБРАЦИЮ: Эффект «Успех!» (три быстрых вибрации), когда БАД успешно создан
+  if (window.Telegram?.WebApp?.HapticFeedback) {
+    window.Telegram.WebApp.HapticFeedback.notificationOccurred('success');
+  }
+
   renderSupplementTracker();
 };
 
@@ -6901,6 +6927,7 @@ overlay
       add();
     }
   });
+
 }
 
 
@@ -6991,25 +7018,60 @@ function renderWaterTracker() {
   };
 
   // Клик по кнопкам добавления/уменьшения воды
-  overlay.querySelectorAll("[data-water-add]").forEach(button => {
+overlay.querySelectorAll("[data-water-add]").forEach(button => {
     button.addEventListener("click", () => {
-      setTodayWater(getTodayWater() + Number(button.dataset.waterAdd));
+      const addedAmount = Number(button.dataset.waterAdd);
+      const oldWater = getTodayWater();
+      const currentGoal = getWaterGoal();
+      
+      // Вычисляем новое значение
+      const newWater = getTodayWater() + addedAmount;
+      setTodayWater(newWater);
       
       // Вместо полного тяжелого рендера просто вызываем быструю и плавную обновлялку
       updateWaterUI();
+
+      // 🔴 УМНАЯ ВИБРАЦИЯ ДЛЯ ТРЕКЕРА ВОДЫ
+      if (window.Telegram?.WebApp?.HapticFeedback) {
+        const haptic = window.Telegram.WebApp.HapticFeedback;
+        const newPercent = (newWater / currentGoal) * 100;
+        const oldPercent = (oldWater / currentGoal) * 100;
+
+        if (addedAmount > 0) {
+          // 1. Если именно ЭТИМ глотком пользователь закрыл норму на 100% (или перешагнул её впервые)
+          if (newPercent >= 100 && oldPercent < 100) {
+            haptic.notificationOccurred('success'); // Тройной победный пульс! 🔥
+          } 
+          // 2. Если выпито больше половины нормы
+          else if (newPercent >= 50) {
+            haptic.impactOccurred('medium'); // Плотный, хороший клик
+          } 
+          // 3. Если день только начался и выпито меньше 50%
+          else {
+            haptic.impactOccurred('light'); // Легкий, аккуратный щелчок
+          }
+        } else {
+          // 4. Если пользователь уменьшает количество воды (ошибся кнопкой)
+          haptic.impactOccurred('light'); // Просто легкий технический клик обратного хода
+        }
+      }
     });
   });
 
   // Изменение цели воды
-  overlay.querySelector("#waterGoalInput")?.addEventListener("change", event => {
+ overlay.querySelector("#waterGoalInput")?.addEventListener("change", event => {
     const value = Math.min(10000, Math.max(100, Number(event.target.value) || 2000));
     writeLocal(waterGoalStorageKey, value);
     
+    // 🔴 ДОБАВЛЯЕМ ВИБРАЦИЮ: Мягкий отклик при подтверждении новой цели
+    if (window.Telegram?.WebApp?.HapticFeedback) {
+      window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+    }
+
     // После изменения цели тоже обновляем интерфейс точечно
     updateWaterUI();
   });
 }
-
 
 
 function openThemePicker() {
