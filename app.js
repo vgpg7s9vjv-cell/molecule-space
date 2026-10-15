@@ -106,7 +106,7 @@ content: `
           
           <a
             class="official-link-card"
-            href="t.me/anonaskbot?start=arttmoleculeanon"
+            href="https://t.me/anonaskbot?start=arttmoleculeanon"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -5437,7 +5437,7 @@ overlay.innerHTML = `
 
           <a
           class="official-link-card"
-          href="t.me/anonaskbot?start=arttmoleculeanon"
+          href="https://t.me/anonaskbot?start=arttmoleculeanon"
           target="_blank"
           rel="noopener noreferrer"
           >
