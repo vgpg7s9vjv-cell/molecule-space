@@ -5270,45 +5270,38 @@ function showHome() {
 }
 
 const container = document.getElementById('screensContainer');
-const tabs = document.querySelectorAll('.section-tab');
+const tabs = Array.from(document.querySelectorAll('.section-tab'));
 const indicator = document.getElementById('indicator');
 
-// 1. Клик по табу плавно скроллит к нужному экрану
-tabs.forEach(tab => {
+function positionTabIndicator(index, animate = true) {
+  const tab = tabs[index];
+  if (!tab || !indicator) return;
+  const tabRect = tab.getBoundingClientRect();
+  const parentRect = tab.parentElement.getBoundingClientRect();
+  indicator.style.transition = animate ? 'transform 420ms cubic-bezier(.22,.8,.25,1), width 420ms cubic-bezier(.22,.8,.25,1)' : 'none';
+  indicator.style.width = `${tabRect.width}px`;
+  indicator.style.transform = `translateX(${tabRect.left - parentRect.left}px)`;
+}
+tabs.forEach((tab, index) => {
   tab.addEventListener('click', () => {
-    const screenIndex = tab.getAttribute('data-screen');
-    const targetScrollLeft = container.clientWidth * screenIndex;
-    
-    container.scrollTo({
-      left: targetScrollLeft,
-      behavior: 'smooth'
-    });
+    const screenIndex = Number(tab.getAttribute('data-screen') || index);
+    container.scrollTo({ left: container.clientWidth * screenIndex, behavior: 'smooth' });
   });
 });
-
-// 2. Отслеживаем скролл, чтобы двигать подложку и переключать активный класс
-container.addEventListener('scroll', () => {
-  const scrollLeft = container.scrollLeft;
-  const clientWidth = container.clientWidth;
-  
-  // Вычисляем текущий индекс экрана (округляем до ближайшего целого)
-  const activeIndex = Math.round(scrollLeft / clientWidth);
-  
-  // Плавно перемещаем индикатор-подложку в процентах
-  // Каждая вкладка занимает 100% ширины, деленной на их количество
-  const translationPercent = (scrollLeft / clientWidth) * 100;
-  indicator.style.transform = `translateX(${translationPercent}%)`;
-  
-  // Обновляем активные классы на кнопках
-  tabs.forEach((tab, index) => {
-    if (index === activeIndex) {
-      tab.classList.add('section-tab-active');
-      tab.setAttribute('aria-selected', 'true');
-    } else {
-      tab.classList.remove('section-tab-active');
-      tab.setAttribute('aria-selected', 'false');
-    }
+function updateTabsFromScroll() {
+  if (!container || !tabs.length) return;
+  const index = Math.max(0, Math.min(tabs.length - 1, Math.round(container.scrollLeft / Math.max(container.clientWidth, 1))));
+  tabs.forEach((tab, i) => {
+    tab.classList.toggle('section-tab-active', i === index);
+    tab.setAttribute('aria-selected', i === index ? 'true' : 'false');
   });
+  positionTabIndicator(index);
+}
+container.addEventListener('scroll', updateTabsFromScroll, { passive: true });
+window.addEventListener('resize', updateTabsFromScroll);
+requestAnimationFrame(() => {
+  updateTabsFromScroll();
+  positionTabIndicator(Math.max(0, Math.round(container.scrollLeft / Math.max(container.clientWidth, 1))), false);
 });
 
 /* ==================================================
