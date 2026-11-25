@@ -1,0 +1,889 @@
+<!doctype html>
+
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="pink" content="#24131f">
+<title>𐙚hospital adjutant</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+rel="stylesheet"
+  >
+
+<link rel="stylesheet" href="style.css">
+<style id="molecule-tracker-styles">
+  
+/* ==================================================
+   molecule adjutant — tracker / themes layer
+   подключается ПОСЛЕ основного style.css
+================================================== */
+
+
+
+body.theme-pink .home-screen {
+background:radial-gradient(
+  circle at 10% 8%,
+  rgba(255,159,207,.16),
+  transparent 32%),
+  
+  radial-gradient(
+  circle at 90% 42%,
+  rgba(198,166,255,.13),
+  transparent 30%),
+  var(--bg); }
+  
+body.theme-angel .home-screen {
+background:radial-gradient(
+  circle at 15% 10%,
+  rgba(232,181,207,.20),
+  transparent 34%),
+  
+  radial-gradient(
+  circle at 88% 45%,
+  rgba(185,165,233,.18),
+  transparent 34%),
+  var(--bg); }
+  
+body.theme-minimalism .home-screen {
+  background:var(--bg); }
+
+.home-trackers {
+  display: grid;
+ }
+
+.tracker-card {
+width: 100%;
+min-height: 66px;
+padding: 9px 11px;
+display: flex;
+align-items: center;
+gap: 11px;
+border: 1px solid var(--line);
+border-radius: 16px;
+background: var(--card);
+color: var(--text);
+text-align: left;
+cursor: pointer;
+box-shadow: 0 12px 35px rgba(0,0,0,.08);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+transition: transform .2s ease,
+background .3s ease,
+border-color .3s ease;
+margin-top: 12px;
+}
+  
+.tracker-card:active {
+  transform:scale(.985); }
+  
+.tracker-icon {
+  width:38px;
+  height:38px; 
+  flex:0 0 38px; 
+  display:grid; 
+  place-items:center; 
+  border-radius:13px; 
+  background: var(--line-soft);
+  color: var(--accent-strong);
+  font-size:19px; }
+  
+.tracker-card-content {
+  min-width:0; 
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:3px; }
+  
+.tracker-card-content strong { 
+  font-size:13px;
+  font-weight:750; }
+  
+.tracker-card-content small {
+  color:var(--muted); 
+  font-size:10px; 
+  line-height:1.35;
+  white-space:nowrap;
+  overflow:hidden; 
+  text-overflow:ellipsis; }
+  
+.tracker-card-value { 
+  flex:0 0 auto;
+  color:var(--text);
+  font-size:11px; 
+  font-weight:750; }
+  
+.tracker-card-arrow {
+  color:var(--muted); 
+  font-size:23px; }
+  
+
+.tracker-overlay {
+  position:fixed;
+  inset:0;
+  z-index:2147483647;
+  overflow-y:auto; 
+  padding:calc(18px + env(safe-area-inset-top)) 16px calc(24px + env(safe-area-inset-bottom));
+  background:color-mix(in srgb,var(--bg) 94%,transparent);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px); }
+  
+.tracker-modal {
+  width:min(680px,100%);
+  min-height:100%;
+  margin:0 auto; 
+  padding:2px 0 30px; }
+  
+.tracker-close {
+background: none !important;
+border: medium !important;
+outline: medium !important;
+box-shadow: none !important;
+color: var(--accent-strong) !important;
+border-radius: 12px !important;
+padding: 8px 4px !important;
+font-weight: 500 !important;
+transition: color 0.2s, opacity 0.2s, transform 0.2s !important;
+display: block;
+position: sticky;
+top: 4px;
+z-index: 7;
+min-height: 44px;
+margin: 8px auto 28px;
+}
+
+  
+.tracker-modal-kicker {
+  color:var(--muted);
+  font-size:10px;
+  text-transform:uppercase; 
+  letter-spacing:.14em; }
+  
+.tracker-modal h2 {
+  margin:7px 0 20px;
+  color:var(--text); 
+  font-size:clamp(28px,8vw,38px);
+  line-height:1.05; 
+  letter-spacing:-.045em; }
+  
+.tracker-modal-content {
+  display:flex;
+  flex-direction:column; 
+  gap:15px; }
+  
+.streak-banner {
+  padding:16px 17px; 
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:var(--card); }
+  
+.streak-banner div {
+  display:flex; 
+  justify-content:space-between; 
+  align-items:baseline; 
+  gap:10px; }
+  
+.streak-banner span { 
+  color:var(--muted); 
+  font-size:15px;  }
+  
+.streak-banner small {
+  color:var(--muted);
+  font-size:12px;  }    
+  
+.streak-banner strong { font-size:19px; }
+.tracker-section-heading { 
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:5px;
+  color:var(--text);
+  font-size:17px; 
+  font-weight:750; }
+  
+.tracker-section-heading small { 
+  color:var(--muted);
+  font-weight:500; }
+  
+.supplement-list {
+  display:flex;
+  flex-direction:column; 
+  gap:9px; }
+.supplement-row { 
+  padding:13px; 
+  border:1px solid var(--line); 
+  border-radius:18px; 
+  background:var(--card); }
+  
+.supplement-row-title {
+  display:flex; 
+  justify-content:space-between;
+  align-items:center; 
+  gap:10px;
+  margin-bottom:10px; }
+  
+.supplement-row-title strong { font-size:13px; }
+.mini-delete { 
+  background:rgba(255,80,120,.08);
+  color:#c8788b;
+  font-size:10px;
+  cursor:pointer; 
+  margin: 5px;
+}
+  
+.supplement-days { 
+  display:grid;
+  grid-template-columns:repeat(7,1fr); 
+  gap:5px; }
+  
+.supplement-day { 
+  min-width:0; 
+  padding:7px 2px;
+  border:1px solid transparent;
+  border-radius:12px;
+  background:rgba(127,127,127,.07); 
+  color:var(--muted); 
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2px; 
+  cursor:pointer; }
+  
+.supplement-day span { 
+  font-size:8px;
+  text-transform:uppercase; }
+.supplement-day b { 
+  color:var(--text);
+  font-size:14px; }
+.supplement-day i {
+  height:13px; 
+  color:var(--pink);
+  font-style:normal; 
+  font-size:11px; }
+.supplement-day.is-done {
+  background:linear-gradient(
+    145deg,
+    rgba(255,159,207,.25),
+    rgba(168,156,255,.16)); }
+.supplement-day.is-today { 
+  border-color:var(--pink); }
+  
+.tracker-add-row {
+  display:grid;
+  grid-template-columns:1fr auto; 
+  gap:30px; }
+.tracker-add-row input,.water-goal-row input {
+  width:100%;
+  min-width:0;
+  padding:11px 12px;
+  border:1px solid var(--line);
+  border-radius:13px; 
+  outline:none;
+  background:rgba(127,127,127,.07); 
+  color:var(--text);
+  font:inherit; 
+  font-size:12px; }
+  
+.tracker-add-row button,.water-buttons button {
+  border-radius:12px; 
+  background:rgba(127,127,127,.09); 
+  color:var(--text); 
+  padding:10px 11px;
+  font-size:11px;
+  cursor:pointer; }
+  
+.tracker-hint {
+  color:var(--muted); 
+  font-size:10px;
+  line-height:1.55; }
+  
+.empty-tracker-state { 
+  padding:30px 18px; 
+  border:1px dashed var(--line);
+  border-radius:20px; 
+  text-align:center; 
+  background:var(--card); }
+  
+.empty-tracker-state span {
+  display:block; 
+  font-size:28px; 
+  margin-bottom:8px; }
+  
+.empty-tracker-state strong {
+  display:block; font-size:13px; }
+  
+.empty-tracker-state p { 
+  margin:6px 0 0; 
+  color:var(--muted); 
+  font-size:10px; 
+  line-height:1.5; }
+  
+.empty-tracker-state.compact { padding:22px 16px; }
+   
+
+.theme-grid { 
+  display:grid;
+  grid-template-columns:1fr 1fr; 
+  gap:9px; }
+  
+.theme-option {
+  min-height:105px; 
+  padding:13px;
+  border:1px solid var(--line); 
+  border-radius:19px; 
+  display:grid; 
+  grid-template-columns:35px 1fr; 
+  grid-template-rows:1fr 1fr;
+  align-items:center;
+  text-align:left; 
+  color:var(--text);
+  cursor:pointer; }
+  
+.theme-option span {
+  grid-row:1/3;
+  font-size:24px;
+  text-align:center; }
+  
+.theme-option strong { font-size:12px; }
+  
+.theme-option small {
+  color:var(--muted);
+  font-size:9px; }
+  
+.theme-option.is-active { 
+  border-color:var(--pink);
+  box-shadow:0 0 0 1px var(--pink) inset; }
+  
+.theme-preview-dark { 
+  background:linear-gradient(
+    145deg,
+    #071426,#172f4e); 
+  color:#f2f7ff; }
+  
+.theme-preview-pink {
+  background:linear-gradient(
+    145deg,
+    #3d2034,#6a3659); 
+  color:#fff4fa; }
+  
+.theme-preview-angel { 
+  background:linear-gradient(
+    145deg,
+    #fff,#eee7ff);
+  color:#443b56; }
+  
+.theme-preview-minimalism {
+  background:linear-gradient(
+    145deg,
+    #fff,#e8e8e2);
+  color:#242421; }
+
+.tracker-toast { 
+  position:fixed;
+  left:16px; 
+  right:16px;
+  bottom:calc(18px + env(safe-area-inset-bottom));
+  z-index:2147483648;
+  display:flex;
+  align-items:center; 
+  gap:10px;
+  padding:13px 15px;
+  border:1px solid var(--line); 
+  border-radius:17px;
+  background:var(--card-light); 
+  color:var(--text); 
+  box-shadow:0 18px 45px rgba(0,0,0,.2); 
+  backdrop-filter:blur(20px); 
+  animation:trackerToastIn .25s ease both; }
+  
+.tracker-toast > span { font-size:20px; }
+  
+.tracker-toast div {
+  display:flex;
+  flex-direction:column;
+  gap:2px; }
+  
+.tracker-toast strong { font-size:12px; }
+  
+.tracker-toast small {
+  color:var(--muted);
+  font-size:10px; }
+  
+@keyframes trackerToastIn { 
+  from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+@media (min-width:650px) {
+  .home-trackers {
+    grid-template-columns:2fr 2fr;
+  } }
+  
+@media (max-width:380px) {
+  .water-big-card {
+    gap:12px; } 
+  .water-orb {
+    width:94px; 
+    height:94px; 
+    flex-basis:94px; } 
+  .water-big-card strong {
+    font-size:22px; 
+  } }
+
+</style>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+
+
+  
+<body>
+<main class="app">
+<section class="screen home-screen" id="homeScreen">
+
+  <div class="home-glow glow-one"></div>
+  <div class="home-glow glow-two"></div> 
+  <div class="home-content">
+    
+  <div class="home-topbar">    
+    
+
+  </div>
+    
+  <div class="app-wrapper">
+  <!-- Панель вкладок (Табы) -->
+  <div role="tablist" aria-label="Раздел" class="sections-list" id="tabList">
+    <!-- Активная фоновая подложка, которая будет двигаться -->
+  <div class="tab-indicator" id="indicator"></div>
+    
+    <button type="button" role="tab" aria-selected="true" class="section-tab section-tab-active" data-screen="0">главная</button>
+    <button type="button" role="tab" aria-selected="false" class="section-tab" data-screen="1"> статьи</button>
+    <button type="button" role="tab" aria-selected="false" class="section-tab" data-screen="2">ссылки</button>
+    <button class="settings-trigger-btn" data-section="settings" type="button">
+    ⚙️
+    </button>
+  </div>
+    
+
+
+
+  <!-- Контейнер для экранов с горизонтальным скроллом -->
+  <div class="screens-container" id="screensContainer">
+    <!-- Экран 1: Главная -->
+  <div class="screen-page">
+      
+<div class="card-base water-card" style="opacity: 1; transform: none;">
+  <div class="water-top">
+    <div class="water-left">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-droplets water-top-icon" aria-hidden="true">
+        <path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"></path>
+        <path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"></path>
+      </svg>
+      <h3 class="water-card-title">Вода</h3>
+    </div>
+    <div class="water-right">
+      <!-- Сюда добавили id="water-current-glasses" -->
+      <span class="water-card-count" id="water-current-glasses">0</span>
+      <span class="water-card-count-total">/ 8 стаканов</span>
+    </div>
+  </div>
+  
+  <div class="water-glass-row">
+    <!-- К кнопкам добавили data-index и общий вызов функции toggleGlass -->
+    <button type="button" class="water-glass-btn" data-index="1" onclick="toggleGlass(1)" aria-label="Стакан 1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-glass-water" aria-hidden="true">
+        <path d="M5.116 4.104A1 1 0 0 1 6.11 3h11.78a1 1 0 0 1 .994 1.105L17.19 20.21A2 2 0 0 1 15.2 22H8.8a2 2 0 0 1-2-1.79z"></path>
+        <path d="M6 12a5 5 0 0 1 6 0 5 5 0 0 0 6 0"></path>
+      </svg>
+    </button>
+    
+    <button type="button" class="water-glass-btn" data-index="2" onclick="toggleGlass(2)" aria-label="Стакан 2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-glass-water" aria-hidden="true">
+        <path d="M5.116 4.104A1 1 0 0 1 6.11 3h11.78a1 1 0 0 1 .994 1.105L17.19 20.21A2 2 0 0 1 15.2 22H8.8a2 2 0 0 1-2-1.79z"></path>
+        <path d="M6 12a5 5 0 0 1 6 0 5 5 0 0 0 6 0"></path>
+      </svg>
+    </button>
+    
+    <button type="button" class="water-glass-btn" data-index="3" onclick="toggleGlass(3)" aria-label="Стакан 3">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-glass-water" aria-hidden="true">
+        <path d="M5.116 4.104A1 1 0 0 1 6.11 3h11.78a1 1 0 0 1 .994 1.105L17.19 20.21A2 2 0 0 1 15.2 22H8.8a2 2 0 0 1-2-1.79z"></path>
+        <path d="M6 12a5 5 0 0 1 6 0 5 5 0 0 0 6 0"></path>
+      </svg>
+    </button>
+    
+    <button type="button" class="water-glass-btn" data-index="4" onclick="toggleGlass(4)" aria-label="Стакан 4">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-glass-water" aria-hidden="true">
+        <path d="M5.116 4.104A1 1 0 0 1 6.11 3h11.78a1 1 0 0 1 .994 1.105L17.19 20.21A2 2 0 0 1 15.2 22H8.8a2 2 0 0 1-2-1.79z"></path>
+        <path d="M6 12a5 5 0 0 1 6 0 5 5 0 0 0 6 0"></path>
+      </svg>
+    </button>
+    
+    <button type="button" class="water-glass-btn" data-index="5" onclick="toggleGlass(5)" aria-label="Стакан 5">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-glass-water" aria-hidden="true">
+        <path d="M5.116 4.104A1 1 0 0 1 6.11 3h11.78a1 1 0 0 1 .994 1.105L17.19 20.21A2 2 0 0 1 15.2 22H8.8a2 2 0 0 1-2-1.79z"></path>
+        <path d="M6 12a5 5 0 0 1 6 0 5 5 0 0 0 6 0"></path>
+      </svg>
+    </button>
+    
+    <button type="button" class="water-glass-btn" data-index="6" onclick="toggleGlass(6)" aria-label="Стакан 6">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-glass-water" aria-hidden="true">
+        <path d="M5.116 4.104A1 1 0 0 1 6.11 3h11.78a1 1 0 0 1 .994 1.105L17.19 20.21A2 2 0 0 1 15.2 22H8.8a2 2 0 0 1-2-1.79z"></path>
+        <path d="M6 12a5 5 0 0 1 6 0 5 5 0 0 0 6 0"></path>
+      </svg>
+    </button>
+    
+    <button type="button" class="water-glass-btn" data-index="7" onclick="toggleGlass(7)" aria-label="Стакан 7">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-glass-water" aria-hidden="true">
+        <path d="M5.116 4.104A1 1 0 0 1 6.11 3h11.78a1 1 0 0 1 .994 1.105L17.19 20.21A2 2 0 0 1 15.2 22H8.8a2 2 0 0 1-2-1.79z"></path>
+        <path d="M6 12a5 5 0 0 1 6 0 5 5 0 0 0 6 0"></path>
+      </svg>
+    </button>
+    
+    <button type="button" class="water-glass-btn" data-index="8" onclick="toggleGlass(8)" aria-label="Стакан 8">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-glass-water" aria-hidden="true">
+        <path d="M5.116 4.104A1 1 0 0 1 6.11 3h11.78a1 1 0 0 1 .994 1.105L17.19 20.21A2 2 0 0 1 15.2 22H8.8a2 2 0 0 1-2-1.79z"></path>
+        <path d="M6 12a5 5 0 0 1 6 0 5 5 0 0 0 6 0"></path>
+      </svg>
+    </button>
+  </div>
+    
+  <div class="water-progress-row">
+    <!-- Сюда добавили id="water-track" -->
+    <div class="water-progress-track" id="water-track" role="progressbar" aria-valuemin="0" aria-valuemax="2000" aria-valuenow="0">
+      <!-- Сюда добавили id="water-fill" -->
+      <div class="water-progress-fill" id="water-fill" style="width: 0%;"></div>
+    </div>
+    
+    <div class="water-progress-text">
+      <div class="water-progress-left">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-droplets water-progress-left-icon" aria-hidden="true">
+          <path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"></path>
+          <path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"></path>
+        </svg>
+        <!-- Сюда добавили id="water-left-ml" -->
+        <span id="water-left-ml">Осталось 2000 мл</span>
+      </div>
+      
+      <!-- Сюда добавили id="water-liters-status" -->
+      <span class="water-progress-right" id="water-liters-status">0.00 л / 2 л</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Константы для расчетов
+  const TOTAL_GLASSES = 8;
+  const GLASS_VOLUME = 250; // 250 мл в одном стакане
+  const TOTAL_VOLUME = TOTAL_GLASSES * GLASS_VOLUME; // 2000 мл
+
+  // Загружаем сохраненное количество стаканов из памяти браузера (или 0, если зашли впервые)
+  let currentGlasses = parseInt(localStorage.getItem('water_glasses_count')) || 0;
+
+  function updateWaterUI() {
+    const currentVolume = currentGlasses * GLASS_VOLUME;
+    const leftVolume = Math.max(0, TOTAL_VOLUME - currentVolume);
+    const progressPercent = (currentVolume / TOTAL_VOLUME) * 100;
+    const litersText = `${(currentVolume / 1000).toFixed(2)} л / 2 л`;
+
+    // 1. Обновляем текстовые значения
+    document.getElementById('water-current-glasses').innerText = currentGlasses;
+    document.getElementById('water-left-ml').innerText = `Осталось ${leftVolume} мл`;
+    document.getElementById('water-liters-status').innerText = litersText;
+
+    // 2. Обновляем прогресс-бар и его accessibility-атрибуты
+    const track = document.getElementById('water-track');
+    const fill = document.getElementById('water-fill');
+    if (track) track.setAttribute('aria-valuenow', currentVolume);
+    if (fill) fill.style.width = `${progressPercent}%`;
+
+    // 3. Обновляем классы ".filled" у стаканов-кнопок
+    const buttons = document.querySelectorAll('.water-glass-btn');
+    buttons.forEach(button => {
+      const index = parseInt(button.getAttribute('data-index'));
+      if (index <= currentGlasses) {
+        button.classList.add('filled');
+      } else {
+        button.classList.remove('filled');
+      }
+    });
+
+    // 4. Сохраняем состояние в localStorage
+    localStorage.setItem('water_glasses_count', currentGlasses);
+  }
+
+  function toggleGlass(clickedIndex) {
+    // Логика: если кликнули по уже заполненному последнему стакану — сбрасываем его (уменьшаем на 1).
+    // В остальных случаях — устанавливаем уровень заполнения равным индексу кликнутого стакана.
+    if (clickedIndex === currentGlasses) {
+      currentGlasses = clickedIndex - 1;
+    } else {
+      currentGlasses = clickedIndex;
+    }
+    
+    updateWaterUI();
+  }
+
+  // Инициализация интерфейса при первой загрузке страницы
+  document.addEventListener('DOMContentLoaded', updateWaterUI);
+  // На случай, если скрипт подключен в самом низу body и DOM уже готов:
+  updateWaterUI();
+</script>
+
+    
+      <button class="diary-quick-card" id="quickDiaryButton" type="button">
+        <span class="diary-quick-icon">✎</span>
+        <span class="diary-quick-content">
+                <strong>добавить запись в дневник</strong>
+                <small>быстрая запись о том, как ты себя чувствуешь</small>
+        </span>
+        <span class="diary-quick-arrow">›</span>
+        </button>
+      
+        <button class="tracker-card" data-section="tools" type="button">
+        <span class="tracker-icon">⌁</span>
+        <span class="tracker-card-content">
+                <strong>калькуляторы</strong>
+                <small>узнай свои ИМТ и дефицит калорий</small>
+        </span>
+        </button>
+      
+  <div class="home-trackers">
+        <button class="tracker-card supplements-tracker-card active" id="supplementsTrackerButton" type="button">
+        <span class="tracker-icon">💊</span>
+        <span class="tracker-card-content">
+                <strong>календарь</strong>
+                <small id="supplementsTrackerSummary">1 таблетка  отметь сегодняшний прием</small>
+        </span>
+        <span class="tracker-card-value" id="supplementsStreak"><span class="streak-num">20</span><span class="streak-fire-emoji">🔥</span></span>
+        </button>
+  </div>
+    
+  <!-- Ваша карточка -->
+<!-- Главный контейнер модуля веса -->
+<div id="wv2-weight-module-wrapper">
+  <!-- Сюда JavaScript автоматически добавит либо кнопку "Добавить свой вес", либо карточку -->
+</div>
+
+<!-- БЛОК ИСТОРИИ ВЕСА (По умолчанию скрыт) -->
+<div class="wv2-history-list" id="weight-history-list"></div>
+
+<!-- ФОРМА ДОБАВЛЕНИЯ (Изначально скрыта стилями max-height: 0) -->
+<div class="wv2-add-form" id="wv2-weight-form">
+  <input type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" placeholder="Вес, кг (например: 72.3)" class="form-control" id="wv2-weight-input">
+  <div class="wv2-form-buttons">
+    <button disabled class="wv2-btn-save" id="wv2-weight-save">Сохранить</button>
+    <button class="wv2-btn-cancel" id="wv2-weight-cancel">Отмена</button>
+  </div>
+</div>
+
+<!-- Главный контейнер модуля замеров -->
+<div id="wv2-measurements-module-wrapper">
+  <!-- Сюда JavaScript автоматически подставит нужный интерфейс -->
+</div>
+
+<!-- ФОРМА ДОБАВЛЕНИЯ ЗАМЕРОВ (Изначально скрыта через CSS) -->
+<div class="measurements-form" id="wv2-measurements-form">
+  <div class="measurements-hint">
+    <svg xmlns="http://w3.org" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M12 16v-4"></path>
+      <path d="M12 8h.01"></path>
+    </svg>
+    <span>Записывай параметры утром до еды, в одних и тех же точках, измерительная лента не должна быть затянута</span>
+  </div>
+  
+  <div class="measurements-inputs">
+    <label class="measurements-input-row">
+      <span-measurements>Шея</span-measurements>
+      <input type="text" inputmode="decimal" placeholder="см" data-prop="neck">
+    </label>
+    <label class="measurements-input-row">
+      <span-measurements>Грудь</span-measurements>
+      <input type="text" inputmode="decimal" placeholder="см" data-prop="chest">
+    </label>
+    <label class="measurements-input-row">
+      <span-measurements>Талия</span-measurements>
+      <input type="text" inputmode="decimal" placeholder="см" data-prop="waist">
+    </label>
+    <label class="measurements-input-row">
+      <span-measurements>Бёдра</span-measurements>
+      <input type="text" inputmode="decimal" placeholder="см" data-prop="hips">
+    </label>
+    <label class="measurements-input-row">
+      <span-measurements>Бедро</span-measurements>
+      <input type="text" inputmode="decimal" placeholder="см" data-prop="thigh">
+    </label>
+    <label class="measurements-input-row">
+      <span-measurements>Рука</span-measurements>
+      <input type="text" inputmode="decimal" placeholder="см" data-prop="bicep">
+    </label>
+  </div>
+  
+  <label class="measurements-input-row measurements-fat-row">
+    <span-measurements>Жир, %</span-measurements>
+    <input type="text" inputmode="decimal" placeholder="с весов" data-prop="fat">
+  </label>
+  <p class="measurements-fat-note">Если весы показывают процент жира — впиши его. Оставь пустым и мы посчитаем сами по шее, талии и росту</p>
+  
+  <div class="wv2-form-buttons">
+    <button class="wv2-btn-save" id="wv2-measurements-save" disabled>Сохранить</button>
+    <button class="wv2-btn-cancel" id="wv2-measurements-cancel">Отмена</button>
+  </div>
+</div>
+    
+  </div>          
+      
+    
+    <!-- Экран 2: Статьи -->
+  <div class="screen-page">
+<div class="section-list">
+
+  <button class="section-card" type="button" data-section="supplements" style="">
+
+    <span>
+      <div class="section-icon" style="">🔬 &nbsp;&nbsp;Библиотека БАДов&nbsp;</div>
+      <p class="section-card-description">
+                            побочки, противопоказания, плато
+                          </p>
+    </span>
+
+    <span class="section-arrow">›</span>
+  </button>
+
+  <button class="section-card" type="button" data-section="base" style="">
+
+    <span>
+      <div class="section-icon">🧬&nbsp;Что нужно знать&nbsp;</div>
+      <p class="section-card-description">
+                            побочки, противопоказания, плато
+                          </p>
+    </span>
+    <span class="section-arrow">›</span>
+  </button>
+
+  <button class="section-card" type="button" data-section="medical">
+
+    <span>
+      <div class="section-icon">🚑 медицина&nbsp;</div>
+      <p class="section-card-description">
+                            побочки, противопоказания, плато
+                          </p>
+    </span>
+    <span class="section-arrow">›</span>
+  </button>
+
+  <button class="section-card" type="button" data-section="delicate">
+
+    <span>
+      <div class="section-icon">💭&nbsp;delicate&nbsp;</div>
+      <p class="section-card-description">
+                            побочки, противопоказания, плато
+                          </p>
+    </span>
+    <span class="section-arrow">›</span>
+  </button>
+
+  <button class="section-card" type="button" data-section="rpp">
+
+    <span>
+      <div class="section-icon">🍽️ рпп</div>
+      <p class="section-card-description">
+                            побочки, противопоказания, плато
+                          </p>
+    </span>
+    <span class="section-arrow">›</span>
+  </button>
+
+  <button class="section-card" type="button" data-section="care">
+
+    <span>
+      <div class="section-icon">🧴&nbsp;molecular care&nbsp;</div>
+      <p class="section-card-description">
+                            побочки, противопоказания, плато
+                          </p>
+    </span>
+    <span class="section-arrow">›</span>
+  </button>
+</div>
+
+  
+</div>
+
+
+    
+    <!-- Экран 3: links -->
+  <div class="screen-page">
+
+  <div class="official-links">
+    
+        <a class="official-link-card" href="https://t.me/+UVrGsGtw9Gc4YWJh" target="_blank" rel="noopener noreferrer">
+            <div class="official-link-icon">✦</div>
+            <div class="official-link-info">
+                <strong>основной Telegram-канал</strong>
+                <span>публикуем новые артикулы ежедневно</span>
+            </div>
+            <span class="official-link-arrow">→</span>
+        </a>
+    
+        <a class="official-link-card" href="https://t.me/+LXe1omT2myIxYzNh" target="_blank" rel="noopener noreferrer">
+            <div class="official-link-icon">☁</div>
+            <div class="official-link-info">
+                <strong>общий чат</strong>
+                <span>самый лояльный чат, где тебя поддержат и помогут</span>
+            </div>
+            <span class="official-link-arrow">→</span>
+        </a>
+    
+        <a class="official-link-card" href="hhttps://t.me/molecule_agent" target="_blank" rel="noopener noreferrer">
+            <div class="official-link-icon">?</div>
+            <div class="official-link-info">
+                <strong>анонимный бот</strong>
+                <span>задай вопрос или предложи тему для поста</span>
+            </div>
+            <span class="official-link-arrow">→</span>
+        </a>
+    
+        <a class="official-link-card" href="https://www.tiktok.com/@moleculehospital113" target="_blank" rel="noopener noreferrer">
+            <div class="official-link-icon">♪</div>
+            <div class="official-link-info">
+                <strong>TikTok</strong>
+                <span>тикитоки, шутки, сотрудничество</span>
+            </div>
+            <span class="official-link-arrow">→</span>
+        </a>
+    
+  <div class="official-links-warning">
+  <div class="official-links-warning-title">
+               ⚠️ не наткнись на мошенников!
+  </div>
+            <p>
+            все ссылки в этом разделе — наши официальные соц.сети
+            </p>
+            <p>
+             ссылки, которые не были опубликованы здесь – 
+            <b>мошеннические!</b>
+            </p>
+  </div>
+  </div>
+  </div>
+
+  </div> 
+  </div>
+
+           <footer class="footer">
+           вся информация внутри приложения несет ознакомительный характер
+           </footer>
+  </div>
+  </section>
+  
+  <section
+  class="screen content-screen hidden"
+  id="contentScreen"
+  >
+  <div id="contentContainer"></div>
+  </section>
+  </main>
+  <script src="app.js"></script>
+  </body>
+  </html>
