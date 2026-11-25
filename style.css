@@ -789,13 +789,6 @@ width: 309px !important;
                        ТЕМА
 ================================================== */
 
-.home-topbar {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 16px !important;
-}
-
 .theme-toggle {
   flex: 0 0 auto !important;
   padding: 10px 10px !important;
@@ -1183,7 +1176,7 @@ calculator-button:hover {
   border: 1px solid var(--line);
   border-radius: 16px;
   
-  background: var(--button);
+  background: var(--card-soft);
   color: var(--text);
 
   text-decoration: none;
@@ -1235,7 +1228,7 @@ calculator-button:hover {
 
 .official-link-info strong {
   color: var(--text);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
 }
 
@@ -2496,11 +2489,11 @@ border-radius: 80px;
 .card-base.water-card {
 margin-top: 12px;
 padding: 14px;
-border-radius: 16px;
+border-radius: 25px;
 display: flex;
 flex-direction: column;
 gap: 12px;
-background: var(--line-soft);
+background: var(--line-light);
 
 }
 .water-top {
@@ -2572,7 +2565,7 @@ flex: 1 1 0;
 max-width: 52px;
 min-width: 0;
 height: 44px;
-border-radius: 8px;
+border-radius: 17px;
 background: var(--tab-bg);
 box-shadow: inset 0 0 0 1px #ffffff08,inset 2px 1px 0 -1px #ffffff45,inset -1.5px -1px 0 -1px #ffffff3d,inset -2px -6px 1px -5px #ffffff2e,inset -1px 2px 3px -1px #0006,inset 0 -4px 1px -2px #0003,0 3px 6px #00000029;
 display: flex;
@@ -2608,7 +2601,7 @@ background: var(--muted-light);
 .water-progress-track {
   width: 100%;
   height: 8px;
-  background: #dbeafe;
+  background: var(--line);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -2858,10 +2851,9 @@ color: var(--button-text);
 }
 .wv2-add-form {
   border-radius: 20px;
-  background: var(--accent-soft);
   padding: 20px;
   margin-bottom: 12px;
-
+  margin-top: 10px;
 }
 .form-control {
   border-radius: 12px;
@@ -2989,8 +2981,7 @@ color: var(--button-text);
 .wv2-start-btn {
   width: 100%;
   padding: 16px;
-  background: var(--line);
-  border: 1px dashed var(--tab-bg);
+  background: linear-gradient(135deg,#ffe1ef,#f5dafa);
   border-radius: 12px;
   color: var(--muted);
   font-size: 16px;
@@ -3109,14 +3100,16 @@ color: var(--button-text);
   justify-content: space-between;
   width: 100%;
   padding: 18px 18px;
-  background: var(--line-light);
+  background:var(--card-soft);
   color: var(--text);
-  text-align: left;
+  text-align: center;
   cursor: pointer;
   border: 1px var(--line);
   border-radius: 29px;
   margin-bottom: 12px;
+  box-shadow: var(--tab-shadow);
 }
+
 .section-card-description {
   margin: 8px 0 0;
   color: var(--muted);
@@ -3124,17 +3117,11 @@ color: var(--button-text);
   line-height: 1.45;
 
 }
-.section-arrow {
-  flex: 0 0 auto;
-  margin-left: 15px;
-  color: var(--muted);
-  font-size: 20px;
 
-}
 .section-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
   margin-top: 12px;
 
 }
@@ -3364,8 +3351,8 @@ measurements-add:hover {
 /* Стартовая кнопка для новых замеров */
 .measurements-start-btn {
   width: 100%;
-  padding: 20px;
-  background: var(--button);
+  padding: 16px;
+  background: linear-gradient(135deg,#ffe1ef,#f5dafa)!important;
   border: 1px dashed var(--line);
   border-radius: 12px;
   color: var(--muted);
@@ -3377,7 +3364,9 @@ measurements-add:hover {
   justify-content: center;
   gap: 8px;
   transition: all 0.2s ease;
+  margin-top: 12px;
 }
+
 .measurements-start-btn:hover {
   background: var(--line);
   border-color: var(--line);
@@ -3585,7 +3574,7 @@ input[type="radio"] {
   font: inherit;
   outline: none;
   border: none;
-  border-radius: 100px;
+  border-radius: 200px;
   font-size: 16px;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
@@ -3601,24 +3590,117 @@ html, body, .app, .screen { background-color:#fff8fc; color:var(--hk-ink); }
 .home-screen, .article-screen, .section-overlay-inner {
  background:radial-gradient(circle at 8% 6%,#ffe0ee 0 8%,transparent 8.5%),radial-gradient(circle at 94% 14%,#e8ddff 0 7%,transparent 7.5%),linear-gradient(180deg,#fff8fc 0%,#fffafd 58%,#f8f1ff 100%);
 }
-.home-topbar { position:relative!important; display:flex!important; align-items:center!important; justify-content:center!important; gap:10px!important; width:100%!important; max-width:560px; margin:0 auto 18px!important; padding:8px!important; border:1px solid #f2c8dc!important; border-radius:22px!important; background:rgba(255,255,255,.9)!important; box-shadow:0 7px 22px #d98bb726!important; }
+
+.home-topbar { 
+  position:relative!important;
+  display:flex!important; 
+  align-items:center!important; 
+  justify-content:center!important; 
+  gap:10px!important;
+  max-width:560px;
+  margin:0 auto 18px!important;
+  padding:8px!important; 
+  border: 1px solid var(--line)!important;
+  border-radius: 80px!important;
+  background: var(--line-light)!important;
+  box-shadow:0 7px 22px #d98bb726!important;
+  font-family: Didot;
+  font-size: 40px;
+  font-weight: 550;
+  width: 400px !important;
+}
+
 .section-tabs { position:relative!important; display:flex!important; width:100%!important; gap:0!important; padding:5px!important; overflow:hidden!important; border:1px solid #f2c8dc; border-radius:24px; background:#fff!important; box-shadow:0 6px 20px #e097bc21; }
 .section-tab { position:relative!important; z-index:2!important; flex:1 1 0!important; min-width:0!important; padding:10px 4px!important; border-radius:18px!important; color:#927b9a!important; font-size:clamp(11px,2.8vw,13px)!important; white-space:nowrap; text-align:center!important; }
 .section-tab-active { color:#754e78!important; font-weight:800!important; }
-.tab-indicator { position:absolute!important; left:5px!important; top:5px!important; bottom:5px!important; height:auto!important; width:calc((100% - 10px)/3)!important; border-radius:18px!important; background:linear-gradient(135deg,#ffe1ef,#f5dafa)!important; box-shadow:inset 0 0 0 1px #f1c0d8,0 2px 7px #e8b4d233!important; pointer-events:none; }
-.section-tab::after { content:"♡"; display:inline-block; margin-left:4px; color:#e99aba; font-size:10px; }
-.home-topbar .theme-toggle,.home-topbar .section-button { margin:0!important; width:auto!important; min-width:0!important; justify-self:center!important; }
+.tab-indicator {
+  position:absolute!important;
+  left: -6px !important;
+  top:5px!important; 
+  bottom:5px!important; 
+  height:auto!important;
+  width:calc((100% - 10px)/3)!important;
+  border-radius:18px!important; 
+  background:linear-gradient(135deg,#ffe1ef,#f5dafa)!important; 
+  box-shadow:inset 0 0 0 1px #f1c0d8,0 2px 7px #e8b4d233!important; 
+  pointer-events:none;
+}
+
+.section-tab::after { content:"♡"; display:inline-block; margin-left:4px; color:#e99aba; font-size:10px;
+}
+
+.home-topbar .theme-toggle,.home-topbar .section-button { 
+  margin:0!important;
+  width:auto!important;
+  min-width:0!important;
+  justify-self:center!important;
+}
+
 .article-screen img,.article-screen .article-content img,.section-overlay img { display:block; width:min(100%,520px)!important; max-width:100%!important; height:auto!important; object-fit:contain!important; border-radius:12px!important; margin:18px auto!important; }
 .article-screen h1,.section-header h1 { color:#9d6595!important; }
 .article-screen h1::before,.section-header h1::before { content:"🎀 "; }
 .article-screen h1::after,.section-header h1::after { content:" ✧"; color:#e9a4c3; }
 button,.section-tab,.article-nav-button { -webkit-tap-highlight-color:transparent; }
 button { border-radius:18px; }
-@media(max-width:520px) { .home-topbar{gap:5px!important;padding:6px!important}.section-tabs{margin-inline:0!important}.section-tab{padding-inline:2px!important}.article-screen img,.section-overlay img{width:100%!important;border-radius:10px!important} }
+@media(max-width:520px) { 
+  
+  .home-topbar{
+    gap:5px!important;
+               padding:6px!important
+              }
+  
+  .section-tabs{margin-inline:0!important}.section-tab{padding-inline:2px!important}.article-screen img,.section-overlay img{width:100%!important;border-radius:10px!important} }
 
 /* actual navigation container */
-.sections-list { position:relative!important; display:flex!important; align-items:stretch!important; width:100%!important; max-width:560px; gap:0!important; padding:5px!important; margin:0 auto 18px!important; overflow:hidden!important; border:1px solid #f2c8dc!important; border-radius:24px!important; background:#fff!important; box-shadow:0 6px 20px #e097bc21!important; }
-.sections-list .section-tab { flex:1 1 0!important; min-width:0!important; }
-.sections-list .tab-indicator { left:5px!important; top:5px!important; bottom:5px!important; width:calc((100% - 10px)/3)!important; }
-.sections-list .settings-trigger-btn { flex:0 0 40px!important; margin:0!important; padding:6px!important; width:40px!important; min-width:40px!important; border-radius:16px!important; background:#fff0f6!important; color:#9d6595!important; box-shadow:none!important; }
-@media(max-width:520px) { .sections-list { gap:0!important; padding:4px!important; } .sections-list .settings-trigger-btn { flex-basis:34px!important; width:34px!important; min-width:34px!important; } .sections-list .tab-indicator { width:calc((100% - 42px)/3)!important; } }
+.sections-list {
+  position:relative!important;
+  display:flex!important;
+  align-items:stretch!important;
+  width:100%!important;
+  max-width:560px;
+  gap:0!important;
+  padding:5px!important;
+  margin:0 auto 18px!important; 
+  overflow:hidden!important; 
+  border: 1px solid var(--line-light)!important;
+  border-radius: 90px!important;
+  background: var(--line-light)!important;
+  box-shadow: var(--tab-shadow);
+}
+
+.sections-list .section-tab {
+  flex:1 1 0!important;
+  min-width:0!important;
+}
+.sections-list .tab-indicator {
+  left: 0px!important;
+  top: 3px!important;
+  bottom: 3px!important;
+  width: calc((100% - 10px)/3)!important;
+}
+.sections-list .settings-trigger-btn { 
+  flex:0 0 40px!important;
+  margin:0!important; 
+  padding:6px!important;
+  width:40px!important; 
+  min-width:40px!important; 
+  border-radius: 98px!important;
+  background: var(--line)!important;
+  color: #9d6595!important;
+  box-shadow: var(--tab-shadow);
+}
+
+@media(max-width:520px) {
+  .sections-list {
+    gap:0!important; 
+    padding:4px!important;
+  } 
+  .sections-list .settings-trigger-btn {
+    flex-basis:34px!important;
+    width:34px!important; 
+    min-width:34px!important; 
+  } 
+  .sections-list .tab-indicator {
+    width:calc((100% - 42px)/3)!important;
+  }
+}
