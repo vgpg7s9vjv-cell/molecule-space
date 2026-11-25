@@ -106,7 +106,7 @@ content: `
           
           <a
             class="official-link-card"
-            href="https://t.me/anonaskbot?start=arttmoleculeanon"
+            href="https://t.me/anonaskbot?start=molecule"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -146,7 +146,7 @@ content: `
        }
        ]
        }, 
-   
+
 /*что нужно знать*/
 base: {
 title: "Что нужно знать",
@@ -154,17 +154,9 @@ kicker: "basic information",
 description: "базовые знания перед покупкой БАДов и мифы о них",
 topics: [
         { id: "base-basic",
-          title: "Побочные эффекты",
-          description: "основные побочки и их причины",
+          title: "База всех БАДов",
+          description: "побочки, противопоказания, плато",
         },  
-        { id: "base-protiv",
-          title: "Противопоказания",
-          description: "противопоказания и их последствия",
-        },
-        { id: "base-plato",
-          title: "Плато и как с ним бороться",
-          description: "что такое плато и как этого избежать",
-        },
         { id: "base-scam",
           title: "Мифы из интернета",
           description: "легенда про сибутрамин и Германию",
@@ -302,6 +294,121 @@ topics: [
         ]
         },
 
+/*настройки приложения*/   
+settings: {
+title: "Настройки приложения",
+kicker: "settings",
+description: "изменить целевое количество воды и тему приложения",
+pages:  [
+        {
+content: `
+
+<div class="pv2-setting-item" style="cursor: pointer;">
+<div class="pv2-setting-left">        
+        <span class="pv2-setting-label">Цель воды</span>
+</div>
+<div class="pv2-setting-right">
+</div>
+</div>
+
+<div class="pv2-theme-expand">
+<div class="pv2-theme-options" style="padding-top: 12px;">
+
+        
+        <label class="pv2-theme-option">
+        <input type="radio" name="water-goal" value="1000">
+        <span>1000 мл (4 стакана)</span>
+        </label>
+        
+        <label class="pv2-theme-option">
+        <input type="radio" name="water-goal" value="1500">
+        <span>1500 мл (6 стаканов)</span>
+        </label>
+        
+        <label class="pv2-theme-option">
+        <input type="radio" name="water-goal" value="2000" checked="">
+        <span>2000 мл (8 стаканов)</span>
+        </label>
+        
+        <label class="pv2-theme-option">
+        <input type="radio" name="water-goal" value="2500">
+        <span>2500 мл (10 стаканов)</span>
+        </label>
+        
+        <label class="pv2-theme-option">
+        <input type="radio" name="water-goal" value="3000">
+        <span>3000 мл (12 стаканов)</span>
+        </label>
+        
+</div>
+</div>
+
+
+<div class="pv2-setting-item" style="cursor: pointer;">
+<div class="pv2-setting-left">
+        <span class="pv2-setting-label">Часовой пояс</span>
+</div>
+<div class="pv2-setting-right">
+        <span class="pv2-setting-value">UTC+3</span>
+        
+        <svg xmlns="http://www.w3.org/2000/svg"
+        width="16" height="16" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" class="lucide lucide-chevron-right
+        pv2-setting-chevron"
+        aria-hidden="true">
+        <path d="m9 18 6-6-6-6"></path>
+        </svg>        
+</div>
+</div>
+
+
+
+<div class="pv2-setting-item" style="cursor: pointer;">
+<div class="pv2-setting-left">
+        <span class="pv2-setting-label">Тема</span>
+</div>
+<div class="pv2-setting-right">
+        <span class="pv2-setting-value">Светлая</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16"
+        height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-chevron-right
+        pv2-setting-chevron" aria-hidden="true">
+        <path d="m9 18 6-6-6-6"></path>
+        </svg>
+</div>
+</div>
+
+<div class="pv2-theme-expand">
+<div class="pv2-theme-options" style="padding-top: 12px;">
+
+        <label class="pv2-theme-option">
+        <input type="radio" name="theme-preference" value="auto">
+        <span>Автоматически</span>
+        </label>
+        
+        <label class="pv2-theme-option">
+        <input type="radio" name="theme-preference" value="light" checked="">
+        <span>Светлая</span>
+        </label>
+        
+        <label class="pv2-theme-option">
+        <input type="radio" name="theme-preference" value="dark">
+        <span>Тёмная</span>
+        </label>        
+</div>
+<div class="pv2-theme-hint">Всегда используется светлая тема.</div>
+</div>
+
+</div>
+</div>       
+</div>
+       `
+       }
+       ]
+       },    
+
 /*кнопка дневника на главной*/      
 mood:   {
 title: "дневник настроения",
@@ -321,14 +428,14 @@ topics: []
     Общие правила БАДов
 --------------------------*/
       
-"base-basic": {
+  "base-basic": {
 
 section: "base",
-title: "Побочные эффекты",
-category: "base side",
+title: "Что нужно изучить перед покупкой",
+category: "побочки, противопоказания, плато",
 pages:  [
         {
-heading: "Их описание и причины",
+heading: "Побочные эффекты большинства БАДов",
 content:`
           <div class="info-box">
           БАДы могут отличаться составом, действующим веществом и дозировкой, <b>но большинство побочных
@@ -337,7 +444,8 @@ content:`
 
           <img src="./images/upackovki.jpg"
           alt="upackovki" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
 
 <h3>⟣Сухость во рту⟢</h3>
           <p>
@@ -346,8 +454,9 @@ content:`
           
           <img src="./images/waterbottles.JPG"
           alt="upackovki" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0.px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h3>⟣Бессонница⟢</h3>
           <p>
           Концентрация стимуляторов в составах дает дополнительный прилив энергии, чтобы иметь
@@ -359,8 +468,9 @@ content:`
           </p>
           <img src="./images/IMG_6237.jpg"
           alt="бессонница" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h3>⟣Увеличение потоотделения⟢</h3>
           <p>
           Кофеин вызывает повышение норадреналина в крови, который запускает симпатичесую систему "бей или беги"
@@ -368,8 +478,9 @@ content:`
           </p>
           <img src="./images/IMG_6238.JPG"
           alt="пот" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h3>⟣Тахикардия и увеличение ЧСС⟢</h3>
           <p>
           По той же причине кофеин выбрасывает в кровь норадреналин и кортизол, которые запускают
@@ -377,8 +488,9 @@ content:`
           </p>
           <img src="./images/IMG_6240.JPG"
           alt="сердешко" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h3>⟣Потемнение в глазах и обмороки⟢</h3>
           <p>
           Кофеин способствует мочегонному эффекту и обезвоживанию, а вместе с водой выводятся жизненно важные электролиты,
@@ -389,8 +501,9 @@ content:`
           </p>
           <img src="./images/IMG_6241.JPG"
           alt="обморок" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h3>⟣Запоры⟢</h3>
           <p>
           Так как кофеин высасывает воду из всего организма, то это касается и кишечника,
@@ -401,8 +514,9 @@ content:`
           </p>
           <img src="./images/IMG_6243.jpg"
           alt="запор" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h3>⟣Провалы в памяти/отсутствие концентрации⟢</h3>
           <p>
           Могут быть вызваны некоторыми вышеперечисленными факторами, например, бессонницей
@@ -410,26 +524,20 @@ content:`
           </p>
           <img src="./images/IMG_6242.jpg"
           alt="память" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
-        }
-        ]
-        },
+        },               
 
-"base-protiv": {
-
-section: "base",
-title: "Противопоказания",
-category: "base contraindications",
-pages:  [
         {
-heading: "➀ Нарушения сердечно-сосудистой системы",
-content:` 
-
+heading: "Общие противопоказания",
+content:`          
+<h2>➀ Нарушения сердечно-сосудистой системы</h2>
           <img src="./images/IMG_6246.jpg"
           alt="сердечко" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h3>✧ Гипертония</h3>
           <p>
           Высокое содержание кофеина в БАДах стимулирует выброс норадреналина,
@@ -454,17 +562,13 @@ content:`
           Кофеин сужает сосуды и увеличивает нагрузку на сердце, резко повышая риск повторения приступа
           </p>
           <br>
-        `
-        },
 
-        {
-heading: "➁ Нарушения эндокринной системы",
-content:`           
-
+<h2>➁ Нарушения эндокринной системы</h2>
           <img src="./images/IMG_6247.jpg"
           alt="скальпель" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h3>✧ Болезни щитовидной железы (гипер- и гипотиреоз)</h3>
           <p>
           При гипертиреозе препарат усугубит опасную нагрузку на сердце (тахикардию)
@@ -483,17 +587,13 @@ content:`
           гормонального сбоя бесполезным
           </p>
           <br>
-       `   
-       },
-   
-       {
-heading: "➂ Нарушение работы печени и почек",
-content:` 
 
+<h2>➂ Нарушение работы печени и почек</h2>
           <img src="./images/IMG_6248.jpg"
           alt="руки" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h3>✧ Гепатит</h3>
           <p>
           Воспаленная печень не справляется с метаболизмом кофеина в составе,
@@ -512,17 +612,13 @@ content:`
           концентрации в кровь
           </p>
           <br>
-       `   
-       },
-       
-       {
-heading: "➃ Общие нарушения организма",
-content:`          
 
+<h2>➃ Общие нарушения организма</h2>
           <img src="./images/IMG_6249.JPG"
           alt="лаборатория" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h3>✧ Глаукома</h3>
           <p>
           Кофеин вызывает расширение зрачков (мидриаз), что нарушает отток внутриглазной жидкости
@@ -564,28 +660,18 @@ content:`
           от острой кожной сыпи до отека Квинке и анафилактического шока
           </p>
         `
-        }
-        ]
-        },
-
-"base-plato": {
-
-section: "base",
-title: "Плато и как его избежать",
-category: "base plateau",
-pages:  [
+        }, 
+   
         {
-heading: "Что это и почему появляется?",
+heading: "Плато",
 content:`
 
-<h3>Что следует помнить:</h3>
+<h2>Что следует помнить:</h2>
           <div class="info-box">
-          <p>
           Самой частой причиной отсутствия отвесов на курсе является слишком маленький срок приема БАДа
           </div>
           <div class="info-box">
           Любой БАД для похудения не даст тебе -10 килограммов за один-три дня курса, это физически <b>невозможно</b>
-          </p>
           </div>
 
 <h2>Что это такое?</h2>
@@ -598,8 +684,9 @@ content:`
           
           <img src="./images/IMG_6250.jpg"
           alt="пробирки" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Какие могут быть причины остановки веса?</h2>
 <h3>➀ Неправильно рассчитанный дефицит калорий</h3>
           <p>
@@ -812,10 +899,10 @@ content:`
           <p>
           Полная отмена БАДа и наблюдение специалиста
           </p> 
-          
           <img src="./images/arttmolecule2.jpg"
           alt="krolik" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         }
         ]
@@ -828,13 +915,14 @@ content:`
   "base-scam": {
 
 section: "base",
-title: "Как связаны Германия, сибутрамин и 2010ый год?",
+title: "Разбиваем мифы о БАДах в щепки",
 category: "«какую таблетку выберешь, Нео?»",
 pages:  [
         {
-heading: "🧬 Что вообще такое сибутрамин?",
+heading: "Как связаны Германия, сибутрамин и 2010ый год?",
 content:`
 
+<h2>🧬 Что вообще такое сибутрамин?</h2>
           <p>
           <b><i>Сибутрамин</i></b> — это синтетический лекарственный препарат, который разработала
           компания <b>«Knoll Pharmaceuticals»</b> в 1980х годах
@@ -851,8 +939,9 @@ content:`
           
           <img src="./images/medical.JPG"
           alt="upackovki" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">         
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>🔬 Как работает сибутрамин?</h2>
           <p>
           Он блокирует обратный захват серотонина, норадреналина и немного дофамина
@@ -907,9 +996,10 @@ content:`
         }, 
    
         {
-heading: "📆 А что за роковой 2010-ый?",
+heading: "Как связаны Германия, сибутрамин и 2010ый год?",
 content:`
 
+<h2>📆 А что за роковой 2010-ый?</h2>
           <p>
           ✧ <b>В 2010м году</b> сибутрамин официально запретили по всему Евросоюзу, включая Германию, в которой якобы
           и производилась Молекула в 2018-2019 годах <i>(очень сомнительно)</i>
@@ -917,8 +1007,9 @@ content:`
           
           <img src="./images/memsiba.jpg"
           alt="upackovki" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
           <p>
           ✦ После крупного исследования специалисты пришли к выводу, что для части пациентов сердечно-сосудистые риски
           оказались слишком серьезными и в октябре 2010 года производители начали вывод с рынка США, а в декабре того
@@ -971,13 +1062,16 @@ content:`
         },
 
         {
-heading: "🧪 Теперь перейдем к Молекуле",
+heading: "Как связаны Германия, сибутрамин и 2010ый год?",
 content:`
+
+<h2>🧪 Теперь перейдем к Молекуле</h2>
 
           <img src="./images/mlk-blue2.jpg"
           alt="upackovki" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>– Есть ли все-таки там сибутрамин?</h2>
           <p>
           Никто не может утверждать, что в ней есть сибутрамин, ровно так же как и утверждать, что в ней его нет
@@ -1081,9 +1175,10 @@ content:`
         },
    
         {
-heading: "🧬 Зачем мы все это раскрываем?",
+heading: "Как связаны Германия, сибутрамин и 2010ый год?",
 content:`
 
+<h2>🧬 Зачем мы все это раскрываем?</h2>
           <p2>
           ⋆ Затем, чтобы наши покупатели знали, что <b>не все, что попадает в интернет – чистая правда</b> 
           </p2>
@@ -1105,8 +1200,9 @@ content:`
           
           <img src="./images/arttmolecule3.jpg"
           alt="logomolecule" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">        
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
           <div class="info-box">          
           <b>Ведь на каждого врунишку-маркетолога найдется свой любопытный и умеющий пользоваться
           интернетом покупатель</b>
@@ -1124,7 +1220,7 @@ content:`
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "supplements voice", 
+category: "библиотека БАДов", 
 pages:  [
         {
 heading: "Molecule Plus",
@@ -1132,8 +1228,9 @@ content:`
 
           <img src="./images/mlk-blue3.jpg"
           alt="plus1" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Что из себя представляет</h2>
           <p>
           Базовая база, 40 капсул
@@ -1178,8 +1275,9 @@ content:`
 
           <img src="./images/mlk-blue1.jpg"
           alt="blue" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h2>Если твой ИМТ</h2>
            <ul>
             <li><b>Ниже</b> нормы: 3-6 кг</li>
@@ -1223,31 +1321,35 @@ content:`
 
           <img src="./images/plusupack.jpg"
           alt="pack" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>💊 Капсула:</h2>
           <p>
           ♡ белая, без надписей
           </p>
           <img src="./images/mlk-tabletki.jpg"
           alt="kapsulki" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
           <p>
           ♡ внутри желто-коричневый порошок, пахнущий травами
           </p>
           <img src="./images/plussostav.jpg"
           alt="sostav" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
-                                                   
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                                                             
 <h2>Даты сроков годности и описание коробок оригинальных упаковок</h2>
 
 <h3>Вариант с радужными деталями и кьюар-кодом</h3>
 
           <img src="./images/plus-golofraphy.jpg"
           alt="orig plusrainbow" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
           <div class="info-box">
           <p>
           <b>В некоторых партиях возможен брак в виде надписей «Molecule Premium» внутри коробки</b>
@@ -1294,8 +1396,9 @@ content:`
 
           <img src="./images/plus-silver.jpg"
           alt="origplussilver" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h3>February 2025 - June 2028</h3>
           <p>
           ✧ кьюар-код: <b>отсутствует</b>
@@ -1314,8 +1417,9 @@ content:`
 
           <img src="./images/sravnenije.jpg"
           alt="kapsulki" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">  
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
           <p>
           ♡ <b>Обе капсулы являются оригинальными</b>, но цвет может варьироваться от партии к партии, в зависимости от
           разной концентрации и дозировки действующих веществ
@@ -1333,7 +1437,7 @@ content:`
    
 section: "supplements",
 title: "Cложности выбора и как его сделать",
-category: "supplements voice", 
+category: "библиотека БАДов", 
 pages:  [      
         {
 heading: "Molecule Premium",
@@ -1341,8 +1445,9 @@ content:`
 
           <img src="./images/premupack2.jpg"
           alt="pack" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Что из себя представляет</h2>
           <p>
           Младший бро Плюса, 46 капсул
@@ -1388,8 +1493,9 @@ content:`
 
           <img src="./images/premupack.jpg"
           alt="pack" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 
 <h2>Если твой ИМТ</h2>
           <ul>
@@ -1437,8 +1543,9 @@ content:`
           
           <img src="./images/premupack3.jpg"
           alt="kapsulki" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>💊 Капсула:</h2>
           <p>
           ♡ бело-голубая, чаще всего с надписью «Molecule» на синей части, но встречаются
@@ -1449,14 +1556,16 @@ content:`
           
           <img src="./images/premsostav.jpg"
           alt="sostav" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Даты сроков годности и описание коробок оригинальных упаковок</h2>
 
           <img src="./images/prem-orig.jpg"
           alt="orig prem" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h3>January 2025 - December 2028</h3>
           <p>
           ✧ кьюар-код: <b>черный</b>
@@ -1497,7 +1606,7 @@ content:`
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "supplements voice", 
+category: "библиотека БАДов", 
 pages:  [      
         {
 heading: "Molecule Ultra",
@@ -1505,8 +1614,9 @@ content:`
 
           <img src="./images/ultraupack.jpg"
           alt="pack" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Что из себя представляет</h2>
           <p>
           Считается сильнее Плюса и Премиума, 30 капсул
@@ -1558,8 +1668,9 @@ content:`
 
           <img src="./images/ultra.jpg"
           alt="ultra" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h2>Если твой ИМТ</h2>
           <ul>
             <li><b>Ниже</b> нормы: 2-3 кг</li>
@@ -1589,12 +1700,14 @@ content:`
 <h2>Пакетик и капсулы:</h2>
           <img src="./images/ultratabletki.JPG"
           alt="kapsulki" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">  
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Что внутри:</h2>
           <img src="./images/ultrasostav.jpg"
           alt="sostav" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         }
         ]
@@ -1608,7 +1721,7 @@ content:`
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "supplements voice", 
+category: "библиотека БАДов", 
 pages:  [      
         {
 heading: "Molecule Plus/Premium ЖБ",
@@ -1616,8 +1729,9 @@ content: `
 
           <img src="./images/zbupack.jpg"
           alt="pack" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Что из себя представляет</h2>
           <p> 
           Считается одним из самых сильных БАДов на рынке жиросжигателей, 30 капсул
@@ -1673,8 +1787,9 @@ content: `
 
           <img src="./images/mlkzhb.jpg"
           alt="mlkzhb" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h2>Если твой ИМТ</h2>
           <ul>
             <li><b>Ниже</b> нормы: 5-8 кг</li>
@@ -1718,7 +1833,7 @@ content: `
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "supplements voice", 
+category: "библиотека БАДов", 
 pages:  [      
         {
 heading: "Supressa",
@@ -1726,8 +1841,9 @@ content:`
 
           <img src="./images/supressabanka.jpg"
           alt="pack" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Что из себя представляет</h2>
           <p>
           Ныне запрещенный БАД, который считается по градации сильнее,
@@ -1773,8 +1889,9 @@ content:`
 <h2>Что внутри:</h2>
           <img src="./images/supressasostav.jpg"
           alt="sostav" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Если твой ИМТ</h2>
           <ul>
             <li><b>Ниже</b> нормы: 3-5 кг</li>
@@ -1814,7 +1931,7 @@ content:`
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "supplements voice", 
+category: "библиотека БАДов", 
 pages:  [      
         {
 heading: "Mineral Balance",
@@ -1822,8 +1939,9 @@ content: `
 
           <img src="./images/mineralupack.JPG"
           alt="pack" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Что из себя представляет</h2>
           <p> 
           Довольно легкий БАД, при передозе которого побочки могут быть хуже,
@@ -1866,8 +1984,9 @@ content: `
 
           <img src="./images/mineralbears.jpg"
           alt="минерал" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h2>Если твой ИМТ</h2>
           <ul>
             <li><b>Ниже</b> нормы: 1-2 кг</li>
@@ -1905,17 +2024,20 @@ content: `
 
           <img src="./images/mineralupack2.jpg"
           alt="pack" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
           <img src="./images/mineraltabletki.jpg"
           alt="kapsulki" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Что внутри:</h2>
 
           <img src="./images/mineralsostav.jpg"
           alt="sostav" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         }
         ]
@@ -1929,15 +2051,16 @@ content: `
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "supplements voice", 
+category: "библиотека БАДов", 
 pages:  [      
         {
 heading: "Heedly Slim-Complex",
 content:`
           <img src="./images/heedlyupack.JPG"
           alt="pack" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Что из себя представляет</h2>
           <p> 
           Один из самых деликатных БАДов, 60 капсул
@@ -1972,8 +2095,9 @@ content:`
 
           <img src="./images/heedly.jpg"
           alt="heedly" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-         
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                   
 <h2>Если твой ИМТ</h2>
           <ul>
             <li><b>Ниже</b> нормы: поддерживает вес и не снижает его</li>
@@ -2013,7 +2137,7 @@ content:`
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "supplements voice", 
+category: "библиотека БАДов", 
 pages:  [      
         {
 heading: "Редуксин",
@@ -2021,8 +2145,9 @@ content: `
 
           <img src="./images/reduksin.jpg"
           alt="reduksin" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Что из себя представляет</h2>
           <p> 
           Единственный в СНГ рецептурный препарат в составе которого есть <b>сибутрамин</b>,
@@ -2080,7 +2205,8 @@ content: `
 
           <img src="./images/reducsostav.jpg"
           alt="sostav" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         }
         ]
@@ -2094,7 +2220,7 @@ content: `
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "supplements voice", 
+category: "библиотека БАДов", 
 pages:  [      
         {
 heading: "Swapx Neo/Pro",
@@ -2102,8 +2228,9 @@ content: `
 
           <img src="./images/IMG_6219.JPG"
           alt="packsneopro" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
           <div class="info-box">
           Новинка среди БАДов для похудения, которая позиционруется как совокупность Молекулы с Супрессой
           </div>  
@@ -2112,8 +2239,9 @@ content: `
 
           <img src="./images/IMG_6220.JPG"
           alt="packsneopro" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Что из себя представляет</h2> 
           <p>
           Более деликатная версия, 30 капсул
@@ -2154,8 +2282,9 @@ content: `
 
           <img src="./images/swapxneo.jpg"
           alt="swapxneo" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h2>Если твой ИМТ</h2>
           <ul>
             <li><b>Ниже</b> нормы: 3-4 кг</li>
@@ -2187,13 +2316,15 @@ content: `
 
           <img src="./images/IMG_6223.jpg"
           alt="swapxprokaps" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">    
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h2>Что внутри:</h2>
 
           <img src="./images/IMG_6225.jpg"
           alt="swapxneokaps" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         ` 
         },
    
@@ -2203,8 +2334,9 @@ content:`
 
           <img src="./images/IMG_6221.JPG"
           alt="packpro" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Что из себя представляет</h2>
           <p> 
           Усиленная вдвойне по компонентам версия, 30 капсул
@@ -2244,8 +2376,9 @@ content:`
 
           <img src="./images/swapxpro.jpg"
           alt="swapxpro" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h2>Если твой ИМТ</h2>
           <ul>
             <li><b>Ниже</b> нормы: 5-6 кг</li>
@@ -2277,13 +2410,15 @@ content:`
 
           <img src="./images/IMG_6222.jpg"
           alt="swapxprokaps" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">        
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h2>Что внутри:</h2>
 
           <img src="./images/IMG_6226.jpg"
           alt="swapxprokaps" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
        `
        }
        ]
@@ -2297,7 +2432,7 @@ content:`
    
 section: "supplements",
 title: "Сложности выбора и как его сделать",
-category: "supplements voice", 
+category: "библиотека БАДов", 
 pages:  [      
         {
 heading: "Turbo-Ozempic",
@@ -2310,7 +2445,8 @@ content:`
           
           <img src="./images/ozempic.jpg"
           alt="ozepmic" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
           
 <h2>Что из себя представляет</h2>
           <p> 
@@ -2387,7 +2523,7 @@ content:`
 
 section: "medical",
 title: "Общие анализы, медкомиссия и тесты на вещ-ва",
-category: "medical",
+category: "видно ли БАДы для похудения в анализах",
 pages:  [
         {
 heading: "ОАК или общий анализ крови",
@@ -2419,7 +2555,8 @@ content:`
 
           <img src="./images/himiya.jpg"
           alt="chemistry"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         },
 
@@ -2448,7 +2585,8 @@ content:`
           
           <img src="./images/blood.JPG"
           alt="blood"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         },
 
@@ -2464,7 +2602,8 @@ content:`
 
           <img src="./images/testnarkotiki.jpg"
           alt="test"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         },
        
@@ -2494,8 +2633,9 @@ content:`
           
           <img src="./images/analizy.jpg"
           alt="analizy"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
           <div class="info-box">
           <p>
           Все эти признаки чаще всего обуславливают воспалительным процессом в организме(ОРВИ и пр), 
@@ -2545,7 +2685,8 @@ content:`
 
           <img src="./images/ano.jpg"
           alt="ano"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         },
 
@@ -2579,7 +2720,8 @@ content:`
 
           <img src="./images/ano2.jpg"
           alt="ano2"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         },
 
@@ -2608,7 +2750,8 @@ content:`
 
           <img src="./images/ano3.jpg"
           alt="ano3"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         },
 
@@ -2637,7 +2780,8 @@ content:`
 
           <img src="./images/ano4.jpg"
           alt="ano4"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         },
 
@@ -2666,7 +2810,8 @@ content:`
 
           <img src="./images/ano6.jpg"
           alt="ano6"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         }       
         ]
@@ -2725,7 +2870,8 @@ content:`
 
           <img src="./images/pills2.JPG"
           alt="pills"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         },
 
@@ -2793,7 +2939,8 @@ content:`
 
           <img src="./images/tabletki4.jpg"
           alt="tabletki"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         },
        
@@ -2885,7 +3032,8 @@ content:`
 
           <img src="./images/tabletki3.jpg"
           alt="tabletki"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         },
 
@@ -2910,7 +3058,8 @@ content:`
      
           <img src="./images/pinkpills.jpg"
           alt="pills" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">     
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         }          
         ]
@@ -2940,8 +3089,9 @@ content:`
           
           <img src="./images/period.JPG"
           alt="period" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
           <p>
           Как такового запрета принимать БАДы и прерывать курс во время критических дней нет
           <br>
@@ -3012,8 +3162,9 @@ content:`
           
           <img src="./images/periodcare.JPG"
           alt="period" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">  
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h2>Фаза фолликулогенеза</h2>
 <h3>Или фолликулярная фаза</h3>
           <p>
@@ -3062,8 +3213,9 @@ content:`
           
           <img src="./images/delicate.jpg"
           alt="delicate" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Лютеиновая фаза</h2>
 <h3>Или фаза спячки/запасения</h3>
           <p>
@@ -3115,8 +3267,9 @@ content:`
           
           <img src="./images/poop.jpg"
           alt="poop" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h2>Давайте разберемся:</h2>
           <p>
           ✧ БАДы, в составе которых есть кофеин/экстракт кофе, способствуют не только притуплению аппетита,
@@ -3472,8 +3625,9 @@ content:`
 
           <img src="./images/ano8.JPG"
           alt="ano" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
           <p>            
           Когда человек просто недоволен весом, он садится на обычную диету, но РПП — это совсем другое
           </p>
@@ -3525,8 +3679,9 @@ content:`
 
           <img src="./images/kosti.jpg"
           alt="Фото2"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-            
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                      
 <h2>⟣Дранкорексия⟢</h2>
           <p>
           — алкоголь вместо еды
@@ -3586,7 +3741,8 @@ content:`
           
           <img src="./images/holodilnik.JPG"
           alt="holodilnik" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         },
 
@@ -3625,8 +3781,9 @@ content:`
           
           <img src="./images/cleanfood2.jpg"
           alt="cleanfood" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
           <div class="info-box">
           <p>
           Главное заблуждение о расстройствах пищевого поведения — думать, что человек с рпп 
@@ -3642,7 +3799,8 @@ content:`
             
           <img src="./images/tumblrpost.jpg"
           alt="tumblrpost"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">  
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         }
         ]
@@ -3676,8 +3834,9 @@ content:`
           
           <img src="./images/cleanfood1.jpg"
           alt="cleanfood" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>Обычно у «чистых» продуктов есть свои признаки</h2>
           <ul>
             <li>🥣 Низкая калорийность</li>
@@ -3690,8 +3849,9 @@ content:`
           
           <img src="./images/cleanfood3.jpg"
           alt="cleanfood"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>А что такое «грязная» и «плохая» еда?</h2>
           <p>
           <b><i>fear-food</i></b> — это продукты, которые вызывают непропорционально сильную тревогу, 
@@ -3709,8 +3869,9 @@ content:`
           
           <img src="./images/dirtyfood.jpg"
           alt="fearfood" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>А как же проявляется привычка искать fear-food?</h2>
           <ul>
             <li>Заранее изучать меню ресторана, чтобы убедиться, что там есть «безопасная» еда</li>
@@ -3723,7 +3884,8 @@ content:`
           
           <img src="./images/bulochka.jpg"
           alt="fearfood"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">           
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         },
 
@@ -3747,7 +3909,8 @@ content:`
 
           <img src="./images/hellokittyfood.jpg"
           alt="hkfood"
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;"> 
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         },
 
@@ -3766,8 +3929,9 @@ content:`
 
           <img src="./images/food.jpg"
           alt="Фото16" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
 <h2>Какая еда будет ощущаться «грязной»</h2>
           <ul>
             <li>Хлеб</li>
@@ -3779,7 +3943,8 @@ content:`
           
           <img src="./images/tortik.jpg"
           alt="tortik" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         }
         ]
@@ -3816,8 +3981,9 @@ content:`
 
           <img src="./images/zavtrak.jpg"
           alt="zavtrak" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-        
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                  
           <div class="info-box">
           <p>
           Мозг человека, прошедшего через рпп, <b>навсегда</b> запоминает жесткие диеты или очищение
@@ -3853,7 +4019,8 @@ content:`
 
           <img src="./images/screenarttmlk.jpg"
           alt="donteat" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         }
         ]
@@ -3878,8 +4045,9 @@ content:`
 
           <img src="./images/dentist.jpg"
           alt="teeth" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>🦷 Стоит ли бояться того, что зубы шатаются?</h2>          
           <p>
           ⋆ Анатомия человеческих зубов изначально устроена так, что зубы сидят в лунке <b>неплотно</b>,
@@ -3930,8 +4098,9 @@ content:`
 
           <img src="./images/teethinside.JPG"
           alt="teeth" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>🦷 Нужен ли тебе кальций?</h2>
           <p>
           ✅ Кальций необходим для формирования и поддержания минерализованных тканей, включая зубы
@@ -4023,8 +4192,9 @@ content:`
 
           <img src="./images/skincare1.JPG"
           alt="skin" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+          
           <div class="info-box">
           БАДы для похудения сами по себе не считаются препаратами, которые вызывают такие реакции,
           <b>но такое бывает</b>
@@ -4070,8 +4240,9 @@ content:`
 
           <img src="./images/skincare2.JPG"
           alt="skin" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 
 <h2>❸ Третий вариант: Влияние на уже существующую болезнь</h2>
 <h3>Если у тебя есть склонность к:</h3>
@@ -4315,8 +4486,9 @@ content:`
           
           <img src="./images/hairbrush.jpg"
           alt="hair" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">        
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>❔ Какие могут быть причины?</h2>
           <p>
           ⋆ Одна из самых частых причин после быстрого похудения или длительного ограничения питания — <b>телогеновое 
@@ -4414,8 +4586,9 @@ content:`
 
           <img src="./images/IMG_6227.jpg"
           alt="nikotinka" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h3>Что делает:</h3>
           <p>
           ・ Стимулирует микроциркуляцию и обмен веществ в волосяном мешочке,
@@ -4444,8 +4617,9 @@ content:`
 
           <img src="./images/IMG_6228.jpg"
           alt="piling" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h3>Что делает:</h3>
           <p>
           ・ Эффективно удаляет загрязнения, избыток себума, ороговевшие
@@ -4473,8 +4647,9 @@ content:`
 
           <img src="./images/IMG_6229.jpg"
           alt="maslo" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h3>Что делает:</h3> 
           <p>
           Улучшает кровообращение в области корней волос, что способствует увеличению
@@ -4512,8 +4687,9 @@ content:`
 
           <img src="./images/IMG_6230.jpg"
           alt="esvicin" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h3>Что делает:</h3> 
           <p>
           Останавливает выпадение волос, активизирует рост новых волос
@@ -4539,8 +4715,9 @@ content:`
 
           <img src="./images/IMG_6231.JPG"
           alt="maska" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h3>Что делает:</h3>
           <p>
           Обеспечивает улучшение кровообращения и лечебное действие, а цинк,
@@ -4566,8 +4743,9 @@ content:`
 
           <img src="./images/IMG_6232.jpg"
           alt="applikator" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h3>Для чего:</h3> 
           <p>
           ・ Равномерно распределяет масла или сыворотки по всей коже головы,
@@ -4641,8 +4819,9 @@ content:`
 
           <img src="./images/haircut.JPG"
           alt="hair" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">
-          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
+                    
 <h2>🖇 Самое важное</h2>
           <p>
             ⃠ Волосы не являются отдельным организмом, который можно "починить" только маской
@@ -4664,7 +4843,8 @@ content:`
           
           <img src="./images/longhair.JPG"
           alt="hair" 
-          style="width: 100%; height: auto; border-radius: 12px; margin: 15px 0; display: block;">          
+          style="width: 100%; height: auto; border-radius: 40px; margin: 15px 0; display: block;
+          box-shadow: 0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));"> 
         `
         }
         ]
@@ -4879,7 +5059,6 @@ function renderMoodJournal() {
 
       <div class="diary-list">
         ${entries.length ? entries.map((entry, index) => `
-          /* ИСПРАВЛЕНО: Добавили правильный тег article вместо сломанного скопированного */
           <article class="mood-entry">
             <div class="mood-entry-head">
               <span class="mood-entry-emoji">\${entry.mood}</span>
@@ -5024,7 +5203,7 @@ const result = document.getElementById("bmiResult");
    
 if (!weight || !heightCm || weight <= 0 || heightCm <= 0) { result.textContent = "пожалуйста, введи массу и рост"; return; }
 const bmi = weight / Math.pow(heightCm / 100, 2);
-result.innerHTML = `<strong>твой ИМТ: ${bmi.toFixed(1)}</strong>`; }
+result.innerHTML = `твой ИМТ: <strong>${bmi.toFixed(1)}</strong>`; }
 
 function calculateEnergy() {
 const age = Number(document.getElementById("calAge").value);
@@ -5035,9 +5214,20 @@ const activity = Number(document.getElementById("calActivity").value);
 const result = document.getElementById("energyResult");
    
 if (!age || age < 13 || !weight || !height) { result.textContent = "УПС! твой возраст ниже 13, твой организм еще растет и тебе не нужен дефицит"; return; }
-const bmr = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
-const tdee = (bmr * activity) - 400;
-result.innerHTML = `<strong>твой средний обмен веществ за сутки без учета активности: ${Math.round(bmr)} ккал/сутки</strong><br>твой идельный дефицит калорий (20% от суточной нормы): ${Math.round(tdee)} ккал/сутки`; }
+const bmr = (10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : - 161)) * activity;
+const tdeeMin = bmr - 400;
+const tdeeSup = bmr + 10;
+const tdeeMax = bmr + 210;
+result.innerHTML = `ты тратишь примерно <strong>${Math.round(bmr)}</strong> ккал/сутки с учетом активности
+<br>
+твой идеальный рассчет калорий:
+<br>
+• для снижения веса: <strong>${Math.round(tdeeMin)}</strong> ккал/сутки
+<br>
+• для поддержания веса: <strong>${Math.round(tdeeSup)}</strong> ккал/сутки
+<br>
+• для набора веса: <strong>${Math.round(tdeeMax)}</strong> ккал/сутки`;
+}
 
 
 /* ==================================================
@@ -5078,6 +5268,48 @@ function showHome() {
   window.scrollTo(0, 0);
 
 }
+
+const container = document.getElementById('screensContainer');
+const tabs = document.querySelectorAll('.section-tab');
+const indicator = document.getElementById('indicator');
+
+// 1. Клик по табу плавно скроллит к нужному экрану
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const screenIndex = tab.getAttribute('data-screen');
+    const targetScrollLeft = container.clientWidth * screenIndex;
+    
+    container.scrollTo({
+      left: targetScrollLeft,
+      behavior: 'smooth'
+    });
+  });
+});
+
+// 2. Отслеживаем скролл, чтобы двигать подложку и переключать активный класс
+container.addEventListener('scroll', () => {
+  const scrollLeft = container.scrollLeft;
+  const clientWidth = container.clientWidth;
+  
+  // Вычисляем текущий индекс экрана (округляем до ближайшего целого)
+  const activeIndex = Math.round(scrollLeft / clientWidth);
+  
+  // Плавно перемещаем индикатор-подложку в процентах
+  // Каждая вкладка занимает 100% ширины, деленной на их количество
+  const translationPercent = (scrollLeft / clientWidth) * 100;
+  indicator.style.transform = `translateX(${translationPercent}%)`;
+  
+  // Обновляем активные классы на кнопках
+  tabs.forEach((tab, index) => {
+    if (index === activeIndex) {
+      tab.classList.add('section-tab-active');
+      tab.setAttribute('aria-selected', 'true');
+    } else {
+      tab.classList.remove('section-tab-active');
+      tab.setAttribute('aria-selected', 'false');
+    }
+  });
+});
 
 /* ==================================================
    ОТКРЫТЬ РАЗДЕЛ
@@ -5437,7 +5669,7 @@ overlay.innerHTML = `
 
           <a
           class="official-link-card"
-          href="https://t.me/anonaskbot?start=arttmoleculeanon"
+          href="https://t.me/anonaskbot?start=molecule"
           target="_blank"
           rel="noopener noreferrer"
           >
@@ -5507,6 +5739,168 @@ document.body.style.overflow = "hidden";
 return;
           }
 
+
+/* ================================================
+                     НАСТРОЙКИ
+================================================ */
+
+if (sectionId === "settings") {
+
+currentSectionId = "settings";
+currentArticleId = null;
+currentPage = 0;
+   
+const overlay =
+      document.createElement("div");
+
+overlay.id = "sectionOverlay";
+overlay.className = "section-overlay";
+
+    document.body.appendChild(overlay);
+
+overlay.innerHTML = `
+          <div class="section-overlay-inner">
+          <div id="sectionContent"></div>
+          </div>
+          `;
+
+const sectionContent =
+overlay.querySelector("#sectionContent");
+
+sectionContent.innerHTML = `
+        <div class="screen-inner fade-in">
+
+    <button
+    class="back-button" id="sectionBackButton">
+                ← вернуться в меню
+              </button>
+
+    <header class="section-header">
+      <p class="section-kicker">settings</p>
+      <h1>Настройки приложения</h1>
+      <p>изменить целевое количество воды и тему приложения</p>
+    </header>
+
+    <div class="pv2-setting-item" id="waterSettingToggle" style="cursor: pointer;">
+      <div class="pv2-setting-left">
+        <span class="pv2-setting-label">Цель воды</span>
+      </div>
+      <div class="pv2-setting-right">
+        <svg xmlns="http://w3.org" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right pv2-setting-chevron" aria-hidden="true">
+          <path d="m9 18 6-6-6-6"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="pv2-theme-expand" id="waterOptionsExpand" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+      <div class="pv2-theme-options" style="padding-top: 12px;">
+        <label class="pv2-theme-option"><input type="radio" name="water-goal" value="1000"><span>1000 мл (4 стакана)</span></label>
+        <label class="pv2-theme-option"><input type="radio" name="water-goal" value="1500"><span>1500 мл (6 стаканов)</span></label>
+        <label class="pv2-theme-option"><input type="radio" name="water-goal" value="2000" checked=""><span>2000 мл (8 стаканов)</span></label>
+        <label class="pv2-theme-option"><input type="radio" name="water-goal" value="2500"><span>2500 мл (10 стаканов)</span></label>
+        <label class="pv2-theme-option"><input type="radio" name="water-goal" value="3000"><span>3000 мл (12 стаканов)</span></label>
+      </div>
+    </div>
+
+    <div class="pv2-setting-item" id="themeSettingToggle" style="cursor: pointer;">
+      <div class="pv2-setting-left">
+        <span class="pv2-setting-label">Тема оформления</span>
+      </div>
+      <div class="pv2-setting-right">
+        <span class="pv2-setting-value" id="currentThemeValue">Розовая</span>
+        <svg xmlns="http://w3.org" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right pv2-setting-chevron" aria-hidden="true">
+          <path d="m9 18 6-6-6-6"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="pv2-theme-expand" id="themeOptionsExpand" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out;">
+      <div class="pv2-theme-options" style="padding-top: 12px;">
+        <label class="pv2-theme-option"><input type="radio" name="theme-preference" value="pink"><span>coquette pink (по умолчанию)</span></label>
+        <label class="pv2-theme-option"><input type="radio" name="theme-preference" value="dark"><span>navy blue</span></label>
+        <label class="pv2-theme-option"><input type="radio" name="theme-preference" value="angel"><span>light angel</span></label>
+        <label class="pv2-theme-option"><input type="radio" name="theme-preference" value="minimalism"><span>strong minimal</span></label>
+      </div>
+    </div>
+`;
+
+overlay.querySelector("#sectionBackButton").addEventListener("click", showHome);
+bindSettingsWaterEvents(overlay);
+
+const waterToggle = overlay.querySelector("#waterSettingToggle");
+const waterExpand = overlay.querySelector("#waterOptionsExpand");
+const currentWaterValue = overlay.querySelector("#currentWaterValue");
+
+if (typeof getWaterGoal === "function") {
+    const savedGoal = getWaterGoal();
+    const targetRadio = overlay.querySelector(`input[name="water-goal"][value="${savedGoal}"]`);
+    if (targetRadio) targetRadio.checked = true;
+}
+
+waterToggle.addEventListener("click", () => {
+    waterExpand.style.maxHeight = (waterExpand.style.maxHeight === "0px" || !waterExpand.style.maxHeight) ? "300px" : "0px";
+    if (window.Telegram?.WebApp?.HapticFeedback) window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+});
+
+overlay.querySelectorAll('input[name="water-goal"]').forEach(radio => {
+    radio.addEventListener("change", (e) => {
+        const val = Number(e.target.value);
+        
+        // Интеграция с вашим методом записи цели воды
+        if (typeof writeLocal === "function") {
+            writeLocal("molecule-space-water-goal", val);
+            if (typeof refreshHomeTrackers === "function") refreshHomeTrackers();
+        }
+        if (window.Telegram?.WebApp?.HapticFeedback) window.Telegram.WebApp.HapticFeedback.notificationOccurred('success');
+    });   
+});
+     // Изменение цели воды
+ overlay.querySelector("#waterGoalInput")?.addEventListener("change", event => {
+    const value = Math.min(10000, Math.max(100, Number(event.target.value) || 2000));
+    writeLocal(waterGoalStorageKey, value);
+    
+    // 🔴 ДОБАВЛЯЕМ ВИБРАЦИЮ: Мягкий отклик при подтверждении новой цели
+    if (window.Telegram?.WebApp?.HapticFeedback) {
+      window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+    }
+
+    // После изменения цели тоже обновляем интерфейс точечно
+    updateWaterUI();
+  });
+
+const themeToggleBtn = overlay.querySelector("#themeSettingToggle");
+const themeExpand = overlay.querySelector("#themeOptionsExpand");
+const currentThemeValue = overlay.querySelector("#currentThemeValue");
+
+const themeNamesMap = {
+    pink: "coquette pink",
+    dark: "navy blue",
+    angel: "light angel",
+    minimalism: "strong minimal"
+};
+
+const savedTheme = localStorage.getItem("molecule-space-theme") || "pink";
+if (currentThemeValue) currentThemeValue.textContent = themeNamesMap[savedTheme] || "Розовая";
+const activeThemeRadio = overlay.querySelector(`input[name="theme-preference"][value="${savedTheme}"]`);
+if (activeThemeRadio) activeThemeRadio.checked = true;
+
+themeToggleBtn.addEventListener("click", () => {
+    themeExpand.style.maxHeight = (themeExpand.style.maxHeight === "0px" || !themeExpand.style.maxHeight) ? "220px" : "0px";
+    if (window.Telegram?.WebApp?.HapticFeedback) window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+});
+
+overlay.querySelectorAll('input[name="theme-preference"]').forEach(radio => {
+    radio.addEventListener("change", (e) => {
+        const selectedTheme = e.target.value;
+        currentThemeValue.textContent = themeNamesMap[selectedTheme];
+        
+        // Вызываем вашу встроенную функцию переключения тем и изменения хедера в ТГ
+        if (typeof applyTheme === "function") {
+            applyTheme(selectedTheme);
+        }
+        if (window.Telegram?.WebApp?.HapticFeedback) window.Telegram.WebApp.HapticFeedback.notificationOccurred('success');
+    });
+});   
+return;
+}
 /*================================================
                   калькуляторы
 ================================================*/
@@ -5881,38 +6275,6 @@ sectionContent.innerHTML = `
       "click",
       showHome
     );
-    document.addEventListener("DOMContentLoaded", () => {
-  // Находим все картинки внутри ваших статей (замените .article на ваш класс контейнера, если он есть)
-  const images = document.querySelectorAll("img");
-
-  images.forEach((img) => {
-    // 1. Автоматически применяем стили красивого свечения и рамки
-    img.style.width = "100%";
-    img.style.height = "auto";
-    img.style.borderRadius = "30px";
-    img.style.margin = "15px 0";
-    img.style.display = "block";
-    img.style.boxSizing = "border-box";
-    
-    // Элегантное адаптивное свечение (подстраивается под тему TG)
-    img.style.boxShadow = "0 0px 24px var(--purple, rgba(0, 0, 0, 0.08));";
-    // 2. Умный расчет пропорций (aspect-ratio) БЕЗ вашего участия
-    // Как только картинка начинает загружаться в браузере, JS сам узнает ее размеры
-    if (img.complete) {
-      setAspectRatio(img);
-    } else {
-      img.addEventListener("load", () => setAspectRatio(img));
-    }
-  });
-
-  function setAspectRatio(img) {
-    // Проверяем, что размеры валидны, чтобы не делить на ноль
-    if (img.naturalWidth && img.naturalHeight) {
-      img.style.aspectRatio = `${img.naturalWidth} / ${img.naturalHeight}`;
-      img.style.objectFit = "cover";
-    }
-  }
-});
 }
 
 /* ==================================================
@@ -6093,6 +6455,7 @@ overlay.style.width = "100vw";
   /* прокручиваем именно окно статьи */
 
   overlay.scrollTop = 0;
+
 }
 
 
@@ -6167,10 +6530,6 @@ const sectionButton = event.target.closest("[data-section]");
 
 if (sectionButton) {
 const sectionId = sectionButton.dataset.section;
-
-if (sectionId === "settings") {
-return;
-}
 
 openSection(sectionId);
 return;
@@ -6349,69 +6708,168 @@ date.setDate(date.getDate() - 1);
   return streak;
 }
 
+/* ==================================================================
+             ОБНОВЛЕННАЯ СИНХРОНИЗАЦИЯ ТРЕКЕРА ВОДЫ
+================================================================== */
+
+// 1. Быстрый вспомогательный метод для получения текущего количества стаканов
+function getWaterGlassesCount() {
+  const goal = getWaterGoal();
+  if (goal <= 0) return 0;
+  return Math.round(goal / 250); // 1 стакан = 250 мл
+}
+
+// 2. Модифицированная функция обновления всех UI элементов воды (на главной и в модальных окнах)
 function refreshHomeTrackers() {
   const supplements = getSupplements();
   const streak = calculateSupplementStreak();
 
-  const supplementSummary =
-    document.getElementById("supplementsTrackerSummary");
-
-  const streakElement =
-    document.getElementById("supplementsStreak");
-
-  const waterSummary =
-    document.getElementById("waterTrackerSummary");
-
-  const waterProgress =
-    document.getElementById("waterMiniProgress");
-
+  // Элементы БАДов
+  const supplementSummary = document.getElementById("supplementsTrackerSummary");
+  const streakElement = document.getElementById("supplementsStreak");
 
   if (supplementSummary) {
     supplementSummary.textContent = supplements.length
-      ? `${supplements.length} ${pluralize(
-          supplements.length,
-          "таблетка",
-          "таблетки",
-          "таблеток"
-        )}  отметь сегодняшний прием`
+      ? `${supplements.length} ${pluralize(supplements.length, "таблетка", "таблетки", "таблеток")} отметь сегодняшний прием`
       : "добавь свои таблетки и отмечай прием";
   }
 
   if (streakElement) {
     const todayKey = trackerDate();
-    // Проверяем, приняты ли ВСЕ добавленные таблетки на сегодня
     const isTodayComplete = supplements.length > 0 && supplements.every(item => getSupplementTaken(item, todayKey));
-
-    // Разделяем цифру и эмодзи, чтобы анимировать только огонек
     streakElement.innerHTML = `<span class="streak-num">${streak}</span><span class="streak-fire-emoji">🔥</span>`;
-
-    // Находим твою кнопку-карточку
     const trackerCard = document.getElementById("supplementsTrackerButton");
-
     if (trackerCard) {
-      if (isTodayComplete) {
-        trackerCard.classList.add('active'); // Зажигаем, если всё выпито
-      } else {
-        trackerCard.classList.remove('active'); // Гасим, если еще не всё приняли
-      }
+      if (isTodayComplete) trackerCard.classList.add('active');
+      else trackerCard.classList.remove('active');
     }
   }
 
+  // --- СИНХРОНИЗАЦИЯ ВОДЫ ---
+  const water = getTodayWater();
+  const goal = getWaterGoal();
+  const totalGlasses = getWaterGlassesCount();
+  const filledGlasses = Math.min(totalGlasses, Math.floor(water / 250));
+  const percent = goal > 0 ? Math.min(150, Math.round((water / goal) * 100)) : 0;
+
+  // Обновление карточки-кнопки на главной
+  const waterSummary = document.getElementById("waterTrackerSummary");
+  const waterMiniProgress = document.getElementById("waterMiniProgress");
+  
+  if (waterSummary) {
+    waterSummary.textContent = goal > 0 ? `${water} мл из ${goal} мл` : "Отслеживание отключено";
+    const water = getTodayWater();
+    const goal = getWaterGoal();
+    
+    if (goal === 0) {
+      waterSummary.innerHTML = `Отслеживание воды отключено`;
+    } else {
+      // Пересчитываем в стаканы (1 стакан = 250 мл) и литры
+      const glassSize = 250;
+      const currentGlasses = Math.floor(water / glassSize);
+      const goalGlasses = Math.floor(goal / glassSize);
+      const currentLiters = (water / 1000).toFixed(2);
+      const goalLiters = (goal / 1000).toFixed(1);
+
+      // Генерируем красивый информативный вывод для главной
+      waterSummary.innerHTML = `
+        <div>${currentGlasses} / ${goalGlasses} стаканов</div>
+        <div style="font-size: 11px; opacity: 0.8;">${water} мл из ${goal} мл (${currentLiters}л / ${goalLiters}л)</div>
+      `;
+    }
+  }
+  if (waterMiniProgress) {
+    waterMiniProgress.style.width = `${percent}%`; 
+  }
+
+  // Обновление интерактивного блока со стаканами на главной (если он есть в HTML)
+  const mainWaterCount = document.querySelector(".water-card-count");
+  const mainWaterTotal = document.querySelector(".water-card-count-total");
+  const mainGlassRow = document.querySelector(".water-glass-row");
+  const mainProgressFill = document.querySelector(".water-progress-fill");
+  const mainProgressRight = document.querySelector(".water-progress-right");
+
+  if (mainWaterCount) mainWaterCount.textContent = filledGlasses;
+  if (mainWaterTotal) mainWaterTotal.textContent = `/${totalGlasses} шт`;
+  if (mainProgressFill) mainProgressFill.style.width = `${Math.min(100, percent)}%`;
+  if (mainProgressRight) mainProgressRight.textContent = `${water} / ${goal} мл`;
+
+  // Перерисовываем сами стаканчики на главной под новую цель
+  if (mainGlassRow && goal > 0) {
+    mainGlassRow.innerHTML = "";
+    for (let i = 1; i <= totalGlasses; i++) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `water-glass-btn ${i <= filledGlasses ? "filled" : ""}`;
+      btn.innerHTML = `
+        <svg xmlns="http://w3.org" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-glass-water">
+          <path d="M15.2 22H8.8a2 2 0 0 1-2-1.79L5 3h14l-1.81 17.21A2 2 0 0 1 15.2 22Z"/>
+          <path d="M6 12h12"/>
+        </svg>
+      `;
+      
+      // Обработчик клика по стакану на главной странице
+      btn.addEventListener("click", () => {
+        let currentWater = getTodayWater();
+        if (i <= filledGlasses) {
+          // Если кликнули на уже заполненный стакан — уменьшаем воду до уровня этого стакана
+          setTodayWater((i - 1) * 250);
+        } else {
+          // Если кликнули на пустой — заполняем воду до этого стакана
+          setTodayWater(i * 250);
+        }
+        
+        if (window.Telegram?.WebApp?.HapticFeedback) {
+          window.Telegram.WebApp.HapticFeedback.impactOccurred('medium');
+        }
+        refreshHomeTrackers();
+      });
+      mainGlassRow.appendChild(btn);
+    }
+  } else if (mainGlassRow && goal === 0) {
+    mainGlassRow.innerHTML = `<div class="diary-empty" style="padding:10px 0;">Отслеживание воды выключено в настройках</div>`;
+  }
+}
+
+// 3. Интеграция автоматического обновления при изменении настроек цели воды
+// Добавьте этот обработчик внутрь блока if (sectionId === "settings") после вставки innerHTML в overlay:
+function bindSettingsWaterEvents(settingsOverlay) {
+  const waterRadioButtons = settingsOverlay.querySelectorAll("input[name='water-goal']");
+  
+  // Устанавливаем текущее сохраненное значение выбранным в радио-кнопках
+  const currentGoal = getWaterGoal();
+  waterRadioButtons.forEach(radio => {
+    if (Number(radio.value) === currentGoal) {
+      radio.checked = true;
+    }
+    
+    // Вешаем событие изменения
+    radio.addEventListener("change", (event) => {
+      const newGoal = Number(event.target.value);
+      writeLocal(waterGoalStorageKey, newGoal);
+      
+      // Обновляем текстовое поле отображения текущей цели в меню настроек
+      const goalDisplay = settingsOverlay.querySelector(".pv2-setting-value");
+      if (goalDisplay) {
+      }
+
+      if (window.Telegram?.WebApp?.HapticFeedback) {
+        window.Telegram.WebApp.HapticFeedback.notificationOccurred('success');
+      }
+
+      // Синхронизируем данные на главной панели
+      refreshHomeTrackers();
+    });
+  });
+}
 
 
   const water = getTodayWater();
   const goal = getWaterGoal();
-  const percent = Math.min(150, Math.round((water / goal) * 100));
+  const percent = goal > 0 ? Math.min(150, Math.round((water / goal) * 100)) : 0;
 
-  if (waterSummary) {
-    waterSummary.textContent = `${water} мл из ${goal} мл`;
-  }
 
-  if (waterProgress) {
-    waterProgress.style.width = `${percent}%`;
-  };
 
-}
 
 function pluralize(number, one, few, many) {
   const n = Math.abs(number) % 100;
@@ -6437,6 +6895,7 @@ function openTrackerOverlay(id, title, content) {
   overlay.className = "tracker-overlay";
 
   overlay.innerHTML = `
+  
     <div class="tracker-modal fade-in">
       <button class="tracker-close" type="button" aria-label="вернуться в меню">← вернуться в меню</button>
       <div class="tracker-modal-kicker">molecule tracker</div>
@@ -6577,6 +7036,7 @@ cells.push(`
 
 return cells.join("");
   };
+
 
 const getSelectedSupplement = () =>
       supplements.find(
@@ -6775,7 +7235,7 @@ const overlay = openTrackerOverlay(
           Отметки сохраняются только на этом устройстве!!
           </div>
           `
-          );
+);
 
 // 1. Сразу при вызове функции вешаем класс плавной анимации на внутреннее содержимое оверлея
 if (overlay) {
@@ -6807,6 +7267,7 @@ overlay
   ?.addEventListener("click", () => {
     calendarDate.setMonth(calendarDate.getMonth() - 1);
     saveCalendarState();
+
     // 🔴 ДОБАВЛЯЕМ ВИБРАЦИЮ: Микро-отклик при листании календаря
     if (window.Telegram?.WebApp?.HapticFeedback) {
       window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
@@ -6930,68 +7391,10 @@ overlay
 
 }
 
-
 function renderWaterTracker() {
   const water = getTodayWater();
   const goal = getWaterGoal();
   const percent = Math.min(150, Math.round((water / goal) * 100));
-
-  const overlay = openTrackerOverlay(
-    "waterTrackerOverlay",
-    "трекер воды",
-    `
-    <div class="water-tracker-animate-wrapper">
-      <div class="water-big-card">
-        <div class="water-orb" id="waterOrb" style="--water-progress:${percent}%">
-          <span id="waterPercentValue">${percent}%</span>
-        </div>
-
-        <div>
-          <strong id="waterBigValue">${water} мл</strong>
-          <small>из ${goal} мл сегодня</small>
-        </div>
-      </div>
-
-      <div class="water-progress-track">
-        <span id="waterProgressBar" style="width:${percent}%"></span>
-      </div>
-
-      <div class="water-buttons">
-        <button type="button" data-water-add="100">+100 мл</button>
-        <button type="button" data-water-add="150">+150 мл</button>
-        <button type="button" data-water-add="200">+200 мл</button>
-        <button type="button" data-water-add="250">+250 мл</button>        
-        <button type="button" data-water-add="300">+300 мл</button>
-        <button type="button" data-water-add="350">+350 мл</button>        
-      </div>
-
-      <div class="water-buttons">
-        <button type="button" data-water-add="-100">−100 мл</button>
-        <button type="button" data-water-add="-150">−150 мл</button>
-        <button type="button" data-water-add="-200">−200 мл</button>
-        <button type="button" data-water-add="-250">−250 мл</button>      
-        <button type="button" data-water-add="-300">−300 мл</button> 
-        <button type="button" data-water-add="-350">−350 мл</button>          
-      </div>
-
-      <div class="water-goal-row">
-        <label for="waterGoalInput">дневная цель</label>
-        <div>
-          <input id="waterGoalInput" type="number" min="150" max="10000" step="50" value="${goal}">
-          <span>мл</span>
-        </div>
-      </div>
-
-      <div class="tracker-hint">
-        количество воды можно корректировать в течение дня ♡₊⋆ 
-      </div>
-    </div>
-    `
-  );
-
-  // Класс плавного появления при первом открытии окна
-  const wrapper = overlay.querySelector('.water-tracker-animate-wrapper');
-  if (wrapper) wrapper.classList.add('water-fade-in');
 
   // --- УМНАЯ ОБНОВЛЯЛКА БЕЗ СТИРАНИЯ ЭКРАНА ---
   const updateWaterUI = () => {
@@ -7000,13 +7403,11 @@ function renderWaterTracker() {
     const currentPercent = Math.min(150, Math.round((currentWater / currentGoal) * 100));
 
     // Находим элементы на странице
-    const orb = overlay.querySelector("#waterOrb");
     const percentText = overlay.querySelector("#waterPercentValue");
     const bigValueText = overlay.querySelector("#waterBigValue");
     const progressBar = overlay.querySelector("#waterProgressBar");
 
     // Плавно меняем их свойства напрямую!
-    if (orb) orb.style.setProperty('--water-progress', `${currentPercent}%`);
     if (percentText) percentText.textContent = `${currentPercent}%`;
     if (bigValueText) bigValueText.textContent = `${currentWater} мл`;
     if (progressBar) progressBar.style.width = `${currentPercent}%`;
@@ -7058,43 +7459,29 @@ overlay.querySelectorAll("[data-water-add]").forEach(button => {
     });
   });
 
-  // Изменение цели воды
- overlay.querySelector("#waterGoalInput")?.addEventListener("change", event => {
-    const value = Math.min(10000, Math.max(100, Number(event.target.value) || 2000));
-    writeLocal(waterGoalStorageKey, value);
-    
-    // 🔴 ДОБАВЛЯЕМ ВИБРАЦИЮ: Мягкий отклик при подтверждении новой цели
-    if (window.Telegram?.WebApp?.HapticFeedback) {
-      window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
-    }
-
-    // После изменения цели тоже обновляем интерфейс точечно
-    updateWaterUI();
-  });
 }
-
 
 function openThemePicker() {
    
 const themes = [
     {
       id: "dark",
-      name: "темная",
+      name: "navy blue",
       description: "спокойная темная тема"
     },
     {
       id: "pink",
-      name: "розовая",
+      name: "coquette pink",
       description: "мягкая розовая тема"
     },
     {
       id: "angel",
-      name: "angel",
+      name: "light angel",
       description: "светлая воздушная тема"
     },
     {
       id: "minimalism",
-      name: "минимализм",
+      name: "strong minimal",
       description: "чистая минималистичная тема"
     }
     ];
@@ -7247,3 +7634,331 @@ waterTrackerButton?.addEventListener(
 );
 
 refreshHomeTrackers();
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Загружаем массив веса из памяти
+  let weightHistory = JSON.parse(localStorage.getItem("user_weight_history")) || [];
+
+  const wrapper = document.getElementById("wv2-weight-module-wrapper");
+  const addForm = document.getElementById("wv2-weight-form");
+  const inputWeight = document.getElementById("wv2-weight-input");
+  const saveBtn = document.getElementById("wv2-weight-save");
+  const cancelBtn = document.getElementById("wv2-weight-cancel");
+  const historyListContainer = document.getElementById("weight-history-list");
+
+  // Главная функция отрисовки интерфейса
+  function renderModule() {
+    if (weightHistory.length === 0) {
+      // Экран для нового пользователя
+      historyListContainer.classList.remove("show");
+      wrapper.innerHTML = `
+        <button class="wv2-start-btn" id="wv2-initial-add-btn">
+          <svg xmlns="http://w3.org" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+          Добавить свой вес
+        </button>
+      `;
+      document.getElementById("wv2-initial-add-btn").addEventListener("click", toggleForm);
+    } else {
+      // Экран с карточкой и расчетом дельты от САМОГО первого веса в массиве [0]
+      const initialWeight = weightHistory[0];
+      const currentWeight = weightHistory[weightHistory.length - 1];
+      const diff = currentWeight - initialWeight;
+      
+      let deltaHTML = "";
+      if (diff > 0) {
+        deltaHTML = `<span class="wv2-current-delta" style="color: #ef4444; display: flex; align-items: center; gap: 4px;"><svg xmlns="http://w3.org" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"></path><path d="m22 7-8.5 8.5-5-5L2 17"></path></svg> +${diff.toFixed(1)} кг за всё время</span>`;
+      } else if (diff < 0) {
+        deltaHTML = `<span class="wv2-current-delta" style="color: #22c55e;">${diff.toFixed(1)} кг за всё время</span>`;
+      } else {
+        deltaHTML = `<span class="wv2-current-delta" style="color: #6b7280;">0.0 кг за всё время</span>`;
+      }
+
+      wrapper.innerHTML = `
+        <div class="wv2-current-card">
+          <div class="wv2-current-left">
+            <span class="wv2-current-label">Текущий вес</span>
+            <span class="wv2-current-value">${currentWeight.toFixed(1)} кг</span>
+            ${deltaHTML}
+            <button type="button" class="wv2-history-jump" id="history-toggle-btn">
+              История веса (${weightHistory.length}) 
+              <svg xmlns="http://w3.org" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"></path></svg>
+            </button>
+          </div>
+          <button class="wv2-add-btn" id="wv2-regular-add-btn">
+            <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+          </button>
+        </div>
+      `;
+
+      document.getElementById("wv2-regular-add-btn").addEventListener("click", toggleForm);
+      document.getElementById("history-toggle-btn").addEventListener("click", toggleHistory);
+      
+      // Если вкладка истории была открыта до этого, перерендерим её содержимое
+      if (historyListContainer.classList.contains("show")) {
+        buildHistoryList();
+      }
+    }
+  }
+
+  // Функция создания списка истории с кнопками удаления
+  function buildHistoryList() {
+    historyListContainer.innerHTML = "";
+    
+    // Создаем элементы в обратном порядке (новые сверху)
+    for (let i = weightHistory.length - 1; i >= 0; i--) {
+      const item = document.createElement("div");
+      item.className = "wv2-history-item";
+      item.innerHTML = `
+        <div class="wv2-history-info">
+          <span style="color: #6b7280;">Запись #${i + 1}</span>
+          <strong>${weightHistory[i].toFixed(1)} кг</strong>
+        </div>
+        <button class="wv2-delete-weight-btn" data-index="${i}" title="Удалить запись">&times;</button>
+      `;
+      historyListContainer.appendChild(item);
+    }
+
+    // Вешаем слушатели клика на все крестики удаления
+    const deleteButtons = historyListContainer.querySelectorAll(".wv2-delete-weight-btn");
+    deleteButtons.forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const indexToRemove = parseInt(e.target.getAttribute("data-index"));
+        
+        // Удаляем элемент из массива по его реальному индексу
+        weightHistory.splice(indexToRemove, 1);
+        
+        // Перезаписываем память LocalStorage
+        localStorage.setItem("user_weight_history", JSON.stringify(weightHistory));
+        
+        // Перерисовываем интерфейс
+        renderModule();
+      });
+    });
+  }
+
+  function toggleForm() {
+    addForm.classList.toggle("show");
+    const regularBtn = document.getElementById("wv2-regular-add-btn");
+    if (regularBtn) {
+      const svg = regularBtn.querySelector("svg");
+      if (svg) {
+        svg.style.transition = "transform 0.3s ease";
+        svg.style.transform = addForm.classList.contains("show") ? "rotate(45deg)" : "none";
+      }
+    }
+    if (addForm.classList.contains("show")) {
+      inputWeight.focus();
+    }
+  }
+
+  function closeForm() {
+    inputWeight.value = "";
+    saveBtn.setAttribute("disabled", "true");
+    addForm.classList.remove("show");
+    const regularBtn = document.getElementById("wv2-regular-add-btn");
+    if (regularBtn && regularBtn.querySelector("svg")) {
+      regularBtn.querySelector("svg").style.transform = "none";
+    }
+  }
+
+  function toggleHistory() {
+    if (!historyListContainer.classList.contains("show")) {
+      buildHistoryList();
+      historyListContainer.classList.add("show");
+    } else {
+      historyListContainer.classList.remove("show");
+    }
+
+    const toggleBtn = document.getElementById("history-toggle-btn");
+    const arrow = toggleBtn.querySelector(".lucide-chevron-down");
+    if (arrow) {
+      arrow.style.transition = "transform 0.3s ease";
+      arrow.style.transform = historyListContainer.classList.contains("show") ? "rotate(180deg)" : "none";
+    }
+  }
+
+  inputWeight.addEventListener("input", (e) => {
+    const value = e.target.value.trim().replace(",", ".");
+    if (value !== "" && !isNaN(value) && parseFloat(value) > 0) {
+      saveBtn.removeAttribute("disabled");
+    } else {
+      saveBtn.setAttribute("disabled", "true");
+    }
+  });
+
+  saveBtn.addEventListener("click", () => {
+    const newWeight = parseFloat(inputWeight.value.trim().replace(",", "."));
+    if (newWeight) {
+      weightHistory.push(newWeight);
+      localStorage.setItem("user_weight_history", JSON.stringify(weightHistory));
+      closeForm();
+      renderModule();
+    }
+  });
+
+  cancelBtn.addEventListener("click", closeForm);
+
+  // Старт работы
+  renderModule();
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Загружаем массив истории замеров из LocalStorage
+  let measurementsHistory = JSON.parse(localStorage.getItem("user_measurements_history")) || [];
+
+  const wrapper = document.getElementById("wv2-measurements-module-wrapper");
+  const form = document.getElementById("wv2-measurements-form");
+  const saveBtn = document.getElementById("wv2-measurements-save");
+  const cancelBtn = document.getElementById("wv2-measurements-cancel");
+  const inputs = form.querySelectorAll("input[data-prop]");
+
+  // Форматирование текущей даты (например, "26 окт.")
+  function getFormattedDate() {
+    const months = ["янв.", "февр.", "мар.", "апр.", "май", "июн.", "июл.", "авг.", "сент.", "окт.", "нояб.", "дек."];
+    const d = new Date();
+    return `${d.getDate()} ${months[d.getMonth()]}`;
+  }
+
+  // Главная функция рендеринга интерфейса замеров
+  function renderMeasurementsModule() {
+    if (measurementsHistory.length === 0) {
+      // ИНТЕРФЕЙС ДЛЯ НОВОГО ПОЛЬЗОВАТЕЛЯ
+      wrapper.innerHTML = `
+        <button class="measurements-start-btn" id="wv2-measurements-start-btn">
+          <svg xmlns="http://w3.org" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+          Добавить свои замеры
+        </button>
+      `;
+      document.getElementById("wv2-measurements-start-btn").addEventListener("click", toggleMeasurementsForm);
+    } else {
+      // ИНТЕРФЕЙС КАРТОЧКИ С ДАННЫМИ
+      const latest = measurementsHistory[measurementsHistory.length - 1];
+      
+      // Генерируем строки истории замеров
+      let historyRowsHTML = "";
+      for (let i = measurementsHistory.length - 1; i >= 0; i--) {
+        const entry = measurementsHistory[i];
+        historyRowsHTML += `
+          <div class="measurements-history-row">
+            <span class="measurements-history-date">${entry.date}</span>
+            <span class="measurements-history-vals">шея ${entry.neck || '-'} · грудь ${entry.chest || '-'} · талия ${entry.waist || '-'} · бёдра ${entry.hips || '-'} · бедро ${entry.thigh || '-'} · рука ${entry.bicep || '-'}</span>
+            <button class="wv2-delete-btn" data-index="${i}" aria-label="Удалить замер">
+              <svg xmlns="http://w3.org" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2"><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            </button>
+          </div>
+        `;
+      }
+
+      wrapper.innerHTML = `
+        <div class="stat-card-v2 measurements-card">
+          <div class="measurements-head">
+            <div class="measurements-title">
+              <span>Замеры</span>
+            </div>
+            <button class="measurements-add" id="wv2-measurements-reg-btn">
+              <svg xmlns="http://w3.org" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+              <span>Добавить</span>
+            </button>
+          </div>
+          <div class="measurements-grid">
+            <div class="measurements-cell"><span class="measurements-cell-label">Шея</span><span class="measurements-cell-value">${latest.neck ? latest.neck + ' см' : '-'}</span></div>
+            <div class="measurements-cell"><span class="measurements-cell-label">Грудь</span><span class="measurements-cell-value">${latest.chest ? latest.chest + ' см' : '-'}</span></div>
+            <div class="measurements-cell"><span class="measurements-cell-label">Талия</span><span class="measurements-cell-value">${latest.waist ? latest.waist + ' см' : '-'}</span></div>
+            <div class="measurements-cell"><span class="measurements-cell-label">Бёдра</span><span class="measurements-cell-value">${latest.hips ? latest.hips + ' см' : '-'}</span></div>
+            <div class="measurements-cell"><span class="measurements-cell-label">Бедро</span><span class="measurements-cell-value">${latest.thigh ? latest.thigh + ' см' : '-'}</span></div>
+            <div class="measurements-cell"><span class="measurements-cell-label">Рука</span><span class="measurements-cell-value">${latest.bicep ? latest.bicep + ' см' : '-'}</span></div>
+          </div>
+          <div class="measurements-date">Последний замер: ${latest.date}</div>
+          <div class="measurements-history">
+            <div class="measurements-history-title">История замеров</div>
+            ${historyRowsHTML}
+          </div>
+        </div>
+      `;
+
+      // Навешиваем события на динамические кнопки управления карточки
+      document.getElementById("wv2-measurements-reg-btn").addEventListener("click", toggleMeasurementsForm);
+      
+      // Навешиваем события удаления на все корзины
+      wrapper.querySelectorAll(".wv2-delete-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          const btnTarget = e.target.closest(".wv2-delete-btn");
+          const indexToRemove = parseInt(btnTarget.getAttribute("data-index"));
+          
+          measurementsHistory.splice(indexToRemove, 1);
+          localStorage.setItem("user_measurements_history", JSON.stringify(measurementsHistory));
+          renderMeasurementsModule();
+        });
+      });
+    }
+  }
+
+  // Открытие / скрытие формы
+  function toggleMeasurementsForm() {
+    form.classList.toggle("show");
+    
+    const regBtn = document.getElementById("wv2-measurements-reg-btn");
+    if (regBtn) {
+      const svg = regBtn.querySelector("svg");
+      if (svg) {
+        svg.style.transition = "transform 0.3s ease";
+        svg.style.transform = form.classList.contains("show") ? "rotate(45deg)" : "none";
+      }
+    }
+  }
+
+  // Закрытие формы и очистка инпутов
+  function closeMeasurementsForm() {
+    inputs.forEach(input => input.value = "");
+    form.querySelector("input[data-prop='fat']").value = "";
+    saveBtn.setAttribute("disabled", "true");
+    form.classList.remove("show");
+
+    const regBtn = document.getElementById("wv2-measurements-reg-btn");
+    if (regBtn && regBtn.querySelector("svg")) {
+      regBtn.querySelector("svg").style.transform = "none";
+    }
+  }
+
+  // Валидация: Кнопка сохранения активна, если введен хотя бы один параметр
+  form.addEventListener("input", () => {
+    let hasValue = false;
+    inputs.forEach(input => {
+      if (input.value.trim() !== "") hasValue = true;
+    });
+    
+    if (hasValue) {
+      saveBtn.removeAttribute("disabled");
+    } else {
+      saveBtn.setAttribute("disabled", "true");
+    }
+  });
+
+  // Логика кнопки "Сохранить"
+  saveBtn.addEventListener("click", () => {
+    const newRecord = {
+      date: getFormattedDate(),
+      neck: form.querySelector("input[data-prop='neck']").value.trim(),
+      chest: form.querySelector("input[data-prop='chest']").value.trim(),
+      waist: form.querySelector("input[data-prop='waist']").value.trim(),
+      hips: form.querySelector("input[data-prop='hips']").value.trim(),
+      thigh: form.querySelector("input[data-prop='thigh']").value.trim(),
+      bicep: form.querySelector("input[data-prop='bicep']").value.trim(),
+      fat: form.querySelector("input[data-prop='fat']").value.trim()
+    };
+
+    measurementsHistory.push(newRecord);
+    localStorage.setItem("user_measurements_history", JSON.stringify(measurementsHistory));
+    
+    closeMeasurementsForm();
+    renderMeasurementsModule();
+  });
+
+  // Кнопка "Отмена"
+  cancelBtn.addEventListener("click", closeMeasurementsForm);
+
+  // Инициализация при первой загрузке экрана
+  renderMeasurementsModule();
+});
